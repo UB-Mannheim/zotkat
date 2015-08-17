@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2014-02-10 19:58:51"
+	"lastUpdated": "2015-08-01 00:20:00"
 }
 
 /*
@@ -64,7 +64,14 @@ function doExport() {
 		//Autoren --> 3000ff
 		//Titel, erster Autor --> 4000
 		var titleStatement = "4000 ";
-		if (item.title) { titleStatement += item.title; }
+		if (item.shortTitle) {
+			titleStatement += item.shortTitle;
+			if (item.title && item.title.length > item.shortTitle.length) {
+				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/,'');
+			}
+		} else {
+			titleStatement += item.title;
+		}
 		var i = 0;
 		while (item.creators.length>0) {
 			var creator = item.creators.shift();
