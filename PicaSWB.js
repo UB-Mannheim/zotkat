@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2015-08-01 00:20:00"
+	"lastUpdated": "2015-08-18 21:52:00"
 }
 
 /*
@@ -31,6 +31,9 @@
 */
 
 var item;
+var journalMapping = {
+	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
+};
 
 function doExport() {
 
@@ -112,8 +115,14 @@ function doExport() {
 		if (item.seriesNumber) { seriesStatement += " ; " + item.seriesNumber; }
 		Zotero.write(seriesStatement + "\n");
 		
-		//item.publication --> 4241
-		if (item.publication) { Zotero.write( "4241 In: " + item.publication + "\n"); }
+		//item.publicationTitle --> 4241
+		if (item.itemType == "journalArticle") {
+			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
+				Zotero.write( "4241 In: " + journalMapping[ZU.cleanISSN(item.ISSN)] + "\n");
+			} else if (item.publicationTitle) {
+				Zotero.write( "4241 In: "  + item.publicationTitle + "\n");
+			}
+		}
 		
 	}
 }
