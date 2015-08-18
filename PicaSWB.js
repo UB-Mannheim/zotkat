@@ -73,15 +73,15 @@ function doExport() {
 				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/,'');
 			}
 		} else {
-			titleStatement += item.title;
+			titleStatement += item.title.replace(/\s*:\s*/,'$d');
 		}
 		var i = 0;
 		while (item.creators.length>0) {
 			var creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				Zotero.write( "300"+i+" " + creator.lastName + ", " + creator.firstName + "\n" );
+				Zotero.write( "300"+i+" " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "\n" );
 				if (i == 0) {
-					titleStatement += "$h" + creator.firstName + " " + creator.lastName;
+					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				}
 				i++;
 			}
@@ -99,12 +99,14 @@ function doExport() {
 		Zotero.write( publicationStatement +"\n");
 		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
-		var volumeyearissuepage = "4070 ";
-		if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
-		if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
-		if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
-		if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
-		Zotero.write( volumeyearissuepage +"\n");
+		if (item.itemType == "journalArticle") {
+			var volumeyearissuepage = "4070 ";
+			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
+			if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
+			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
+			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+			Zotero.write( volumeyearissuepage +"\n");
+		}
 		
 		//URL --> 4085
 		if (item.url) { Zotero.write( "4085 " + item.url + "$xH" + "\n"); }
