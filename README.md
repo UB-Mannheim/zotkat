@@ -15,4 +15,4 @@ Momentan gibt es drei zusätzliche Zotero Translator:
  
 ## Wie kann ich einen Fehler korrigieren oder melden?
  
-Alle  können hier direkt Fehler melden und dazu einfach einen [Issue](https://github.com/UB-Mannheim/zotkat/issues) aufmachen. Ebenfalls können dabei weitere Funktionalitäten gewünscht werden. Anpassungen an die Translator können über Pull Request direkt in GitHub gemacht werden (TODO genauere Beschreibung im Wiki machen).
+Alle  können hier direkt Fehler melden und dazu einfach einen [Issue](https://github.com/UB-Mannheim/zotkat/issues) aufmachen. Ebenfalls können dabei weitere Funktionalitäten gewünscht werden. Anpassungen an die Translator können über Pull Request direkt in GitHub gemacht werden. Eine genauere Beschreibung befindet sich auf der [Wiki-Seite](https://github.com/UB-Mannheim/zotkat/wiki).
