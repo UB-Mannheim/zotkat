@@ -140,9 +140,9 @@ function doExport() {
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
-				Zotero.write( "4241 In: " + journalMapping[ZU.cleanISSN(item.ISSN)] + "\n");
+				Zotero.write( "4241 Enthalten in: " + journalMapping[ZU.cleanISSN(item.ISSN)] + "\n");
 			} else if (item.publicationTitle) {
-				Zotero.write( "4241 In: "  + item.publicationTitle + "\n");
+				Zotero.write( "4241 Enthalten in: "  + item.publicationTitle + "\n");
 			}
 		}
 		
