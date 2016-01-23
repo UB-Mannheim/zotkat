@@ -13,17 +13,17 @@
 }
 
 /*
-  Zotero Export Translator f¸r das Pica Intern Format
+  Zotero Export Translator f√ºr das Pica Intern Format
   (wie es im SWB Verbund benutzt wird)
   
-  Der Anwendungsfall daf¸r soll es sein, Referenzen in Zotero
-  zu speichern und ¸ber Quick Copy in den Pica Client zu ziehen.
+  Der Anwendungsfall daf√ºr soll es sein, Referenzen in Zotero
+  zu speichern und √ºber Quick Copy in den Pica Client zu ziehen.
   Dadurch sollte hoffentlich die manuelle Arbeit wesentlich
   erleichtert werden.
   
   Dies ist momentan nur ein proof of concept und hat noch
-  keinen Anspruch auf Vollst‰ndigkeit. Insbesondere wurde
-  meist davon ausgegangen, dass man es mit ¸blichen B¸chern
+  keinen Anspruch auf Vollst√§ndigkeit. Insbesondere wurde
+  meist davon ausgegangen, dass man es mit √ºblichen B√ºchern
   zu tun hat.
   
   Code ist unter GPL Lizenz:
@@ -38,9 +38,22 @@ var journalMapping = {
 function doExport() {
 
 	while (item = Zotero.nextItem()) {
+		//
+		
+		
 		//item.type --> 0500 Bibliographische Gattung und Status
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
-		Zotero.write( "0500 Aou\n");//TODO abh‰ngig von item.type
+		Zotero.write( "0500 Aou\n");//TODO abh√§ngig von item.type
+		
+		//item.type --> 0501 Inhaltstyp
+		Zotero.write( "0501 Text$btxt \n");
+		
+		//item.type --> 0502 Medientyp
+		Zotero.write( "0502 ohne Hilfsmittel zu benutzen$bn \n");
+		
+		//item.type --> 0503 Datentr√§gertyp
+		Zotero.write( "0503 Band$bnc \n");	
+		
+	
 		
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
@@ -48,15 +61,18 @@ function doExport() {
 			Zotero.write( "1100 "+ date["year"].toString() +  "\n");
 		}
 		
-		//1130 Datentr‰ger
+		//1130 Datentr√§ger
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
 		Zotero.write( "1130 \n");
 		
-		//1140 Verˆffentlichungsart und Inhalt
+		//1140 Ver√∂ffentlichungsart und Inhalt
 		Zotero.write( "1140 \n");
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) { Zotero.write( "1500 " + item.language + "\n"); }
+		
+		//1505 Katalogisierungsquelle
+		Zotero.write( "1505 $erda \n" );
 		
 		//item.ISBN --> 2000 ISBN
 		if (item.ISBN) { Zotero.write( "2000 " + item.ISBN + "\n"); }
@@ -79,7 +95,7 @@ function doExport() {
 		while (item.creators.length>0) {
 			var creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				Zotero.write( "300"+i+" " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "\n" );
+				Zotero.write( "300"+i+" " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "$BVerfasserIn$4aut \n" );
 				if (i == 0) {
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				}
@@ -98,7 +114,7 @@ function doExport() {
 		if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
 		Zotero.write( publicationStatement +"\n");
 		
-		//4070 $v Bandz‰hlung $j Jahr $h Heftnummer $p Seitenzahl
+		//4070 $v Bandz√§hlung $j Jahr $h Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle") {
 			var volumeyearissuepage = "4070 ";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
@@ -117,12 +133,16 @@ function doExport() {
 		if (item.seriesNumber) { seriesStatement += " ; " + item.seriesNumber; }
 		Zotero.write(seriesStatement + "\n");
 		
-		//item.publicationTitle --> 4241
+		//Inhaltliche Zusammenfassung -->4207
+		
+		if (item.abstractNote) { Zotero.write( "4207 " + item.abstractNote + "\n"); }
+		
+		//item.publicationTitle --> 4241 Beziehungen zur gr√∂√üeren Einheit 
 		if (item.itemType == "journalArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
-				Zotero.write( "4241 In: " + journalMapping[ZU.cleanISSN(item.ISSN)] + "\n");
+				Zotero.write( "4241 Enthalten in: " + journalMapping[ZU.cleanISSN(item.ISSN)] + "\n");
 			} else if (item.publicationTitle) {
-				Zotero.write( "4241 In: "  + item.publicationTitle + "\n");
+				Zotero.write( "4241 Enthalten in: "  + item.publicationTitle + "\n");
 			}
 		}
 		
