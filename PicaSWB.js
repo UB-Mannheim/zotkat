@@ -3,13 +3,13 @@
 	"label": "PicaSWB",
 	"creator": "Philipp Zumstein",
 	"target": "txt",
-	"minVersion": "1.0",
+	"minVersion": "3.0",
 	"maxVersion": "",
 	"priority": 100,
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2015-08-18 21:52:00"
+	"lastUpdated": "2016-01-23 13:10:00"
 }
 
 /*
@@ -26,7 +26,7 @@
   meist davon ausgegangen, dass man es mit üblichen Büchern
   zu tun hat.
   
-  Code ist unter GPL Lizenz:
+  Code ist unter AGPL Lizenz:
   https://github.com/zuphilip/translators/wiki/Common-code-blocks-for-translators#licence-block
 */
 
@@ -38,11 +38,20 @@ var journalMapping = {
 function doExport() {
 
 	while (item = Zotero.nextItem()) {
-		//
-		
 		
 		//item.type --> 0500 Bibliographische Gattung und Status
-		Zotero.write( "0500 Aou\n");//TODO abhängig von item.type
+		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		switch (item.itemType) {
+			case "journalArticle":
+			case "bookSection":
+			case "magazineArticle":
+			case "newspaperArticle":
+			case "encyclopediaArticle":
+				Zotero.write( "0500 Aou\n");
+				break;
+			default:
+				Zotero.write( "0500 Aau\n");
+		}
 		
 		//item.type --> 0501 Inhaltstyp
 		Zotero.write( "0501 Text$btxt \n");
@@ -52,8 +61,6 @@ function doExport() {
 		
 		//item.type --> 0503 Datenträgertyp
 		Zotero.write( "0503 Band$bnc \n");	
-		
-	
 		
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
@@ -80,7 +87,7 @@ function doExport() {
 		//item.DOI --> 2051 oder 2053 ???
 		if (item.DOI) { Zotero.write( "2051 " + item.DOI + "\n"); }
 		
-		//Autoren --> 3000ff
+		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
 		var titleStatement = "4000 ";
 		if (item.shortTitle) {
@@ -95,9 +102,11 @@ function doExport() {
 		while (item.creators.length>0) {
 			var creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				Zotero.write( "300"+i+" " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "$BVerfasserIn$4aut \n" );
 				if (i == 0) {
+					Zotero.write( "3000 " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "$BVerfasserIn$4aut \n" );
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
+				} else {
+					Zotero.write( "3010 " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "$BVerfasserIn$4aut \n" );
 				}
 				i++;
 			}
@@ -134,7 +143,6 @@ function doExport() {
 		Zotero.write(seriesStatement + "\n");
 		
 		//Inhaltliche Zusammenfassung -->4207
-		
 		if (item.abstractNote) { Zotero.write( "4207 " + item.abstractNote + "\n"); }
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
