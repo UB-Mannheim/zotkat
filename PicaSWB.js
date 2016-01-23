@@ -34,6 +34,12 @@ var item;
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
 };
+var nachnameMapping = {
+	"Hemingway" : "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
+};
+var nameMapping = {
+	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
+}
 
 function doExport() {
 
@@ -102,11 +108,19 @@ function doExport() {
 		while (item.creators.length>0) {
 			var creator = item.creators.shift();
 			if (creator.creatorType == "author") {
+				var content;
+				if (nachnameMapping[creator.lastName]) {
+					content = nachnameMapping[creator.lastName];
+				} else if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
+					content = nameMapping[creator.lastName + ", " + creator.firstName];
+				} else {
+					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
+				}
 				if (i == 0) {
-					Zotero.write( "3000 " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "$BVerfasserIn$4aut \n" );
+					Zotero.write( "3000 " + content + "$BVerfasserIn$4aut \n" );
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				} else {
-					Zotero.write( "3010 " + creator.lastName + (creator.firstName ? ", " + creator.firstName : "") + "$BVerfasserIn$4aut \n" );
+					Zotero.write( "3010 " + content + "$BVerfasserIn$4aut \n" );
 				}
 				i++;
 			}
