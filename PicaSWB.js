@@ -109,10 +109,10 @@ function doExport() {
 			var creator = item.creators.shift();
 			if (creator.creatorType == "author") {
 				var content;
-				if (nachnameMapping[creator.lastName]) {
-					content = nachnameMapping[creator.lastName];
-				} else if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
+				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
 					content = nameMapping[creator.lastName + ", " + creator.firstName];
+				} else if (nachnameMapping[creator.lastName]) {
+					content = nachnameMapping[creator.lastName];
 				} else {
 					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
