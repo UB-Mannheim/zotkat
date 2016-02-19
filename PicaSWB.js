@@ -39,7 +39,12 @@ var nachnameMapping = {
 };
 var nameMapping = {
 	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
+};
+
+var languageMapping = {
+	"en" : "eng",
 }
+
 
 function doExport() {
 
@@ -81,8 +86,12 @@ function doExport() {
 		//1140 Veröffentlichungsart und Inhalt
 		Zotero.write( "1140 \n");
 		
-		//item.language --> 1500 Sprachcodes
-		if (item.language) { Zotero.write( "1500 " + item.language + "\n"); }
+		//item.language --> 1500 Sprachcodes 
+		if (item.language && languageMapping[(item.language)]) {
+				Zotero.write( "1500 " + languageMapping[(item.language)] + "\n");
+		} else {
+			Zotero.write( "1500 eng \n");
+		}
 		
 		//1505 Katalogisierungsquelle
 		Zotero.write( "1505 $erda \n" );
