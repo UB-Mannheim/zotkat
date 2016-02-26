@@ -1,7 +1,7 @@
 {
 	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
 	"label": "PicaSWB",
-	"creator": "Philipp Zumstein",
+	"creator": "Philipp Zumstein","Timotheus Kim"
 	"target": "txt",
 	"minVersion": "3.0",
 	"maxVersion": "",
@@ -34,12 +34,27 @@ var item;
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
 };
-var nachnameMapping = {
+
+var tpv1Mapping = {
 	"Hemingway" : "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
 };
-var nameMapping = {
-	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
+
+var tpv23Mapping = {
+	"Hemingway" : "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
+};
+
+var tpv456Mapping = {
+	"Hemingway" : "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
+};
+
+var tpxMapping = {
+"Clavieraaa, Henri" : "!21ix!",
+};
+
+var languageMapping = {
+	"en" : "eng",
 }
+
 
 function doExport() {
 
@@ -81,8 +96,12 @@ function doExport() {
 		//1140 Veröffentlichungsart und Inhalt
 		Zotero.write( "1140 \n");
 		
-		//item.language --> 1500 Sprachcodes
-		if (item.language) { Zotero.write( "1500 " + item.language + "\n"); }
+		//item.language --> 1500 Sprachcodes 
+		if (item.language && languageMapping[(item.language)]) {
+				Zotero.write( "1500 " + languageMapping[(item.language)] + "\n");
+		} else {
+			Zotero.write( "1500 eng \n");
+		}
 		
 		//1505 Katalogisierungsquelle
 		Zotero.write( "1505 $erda \n" );
@@ -109,10 +128,14 @@ function doExport() {
 			var creator = item.creators.shift();
 			if (creator.creatorType == "author") {
 				var content;
-				if (nachnameMapping[creator.lastName]) {
-					content = nachnameMapping[creator.lastName];
-				} else if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
-					content = nameMapping[creator.lastName + ", " + creator.firstName];
+				if (creator.firstName && tpv1Mapping[creator.lastName + ", " + creator.firstName]) {
+					content = tpv1Mapping[creator.lastName + ", " + creator.firstName];
+				} else if (tpv23Mapping[creator.lastName + ", " + creator.firstName]) {
+					content = tpv23Mapping[creator.lastName + ", " + creator.firstName];
+				} else if (tpv456Mapping[creator.lastName + ", " + creator.firstName]) {
+					content = tpv456Mapping[creator.lastName + ", " + creator.firstName];
+				} else if (tpixMapping[creator.lastName + ", " + creator.firstName]) {
+					content = tpixMapping[creator.lastName + ", " + creator.firstName];
 				} else {
 					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
@@ -126,9 +149,8 @@ function doExport() {
 			}
 			//TODO: editors, other contributors...
 		}
-		Zotero.write( titleStatement + "\n");
-		
-		//Ausgabe --> 4020
+		//Sortierzeichen und Halbgeviertstrich in Bindestrich automatisch ersetzt
+		Zotero.write(titleStatement.replace(/[–]/g,'-').replace(/Der /, 'Der @').replace(/Die /, 'Die @').replace(/Das /, 'Das @').replace(/Des /, 'Des @').replace(/Dem /, 'Dem @').replace(/Den /, 'Den @').replace(/Ein /, 'Ein @').replace(/Eines /, 'Eines @').replace(/Einem /, 'Einem @').replace(/Eine /, 'Eine @').replace(/Einen /, 'Einen @').replace(/Einer /, 'Einer @').replace(/The /, 'The @').replace(/A /, 'A @').replace(/An /, 'An @').replace(/Des /, 'Des @').replace(/La /, 'La @').replace(/Le /, 'Le @').replace(/L'/, 'L\' @').replace(/Les /, 'Les @')+ "\n"); //einige Sortierzeichen noch hinzufügen
 		if (item.edition) { Zotero.write( "4020 " + item.edition + "\n"); }
 		
 		//Erscheinungsvermerk --> 4030
@@ -138,14 +160,12 @@ function doExport() {
 		Zotero.write( publicationStatement +"\n");
 		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
-		if (item.itemType == "journalArticle") {
-			var volumeyearissuepage = "4070 ";
-			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
-			if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
-			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
-			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
-			Zotero.write( volumeyearissuepage +"\n");
-		}
+		var volumeyearissuepage = "4070 ";
+		if (item.volume) { volumeyearissuepage += "$v" + item.volume; } // vor 1957 ohne N.F.
+		if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
+		if (item.issue) { volumeyearissuepage += "$h" + item.issue; } //Ausgabezählung ohne 0 ; ist realisiert
+		if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+		Zotero.write( volumeyearissuepage.replace("–", "-").replace("$h0", "$h") +"\n");
 		
 		//URL --> 4085
 		if (item.url) { Zotero.write( "4085 " + item.url + "$xH" + "\n"); }
@@ -157,7 +177,9 @@ function doExport() {
 		Zotero.write(seriesStatement + "\n");
 		
 		//Inhaltliche Zusammenfassung -->4207
-		if (item.abstractNote) { Zotero.write( "4207 " + item.abstractNote + "\n"); }
+		var abstractStatment = "4207 ";
+		if (item.abstractNote) {
+			abstractStatment += item.abstractNote.replace(/[–]/g,'-');}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle") {
