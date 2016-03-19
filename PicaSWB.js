@@ -1,7 +1,7 @@
 {
 	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
 	"label": "PicaSWB",
-	"creator": "Philipp Zumstein",
+	"creator": "Philipp Zumstein, Timotheus Kim",
 	"target": "txt",
 	"minVersion": "3.0",
 	"maxVersion": "",
@@ -12,22 +12,31 @@
 	"lastUpdated": "2016-01-23 13:10:00"
 }
 
+// Zotero Export Translator für das Pica Intern Format
+// (wie es im SWB Verbund benutzt wird)
+
+
 /*
-  Zotero Export Translator für das Pica Intern Format
-  (wie es im SWB Verbund benutzt wird)
-  
-  Der Anwendungsfall dafür soll es sein, Referenzen in Zotero
-  zu speichern und über Quick Copy in den Pica Client zu ziehen.
-  Dadurch sollte hoffentlich die manuelle Arbeit wesentlich
-  erleichtert werden.
-  
-  Dies ist momentan nur ein proof of concept und hat noch
-  keinen Anspruch auf Vollständigkeit. Insbesondere wurde
-  meist davon ausgegangen, dass man es mit üblichen Büchern
-  zu tun hat.
-  
-  Code ist unter AGPL Lizenz:
-  https://github.com/zuphilip/translators/wiki/Common-code-blocks-for-translators#licence-block
+    ***** BEGIN LICENSE BLOCK *****
+
+    Copyright © 2016 Philipp Zumstein
+
+    This file is part of Zotero.
+
+    Zotero is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Zotero is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Zotero. If not, see <http://www.gnu.org/licenses/>.
+
+    ***** END LICENSE BLOCK *****
 */
 
 var item;
@@ -39,7 +48,12 @@ var nachnameMapping = {
 };
 var nameMapping = {
 	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
-}
+};
+var languageMapping = {
+	"en" : "eng",
+	"de" : "deu",
+	"fr" : "fra"
+};
 
 function doExport() {
 
@@ -82,7 +96,12 @@ function doExport() {
 		Zotero.write( "1140 \n");
 		
 		//item.language --> 1500 Sprachcodes
-		if (item.language) { Zotero.write( "1500 " + item.language + "\n"); }
+		if (item.language) {
+			if (languageMapping[(item.language)]) {
+				item.language = languageMapping[item.language];
+			}
+			Zotero.write( "1500 " + item.language + "\n");
+		}
 		
 		//1505 Katalogisierungsquelle
 		Zotero.write( "1505 $erda \n" );
@@ -103,6 +122,16 @@ function doExport() {
 			}
 		} else {
 			titleStatement += item.title.replace(/\s*:\s*/,'$d');
+		}
+		//Sortierzeichen hinzufügen, vgl. https://github.com/UB-Mannheim/zotkat/files/137992/ARTIKEL.pdf
+		if (item.language == "deu") {
+			titleStatement = titleStatement.replace(/^(Der|Die|Das|Des|Dem|Den|Ein|Eines|Einem|Eine|Einen|Einer) /, "$1 @")
+		}
+		if (item.language == "eng") {
+			titleStatement = titleStatement.replace(/^(The|A|An) /, "$1 @")
+		}
+		if (item.language == "fra") {
+			titleStatement = titleStatement.replace(/^(Le|La|L'|Les|Des|Un|Une) /, "$1 @")
 		}
 		var i = 0;
 		while (item.creators.length>0) {
