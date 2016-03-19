@@ -17,26 +17,26 @@
 
 
 /*
-    ***** BEGIN LICENSE BLOCK *****
+	***** BEGIN LICENSE BLOCK *****
 
-    Copyright © 2016 Philipp Zumstein
+	Copyright © 2016 Philipp Zumstein
 
-    This file is part of Zotero.
+	This file is part of Zotero.
 
-    Zotero is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	Zotero is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    Zotero is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU Affero General Public License for more details.
+	Zotero is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with Zotero. If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU Affero General Public License
+	along with Zotero. If not, see <http://www.gnu.org/licenses/>.
 
-    ***** END LICENSE BLOCK *****
+	***** END LICENSE BLOCK *****
 */
 
 var item;
@@ -55,6 +55,11 @@ var languageMapping = {
 	"fr" : "fra"
 };
 
+function writeLine(code, line) {
+	line = line.replace(/–/g, '-');// Halbgeviertstrich ersetzen
+	Zotero.write(code + " " + line + "\n");
+}
+
 function doExport() {
 
 	while (item = Zotero.nextItem()) {
@@ -67,54 +72,58 @@ function doExport() {
 			case "magazineArticle":
 			case "newspaperArticle":
 			case "encyclopediaArticle":
-				Zotero.write( "0500 Aou\n");
+				writeLine("0500", "Aou");
 				break;
 			default:
-				Zotero.write( "0500 Aau\n");
+				writeLine("0500", "Aau");
 		}
 		
 		//item.type --> 0501 Inhaltstyp
-		Zotero.write( "0501 Text$btxt \n");
+		writeLine("0501", "Text$btxt");
 		
 		//item.type --> 0502 Medientyp
-		Zotero.write( "0502 ohne Hilfsmittel zu benutzen$bn \n");
+		writeLine("0502", "ohne Hilfsmittel zu benutzen$bn");
 		
 		//item.type --> 0503 Datenträgertyp
-		Zotero.write( "0503 Band$bnc \n");	
+		writeLine("0503", "Band$bnc");
 		
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date["year"] != undefined) {
-			Zotero.write( "1100 "+ date["year"].toString() +  "\n");
+			writeLine("1100", date["year"].toString());
 		}
 		
 		//1130 Datenträger
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		Zotero.write( "1130 \n");
+		writeLine("1130", "");
 		
 		//1140 Veröffentlichungsart und Inhalt
-		Zotero.write( "1140 \n");
+		writeLine("1140", "");
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) {
 			if (languageMapping[(item.language)]) {
 				item.language = languageMapping[item.language];
 			}
-			Zotero.write( "1500 " + item.language + "\n");
+			writeLine("1500", item.language);
 		}
 		
 		//1505 Katalogisierungsquelle
-		Zotero.write( "1505 $erda \n" );
+		writeLine("1505", "$erda");
 		
 		//item.ISBN --> 2000 ISBN
-		if (item.ISBN) { Zotero.write( "2000 " + item.ISBN + "\n"); }
+		if (item.ISBN) {
+			writeLine("2000", item.ISBN);
+		}
 		
 		//item.DOI --> 2051 oder 2053 ???
-		if (item.DOI) { Zotero.write( "2051 " + item.DOI + "\n"); }
+		if (item.DOI) {
+			writeLine("2051", item.DOI);
+		}
 		
 		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
-		var titleStatement = "4000 ";
+		var titleStatement = "";
 		if (item.shortTitle) {
 			titleStatement += item.shortTitle;
 			if (item.title && item.title.length > item.shortTitle.length) {
@@ -146,54 +155,64 @@ function doExport() {
 					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
 				if (i == 0) {
-					Zotero.write( "3000 " + content + "$BVerfasserIn$4aut \n" );
+					writeLine("3000", content + "$BVerfasserIn$4aut");
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				} else {
-					Zotero.write( "3010 " + content + "$BVerfasserIn$4aut \n" );
+					writeLine("3010", content + "$BVerfasserIn$4aut");
 				}
 				i++;
 			}
 			//TODO: editors, other contributors...
 		}
-		Zotero.write( titleStatement + "\n");
+		writeLine("4000", titleStatement);
 		
 		//Ausgabe --> 4020
-		if (item.edition) { Zotero.write( "4020 " + item.edition + "\n"); }
+		if (item.edition) {
+			writeLine("4020", item.edition);
+		}
 		
 		//Erscheinungsvermerk --> 4030
-		var publicationStatement = "4030 ";
+		var publicationStatement = "";
 		if (item.place) { publicationStatement += item.place; }
 		if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
-		Zotero.write( publicationStatement +"\n");
+		writeLine("4030", publicationStatement);
 		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle") {
-			var volumeyearissuepage = "4070 ";
+			var volumeyearissuepage = "";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
-			Zotero.write( volumeyearissuepage +"\n");
+			writeLine("4070", volumeyearissuepage);
 		}
 		
 		//URL --> 4085
-		if (item.url) { Zotero.write( "4085 " + item.url + "$xH" + "\n"); }
+		if (item.url) {
+			writeLine("4085", item.url + "$xH");
+		}
 		
 		//Reihe --> 4110
-		var seriesStatement = "4110 ";
-		if (item.series) { seriesStatement += item.series; }
-		if (item.seriesNumber) { seriesStatement += " ; " + item.seriesNumber; }
-		Zotero.write(seriesStatement + "\n");
+		var seriesStatement = "";
+		if (item.series) {
+			seriesStatement += item.series;
+		}
+		if (item.seriesNumber) {
+			seriesStatement += " ; " + item.seriesNumber;
+		}
+		writeLine("4110", seriesStatement);
 		
 		//Inhaltliche Zusammenfassung -->4207
-		if (item.abstractNote) { Zotero.write( "4207 " + item.abstractNote + "\n"); }
+		if (item.abstractNote) {
+			writeLine("4207", item.abstractNote);
+		}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
-				Zotero.write( "4241 Enthalten in: " + journalMapping[ZU.cleanISSN(item.ISSN)] + "\n");
+				writeLine("4241", "Enthalten in: " + journalMapping[ZU.cleanISSN(item.ISSN)]);
 			} else if (item.publicationTitle) {
-				Zotero.write( "4241 Enthalten in: "  + item.publicationTitle + "\n");
+				writeLine("4241", "Enthalten in: "  + item.publicationTitle);
 			}
 		}
 		
