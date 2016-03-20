@@ -39,7 +39,6 @@
 	***** END LICENSE BLOCK *****
 */
 
-var item;
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
 };
@@ -49,10 +48,12 @@ var nachnameMapping = {
 var nameMapping = {
 	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
 };
+//Sprachcodes nach ISO 639-2
+//http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 var languageMapping = {
 	"en" : "eng",
-	"de" : "deu",
-	"fr" : "fra"
+	"de" : "ger",
+	"fr" : "fre"
 };
 
 function writeLine(code, line) {
@@ -61,7 +62,7 @@ function writeLine(code, line) {
 }
 
 function doExport() {
-
+	var item;
 	while (item = Zotero.nextItem()) {
 		
 		//item.type --> 0500 Bibliographische Gattung und Status
@@ -89,8 +90,8 @@ function doExport() {
 		
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
-		if (date["year"] != undefined) {
-			writeLine("1100", date["year"].toString());
+		if (date.year !== undefined) {
+			writeLine("1100", date.year.toString());
 		}
 		
 		//1130 Datenträger
@@ -133,14 +134,15 @@ function doExport() {
 			titleStatement += item.title.replace(/\s*:\s*/,'$d');
 		}
 		//Sortierzeichen hinzufügen, vgl. https://github.com/UB-Mannheim/zotkat/files/137992/ARTIKEL.pdf
-		if (item.language == "deu") {
-			titleStatement = titleStatement.replace(/^(Der|Die|Das|Des|Dem|Den|Ein|Eines|Einem|Eine|Einen|Einer) /, "$1 @")
+		if (item.language == "ger" || !item.language) {
+			titleStatement = titleStatement.replace(/^(Der|Die|Das|Des|Dem|Den|Ein|Eines|Einem|Eine|Einen|Einer) ([^@])/, "$1 @$2");
 		}
-		if (item.language == "eng") {
-			titleStatement = titleStatement.replace(/^(The|A|An) /, "$1 @")
+		if (item.language == "eng" || !item.language) {
+			titleStatement = titleStatement.replace(/^(The|A|An) ([^@])/, "$1 @$2");
 		}
-		if (item.language == "fra") {
-			titleStatement = titleStatement.replace(/^(Le|La|L'|Les|Des|Un|Une) /, "$1 @")
+		if (item.language == "fre" || !item.language) {
+			titleStatement = titleStatement.replace(/^(Le|La|Les|Des|Un|Une) ([^@])/, "$1 @$2");
+			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
 		var i = 0;
 		while (item.creators.length>0) {
@@ -154,7 +156,7 @@ function doExport() {
 				} else {
 					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
-				if (i == 0) {
+				if (i === 0) {
 					writeLine("3000", content + "$BVerfasserIn$4aut");
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				} else {
@@ -181,7 +183,7 @@ function doExport() {
 		if (item.itemType == "journalArticle") {
 			var volumeyearissuepage = "";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
-			if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
+			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
 			writeLine("4070", volumeyearissuepage);
