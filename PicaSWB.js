@@ -58,8 +58,13 @@ var languageMapping = {
 	"fr" : "fre"
 };
 
+var authorsList = [];
+
 function writeLine(code, line) {
 	line = line.replace(/–/g, '-');// Halbgeviertstrich ersetzen
+	if ((code == "3000" || code == "3010") && line[0] != "!") {
+		authorsList.push(line.substring(0,line.indexOf("$")));
+	}
 	Zotero.write(code + " " + line + "\n");
 }
 
@@ -219,6 +224,30 @@ function doExport() {
 				writeLine("4241", "Enthalten in: "  + item.publicationTitle);
 			}
 		}
+		
+		//Das funktioniert nur beim Exportieren in eine Datei aber nicht
+		//bei Quick Copy.
+		var lookupUrls = [];
+		for (var i=0; i<authorsList.length; i++) {
+			var u = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2042&TRM0=" + authorsList[i] +"&ACT1=*&IKT1=8991&TRM1=theol*&ACT2=*&IKT2=8991&TRM2=19**";
+			lookupUrls.push(u);
+		}
+		var t=0;
+		ZU.processDocuments(lookupUrls, function(doc, url){
+			Z.debug("IN LOOP processDocuments");
+			var ppn = ZU.xpathText(doc, '//small[a[img]]');
+			if (ppn) {
+				var line = "!" + ppn.trim() + "!";
+				var start = url.indexOf("&TRM0=");
+				var end = url.indexOf("&", start+1);
+				writeLine("zzzz", url.substring(start+6, end) + " -> " + line);
+			}
+		}, function() {
+			Z.debug("AFTER DONE processDocuments");
+			Z.done();
+		});
+		Z.wait();
+		//Z.debug("AFTER processDocuments");
 		
 	}
 }
