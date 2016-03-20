@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 {
 	"translatorID": "292d45bb-f3c7-428d-aed7-22f437b7fce9",
 	"label": "BIBFRAME",
@@ -14,6 +15,7 @@
 	"browserSupport": "gcsiv",
 	"lastUpdated": "2014-12-19 21:12:00"
 }
+/* jshint ignore:end */
 
 /*
 	***** BEGIN LICENSE BLOCK *****
@@ -56,7 +58,7 @@ var creatorMapping = {
 	"editor" : [ "edt" ],
 	"seriesEditor" : [ "edc" ], //edc = Editor of compilation
 	"translator" : [ "trl" ]
-}
+};
 
 
 
@@ -64,7 +66,7 @@ var creatorMapping = {
 function followProperties(itemList, propertiesList) {
 	if (!itemList) return false;
 	if (!Array.isArray(itemList)) return followProperties([ itemList ], propertiesList);
-	if (propertiesList.length == 0) return itemList;
+	if (propertiesList.length === 0) return itemList;
 	var result = [];
 	for (var j=0; j<itemList.length; j++) {
 		var temp = Zotero.RDF.getStatementsMatching(itemList[j], propertiesList[0], null);
@@ -90,10 +92,10 @@ function detectImport() {
 function doImport() {
 	//Z.debug( Zotero.RDF.getAllResources() );
 	
-	var inverseCreatorMapping = {};
-	for (var k in creatorMapping) {
+	var inverseCreatorMapping = {}, k, code;
+	for (k in creatorMapping) {
 		for (var m=0; m<creatorMapping[k].length; m++) {
-			var code = creatorMapping[k][m];
+			code = creatorMapping[k][m];
 			if (!inverseCreatorMapping[code]) {
 				inverseCreatorMapping[code] = k;
 			}
@@ -103,8 +105,8 @@ function doImport() {
 	
 	var itemNode, predicateNode, objectNode;
 	var instancesList = Zotero.RDF.getStatementsMatching(null, n.rdf+"type", n.bf+"Instance");
-	for each(var instance in instancesList) {
-		var item = instance[0];
+	for (var j=0; j<instancesList.length; j++) { // for each(var instance in instancesList) {
+		var item = instancesList[j][0];
 		
 		//each instance should be connected to exactly one work
 		//which we try to identify here
@@ -172,12 +174,12 @@ function doImport() {
 		
 	
 		var agents = Zotero.RDF.getStatementsMatching(itemWork, n.bf+"associatedAgent", null);
-		for (var k=0; k<agents.length; k++) {
+		for (k=0; k<agents.length; k++) {
 			var label = Zotero.RDF.getStatementsMatching(agents[k][2], n.bf+"label", null);
 			var role = Zotero.RDF.getStatementsMatching(agents[k][2], n.bf+"resourceRole", null);
 			if (label) {
 				var creatorType = Zotero.RDF.getResourceURI(role[0][2]);
-				var code = creatorType.substr(creatorType.length-3);	
+				code = creatorType.substr(creatorType.length-3);	
 				if (inverseCreatorMapping[code]) {
 					newItem.creators.push( ZU.cleanAuthor( label[0][2], inverseCreatorMapping[code], true ) );
 				} else {
@@ -191,11 +193,13 @@ function doImport() {
 		newItem.complete();
 	}
 
-}/** BEGIN TEST CASES **/
+}
+/* jshint ignore:start */
+/** BEGIN TEST CASES **/
 var testCases = [
 	{
 		"type": "import",
-		"input": "<rdf:RDF xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\" xmlns:bf=\"http://bibframe.org/vocab/\" xmlns:bfp=\"http://bibframe.org/bfp/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core#\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n\t\t<bf:Instance rdf:about=\"http://d-nb.info/999678876\">\n\t\t\t<bf:modeOfIssuance>Einb�ndiges Werk</bf:modeOfIssuance>\n\t\t\t<bf:instanceOf rdf:resource=\"http://d-nb.info/bf_temp/work_999678876\" />\n\t\t\t<bf:isbn13>9783898383271</bf:isbn13>\n\t\t\t<bf:isbn13>9781607500971</bf:isbn13>\n\t\t\t<bf:nbn>10,A10</bf:nbn>\n\t\t\t<bf:nbn>10,H04</bf:nbn>\n\t\t\t<bf:responsibilityStatement>Simone Paolo  Ponzetto</bf:responsibilityStatement>\n\t\t\t<bf:extent>XVIII, 212 S.</bf:extent>\n\t\t\t<bf:dimensions>21 cm</bf:dimensions>\n\t\t\t<bf:illustrativeContentNote>graph. Darst.</bf:illustrativeContentNote>\n\t\t\t<bf:title>Knowledge acquisition from a collaboratively generated encyclopedia</bf:title>\n\t\t\t<bf:providerEntity>\n\t\t\t\t<bf:providerName>AKA</bf:providerName>\n\t\t\t\t<bf:providerPlace>Heidelberg</bf:providerPlace>\n\t\t\t\t<bf:providerDate>2010</bf:providerDate>\n\t\t\t</bf:providerEntity>\n\t\t\t<bf:frequency rdf:resource=\"http://marc21rdf.info/terms/continuingfre%23/u\" />\n\t\t</bf:Instance>\n\t\t<bf:Work rdf:about=\"http://d-nb.info/bf_temp/work_999678876\">\n\t\t\t<bf:hasInstance rdf:resource=\"http://d-nb.info/999678876\" />\n\t\t\t<bf:associatedAgent>\n\t\t\t\t<bf:Person>\n\t\t\t\t\t<bf:hasGNDLink rdf:resource=\"http://d-nb.info/gnd/140299017\" />\n\t\t\t\t\t<bf:label>Ponzetto, Simone Paolo</bf:label>\n\t\t\t\t\t<bf:resourceRole rdf:resource=\"http://id.loc.gov/vocabulary/relators/aut\" />\n\t\t\t\t</bf:Person>\n\t\t\t</bf:associatedAgent>\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/7545251-0\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4241169-5\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4546354-2\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4284757-6\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4827894-4\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4242662-5\" />\n\t\t\t<bf:class-ddc>006.331</bf:class-ddc>\n\t\t\t<bf:class-ddc>006.331</bf:class-ddc>\n\t\t\t<bf:class-ddc>006.312</bf:class-ddc>\n\t\t\t<bf:class-ddc>006.312</bf:class-ddc>\n\t\t\t<bf:title>Knowledge acquisition from a collaboratively generated encyclopedia</bf:title>\n\t\t\t<bf:dissertation>\n\t\t\t\t<bf:dissertationNote>Zugl.: Stuttgart, Univ., Diss., 2009</bf:dissertationNote>\n\t\t\t</bf:dissertation>\n\t\t</bf:Work>\n\t\n</rdf:RDF>\n",
+		"input": "<rdf:RDF xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\" xmlns:bf=\"http://bibframe.org/vocab/\" xmlns:bfp=\"http://bibframe.org/bfp/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core#\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n\t\t<bf:Instance rdf:about=\"http://d-nb.info/999678876\">\n\t\t\t<bf:modeOfIssuance>Einbändiges Werk</bf:modeOfIssuance>\n\t\t\t<bf:instanceOf rdf:resource=\"http://d-nb.info/bf_temp/work_999678876\" />\n\t\t\t<bf:isbn13>9783898383271</bf:isbn13>\n\t\t\t<bf:isbn13>9781607500971</bf:isbn13>\n\t\t\t<bf:nbn>10,A10</bf:nbn>\n\t\t\t<bf:nbn>10,H04</bf:nbn>\n\t\t\t<bf:responsibilityStatement>Simone Paolo  Ponzetto</bf:responsibilityStatement>\n\t\t\t<bf:extent>XVIII, 212 S.</bf:extent>\n\t\t\t<bf:dimensions>21 cm</bf:dimensions>\n\t\t\t<bf:illustrativeContentNote>graph. Darst.</bf:illustrativeContentNote>\n\t\t\t<bf:title>Knowledge acquisition from a collaboratively generated encyclopedia</bf:title>\n\t\t\t<bf:providerEntity>\n\t\t\t\t<bf:providerName>AKA</bf:providerName>\n\t\t\t\t<bf:providerPlace>Heidelberg</bf:providerPlace>\n\t\t\t\t<bf:providerDate>2010</bf:providerDate>\n\t\t\t</bf:providerEntity>\n\t\t\t<bf:frequency rdf:resource=\"http://marc21rdf.info/terms/continuingfre%23/u\" />\n\t\t</bf:Instance>\n\t\t<bf:Work rdf:about=\"http://d-nb.info/bf_temp/work_999678876\">\n\t\t\t<bf:hasInstance rdf:resource=\"http://d-nb.info/999678876\" />\n\t\t\t<bf:associatedAgent>\n\t\t\t\t<bf:Person>\n\t\t\t\t\t<bf:hasGNDLink rdf:resource=\"http://d-nb.info/gnd/140299017\" />\n\t\t\t\t\t<bf:label>Ponzetto, Simone Paolo</bf:label>\n\t\t\t\t\t<bf:resourceRole rdf:resource=\"http://id.loc.gov/vocabulary/relators/aut\" />\n\t\t\t\t</bf:Person>\n\t\t\t</bf:associatedAgent>\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/7545251-0\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4241169-5\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4546354-2\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4284757-6\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4827894-4\" />\n\t\t\t<bf:subject rdf:resource=\"http://d-nb.info/gnd/4242662-5\" />\n\t\t\t<bf:class-ddc>006.331</bf:class-ddc>\n\t\t\t<bf:class-ddc>006.331</bf:class-ddc>\n\t\t\t<bf:class-ddc>006.312</bf:class-ddc>\n\t\t\t<bf:class-ddc>006.312</bf:class-ddc>\n\t\t\t<bf:title>Knowledge acquisition from a collaboratively generated encyclopedia</bf:title>\n\t\t\t<bf:dissertation>\n\t\t\t\t<bf:dissertationNote>Zugl.: Stuttgart, Univ., Diss., 2009</bf:dissertationNote>\n\t\t\t</bf:dissertation>\n\t\t</bf:Work>\n\t\n</rdf:RDF>\n",
 		"items": [
 			{
 				"itemType": "book",
