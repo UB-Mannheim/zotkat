@@ -49,10 +49,12 @@ var nachnameMapping = {
 var nameMapping = {
 	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
 };
+//Sprachcodes nach ISO 639-2
+//http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 var languageMapping = {
 	"en" : "eng",
-	"de" : "deu",
-	"fr" : "fra"
+	"de" : "ger",
+	"fr" : "fre"
 };
 
 function writeLine(code, line) {
@@ -133,14 +135,15 @@ function doExport() {
 			titleStatement += item.title.replace(/\s*:\s*/,'$d');
 		}
 		//Sortierzeichen hinzufügen, vgl. https://github.com/UB-Mannheim/zotkat/files/137992/ARTIKEL.pdf
-		if (item.language == "deu") {
-			titleStatement = titleStatement.replace(/^(Der|Die|Das|Des|Dem|Den|Ein|Eines|Einem|Eine|Einen|Einer) /, "$1 @")
+		if (item.language == "ger" || !item.language) {
+			titleStatement = titleStatement.replace(/^(Der|Die|Das|Des|Dem|Den|Ein|Eines|Einem|Eine|Einen|Einer) ([^@])/, "$1 @$2");
 		}
-		if (item.language == "eng") {
-			titleStatement = titleStatement.replace(/^(The|A|An) /, "$1 @")
+		if (item.language == "eng" || !item.language) {
+			titleStatement = titleStatement.replace(/^(The|A|An) ([^@])/, "$1 @$2");
 		}
-		if (item.language == "fra") {
-			titleStatement = titleStatement.replace(/^(Le|La|L'|Les|Des|Un|Une) /, "$1 @")
+		if (item.language == "fre" || !item.language) {
+			titleStatement = titleStatement.replace(/^(Le|La|Les|Des|Un|Une) ([^@])/, "$1 @$2");
+			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
 		var i = 0;
 		while (item.creators.length>0) {
