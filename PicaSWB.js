@@ -39,7 +39,6 @@
 	***** END LICENSE BLOCK *****
 */
 
-var item;
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
 };
@@ -63,7 +62,7 @@ function writeLine(code, line) {
 }
 
 function doExport() {
-
+	var item;
 	while (item = Zotero.nextItem()) {
 		
 		//item.type --> 0500 Bibliographische Gattung und Status
@@ -91,8 +90,8 @@ function doExport() {
 		
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
-		if (date["year"] != undefined) {
-			writeLine("1100", date["year"].toString());
+		if (date.year !== undefined) {
+			writeLine("1100", date.year.toString());
 		}
 		
 		//1130 Datenträger
@@ -157,7 +156,7 @@ function doExport() {
 				} else {
 					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
-				if (i == 0) {
+				if (i === 0) {
 					writeLine("3000", content + "$BVerfasserIn$4aut");
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				} else {
@@ -184,7 +183,7 @@ function doExport() {
 		if (item.itemType == "journalArticle") {
 			var volumeyearissuepage = "";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
-			if (date["year"] != undefined) { volumeyearissuepage +=  "$j" + date["year"]; }
+			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
 			writeLine("4070", volumeyearissuepage);
