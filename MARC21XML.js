@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 {
 	"translatorID": "ce0ab080-7d72-4fa3-ab4b-4bd8950f3379",
 	"label": "MARC21XML",
@@ -14,6 +15,7 @@
 	"browserSupport": "g",
 	"lastUpdated": "2014-09-07 12:58:51"
 }
+/* jshint ignore:end */
 
 // DISCLAIMER:
 // There are different cataloguing rules, specification of MARC dialects,
@@ -59,11 +61,11 @@ var secondTypeMap = {//based on 008/24-27
 	"statute" : "l",
 	"thesis" : "m",
 	"case" : "v"
-}
+};
 
 String.prototype.replaceAt=function(index, character) {
 	return this.substr(0, index) + character + this.substr(index+character.length);
-}
+};
 
 function fillZerosLeft(text, size) {
 	if (!text) text = '';
@@ -105,8 +107,8 @@ function doExport() {
 	var parser = new DOMParser();
 	xmlDocument = parser.parseFromString('<collection xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" />', 'application/xml');
 	
-	var item;
-	while(item = Zotero.nextItem()) {
+	var item, i;
+	while ((item = Zotero.nextItem())) {
 		Z.debug(item);
 		
 		var exportNotes = Zotero.getOption("exportNotes");
@@ -285,7 +287,7 @@ function doExport() {
 		if (item.notes.length>0 && exportNotes) {
 			var noteArray = [];
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "500", "ind1" : " ", "ind2" : " " } , true );
-			for (var i=0; i<item.notes.length; i++) {
+			for (i=0; i<item.notes.length; i++) {
 				noteArray.push(item.notes[i].note);
 			}
 			mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , noteArray.join("; ") );
@@ -319,15 +321,15 @@ function doExport() {
 		
 		if (item.tags.length>0) {
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "573", "ind1" : " ", "ind2" : " " } , true );
-			for (var i=0; i<item.tags.length; i++) {
+			for (i=0; i<item.tags.length; i++) {
 				mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , item.tags[i].tag );
 			}
 		}
 
 		
-		for (var i=0; i<item.creators.length; i++) {
+		for (i=0; i<item.creators.length; i++) {
 			var creator = item.creators[i];
-			if (creator.fieldMode == "") {
+			if (creator.fieldMode === "") {
 				currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "700", "ind1" : "1", "ind2" : " " } , true );
 				mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , creator.lastName+', '+creator.firstName );
 			} else {
@@ -377,7 +379,7 @@ function doExport() {
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "856", "ind1" : "4", "ind2" : " " } , true );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "u"} , item.url );
 		}
-		for (var i=0; i<item.attachments.length; i++) {
+		for (i=0; i<item.attachments.length; i++) {
 			var link = item.attachments[i];
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "856", "ind1" : "4", "ind2" : " " } , true );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "u"} , link.url );
@@ -386,13 +388,13 @@ function doExport() {
 		
 		//finally, we will calculate the leader and add it as first child
 		
-		recordLength += countFields["controlfield"]*13+countFields["datafield"]*15+countFields["subfield"]*2;
+		recordLength += countFields.controlfield*13+countFields.datafield*15+countFields.subfield*2;
 		//controlfields: 12 characters in the directory + 1 field terminator
 		//datafields: 12 characters in the directory + 2 indicators + 1 field terminator
 		//subfields: 1 subfield code + 1 subfield terminator
 
 		//base adress of data starts after the leader and the directory
-		var baseAdressData = 24+countFields["controlfield"]*12+countFields["datafield"]*12+1;
+		var baseAdressData = 24+countFields.controlfield*12+countFields.datafield*12+1;
 
 		
 		var leaderContent = fillZerosLeft(recordLength,5) + "n" + typeOfRecord + bibliographicLevel +" a22" + fillZerosLeft(baseAdressData,5) +"zu 4500";

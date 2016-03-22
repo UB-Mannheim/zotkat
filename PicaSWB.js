@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 {
 	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
 	"label": "PicaSWB",
@@ -11,6 +12,7 @@
 	"browserSupport": "gcs",
 	"lastUpdated": "2016-01-23 13:10:00"
 }
+ /* jshint ignore:end */
 
 // Zotero Export Translator für das Pica Intern Format
 // (wie es im SWB Verbund benutzt wird)
@@ -63,8 +65,8 @@ function writeLine(code, line) {
 
 function doExport() {
 	var item;
-	while (item = Zotero.nextItem()) {
-		
+	while ((item = Zotero.nextItem())) {
+
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 		switch (item.itemType) {

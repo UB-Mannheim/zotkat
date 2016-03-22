@@ -1,0 +1,14 @@
+{
+  "name": "zotkat",
+  "version": "0.0.1",
+  "description": "Erweiterung von Zotero für die Katalogisierung in Bibliotheken",
+  "main": "PicaSWB.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.11.3",
+    "grunt-contrib-nodeunit": "~0.4.1"
+  }
+}
