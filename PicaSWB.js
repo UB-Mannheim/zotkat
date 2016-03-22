@@ -87,7 +87,7 @@ function writeLine(code, line) {
 			}
 		}, function() {
 			count--;
-			if (count == 0) {
+			if (count === 0) {
 				Zotero.write(outputText);
 			}
 		});
@@ -253,7 +253,7 @@ function doExport() {
 		outputText += "\n";
 	}
 	count--;
-	if (count == 0) {
+	if (count === 0) {
 		Zotero.write(outputText);
 	}
 }
