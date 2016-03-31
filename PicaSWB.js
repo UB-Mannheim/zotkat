@@ -249,9 +249,9 @@ function doExport() {
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
-				writeLine("4241", "Enthalten in: " + journalMapping[ZU.cleanISSN(item.ISSN)]);
+				writeLine("4241", "Enthalten in:" + journalMapping[ZU.cleanISSN(item.ISSN)]);
 			} else if (item.publicationTitle) {
-				writeLine("4241", "Enthalten in: "  + item.publicationTitle);
+				writeLine("4241", "Enthalten in:"  + item.publicationTitle);
 			}
 		//SSG-Nummer --> 5056
 		writeLine("5056 1", "");
@@ -262,8 +262,8 @@ function doExport() {
 		 if (item.creators) {
 			 ppnVerify1 += item.creators;
 			 		 }
-		writeLine("\n" + "0999".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-		writeLine("\n" + "0999".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
+		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
+		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 		}
 		outputText += "\n";
 	}
