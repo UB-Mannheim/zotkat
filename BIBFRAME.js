@@ -1,4 +1,3 @@
-/* jshint ignore:start */
 {
 	"translatorID": "292d45bb-f3c7-428d-aed7-22f437b7fce9",
 	"label": "BIBFRAME",
@@ -15,7 +14,6 @@
 	"browserSupport": "gcsiv",
 	"lastUpdated": "2014-12-19 21:12:00"
 }
-/* jshint ignore:end */
 
 /*
 	***** BEGIN LICENSE BLOCK *****

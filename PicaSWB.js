@@ -1,4 +1,3 @@
-/* jshint ignore:start */
 {
 	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
 	"label": "PicaSWB",
@@ -12,7 +11,6 @@
 	"browserSupport": "gcs",
 	"lastUpdated": "2016-01-23 13:10:00"
 }
- /* jshint ignore:end */
 
 // Zotero Export Translator für das Pica Intern Format
 // (wie es im SWB Verbund benutzt wird)

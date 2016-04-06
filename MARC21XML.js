@@ -1,4 +1,3 @@
-/* jshint ignore:start */
 {
 	"translatorID": "ce0ab080-7d72-4fa3-ab4b-4bd8950f3379",
 	"label": "MARC21XML",
@@ -15,7 +14,6 @@
 	"browserSupport": "g",
 	"lastUpdated": "2014-09-07 12:58:51"
 }
-/* jshint ignore:end */
 
 // DISCLAIMER:
 // There are different cataloguing rules, specification of MARC dialects,
