@@ -4,11 +4,9 @@
   "description": "Erweiterung von Zotero für die Katalogisierung in Bibliotheken",
   "main": "PicaSWB.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "for f in BIBFRAME.js MARC21XML.js PicaSWB.js;do sed '1,/^}/d' $f|jshint -;done"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.11.3",
-    "grunt-contrib-nodeunit": "~0.4.1"
+    "jshint": "^2.9.1"
   }
 }
