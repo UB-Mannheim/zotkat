@@ -138,6 +138,8 @@ function doExport() {
 				item.language = languageMapping[item.language];
 			}
 			writeLine("1500", item.language);
+		} else {
+			writeLine("1500", "eng"); // default-wert ausgeben, wenn item.language nicht von zotero belegt ist
 		}
 		
 		//1505 Katalogisierungsquelle
