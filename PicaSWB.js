@@ -39,6 +39,9 @@
 	***** END LICENSE BLOCK *****
 */
 
+var ssgNummer = "1";
+var defaultLanguage = "eng";
+
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
 };
@@ -139,7 +142,7 @@ function doExport() {
 			}
 			writeLine("1500", item.language);
 		} else {
-			writeLine("1500", "eng"); // default-wert ausgeben, wenn item.language nicht von zotero belegt ist
+			writeLine("1500", defaultLanguage);
 		}
 		
 		//1505 Katalogisierungsquelle
@@ -177,11 +180,10 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^(Le|La|Les|Des|Un|Une) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
-		var i = 0;
+		var i = 0, content, creator;
 		while (item.creators.length>0) {
-			var creator = item.creators.shift();
+			creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				var content;
 				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
 					content = nameMapping[creator.lastName + ", " + creator.firstName];
 				} else if (nachnameMapping[creator.lastName]) {
@@ -200,8 +202,6 @@ function doExport() {
 			//TODO: editors, other contributors...
 		}
 		writeLine("4000", titleStatement);
-		
-		
 		
 		//Ausgabe --> 4020
 		if (item.edition) {
@@ -229,8 +229,6 @@ function doExport() {
 			writeLine("4085", item.url + "$xH");
 		}
 		
-		
-		
 		//Reihe --> 4110
 		var seriesStatement = "";
 		if (item.series) {
@@ -253,17 +251,19 @@ function doExport() {
 			} else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in:"  + item.publicationTitle);
 			}
-		//SSG-Nummer --> 5056
-		writeLine("5056 1", "");
-		
-		// 0999 verify outputText ppn in OGND
-		 var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
-		 var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
-		 if (item.creators) {
-			 ppnVerify1 += item.creators;
-			 		 }
-		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
+			//SSG-Nummer --> 5056
+			if (ssgNummer) {
+				writeLine("5056", ssgNummer);
+			}
+			
+			// 0999 verify outputText ppn in OGND
+			var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
+			var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
+			if (item.creators) {
+				 ppnVerify1 += item.creators;
+			}
+			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
+			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 		}
 		outputText += "\n";
 	}
