@@ -56,9 +56,40 @@ var languageMapping = {
 	"fr" : "fre"
 };
 
+// Da alles asynchron ablaufen kann:
+//Jede Lookup einer AutorIn zählt 1 zu count
+//und nach Erledigung wieder 1 weg. Der
+//Startwert ist 1 und nach Erledigung aller
+//anderen Zeilen wird 1 subtrahiert. Erst
+//bei 0 wird die Ausgabe aus outputText erzeugt.
+var count = 1;
+var outputText = "";
+
 function writeLine(code, line) {
-	line = line.replace(/–/g, '-');// Halbgeviertstrich ersetzen
-	Zotero.write(code + " " + line + "\n");
+
+	//Halbgeviertstrich ersetzen
+	line = line.replace(/–/g, '-');
+
+	//Text zusammensetzen
+	outputText += code + " " + line + "\n";
+
+	//Lookup für Autoren
+	if ((code == "3000" || code == "3010") && line[0] != "!") {
+		count++;
+		var authorName = line.substring(0,line.indexOf("$"));
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2042&TRM0=" + authorName +"&ACT1=*&IKT1=8991&TRM1=theol*&ACT2=*&IKT2=8991&TRM2=19**";
+		ZU.processDocuments([lookupUrl], function(doc, url){
+			var ppn = ZU.xpathText(doc, '//small[a[img]]');
+			if (ppn) {
+				outputText = outputText.replace(authorName, "!" + ppn.trim() + "!");
+			}
+		}, function() {
+			count--;
+			if (count === 0) {
+				Zotero.write(outputText);
+			}
+		});
+	}
 }
 
 function doExport() {
@@ -217,6 +248,10 @@ function doExport() {
 				writeLine("4241", "Enthalten in: "  + item.publicationTitle);
 			}
 		}
-		
+		outputText += "\n";
+	}
+	count--;
+	if (count === 0) {
+		Zotero.write(outputText);
 	}
 }
