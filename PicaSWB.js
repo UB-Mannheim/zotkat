@@ -195,13 +195,13 @@ function doExport() {
 				}
 				i++;
 			}
-			TODO: editors, other contributors...
+			//TODO: editors, other contributors...
 		}
 		writeLine("4000", titleStatement);
 		
 		//Ausgabe --> 4020
 		if (item.edition) {
-			writeLine("4020", item.edition)
+			writeLine("4020", item.edition);
 		}
 		
 		//Erscheinungsvermerk --> 4030
