@@ -4,7 +4,7 @@
   "description": "Erweiterung von Zotero für die Katalogisierung in Bibliotheken",
   "main": "PicaSWB.js",
   "scripts": {
-    "test": "for f in BIBFRAME.js MARC21XML.js PicaSWB.js;do sed '1,/^}/d' $f|jshint -;done"
+    "test": "for f in BIBFRAME.js MARC21XML.js PicaSWB.js;do echo $f;sed '1,/^}/d' $f|jshint -;done"
   },
   "devDependencies": {
     "jshint": "^2.9.1"
