@@ -8,5 +8,13 @@
   },
   "devDependencies": {
     "jshint": "^2.9.1"
+  },
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UB-Mannheim/zotkat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UB-Mannheim/zotkat/issues"
   }
 }
