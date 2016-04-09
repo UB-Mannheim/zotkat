@@ -4,9 +4,17 @@
   "description": "Erweiterung von Zotero für die Katalogisierung in Bibliotheken",
   "main": "PicaSWB.js",
   "scripts": {
-    "test": "for f in BIBFRAME.js MARC21XML.js PicaSWB.js;do printf $f;printf '\n';sed '1,/^}/d' $f|jshint -;done"
+    "test": "for f in *.js;do sed '1,/^}/ s/.*//' $f|sed 's/\/\*\* BEGIN TEST CASES \*\*\//\nBEGIN-TEST-CASES/' |sed '/BEGIN-TEST-CASES/,//d'|jshint --filename=$f - && echo \"$f OK\" || err=1;done;exit $err"
   },
   "devDependencies": {
     "jshint": "^2.9.1"
+  },
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UB-Mannheim/zotkat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UB-Mannheim/zotkat/issues"
   }
 }
