@@ -191,9 +191,7 @@ function doImport() {
 		newItem.complete();
 	}
 
-}
-/* jshint ignore:start */
-/** BEGIN TEST CASES **/
+}/** BEGIN TEST CASES **/
 var testCases = [
 	{
 		"type": "import",
