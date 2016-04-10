@@ -247,9 +247,9 @@ function doExport() {
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
-				writeLine("4241", "Enthalten in:" + journalMapping[ZU.cleanISSN(item.ISSN)]);
+				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
 			} else if (item.publicationTitle) {
-				writeLine("4241", "Enthalten in:"  + item.publicationTitle);
+				writeLine("4241", "Enthalten in"  + item.publicationTitle);
 			}
 			//SSG-Nummer --> 5056
 			if (ssgNummer) {
