@@ -10,7 +10,6 @@ for f in *.js; do
       sed '1,/^}/ s/.*//' $f \
     | sed 's,/\*\* BEGIN TEST,\n\0,' \
     | sed '/BEGIN TEST/,$ d' \
-    | tee foo.js \
     | ./node_modules/.bin/jshint --filename=$f - \
         && echo "$f OK" \
         || err=1
