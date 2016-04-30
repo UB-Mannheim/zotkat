@@ -364,11 +364,22 @@ function doExport() {
 			mapProperty(currentFieldNode, "subfield",  {"code" : "7"} , subfieldCode );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "t"} , item.publicationTitle );
 			var descriptionArray = [];
-			if (item.volume) descriptionArray.push(item.volume);
-			if (item.issue) descriptionArray.push(item.issue);
-			if (item.pages) descriptionArray.push(item.pages);
-			mapProperty(currentFieldNode, "subfield",  {"code" : "h"} , descriptionArray.join(', ') );
+			var siciDescription = ""; //https://en.wikipedia.org/wiki/Serial_Item_and_Contribution_Identifier
+			if (item.volume) {
+				descriptionArray.push(item.volume);
+				siciDescription += item.volume;
+			}
+			if (item.issue) {
+				descriptionArray.push(item.issue);
+				siciDescription += ":" + item.issue;
+			}
+			if (item.pages) {
+				descriptionArray.push(item.pages);
+				siciDescription += "<" + parseInt(item.pages);
+			}
+			mapProperty(currentFieldNode, "subfield",  {"code" : "g"} , descriptionArray.join(', ') );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "p"} , item.journalAbbreviation );
+			mapProperty(currentFieldNode, "subfield",  {"code" : "q"} , siciDescription );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "x"} , item.ISSN );
 			//maybe move some other fields if journalArticle?
 		}
