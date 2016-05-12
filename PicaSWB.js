@@ -119,7 +119,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString() + "$n[1977] \n"); // mit jedem Jahrgang Wert in Spitzklammern "$n []" anpassen.);
+			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]" );
 		}
 		
 		//1130 Datenträger
@@ -172,6 +172,10 @@ function doExport() {
 		}
 		if (item.language == "fre" || !item.language) {
 			titleStatement = titleStatement.replace(/^(Le|La|Les|Des|Un|Une) ([^@])/, "$1 @$2");
+			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
+		}
+		if (item.language == "ita" || !item.language) {
+			titleStatement = titleStatement.replace(/^(La|Le|Lo|Gli|I|Il|Un|Una|Uno) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
 		var i = 0, content, creator;
@@ -267,7 +271,4 @@ function doExport() {
 	}
 }
 
-    Status API Training Shop Blog About 
-
-    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
 
