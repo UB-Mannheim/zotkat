@@ -1,31 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @socheres
-
-1
-0
-
-    3
-
-zuphilip/zotkat forked from UB-Mannheim/zotkat
-Code
-Pull requests 1
-Wiki
-Pulse
-Graphs
-zotkat/PicaSWB.js
-ee68cc5 on 10 Apr
-@zuphilip zuphilip [PicaSWB] Doppelpunkt bei Enthalten in gelöscht
-@zuphilip
-@socheres
-@kba
-275 lines (237 sloc) 9.39 KB
 {
 	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
 	"label": "PicaSWB",
