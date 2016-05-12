@@ -1,3 +1,31 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @socheres
+
+1
+0
+
+    3
+
+zuphilip/zotkat forked from UB-Mannheim/zotkat
+Code
+Pull requests 1
+Wiki
+Pulse
+Graphs
+zotkat/PicaSWB.js
+ee68cc5 on 10 Apr
+@zuphilip zuphilip [PicaSWB] Doppelpunkt bei Enthalten in gelöscht
+@zuphilip
+@socheres
+@kba
+275 lines (237 sloc) 9.39 KB
 {
 	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
 	"label": "PicaSWB",
@@ -18,26 +46,23 @@
 
 /*
 	***** BEGIN LICENSE BLOCK *****
-
 	Copyright © 2016 Philipp Zumstein
-
 	This file is part of Zotero.
-
 	Zotero is free software: you can redistribute it and/or modify
 	it under the terms of the GNU Affero General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	(at your option) any later version.
-
 	Zotero is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 	GNU Affero General Public License for more details.
-
 	You should have received a copy of the GNU Affero General Public License
 	along with Zotero. If not, see <http://www.gnu.org/licenses/>.
-
 	***** END LICENSE BLOCK *****
 */
+
+var ssgNummer = "1";
+var defaultLanguage = "eng";
 
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
@@ -77,7 +102,7 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2042&TRM0=" + authorName +"&ACT1=*&IKT1=8991&TRM1=theol*&ACT2=*&IKT2=8991&TRM2=19**";
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
 			if (ppn) {
@@ -122,7 +147,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString());
+			writeLine("1100", date.year.toString() + "$n[1977] \n"); // mit jedem Jahrgang Wert in Spitzklammern "$n []" anpassen.);
 		}
 		
 		//1130 Datenträger
@@ -138,6 +163,8 @@ function doExport() {
 				item.language = languageMapping[item.language];
 			}
 			writeLine("1500", item.language);
+		} else {
+			writeLine("1500", defaultLanguage);
 		}
 		
 		//1505 Katalogisierungsquelle
@@ -175,11 +202,10 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^(Le|La|Les|Des|Un|Une) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
-		var i = 0;
+		var i = 0, content, creator;
 		while (item.creators.length>0) {
-			var creator = item.creators.shift();
+			creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				var content;
 				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
 					content = nameMapping[creator.lastName + ", " + creator.firstName];
 				} else if (nachnameMapping[creator.lastName]) {
@@ -247,6 +273,19 @@ function doExport() {
 			} else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in"  + item.publicationTitle);
 			}
+			//SSG-Nummer --> 5056
+			if (ssgNummer) {
+				writeLine("5056", ssgNummer);
+			}
+			
+			// 0999 verify outputText ppn in OGND
+			var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
+			var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
+			if (item.creators) {
+				 ppnVerify1 += item.creators;
+			}
+			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
+			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 		}
 		outputText += "\n";
 	}
@@ -255,3 +294,8 @@ function doExport() {
 		Zotero.write(outputText);
 	}
 }
+
+    Status API Training Shop Blog About 
+
+    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
+
