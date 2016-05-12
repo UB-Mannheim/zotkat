@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-01-23 13:10:00"
+	"lastUpdated": "2016-12-05 10:14:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
@@ -70,11 +70,11 @@ function writeLine(code, line) {
 	//Text zusammensetzen
 	outputText += code + " " + line + "\n";
 
-	//Lookup für Autoren
+	//Lookup für Autoren. lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.  http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**"; 
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*"
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
 			if (ppn) {
@@ -122,12 +122,8 @@ function doExport() {
 			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]" );
 		}
 		
-		//1130 Datenträger
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		writeLine("1130", "");
-		
-		//1140 Veröffentlichungsart und Inhalt
-		writeLine("1140", "");
+		//1130 Datenträger http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
+		writeLine("1130", "druck"); 
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) {
@@ -147,9 +143,9 @@ function doExport() {
 			writeLine("2000", item.ISBN);
 		}
 		
-		//item.DOI --> 2051 oder 2053 ???
+		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aau"
 		if (item.DOI) {
-			writeLine("2051", item.DOI);
+			writeLine("2053", item.DOI);
 		}
 		
 		//Autoren --> 3000, 3010
@@ -206,12 +202,6 @@ function doExport() {
 			writeLine("4020", item.edition);
 		}
 		
-		//Erscheinungsvermerk --> 4030
-		var publicationStatement = "";
-		if (item.place) { publicationStatement += item.place; }
-		if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
-		writeLine("4030", publicationStatement);
-		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle") {
 			var volumeyearissuepage = "";
@@ -222,20 +212,10 @@ function doExport() {
 			writeLine("4070", volumeyearissuepage);
 		}
 		
-		//URL --> 4085
+		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500 "Oox"
 		if (item.url) {
 			writeLine("4085", item.url + "$xH");
 		}
-		
-		//Reihe --> 4110
-		var seriesStatement = "";
-		if (item.series) {
-			seriesStatement += item.series;
-		}
-		if (item.seriesNumber) {
-			seriesStatement += " ; " + item.seriesNumber;
-		}
-		writeLine("4110", seriesStatement);
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote) {
