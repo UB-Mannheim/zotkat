@@ -154,11 +154,11 @@ function doExport() {
 			writeLine("2000", item.ISBN);
 		}
 		
-		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aau"
+		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
 		if (item.DOI) {
 			if (typeCode === "Oou") {
 				writeLine("2051", item.DOI);
-			} else if (typeCode === "Aau") {
+			} else if (typeCode === "Aou") {
 				writeLine("2053", item.DOI);
 			}
 		}
