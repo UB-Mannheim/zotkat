@@ -41,6 +41,8 @@
 
 var ssgNummer = "1";
 var defaultLanguage = "eng";
+var physicalForm = "A";//0500 Position 1
+var cataloguingStatus = "u";//0500 Position 3
 
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
@@ -101,9 +103,6 @@ function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
 
-		//item.type --> 0500 Bibliographische Gattung und Status
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
-		var typeCode = "Aau";//default
 		var article = false;
 		switch (item.itemType) {
 			case "journalArticle":
@@ -111,11 +110,17 @@ function doExport() {
 			case "magazineArticle":
 			case "newspaperArticle":
 			case "encyclopediaArticle":
-				typeCode = "Aou";
 				article = true;
 				break;
 		}
-		writeLine("0500", typeCode);
+		
+		//item.type --> 0500 Bibliographische Gattung und Status
+		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		if (article) {
+			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
+		} else {
+			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
+		}
 		
 		//item.type --> 0501 Inhaltstyp
 		writeLine("0501", "Text$btxt");
@@ -134,7 +139,16 @@ function doExport() {
 		
 		//1130 Datenträger
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		writeLine("1130", "druck");
+		switch (physicalForm) {
+			case "A":
+				writeLine("1130", "druck");
+				break;
+			case "O":
+				writeLine("1130", "cofz");
+				break;
+			default:
+				writeLine("1130", "");
+		}
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) {
@@ -156,9 +170,9 @@ function doExport() {
 		
 		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
 		if (item.DOI) {
-			if (typeCode === "Oou") {
+			if (physicalForm === "O") {
 				writeLine("2051", item.DOI);
-			} else if (typeCode === "Aou") {
+			} else if (physicalForm === "A") {
 				writeLine("2053", item.DOI);
 			}
 		}
@@ -235,8 +249,8 @@ function doExport() {
 			writeLine("4070", volumeyearissuepage);
 		}
 		
-		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500 "Oox"
-		if (item.url && typeCode == "Oox") {
+		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
+		if (item.url && physicalForm == "O") {
 			writeLine("4085", item.url + "$xH");
 		}
 		
