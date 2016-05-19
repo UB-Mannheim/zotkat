@@ -117,9 +117,9 @@ function doExport() {
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 		if (article) {
-			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
-		} else {
 			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
+		} else {
+			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
 		}
 		
 		//item.type --> 0501 Inhaltstyp
