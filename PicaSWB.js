@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-01-23 13:10:00"
+	"lastUpdated": "2016-05-12 10:14:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
@@ -41,6 +41,8 @@
 
 var ssgNummer = "1";
 var defaultLanguage = "eng";
+var physicalForm = "A";//0500 Position 1
+var cataloguingStatus = "u";//0500 Position 3
 
 var journalMapping = {
 	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
@@ -80,7 +82,9 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
+		//lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.
+		//var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
 			if (ppn) {
@@ -99,18 +103,23 @@ function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
 
-		//item.type --> 0500 Bibliographische Gattung und Status
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		var article = false;
 		switch (item.itemType) {
 			case "journalArticle":
 			case "bookSection":
 			case "magazineArticle":
 			case "newspaperArticle":
 			case "encyclopediaArticle":
-				writeLine("0500", "Aou");
+				article = true;
 				break;
-			default:
-				writeLine("0500", "Aau");
+		}
+		
+		//item.type --> 0500 Bibliographische Gattung und Status
+		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		if (article) {
+			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
+		} else {
+			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
 		}
 		
 		//item.type --> 0501 Inhaltstyp
@@ -125,15 +134,21 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString() + "$n[1977] \n"); // mit jedem Jahrgang Wert in Spitzklammern "$n []" anpassen.);
+			writeLine("1100", date.year.toString() + "$n" + date.year.toString() + "] \n");
 		}
 		
 		//1130 Datenträger
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		writeLine("1130", "");
-		
-		//1140 Veröffentlichungsart und Inhalt
-		writeLine("1140", "");
+		switch (physicalForm) {
+			case "A":
+				writeLine("1130", "druck");
+				break;
+			case "O":
+				writeLine("1130", "cofz");
+				break;
+			default:
+				writeLine("1130", "");
+		}
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) {
@@ -153,9 +168,13 @@ function doExport() {
 			writeLine("2000", item.ISBN);
 		}
 		
-		//item.DOI --> 2051 oder 2053 ???
+		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
 		if (item.DOI) {
-			writeLine("2051", item.DOI);
+			if (physicalForm === "O") {
+				writeLine("2051", item.DOI);
+			} else if (physicalForm === "A") {
+				writeLine("2053", item.DOI);
+			}
 		}
 		
 		//Autoren --> 3000, 3010
@@ -178,6 +197,10 @@ function doExport() {
 		}
 		if (item.language == "fre" || !item.language) {
 			titleStatement = titleStatement.replace(/^(Le|La|Les|Des|Un|Une) ([^@])/, "$1 @$2");
+			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
+		}
+		if (item.language == "ita" || !item.language) {
+			titleStatement = titleStatement.replace(/^(La|Le|Lo|Gli|I|Il|Un|Una|Uno) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
 		var i = 0, content, creator;
@@ -209,10 +232,12 @@ function doExport() {
 		}
 		
 		//Erscheinungsvermerk --> 4030
-		var publicationStatement = "";
-		if (item.place) { publicationStatement += item.place; }
-		if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
-		writeLine("4030", publicationStatement);
+		if (!article) {
+			var publicationStatement = "";
+			if (item.place) { publicationStatement += item.place; }
+			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
+			writeLine("4030", publicationStatement);
+		}
 		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle") {
@@ -224,20 +249,22 @@ function doExport() {
 			writeLine("4070", volumeyearissuepage);
 		}
 		
-		//URL --> 4085
-		if (item.url) {
+		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
+		if (item.url && physicalForm == "O") {
 			writeLine("4085", item.url + "$xH");
 		}
 		
 		//Reihe --> 4110
-		var seriesStatement = "";
-		if (item.series) {
-			seriesStatement += item.series;
+		if (!article) {
+			var seriesStatement = "";
+			if (item.series) {
+				seriesStatement += item.series;
+			}
+			if (item.seriesNumber) {
+				seriesStatement += " ; " + item.seriesNumber;
+			}
+			writeLine("4110", seriesStatement);
 		}
-		if (item.seriesNumber) {
-			seriesStatement += " ; " + item.seriesNumber;
-		}
-		writeLine("4110", seriesStatement);
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote) {
