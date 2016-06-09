@@ -134,7 +134,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString() + "$n" + date.year.toString() + "] \n");
+			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
 		}
 		
 		//1130 Datenträger
