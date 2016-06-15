@@ -82,7 +82,7 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=19**" //http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
 		//lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.
 		//var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
 		ZU.processDocuments([lookupUrl], function(doc, url){
@@ -107,15 +107,16 @@ function doExport() {
 		switch (item.itemType) {
 			case "journalArticle":
 			case "bookSection":
-			case "magazineArticle":
+			case "magazineArticle": // wird bei der Erfassung von Rezensionen verwendet. Eintragsart "Magazin-Artikel" wird manuell geändert.
 			case "newspaperArticle":
 			case "encyclopediaArticle":
 				article = true;
 				break;
 		}
-		
+
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+				
 		if (article) {
 			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
 		} else {
@@ -134,7 +135,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
+		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
 		}
 		
 		//1130 Datenträger
@@ -149,6 +150,17 @@ function doExport() {
 			default:
 				writeLine("1130", "");
 		}
+		
+		//1131 Art des Inhalts
+		if (item.itemType == "magazineArticle") {
+				writeLine("1131", "!209083166!");
+			}
+		
+		// 1140 Veröffentlichungsart und Inhalt http://swbtools.bsz-bw.de/winibwhelp/Liste_1140.htm
+		if (item.itemType == "magazineArticle") {
+				writeLine("1140", "uwre");
+			}
+	
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) {
@@ -176,7 +188,7 @@ function doExport() {
 				writeLine("2053", item.DOI);
 			}
 		}
-		
+				
 		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
 		var titleStatement = "";
@@ -238,14 +250,24 @@ function doExport() {
 			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
 			writeLine("4030", publicationStatement);
 		}
-		
-		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
+			//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl|case:magazineArticle 
 		if (item.itemType == "journalArticle") {
 			var volumeyearissuepage = "";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+			
+			writeLine("4070", volumeyearissuepage);
+		}
+		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
+		if (item.itemType == "magazineArticle") {
+			var volumeyearissuepage = "";
+			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
+			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
+			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
+			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+			
 			writeLine("4070", volumeyearissuepage);
 		}
 		
@@ -270,6 +292,22 @@ function doExport() {
 		if (item.abstractNote) {
 			writeLine("4207", item.abstractNote);
 		}
+		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit|case:magazineArticle 
+		if (item.itemType == "magazineArticle") {
+			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
+				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
+			} else if (item.publicationTitle) {
+				writeLine("4241", "Enthalten in"  + item.publicationTitle);
+			}
+		}
+		// 4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
+		if (item.itemType == "magazineArticle") {
+				writeLine("4261", "Rezension von!!");
+			}
+		// SSG-Nummer --> 5056|case:magazineArticle
+		if (item.itemType == "magazineArticle") {
+				writeLine("5056", ssgNummer);
+			}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle") {
@@ -278,14 +316,17 @@ function doExport() {
 			} else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in"  + item.publicationTitle);
 			}
-			//SSG-Nummer --> 5056
-			if (ssgNummer) {
+				
+		//SSG-Nummer --> 5056
+		if (ssgNummer) {
 				writeLine("5056", ssgNummer);
 			}
-			
+		
+		
+		
 			// 0999 verify outputText ppn in OGND
-			var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
-			var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
+			var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
+			var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" + creator.lastName;
 			if (item.creators) {
 				 ppnVerify1 += item.creators;
 			}
