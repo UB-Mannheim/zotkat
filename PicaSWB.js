@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-05-12 10:14:00"
+	"lastUpdated": "2016-08-04 14:50:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
