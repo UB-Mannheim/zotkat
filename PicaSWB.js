@@ -428,8 +428,8 @@ function doExport() {
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			var volumeyearissuepage = "";
 			if (item.volume && item.ISSN == "2031-5929") { volumeyearissuepage += "$vN.S." + item.volume; } // Schreibweise einer Bandzählung abhängig von jeweiliger Zss.-Aufanhme in WinIBW
-			if (item.volume && item.ISSN == "2031-5922") { volumeyearissuepage += "$vA.S." + item.volume; } // eventuell eine separate Mappingtabelle sinnvoll
-				else if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
+			else if (item.volume && item.ISSN == "2031-5922") { volumeyearissuepage += "$vA.S." + item.volume; } // eventuell eine separate Mappingtabelle sinnvoll
+			else if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue.replace("-", "/"); }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
