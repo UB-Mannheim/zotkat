@@ -1,6 +1,6 @@
 {
-	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07ixtheo",
-	"label": "PicaSWB_ixzo",
+	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
+	"label": "PicaSWB",
 	"creator": "Philipp Zumstein, Timotheus Kim",
 	"target": "txt",
 	"minVersion": "3.0",
@@ -9,9 +9,8 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-04-08 13:10:00"
+	"lastUpdated": "2016-05-12 10:14:00"
 }
-/* jshint ignore:end */
 
 // Zotero Export Translator für das Pica Intern Format
 // (wie es im SWB Verbund benutzt wird)
@@ -34,7 +33,13 @@
 	***** END LICENSE BLOCK *****
 */
 
+var ssgNummer = "1";
+var defaultLanguage = "eng";
+var physicalForm = "A";//0500 Position 1
+var cataloguingStatus = "u";//0500 Position 3
+
 var journalMapping = {
+	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
 	"0591-2385" : "!01515663X!", // Zygon 
     "0891-5881" : "!023125381!", // Dialogue and alliance
 	"0884-5379" : "!341092975!",  // fides et historia
@@ -43,16 +48,16 @@ var journalMapping = {
 	"0031-0328" : "!014896486!", //Palestine exploration quarterly 
 	"0037-7686" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"1461-7404" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5294" : "!01521124X!" ,//Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"0142-064X" : "!01521124X!" ,//Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1476-6728" : "!016069390!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"0309-0892" : "!016069390!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
+	"1745-5294" : "!01521124X!" ,//Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0142-064X" : "!01521124X!" ,//Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"1476-6728" : "!016069390!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0309-0892" : "!016069390!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0771-7776" : "!01496841X!", // Sacris erudiri  
 	"2284-7308" : "!281073546!", // Perichoresis  
 	"1745-5189" : "!033051313!", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"0966-7350" : "!033051313!", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5286" : "!018245471!", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"0951-8207" : "!018245471!", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
+	"1745-5286" : "!018245471!", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0951-8207" : "!018245471!", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"1357-4175" : "!061284815!", // Reformation  
 	"1752-0738" : "!061284815!", // Reformation  
 	"1462-317X" : "!098784013!", // Political theology   
@@ -81,11 +86,10 @@ var journalMapping = {
 	"0888-3769" : "!311098312!", // Religion and literature
 	"0040-5639" : "!01518501X!", // Theological studies
 	"2169-1304" : "!266225179!", // Theological studies
-	"0943-7592" : "!040100804!", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
+	"0943-7592" : "!040100804!", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere //Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
 	"1612-9776" : "!040100804!", // Journal for the History of Modern Theology 
 	"1612-9776" : "!040100804!", // Zeitschrift für Neuere Theologiegeschichte
 	"0943-7592" : "!040100804!", // Zeitschrift für Neuere Theologiegeschichte
-
 	"0031-0328" : "!014896486!", // Palestine exploration quarterly
 	"1743-1301" : "!014896486!", // Palestine exploration quarterly
     "1743-1301" : "!112775594!", // Palestine exploration quarterly
@@ -157,14 +161,64 @@ var journalMapping = {
 	"0092-4245" : "!015192091!", // Wesleyan theological journal
 	"0006-2014" : "!014828995!", // Biblische Zeitschrift
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature
-	"1469-8145" : "!01489324X!",	// New Testament studies
-	
+	"1469-8145" : "!01489324X!", // New Testament studies
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature
 	"1469-8145" : "!01489324X!", // New Testament studies
 	"0048-1009" : "!014862662!", // Novum Testamentum
+	"0040-571X" : "!01518594X!", // Theology
+	"2044-2696" : "!01518594X!", // Theology
+	"0040-5736" : "!015186830!", // Theology today
+	"2044-2556" : "!015186830!", // Theology today
+	"2304-4896" : "!018091229!", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
+	"0323-4142" : "!018091229!", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
+	"0486-5642" : "!015195538!", // Restoration quarterly
+	"0360-3032" : "!015206114!", // Trinity journal
+    "0340-6083" : "!01450135X!", // Göttinger Predigtmeditationen
+	"0720-6259" : "!014553880!", // Pastoraltheologie
+	"0031-2827" : "!014553880!", // Pastoraltheologie
+    "0174-9927" : "!014553880!", // Pastoraltheologie
+	"1065-6219" : "!054391385!", // Journal of research on Christian education
+	"1934-4945" : "!054391385!", // Journal of research on Christian education
+	"0926-6453" : "!032853262!", // Studies in spirituality
+	"1783-1814" : "!032853262!", // Studies in spirituality
+	"1745-5251" : "!032869959!", // Journal of pentecostal theology
+	"0966-7369" : "!032869959!", // Journal of pentecostal theology
+	"0043-4388" : "!015196739!", // Westminster Theological Seminary  
+	"0043-4388" : "!015196739!", // Westminster Theological Seminary   
+	"0033-5053" : "!015189589!", // Quaker history
+	"1934-1504" : "!015189589!", // Quaker history
+	"0809-7291" : "!121600203!", // Nordic journal of religion and society 
+	"0802-0167" : "!121600203!", // Nordic journal of religion and society
+	"1890-7008" : "!121600203!", // Nordic journal of religion and society 
+	"1069-4404" : "!034203478!", // Sociology of religion
+	"1759-8818" : "!034203478!", // Sociology of religion
+	"0141-6200" : "!015208621!", // British journal of religious education
+	"2169-2327" : "!381569306!", // International journal of philosophy and theology
+	"0890-2461" : "!016231562!", // Philosophy & theology
+	"1476-993X" : "!104194820!", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
+	"1745-5200" : "!104194820!", // Currents in biblical research 
+	"0012-5806" : "!015178323!", // The Downside review  !! Druckausgabe ausgewertet bis 133. 2015, 470
+	"2052-9449" : "!015182932!", // Review & expositor   !! Druckausgabe ausgewertet bis 112. 2015, 4
+	"1568-5152" : "!033052395!", // Biblical interpretation
+	"1370-6020" : "!054531918!", // INTAMS review      !!  siehe weiterer Eintrag oben  -  Abspeicherung mit Zauberstaub!
+	"1783-2446" : "!038505428!", // Journal of the European Society of Women in Theological Research   -   Abspeicherung mit Zauberstaub!  Aufsätze an Stücktitel!
+	"1026-2946" : "!077662814!", // Africa Journal of Evangelical Theology
+	"0029-5973" : "!014497301!", // Numen PISSN
+	"1568-5276" : "!014497301!", // Numen EISSN
+	"1079-9265" : "!056622538!", // Religion and the arts
+	"2033-4273" : "!379731398!", // ET-Studies Online Publikation 
+	"2032-5215"	: "!379731398!", // ET-Studies Online Publikation
+	"1783-1431" : "!040105555!", // Ethical Perspectives
+	"0266-7177" : "!015394956!", // Modern theology Print-PPN  PISSN
+	"1468-0025" : "!015394956!", // Modern theology Print-PPN  EISSN
+	"0809-7291" : "!121600203!", // Northern journal of religion and society
+	"0009-661X" : "!015191273!", // Churchman
+	"1126-6244" : "!094423636!", // Adamantius.
+	"1010-9919" : "!015906299!", // old testament essays
+	
 };
 var nachnameMapping = {
-	"Hemingway" : "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
+	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
 };
 var nameMapping = {
 	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
@@ -172,11 +226,13 @@ var nameMapping = {
 //Sprachcodes nach ISO 639-2
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 var languageMapping = {
-	"en" : "eng",
-	"de" : "ger",
-	"fr" : "fre"
+	"1010-9919" : "ger",
+	"1010-9911" : "eng",
+	"1010-9913" : "fre"
 };
-
+var volumeMapping = {
+	"2031-5929" : "$vN.S.",
+};
 // Da alles asynchron ablaufen kann:
 //Jede Lookup einer AutorIn zählt 1 zu count
 //und nach Erledigung wieder 1 weg. Der
@@ -198,7 +254,10 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=" 
+		//lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.
+		//var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
+		
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
 			if (ppn) {
@@ -217,18 +276,24 @@ function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
 
-		//item.type --> 0500 Bibliographische Gattung und Status
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		var article = false;
 		switch (item.itemType) {
 			case "journalArticle":
 			case "bookSection":
-			case "magazineArticle":
+			case "magazineArticle": // wird bei der Erfassung von Rezensionen verwendet. Eintragsart "Magazin-Artikel" wird manuell geändert.
 			case "newspaperArticle":
 			case "encyclopediaArticle":
-				writeLine("0500", "Aou");
+				article = true;
 				break;
-			default:
-				writeLine("0500", "Aau");
+		}
+
+		//item.type --> 0500 Bibliographische Gattung und Status
+		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+				
+		if (article) {
+			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
+		} else {
+			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
 		}
 		
 		//item.type --> 0501 Inhaltstyp
@@ -243,25 +308,42 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]" ); // Erscheinungsjahr und Berichtsjahr identisch
+		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
 		}
 		
 		//1130 Datenträger
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		writeLine("1130", "");
+		switch (physicalForm) {
+			case "A":
+				writeLine("1130", "druck");
+				break;
+			case "O":
+				writeLine("1130", "cofz");
+				break;
+			default:
+				writeLine("1130", "");
+		}
 		
-		//1140 Veröffentlichungsart und Inhalt
-		writeLine("1140", "");
+		//1131 Art des Inhalts
+		if (item.itemType == "magazineArticle") {
+				writeLine("1131", "!209083166!");
+			}
+		
+		// 1140 Veröffentlichungsart und Inhalt http://swbtools.bsz-bw.de/winibwhelp/Liste_1140.htm
+		if (item.itemType == "magazineArticle") {
+				writeLine("1140", "uwre");
+			}
+	
 		
 		//item.language --> 1500 Sprachcodes
-		if (item.language) {
-			if (languageMapping[(item.language)]) {
-				item.language = languageMapping[item.language];
+		if (item.ISSN) {
+			if (languageMapping[(item.ISSN)]) {
+				item.ISSN = languageMapping[item.ISSN];
 			}
-			writeLine("1500", item.language);
+			writeLine("1500", item.ISSN);
 		} else {
-					writeLine("1500", "eng"); // default-wert ausgeben, wenn item.language nicht von zotero belegt ist
-				}
+			writeLine("1500", defaultLanguage);
+		}
 		
 		//1505 Katalogisierungsquelle
 		writeLine("1505", "$erda");
@@ -271,11 +353,15 @@ function doExport() {
 			writeLine("2000", item.ISBN);
 		}
 		
-		//item.DOI --> 2051 oder 2053 ???
+		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
 		if (item.DOI) {
-			writeLine("2051", item.DOI);
+			if (physicalForm === "O") {
+				writeLine("2051", item.DOI);
+			} else if (physicalForm === "A") {
+				writeLine("2053", item.DOI);
+			}
 		}
-		
+				
 		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
 		var titleStatement = "";
@@ -302,11 +388,11 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^(La|Le|Lo|Gli|I|Il|Un|Una|Uno) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
-		var i = 0;
+		
+		var i = 0, content, creator;
 		while (item.creators.length>0) {
-			var creator = item.creators.shift();
+			creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				var content;
 				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
 					content = nameMapping[creator.lastName + ", " + creator.firstName];
 				} else if (nachnameMapping[creator.lastName]) {
@@ -322,11 +408,9 @@ function doExport() {
 				}
 				i++;
 			}
-			//TODO: editors, other contributors...
+		//TODO: editors, other contributors...
 		}
 		writeLine("4000", titleStatement);
-		
-		
 		
 		//Ausgabe --> 4020
 		if (item.edition) {
@@ -334,61 +418,77 @@ function doExport() {
 		}
 		
 		//Erscheinungsvermerk --> 4030
-		var publicationStatement = "";
-		if (item.place) { publicationStatement += item.place; }
-		if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
-		writeLine("4030", publicationStatement);
-		
+		if (!article) {
+			var publicationStatement = "";
+			if (item.place) { publicationStatement += item.place; }
+			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
+			writeLine("4030", publicationStatement);
+		}
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
-		if (item.itemType == "journalArticle") {
+		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			var volumeyearissuepage = "";
-			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
+			if (item.volume && item.ISSN == "2031-5929") { volumeyearissuepage += "$vN.S." + item.volume; } // Schreibweise einer Bandzählung abhängig von jeweiliger Zss.-Aufanhme in WinIBW
+			if (item.volume && item.ISSN == "2031-5922") { volumeyearissuepage += "$vA.S." + item.volume; } // eventuell eine separate Mappingtabelle sinnvoll
+				else if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
-			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
+			if (item.issue) { volumeyearissuepage += "$h" + item.issue.replace("-", "/"); }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+			
 			writeLine("4070", volumeyearissuepage);
 		}
-		
-		//URL --> 4085
-		if (item.url) {
+				
+		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
+		if (item.url && physicalForm == "O") {
 			writeLine("4085", item.url + "$xH");
 		}
 		
-		
-		
 		//Reihe --> 4110
-		var seriesStatement = "";
-		if (item.series) {
-			seriesStatement += item.series;
+		if (!article) {
+			var seriesStatement = "";
+			if (item.series) {
+				seriesStatement += item.series;
+			}
+			if (item.seriesNumber) {
+				seriesStatement += " ; " + item.seriesNumber;
+			}
+			writeLine("4110", seriesStatement);
 		}
-		if (item.seriesNumber) {
-			seriesStatement += " ; " + item.seriesNumber;
-		}
-		writeLine("4110", seriesStatement);
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote) {
-			writeLine("4207", item.abstractNote);
+			writeLine("4207", item.abstractNote.replace(/'/g, '\"').replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "")); 
 		}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
-		if (item.itemType == "journalArticle") {
+		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
 				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
 			} else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in"  + item.publicationTitle);
 			}
+		
+		//4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
+		if (item.itemType == "magazineArticle") {
+				writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
+			}
+				
 		//SSG-Nummer --> 5056
-		writeLine("5056 1", "");
+		if (ssgNummer) {
+				writeLine("5056", ssgNummer);
+			}
+		
+		
 		
 		// 0999 verify outputText ppn in OGND
-		 var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
-		 var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
-		 if (item.creators) {
-			 ppnVerify1 += item.creators;
-			 		 }
-		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
+		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
+		
+		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" ;
+						
+		if (item.creators) {
+			ppnVerify1 += item.creators;
+			}
+			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
+			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 		}
 		outputText += "\n";
 	}
