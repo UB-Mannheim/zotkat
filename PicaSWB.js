@@ -82,9 +82,9 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=19**"; 
-		//lookupUrl kann je nach Anforderung noch spezifiziert werden
-		
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
+		//lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.
+		//var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
 			if (ppn) {
@@ -113,10 +113,9 @@ function doExport() {
 				article = true;
 				break;
 		}
-
+		
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
-				
 		if (article) {
 			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
 		} else {
@@ -135,7 +134,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
+			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
 		}
 		
 		//1130 Datenträger
@@ -153,14 +152,13 @@ function doExport() {
 		
 		//1131 Art des Inhalts
 		if (item.itemType == "magazineArticle") {
-				writeLine("1131", "!209083166!");
-			}
+			writeLine("1131", "!209083166!");
+		}
 		
 		// 1140 Veröffentlichungsart und Inhalt http://swbtools.bsz-bw.de/winibwhelp/Liste_1140.htm
 		if (item.itemType == "magazineArticle") {
-				writeLine("1140", "uwre");
-			}
-	
+			writeLine("1140", "uwre");
+		}
 		
 		//item.language --> 1500 Sprachcodes
 		if (item.language) {
@@ -188,7 +186,7 @@ function doExport() {
 				writeLine("2053", item.DOI);
 			}
 		}
-				
+		
 		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
 		var titleStatement = "";
@@ -235,7 +233,7 @@ function doExport() {
 				}
 				i++;
 			}
-		//TODO: editors, other contributors...
+			//TODO: editors, other contributors...
 		}
 		writeLine("4000", titleStatement);
 		
@@ -251,6 +249,7 @@ function doExport() {
 			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
 			writeLine("4030", publicationStatement);
 		}
+		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			var volumeyearissuepage = "";
@@ -261,7 +260,7 @@ function doExport() {
 			
 			writeLine("4070", volumeyearissuepage);
 		}
-				
+		
 		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
 		if (item.url && physicalForm == "O") {
 			writeLine("4085", item.url + "$xH");
@@ -291,32 +290,29 @@ function doExport() {
 			} else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in"  + item.publicationTitle);
 			}
+		}
 		
 		//4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
 		if (item.itemType == "magazineArticle") {
-				writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
-			}
-				
+			writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
+		}
+		
 		//SSG-Nummer --> 5056
 		if (ssgNummer) {
-				writeLine("5056", ssgNummer);
-			}
-		
-		
+			writeLine("5056", ssgNummer);
+		}
 		
 		// 0999 verify outputText ppn in OGND
-		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
-		
-		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" + creator.lastName;
-			
+		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
+		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
 		if (item.creators) {
-			ppnVerify1 += item.creators;
-			}
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
+			 ppnVerify1 += item.creators;
 		}
-		outputText += "\n";
+		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
+		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 	}
+	outputText += "\n";
+	
 	count--;
 	if (count === 0) {
 		Zotero.write(outputText);
