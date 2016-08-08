@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-05-12 10:14:00"
+	"lastUpdated": "2016-08-08 22:18:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
@@ -60,6 +60,15 @@ var languageMapping = {
 	"de" : "ger",
 	"fr" : "fre"
 };
+var issnLangMapping = {
+	"1010-9919" : "ger",
+	"1010-9911" : "eng",
+	"1010-9913" : "fre"
+};
+var issnVolumeMapping = {
+	"2031-5929" : "N.S.",
+	"2031-5922" : "A.S."
+ };
 
 // Da alles asynchron ablaufen kann:
 //Jede Lookup einer AutorIn zählt 1 zu count
@@ -102,6 +111,18 @@ function writeLine(code, line) {
 function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
+		
+		//enrich items based on their ISSN
+		if (!item.language && item.ISSN && issnLangMapping[item.ISSN]) {
+			item.language = issnLangMapping[item.ISSN];
+		}
+		if (item.ISSN && issnVolumeMapping[item.ISSN]) {
+			if (item.volume) {
+				item.volume = issnVolumeMapping + item.volume;
+			} else {
+				item.volume = issnVolumeMapping;
+			}
+		}
 
 		var article = false;
 		switch (item.itemType) {
