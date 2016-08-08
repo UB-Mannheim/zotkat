@@ -107,7 +107,7 @@ function doExport() {
 		switch (item.itemType) {
 			case "journalArticle":
 			case "bookSection":
-			case "magazineArticle":
+			case "magazineArticle": // wird bei der Erfassung von Rezensionen verwendet. Eintragsart "Magazin-Artikel" wird manuell geändert.
 			case "newspaperArticle":
 			case "encyclopediaArticle":
 				article = true;
@@ -148,6 +148,16 @@ function doExport() {
 				break;
 			default:
 				writeLine("1130", "");
+		}
+		
+		//1131 Art des Inhalts
+		if (item.itemType == "magazineArticle") {
+			writeLine("1131", "!209083166!");
+		}
+		
+		// 1140 Veröffentlichungsart und Inhalt http://swbtools.bsz-bw.de/winibwhelp/Liste_1140.htm
+		if (item.itemType == "magazineArticle") {
+			writeLine("1140", "uwre");
 		}
 		
 		//item.language --> 1500 Sprachcodes
@@ -203,6 +213,7 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^(La|Le|Lo|Gli|I|Il|Un|Una|Uno) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
+		
 		var i = 0, content, creator;
 		while (item.creators.length>0) {
 			creator = item.creators.shift();
@@ -240,12 +251,13 @@ function doExport() {
 		}
 		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
-		if (item.itemType == "journalArticle") {
+		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			var volumeyearissuepage = "";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+			
 			writeLine("4070", volumeyearissuepage);
 		}
 		
@@ -272,28 +284,35 @@ function doExport() {
 		}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
-		if (item.itemType == "journalArticle") {
+		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
 				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
 			} else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in"  + item.publicationTitle);
 			}
-			//SSG-Nummer --> 5056
-			if (ssgNummer) {
-				writeLine("5056", ssgNummer);
-			}
-			
-			// 0999 verify outputText ppn in OGND
-			var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
-			var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
-			if (item.creators) {
-				 ppnVerify1 += item.creators;
-			}
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 		}
-		outputText += "\n";
+		
+		//4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
+		if (item.itemType == "magazineArticle") {
+			writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
+		}
+		
+		//SSG-Nummer --> 5056
+		if (ssgNummer) {
+			writeLine("5056", ssgNummer);
+		}
+		
+		// 0999 verify outputText ppn in OGND
+		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
+		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
+		if (item.creators) {
+			 ppnVerify1 += item.creators;
+		}
+		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
+		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 	}
+	outputText += "\n";
+	
 	count--;
 	if (count === 0) {
 		Zotero.write(outputText);
