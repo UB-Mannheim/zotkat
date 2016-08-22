@@ -116,12 +116,8 @@ function doExport() {
 		if (!item.language && item.ISSN && issnLangMapping[item.ISSN]) {
 			item.language = issnLangMapping[item.ISSN];
 		}
-		if (item.ISSN && issnVolumeMapping[item.ISSN]) {
-			if (item.volume) {
-				item.volume = issnVolumeMapping + item.volume;
-			} else {
-				item.volume = issnVolumeMapping;
-			}
+		if (item.volume && item.ISSN && issnVolumeMapping[item.ISSN]) {
+			item.volume = issnVolumeMapping[item.ISSN] + item.volume;
 		}
 
 		var article = false;
