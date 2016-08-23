@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-08-04 14:50:00"
+	"lastUpdated": "2016-08-23 12:33:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
@@ -215,7 +215,7 @@ var journalMapping = {
 	"0009-661X" : "!015191273!", // Churchman
 	"1126-6244" : "!094423636!", // Adamantius.
 	"1010-9919" : "!015906299!", // old testament essays
-	
+	"0935-7335, 1437-1618" : "!018614302!", // Ethik in der Medizin 
 };
 var nachnameMapping = {
 	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
@@ -226,12 +226,20 @@ var nameMapping = {
 //Sprachcodes nach ISO 639-2
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 var languageMapping = {
-	"1010-9919" : "ger",
-	"1010-9911" : "eng",
-	"1010-9913" : "fre"
+	"en" : "eng",
+	"de" : "ger",
+	"fr" : "fre"
 };
-var volumeMapping = {
-	"2031-5929" : "$vN.S.",
+var issnLangMapping = {
+	"1010-9919" : "ger",
+	"2031-5929" : "eng",
+	"1010-9913" : "fre",
+	
+};
+var issnVolumeMapping = {
+	"2031-5929" : "N.S.",
+	"2031-5922" : "A.S.",
+	
 };
 // Da alles asynchron ablaufen kann:
 //Jede Lookup einer AutorIn zählt 1 zu count
@@ -275,7 +283,15 @@ function writeLine(code, line) {
 function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
-
+		
+		//enrich items based on their ISSN
+		if (!item.language && item.ISSN && issnLangMapping[item.ISSN]) {
+			item.language = issnLangMapping[item.ISSN];
+		}
+		if (item.volume && item.ISSN && issnVolumeMapping[item.ISSN]) {
+			item.volume = issnVolumeMapping[item.ISSN] + item.volume;
+		}
+		
 		var article = false;
 		switch (item.itemType) {
 			case "journalArticle":
@@ -336,11 +352,11 @@ function doExport() {
 	
 		
 		//item.language --> 1500 Sprachcodes
-		if (item.ISSN) {
-			if (languageMapping[(item.ISSN)]) {
-				item.ISSN = languageMapping[item.ISSN];
+		if (item.language) {
+			if (languageMapping[(item.language)]) {
+				item.language = languageMapping[item.language];
 			}
-			writeLine("1500", item.ISSN);
+			writeLine("1500", item.language);
 		} else {
 			writeLine("1500", defaultLanguage);
 		}
@@ -431,7 +447,7 @@ function doExport() {
 			else if (item.volume && item.ISSN == "2031-5922") { volumeyearissuepage += "$vA.S." + item.volume; } // eventuell eine separate Mappingtabelle sinnvoll
 			else if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
-			if (item.issue) { volumeyearissuepage += "$h" + item.issue.replace("-", "/"); }
+			if (item.issue) { volumeyearissuepage += "$h" + item.issue.replace("-", "/").replace(/^0/, ""); }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
 			
 			writeLine("4070", volumeyearissuepage);
