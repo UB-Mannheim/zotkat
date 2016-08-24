@@ -316,13 +316,7 @@ function doExport() {
 		
 		//tags --> 5520
 		if (item.tags.length > 0) {
-			var tagStatement = "|s|";
-			for (var j=0; j<item.tags.length; j++) {
-				tagStatement += item[j].tag;
-				if (j<item.tags.length-1) {
-					tagStatement += ", ";
-				}
-			}
+			var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join(', ');
 			writeLine("5520", tagStatement);
 		}
 		
