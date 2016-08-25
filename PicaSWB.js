@@ -316,7 +316,7 @@ function doExport() {
 		
 		//tags --> 5520
 		if (item.tags.length > 0) {
-			var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join(', ');
+			var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join('; ');
 			writeLine("5520", tagStatement);
 		}
 		
