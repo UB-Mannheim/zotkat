@@ -314,6 +314,12 @@ function doExport() {
 			writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
 		}
 		
+		//tags --> 5520
+		if (item.tags.length > 0) {
+			var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join('; ');
+			writeLine("5520", tagStatement);
+		}
+		
 		//SSG-Nummer --> 5056
 		if (ssgNummer) {
 			writeLine("5056", ssgNummer);
