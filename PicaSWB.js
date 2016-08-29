@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-08-08 22:18:00"
+	"lastUpdated": "2016-08-29 19:13:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
@@ -315,9 +315,8 @@ function doExport() {
 		}
 		
 		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
-		for (var i=0; i<item.tags.length; i++) {
-				var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join('; ').split('; ', 1);
-					writeLine("5520", "|s|" + item.tags[i].tag.replace(/ --/g, ';'));	
+		for (i=0; i<item.tags.length; i++) {
+			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, ';'));
 		}
 		
 		//SSG-Nummer --> 5056
