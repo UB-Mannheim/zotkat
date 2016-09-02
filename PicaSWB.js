@@ -9,8 +9,9 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-09-02 11:37:00"
+	"lastUpdated": "2016-09-02 15:13:00"
 }
+
 
 // Zotero Export Translator für das Pica Intern Format
 // (wie es im SWB Verbund benutzt wird)
@@ -32,12 +33,6 @@
 	along with Zotero. If not, see <http://www.gnu.org/licenses/>.
 	***** END LICENSE BLOCK *****
 */
-
-var ssgNummer = "1";
-var defaultLanguage = "eng";
-var physicalForm = "A";//0500 Position 1
-var cataloguingStatus = "u";//0500 Position 3
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
 	"0591-2385" : "!01515663X!", // Zygon 
@@ -378,13 +373,28 @@ var issnLangMapping = {
 	"1550-0195" : "eng",
 	
 };
-
 var issnVolumeMapping = {
 	"2031-5929" : "N.S.",
 	"2031-5922" : "A.S.",
-	
-	
 };
+var issnPhysicalFormMapping = {
+	"1550-0195" : "O",
+	"2031-5929" : "A",
+};
+var issnLicenceFieldMapping = {
+	"1550-0195" : "l",
+	"2031-5929" : "l",
+};
+
+
+var ssgNummer = "1";
+var defaultLanguage = "eng";
+
+//item.type --> 0500 Bibliographische Gattung und Status
+//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
+var cataloguingStatus = "u";//0500 Position 3
+var licenceField= issnLicenceFieldMapping; // 0500 Position 4 only for Open Access Items; http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=SWB
 
 // Da alles asynchron ablaufen kann:
 //Jede Lookup einer AutorIn zählt 1 zu count
@@ -436,6 +446,12 @@ function doExport() {
 		if (item.volume && item.ISSN && issnVolumeMapping[item.ISSN]) {
 			item.volume = issnVolumeMapping[item.ISSN] + item.volume;
 		}
+		if (physicalForm && item.ISSN && issnPhysicalFormMapping[item.ISSN]) {
+			physicalForm = issnPhysicalFormMapping[item.ISSN]; // position 1 http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		}
+		if (licenceField && item.ISSN && issnLicenceFieldMapping[item.ISSN]) {
+			licenceField = issnLicenceFieldMapping[item.ISSN]; // position 4 http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		}
 		
 		var article = false;
 		switch (item.itemType) {
@@ -452,9 +468,9 @@ function doExport() {
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 				
 		if (article) {
-			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
+			writeLine("0500", physicalForm+"o"+cataloguingStatus+licenceField);//z.B. Aou, Oox, Ooul
 		} else {
-			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
+			writeLine("0500"); // wenn kein Mapping, dann manuelle Eingabe
 		}
 		
 		//item.type --> 0501 Inhaltstyp
@@ -474,8 +490,9 @@ function doExport() {
 		
 		//1130 Datenträger
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		switch (physicalForm) {
-			case "A":
+		
+			switch (physicalForm) {
+				case "A":
 				writeLine("1130", "druck");
 				break;
 			case "O":
@@ -585,19 +602,19 @@ function doExport() {
 			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
 			writeLine("4030", publicationStatement);
 		}
+		
+		
 		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			var volumeyearissuepage = "";
-			if (item.volume && item.ISSN == "2031-5929") { volumeyearissuepage += "$vN.S." + item.volume; } // Schreibweise einer Bandzählung abhängig von jeweiliger Zss.-Aufanhme in WinIBW
-			else if (item.volume && item.ISSN == "2031-5922") { volumeyearissuepage += "$vA.S." + item.volume; } // eventuell eine separate Mappingtabelle sinnvoll
-			else if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
+			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue.replace("-", "/").replace(/^0/, ""); }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
 			
 			writeLine("4070", volumeyearissuepage);
-		}
-				
+}
+		
 		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
 		if (item.url && physicalForm == "O") {
 			writeLine("4085", item.url + "$xH");
@@ -644,13 +661,11 @@ function doExport() {
 			}	
 		
 		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
-		for (var i=0; i<item.tags.length; i++) {
-				var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join('; ').split('; ', 1);
-					writeLine("5520", "|s|" + item.tags[i].tag.replace(/ --/g, ';'));	
+		for (i=0; i<item.tags.length; i++) {
++			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, ';'));	
 		}
 		
-
-		
+	
 		// 0999 verify outputText ppn in OGND
 		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
 		
