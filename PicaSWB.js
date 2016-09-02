@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-08-23 12:33:00"
+	"lastUpdated": "2016-09-02 11:37:00"
 }
 
 // Zotero Export Translator für das Pica Intern Format
@@ -215,7 +215,83 @@ var journalMapping = {
 	"0009-661X" : "!015191273!", // Churchman
 	"1126-6244" : "!094423636!", // Adamantius.
 	"1010-9919" : "!015906299!", // old testament essays
-	"0935-7335, 1437-1618" : "!018614302!", // Ethik in der Medizin 
+	"0935-7335" : "!018614302!", // Ethik in der Medizin 
+	"1437-1618" : "!018614302!", // Ethik in der Medizin
+	"1209-9392" : "!281190321!", // Women in Judaism
+	"0305-7240" : "!014784963!", // Journal of moral education !!pppn
+	"1465-3877" : "!079598684!", // Journal of moral education !!eppn
+	"0167-4544" : "!018279333!", // Journal of business ethics !!pppn
+	"1573-0697" : "!121465284!", // Journal of business ethics !!eppn
+	"0269-9702" : "!015926192!", // Bioethics !!pppn
+	"1467-8519" : "!078707986!", // Bioethics !!eppn
+	"1467-8608" : "!078708001!", // Business ethics !!eppn
+	"0962-8770" : "!049951394!", // Business ethics !!pppn
+	"1468-2303" : "!07870815X!", // History and theory !!eppn
+	"0018-2656" : "!014406314!", // History and thoery !!pppn
+	"1092-1311" : "!281190658!", // The journal of religion and film
+	"1086-3222" : "!09444921X!", // Journal of the history of ideas !!eppn
+	"0022-5037" : "!014411148!", // Journal of the history of ideas !!pppn
+	"1086-3184" : "!266224059!", // Journal of early Christian studies !!eppn
+	"1067-6341" : "!034202323!", // Journal of early Christian studies !!pppn
+	"1469-5103" : "!078589886!", // The historical journal !!eppn
+	"0018-246X" : "!014411091!", // The historical journal !!pppn
+	"1469-2147" : "!081985010!", // Cambridge quarterly of healthcare ethics !!eppn
+	"0963-1801" : "!034192417!", // Cambridge quarterly of healthcare ethics !!pppn
+	"1380-3603" : "!046711317!", // Christian bioethics !!pppn
+	"1744-4195" : "!094085587!", // Christian bioethics !!eppn
+	"0569-9789" : "!015211657!", // Analecta calasanctiana
+	"0210-0460" : "!015036707!", // Anales valentinos
+	"2444-684X" : "!015036707!", // Anales valentinos, Escritos del Vedat
+	"0716-1662" : "!016060334!", // Anuario de historia de la Iglesia en Chile
+	"0211-5255" : "!015231356!", // Archivo Dominicano
+	"0211-2035" : "!015229572!", // Archivo agustiniano
+	"0004-0452" : "!015149064!", // Archivo ibero-americano
+	"0004-4970" : "!015190226!", // Asprenas
+	"1594-3445" : "!026329999!", // Barnabiti studi
+	"0006-0585" : "!015188272!", // Bibbia e oriente
+	"0521-8195" : "!014959801!", // Burgense
+	"0008-6673" : "!014525666!", // Carmelus
+	"0094-2065" : "!015196542!", // Communio
+	"0573-2018" : "!018207030!", // Compostellanum
+	"0145-7233" : "!015208451!", // Concordia journal !!pppn
+	"0145-7233" : "!325341397!", // Concordia journal !!eppn
+	"0210-3133" : "!016056574!", // Escritos del vedat
+	"0425-340X" : "!015193012!", // Estudio agustiniano
+	"0210-0525" : "!015186695!", // Estudios
+	"0210-4393" : "!01517879X!", // Estudios franciscanos
+	"0071-2086" : "!015178803!", // Études grégoriennes
+	"0883-0053" : "!016231430!", // Ex auditu !!pppn
+	"0883-0053" : "!32534129X!", // Ex auditu !!eppn
+	"0019-4530" : "!015184552!", // Indian church history review
+	"1071-8257" : "!065483030!", // Josephinum journal of theology
+	"2244-5161" : "!01544242X!", // Landas
+	"0211-4011" : "!016231635!", // Liceo franciscano
+	"0024-5895" : "!015193322!", // Logos
+	"0456-8494" : "!016231759!", // Lumen
+	"0544-9073" : "!015178714!", // Monte Carmelo
+	"0470-3790" : "!015189813!", // Naturaleza y gracia
+	"1451-3455" : "!111315980!", // Philotheos
+	"0193-6212" : "!015195686!", // Presbyterion !!pppn
+	"0193-6212" : "!325341338!", // Presbyterion !!eppn
+	"0043-2873" : "!015182355!", // Proceedings of the Wesley Historical Society
+	"0034-7078" : "!015182835!", // Revista bíblica
+	"0036-4703" : "!015213676!", // Sapientia
+	"1885-0588" : "!094451443!", // Selecciones de Franciscanismo
+	"0210-5225" : "!015242285!", // Sinite
+	"0144-8722" : "!015194868!", // Sobornost
+	"1017-0499" : "!348457146!", // Studia historiae ecclesiasticae !!pppn
+	"1017-0499" : "!454502966!", // Studia historiae ecclesiasticae !!eppn
+	"2001-5828" : "!39804984X!", // Svenskt gudstjänstliv !!eppn
+	"0251-4788" : "!018289851!", // Taiwan Journal of Theology
+	"0495-1549" : "!015193764!", // Teología espiritual
+	"0212-1964" : "!016231767!", // Teología y catequesis
+	"0040-5620" : "!015185826!", // Theological education
+	"0253-3812" : "!018290027!", // Theology & life
+	"0211-7096" : "!018288529!", // Urgellia
+	"1344-7297" : "!034203265!", // The Japan mission journal
+	"0030-5839" : "!015236277!", // The Orthodox word
+	"1550-0195" : "!059006382!", // Journal of Unitarian Universalist History
+	
 };
 var nachnameMapping = {
 	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
@@ -234,13 +310,82 @@ var issnLangMapping = {
 	"1010-9919" : "ger",
 	"2031-5929" : "eng",
 	"1010-9913" : "fre",
+	"2031-5921" : "ger",
+	"1209-9392" : "eng", 
+	"0305-7240" : "eng",
+	"0167-4544" : "eng",
+	"1573-0697" : "eng",
+	"1467-8519" : "eng",
+	"1467-8608" : "eng",
+	"1468-2303" : "eng",
+	"1092-1311" : "eng", 
+	"1094-5253" : "eng",
+	"1086-3222" : "eng",
+	"1086-3184" : "eng",
+	"1469-8145" : "eng",
+	"1469-5103" : "eng",
+	"1469-2147" : "eng",
+	"1380-3603" : "eng",
+	"1744-4195" : "eng",
+	"0569-9789" : "spa",
+	"0210-0460" : "spa",
+	"2444-684X" : "spa",
+	"0716-1662" : "spa",
+	"0211-5255" : "spa",
+	"0211-2035" : "spa",
+	"0004-0452" : "spa",
+	"0004-4970" : "ita",
+	"1594-3445" : "ita",
+	"0006-0585" : "ita",
+	"0521-8195" : "spa",
+	"0008-6673" : "ita",
+	"0094-2065" : "eng",
+	"0573-2018" : "spa",
+	"0145-7233" : "eng",
+	"0210-3133" : "spa",
+	"0425-340X" : "spa",
+	"0210-0525" : "spa",
+	"0210-4393" : "spa",
+	"0071-2086" : "fre",
+	"0883-0053" : "eng",
+	"0019-4530" : "eng",
+	"1071-8257" : "eng",
+	"2244-5161" : "eng",
+	"0211-4011" : "spa",
+	"0024-5895" : "eng",
+	"0456-8494" : "spa",
+	"0544-9073" : "spa",
+	"0470-3790" : "spa",
+	"0193-6212" : "eng",
+	"0043-2873" : "eng",
+	"0034-7078" : "spa",
+	"0036-4703" : "spa",
+	"1885-0588" : "spa",
+	"0210-5225" : "spa",
+	"0144-8722" : "eng",
+	"1017-0499" : "eng",
+	"2001-5828" : "swe",
+	"0251-4788" : "eng",
+	"0251-4788" : "chi",
+	"0495-1549" : "spa",
+	"0212-1964" : "spa",
+	"0040-5620" : "eng",
+	"0253-3812" : "eng",
+	"0253-3812" : "chi",
+	"0211-7096" : "spa",
+	"1344-7297" : "eng",
+	"0030-5839" : "eng",
+	"1550-0195" : "eng",
 	
 };
+
 var issnVolumeMapping = {
 	"2031-5929" : "N.S.",
 	"2031-5922" : "A.S.",
 	
+	
 };
+
 // Da alles asynchron ablaufen kann:
 //Jede Lookup einer AutorIn zählt 1 zu count
 //und nach Erledigung wieder 1 weg. Der
@@ -381,7 +526,7 @@ function doExport() {
 		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
 		var titleStatement = "";
-		if (item.shortTitle) {
+		if (item.shortTitle == "journalArticle") {
 			titleStatement += item.shortTitle;
 			if (item.title && item.title.length > item.shortTitle.length) {
 				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/,'');
@@ -458,6 +603,10 @@ function doExport() {
 			writeLine("4085", item.url + "$xH");
 		}
 		
+		if (item.url && item.itemType == "magazineArticle") {
+			writeLine("4085", item.url + "$xH");
+		}
+		
 		//Reihe --> 4110
 		if (!article) {
 			var seriesStatement = "";
@@ -475,6 +624,7 @@ function doExport() {
 			writeLine("4207", item.abstractNote.replace(/'/g, '\"').replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "")); 
 		}
 		
+		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
@@ -485,15 +635,21 @@ function doExport() {
 		
 		//4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
 		if (item.itemType == "magazineArticle") {
-				writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
+				writeLine("4261", "Rezension von" + item.publicationTitle); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
 			}
 				
 		//SSG-Nummer --> 5056
 		if (ssgNummer) {
 				writeLine("5056", ssgNummer);
-			}
+			}	
 		
+		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
+		for (var i=0; i<item.tags.length; i++) {
+				var tagStatement = "|s|" + item.tags.map(function(tag) { return tag.tag; }).join('; ').split('; ', 1);
+					writeLine("5520", "|s|" + item.tags[i].tag.replace(/ --/g, ';'));	
+		}
 		
+
 		
 		// 0999 verify outputText ppn in OGND
 		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
