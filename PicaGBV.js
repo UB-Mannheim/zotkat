@@ -120,9 +120,10 @@ function doExport() {
 		
 		if (!item.DOI && item.extra) {
 			var extraParts = item.extra.split("\n");
-			for (var i=0; i<extraParts.length; i++) {
-				if (extraParts[i].indexOf("DOI:") === 0) {
-					item.DOI = extraParts[i].substr(4);
+			var j;
+			for (j=0; j<extraParts.length; j++) {
+				if (extraParts[j].indexOf("DOI:") === 0) {
+					item.DOI = extraParts[j].substr(4);
 				}
 			}
 		}
@@ -204,14 +205,16 @@ function doExport() {
 		}
 		
 		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
-		//check whether DOI is in extra -> move to item.DOI if so
-		//TODO
-		if (item.DOI) {
-			if (physicalForm === "O") {
-				writeLine("2051", item.DOI);
-			} else if (physicalForm === "A") {
-				writeLine("2053", item.DOI);
+		//http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2051&regelwerk=RDA&verbund=GBV
+		if (physicalForm === "O") {
+			//Feld 2051 soll immer ausgegeben werden,
+			//auch wenn kein Wert ermittelt werden konnte
+			if (!item.DOI) {
+				item.DOI = "";
 			}
+			writeLine("2051", item.DOI);
+		} else if (physicalForm === "A") {
+			writeLine("2053", item.DOI);
 		}
 		
 		//Autoren --> 3000, 3010
@@ -257,6 +260,7 @@ function doExport() {
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				} else {
 					writeLine("3010", content + "$BVerfasserIn$4aut");
+					titleStatement += ", " + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				}
 				i++;
 			}
@@ -311,8 +315,13 @@ function doExport() {
 		}
 		
 		//URL --> 4083
-		if (item.url && physicalForm == "O") {
-			writeLine("4083", "$a" + item.url);
+		if (physicalForm == "O") {
+			if (item.DOI && item.DOI !== "") {
+				writeLine("4083", "$ahttps://doi.org/" + item.DOI);
+			} else if (item.url) {
+				if (item.url)
+				writeLine("4083", "$a" + item.url);
+			}
 		}
 		
 		//Reihe --> 4110
@@ -326,6 +335,9 @@ function doExport() {
 			}
 			writeLine("4110", seriesStatement);
 		}
+		
+		//Sonstige Anmerkungen (manuell eintragen) --> 4201
+		writeLine("4201", "");
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote && exportAbstract) {
