@@ -348,8 +348,8 @@ function doExport() {
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle" || item.itemType == "bookSection") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
 				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
-			} else if (item.publicationTitle) {
-				writeLine("4241", "Enthalten in"  + item.publicationTitle);
+			} else {
+				writeLine("4241", "Enthalten in!PPN!");
 			}
 		}
 		
