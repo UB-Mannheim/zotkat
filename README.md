@@ -14,6 +14,7 @@ Momentan gibt es drei zusätzliche Zotero Translator:
  * [`BIBFRAME.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/BIBFRAME.js) : Hierbei handelt es sich momentan um einen Import-Translator mit dem Ziel bibliographische Metadaten im BIBFRAME Format in Zotero zu speichern. Idealerweise würde man daraus einen Import/Export-Translator machen um beide Richtungen zu unterstützen.
  * [`MARC21XML.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/MARC21XML.js) : Hierbei handelt es sich um einen Export-Translator mit dem Ziel aus Zotero auch Daten im MARCXML-Format zu speichern. Idealerweise würde man dies mit dem bereits bestehenden Import-MARCXML-Translator kombinieren vgl. auch https://github.com/zotero/translators/issues/762 .
  * [`picaSWB.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaSWB.js) : Hierbei handelt es sich um einen Export-Translator mit dem Ziel aus Zotero die Daten ins Picaformat des SWBs zu transformieren und beispielsweise in den WinIBW-Client als Ausgangsbasis zu benutzen.
+ * [`PicaGBV.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaGBV.js) : Hierbei handelt es sich um einen Export-Translator mit dem Ziel bibliographische Daten aus Zotero ins Picaformat des GBV zu transformieren. Angepasst ist er für den Anwendungsfall: Aufsatzkatalogisierung von Buchkapiteln aus E-Books.
  
 ## Wie kann ich einen Fehler korrigieren oder melden?
  
