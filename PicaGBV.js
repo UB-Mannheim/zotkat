@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-01-24 23:32:00"
+	"lastUpdated": "2017-02-01 08:10:00"
 }
 
 
@@ -86,7 +86,7 @@ function writeLine(code, line) {
 	outputText += code + " " + line + "\n";
 
 	//Lookup für Autoren
-	if ((code == "3000" || code == "3010") && line[0] != "!") {
+	/*if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
 		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
@@ -103,7 +103,7 @@ function writeLine(code, line) {
 				Zotero.write(outputText);
 			}
 		});
-	}
+	}*/
 }
 
 function doExport() {
@@ -123,7 +123,7 @@ function doExport() {
 			var j;
 			for (j=0; j<extraParts.length; j++) {
 				if (extraParts[j].indexOf("DOI:") === 0) {
-					item.DOI = extraParts[j].substr(4);
+					item.DOI = extraParts[j].substr(4).trim();
 				}
 			}
 		}
