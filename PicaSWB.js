@@ -1263,6 +1263,7 @@ function doExport() {
 			licenceField = issnLicenceFieldMapping[item.ISSN]; // position 4 http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 		}
 		
+		
 		var article = false;
 		switch (item.itemType) {
 			case "journalArticle":
@@ -1446,14 +1447,14 @@ function doExport() {
 		
 		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
 		if (item.url && physicalForm === "O" && licenceField === "l") {
-			writeLine("4085 $u", item.url + "$xH$xR$zLF");
+			writeLine("4085", "$u" + item.url + "$xH$xR$zLF");
 			} else if (item.url && physicalForm === "O" && licenceField === " ") {
-				writeLine("4085 $u", item.url + "$xH");
+				writeLine("4085", "$u" + item.url + "$xH");
 			}
 		
 		
 		if (item.url && item.itemType == "magazineArticle") {
-			writeLine("4085", item.url + "$xH");
+			writeLine("4085", "$u" + item.url + "$xH");
 		}
 		
 		//Reihe --> 4110
