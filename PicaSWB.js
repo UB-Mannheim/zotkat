@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2016-09-02 15:13:00"
+	"lastUpdated": "2017-02-13 12:42:00"
 }
 
 
@@ -287,6 +287,14 @@ var journalMapping = {
 	"1344-7297" : "!034203265!", // The Japan mission journal
 	"0030-5839" : "!015236277!", // The Orthodox word
 	"1550-0195" : "!059006382!", // Journal of Unitarian Universalist History
+	"0082-7118" : "!015195775!", // Tyndale Bulletin
+	"2326-6236" : "!014891263!", // The jurist: studies in church law and ministry
+	"0141-6200" : "!015208621!", // British Journal of Religious Education
+	"0943-3058" : "!026374846!", // Method and theory in the study of religion
+	"2363-6696" : "!416961657!", // Entangled Religions
+	"0044-3441" : "!14821419!", // Zeitschrift für Religions- und Geistesgeschichte
+	"1862-5886" : "!281314136!", // Zeitschrift für junge Religionswissenschaft
+	"1612-2941" : "!281189013!", // Marburg Journal of Religion
 	
 };
 var nachnameMapping = {
@@ -300,8 +308,11 @@ var nameMapping = {
 var languageMapping = {
 	"en" : "eng",
 	"de" : "ger",
-	"fr" : "fre"
+	"fr" : "fre",
+	"English" : "eng",
 };
+
+
 var issnLangMapping = {
 	"1010-9919" : "ger",
 	"2031-5929" : "eng",
@@ -374,6 +385,14 @@ var issnLangMapping = {
 	"1550-0195" : "eng",
 	"0018-2710" : "eng",
 	"0043-2040" : "ger",
+	"0733-4273 (PRINT)" : "eng",
+	"0082-7118" : "eng", // Tyndale Bulletin
+	"0141-6200" : "eng", // British Journal of Religious Education
+	"0943-3058" : "eng", // Method and theory in the study of religion
+	"2363-6696" : "manuell", // Entangled Religions
+	"0044-3441" : "ger", // Zeitschrift für Religions- und Geistesgeschichte
+	"1862-5886" : "ger", // Zeitschrift für junge Religionswissenschaft
+	"1612-2941" : "eng", // Marburg Journal of Religion
 	
 };
 var issnVolumeMapping = {
@@ -408,7 +427,8 @@ var issnPhysicalFormMapping = {
 	"1357-4175" : "A", // Reformation  
 	"1752-0738" : "A", // Reformation  
 	"1462-317X" : "A", // Political theology   
-	"1743-1719" : "A", // Political theology   
+	"1462-317X, 1743-1719" : "A", // Political theology   
+	"1743-1719" : "A", // Political theology 
 	"0360-6503" : "A", // Process studies   
 	"0733-4273" : "A", // Journal of psychology and Christianity
 	"0929-0761" : "A", // Dead Sea discoveries   
@@ -543,6 +563,7 @@ var issnPhysicalFormMapping = {
 	"1759-8818" : "A", // Sociology of religion
 	"0141-6200" : "A", // British journal of religious education
 	"2169-2327" : "A", // International journal of philosophy and theology
+	"2169-2327, 2169-2335" : "A", // International journal of philosophy and theology
 	"0890-2461" : "A", // Philosophy & theology
 	"1476-993X" : "A", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
 	"1745-5200" : "A", // Currents in biblical research 
@@ -667,7 +688,7 @@ var issnPhysicalFormMapping = {
 	"1089-7747" : "A", // TC !!eppn
 	"1467-9647" : "A", // Teaching theology & religion !!eppn
 	"1540-6385" : "A", // Dialog !!eppn
-	"1661-3317" : "A", // Lectio difficilior !!eppn
+	"1661-3317" : "O", // Lectio difficilior !!eppn
 	"1473-4257" : "A", // Journal of medical ethics !!eppn
 	"1468-2400" : "A", // International journal of systematic theology !!eppn
 	"1466-769X" : "A", // Nursing philosophy !!eppn
@@ -762,6 +783,15 @@ var issnPhysicalFormMapping = {
 	"1462-3153" : "A", // Journal for the Aramaic bible !!pppn
 	"1462-3153" : "A", // Journal for the Aramaic bible !!eppn
 	"0043-2040" : "A", // Wege zum Menschen
+	"0733-4273 (PRINT)" : "A", // Journal of psychology and Christianity
+	"0082-7118" : "A", // Tyndale Bulletin
+	"2326-6236" : "A", // The jurist: studies in church law and ministry
+	"0141-6200" : "A", // British Journal of Religious Education
+    "0943-3058" : "A", // Method and theory in the study of religion
+	"2363-6696" : "O", // Entangled Religions
+	"0044-3441" : "A", // Zeitschrift für Religions- und Geistesgeschichte
+	"1862-5886" : "O", // Zeitschrift für junge Religionswissenschaft
+	"1612-2941" : "O", // Marburg Journal of Religion	
 	
 	
 };
@@ -793,7 +823,8 @@ var issnLicenceFieldMapping = {
 	"1357-4175" : " ", // Reformation  
 	"1752-0738" : " ", // Reformation  
 	"1462-317X" : " ", // Political theology   
-	"1743-1719" : " ", // Political theology   
+	"1462-317X, 1743-1719" : " ", // Political theology 
+	"1743-1719" : " ", // Political theology	
 	"0360-6503" : " ", // Process studies   
 	"0733-4273" : " ", // Journal of psychology and Christianity
 	"0929-0761" : " ", // Dead Sea discoveries   
@@ -926,6 +957,7 @@ var issnLicenceFieldMapping = {
 	"1759-8818" : " ", // Sociology of religion
 	"0141-6200" : " ", // British journal of religious education
 	"2169-2327" : " ", // International journal of philosophy and theology
+	"2169-2327, 2169-2335" : " ", // International journal of philosophy and theology
 	"0890-2461" : " ", // Philosophy & theology
 	"1476-993X" : " ", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
 	"1745-5200" : " ", // Currents in biblical research 
@@ -1050,7 +1082,7 @@ var issnLicenceFieldMapping = {
 	"1089-7747" : " ", // TC !!eppn
 	"1467-9647" : " ", // Teaching theology & religion !!eppn
 	"1540-6385" : " ", // Dialog !!eppn
-	"1661-3317" : " ", // Lectio difficilior !!eppn
+	"1661-3317" : "l", // Lectio difficilior !!eppn
 	"1473-4257" : " ", // Journal of medical ethics !!eppn
 	"1468-2400" : " ", // International journal of systematic theology !!eppn
 	"1466-769X" : " ", // Nursing philosophy !!eppn
@@ -1146,14 +1178,26 @@ var issnLicenceFieldMapping = {
 	"1462-3153" : " ", // Journal for the Aramaic bible !!eppn
 	"0043-2040" : " ", // Wege zum Menschen
 	"0043-2040, 2196-8284" : " ", // Wege zum Menschen
-	"1550-01951" : " ", // TEST
+	"0733-4273 (PRINT)" : " ", // Journal of psychology and Christianity
+	"0082-7118" : " ", // Tyndale Bulletin
+	"2326-6236" : " ", // The jurist: studies in church law and ministry
+	"0141-6200" : " ", // British Journal of Religious Education
+	"0943-3058" : " ", // Method and theory in the study of religion
+	"2363-6696" : "l", // Entangled Religions
+	"0044-3441" : " ", // Zeitschrift für Religions- und Geistesgeschichte
+	"1862-5886" : "l", // Zeitschrift für junge Religionswissenschaft
+	"1612-2941" : "l", // Marburg Journal of Religion	
 	
 	
 	
 };
 
-
-var ssgNummer = "1";
+var issnSsgMapping = {
+	"0044-3441" : "0; 1", // Zeitschrift für Religions- und Geistesgeschichte
+	"1862-5886" : "0", // Zeitschrift für junge Religionswissenschaft
+	"1612-2941" : "0", // Marburg Journal of Religion
+}
+var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
 
 //item.type --> 0500 Bibliographische Gattung und Status
@@ -1426,7 +1470,7 @@ function doExport() {
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote) {
-			writeLine("4207", item.abstractNote.replace(/'/g, '\"').replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "")); 
+			writeLine("4207", item.abstractNote.replace(/'/g, '\"').replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "").replace("Zusammenfassung", "").replace(" Summary", "").replace("", "")); 
 		}
 		
 		
@@ -1443,14 +1487,19 @@ function doExport() {
 				writeLine("4261", "Rezension von" + item.publicationTitle); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
 			}
 				
-		//SSG-Nummer --> 5056
-		if (ssgNummer) {
-				writeLine("5056", ssgNummer);
-			}	
-		
+		//SSG bzw. FID-Nummer --> 5056
+		if (item.ISSN) {
+			if (issnSsgMapping[(item.ISSN)]){
+				item.ISSN = issnSsgMapping[item.ISSN];
+			}
+				writeLine("5056", item.ISSN);
+		} else {
+			writeLine("5056", defaultSsgNummer);
+		}	
+			
 		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
 		for (i=0; i<item.tags.length; i++) {
-+			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
+			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
 		}
 		
 	
