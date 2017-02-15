@@ -1,7 +1,7 @@
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
 	"0591-2385" : "!01515663X!", // Zygon 
-    "0891-5881" : "!023125381!", // Dialogue and alliance
+    	"0891-5881" : "!023125381!", // Dialogue and alliance
 	"0884-5379" : "!341092975!",  // fides et historia
 	"1474-6700" : "!105283193!", // Theology and science  
 	"1462-2459" : "!094835578!", //Reformation & Renaissance review  
@@ -52,7 +52,7 @@ var journalMapping = {
 	"0943-7592" : "!040100804!", // Zeitschrift für Neuere Theologiegeschichte
 	"0031-0328" : "!014896486!", // Palestine exploration quarterly
 	"1743-1301" : "!014896486!", // Palestine exploration quarterly
-    "1743-1301" : "!112775594!", // Palestine exploration quarterly
+    	"1743-1301" : "!112775594!", // Palestine exploration quarterly
 	"0031-0328" : "!112775594!", // Palestine exploration quarterly
 	"1745-5316" : "!119461234!", // Ecclesiology !!hier kein direkter Downlaod, sondern über Zotero-button
 	"0034-6373" : "!015182932!", // Review & Expositor
@@ -85,8 +85,8 @@ var journalMapping = {
 	"1748-0922" : "!01455027X!", // Religious studies review
 	"0497-1817" : "!014862522!", // Temenos
 	"2342-7256" : "!014862522!", // Temenos
-    "1030-570X" : "!018291589!", // Pacifica
-    "1839-2598" : "!018291589!", // Pacifica
+    	"1030-570X" : "!018291589!", // Pacifica
+    	"1839-2598" : "!018291589!", // Pacifica
 	"0890-1112" : "!023118172!", // Journal of ritual studies	
 	"0091-8296" : "!015194213!", // Missiology
 	"2051-3623" : "!015194213!", // Missiology
@@ -111,7 +111,7 @@ var journalMapping = {
 	"0092-6558" : "!015194132!", // Journal of the Interdenominational Theological Center
 	"1934-9637" : "!260747769!", // Journal of spirituality in mental health
 	"1934-9645" : "!260747769!", // Journal of spirituality in mental health
-    "1570-0739" : "!014821419!", // Zeitschrift für Religions- und Geistesgeschichte
+    	"1570-0739" : "!014821419!", // Zeitschrift für Religions- und Geistesgeschichte
 	"0275-5270"	: "!015243044!", // Word and World
 	"0034-3072" : "!015182711!", // Reformed theological review  
 	"0025-9373" : "!015181278!", // The Mennonite quarterly review  
@@ -120,9 +120,7 @@ var journalMapping = {
 	"0036-3227" : "!015183696!", // St. Vladimir's theological quarterly   
 	"0092-4245" : "!015192091!", // Wesleyan theological journal
 	"0006-2014" : "!014828995!", // Biblische Zeitschrift
-	"0021-9231" : "!014411350!", // Journal of Biblical Literature
 	"1469-8145" : "!01489324X!", // New Testament studies
-	"0021-9231" : "!014411350!", // Journal of Biblical Literature
 	"1469-8145" : "!01489324X!", // New Testament studies
 	"0048-1009" : "!014862662!", // Novum Testamentum
 	"0040-571X" : "!01518594X!", // Theology
@@ -133,10 +131,10 @@ var journalMapping = {
 	"0323-4142" : "!018091229!", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0486-5642" : "!015195538!", // Restoration quarterly
 	"0360-3032" : "!015206114!", // Trinity journal
-    "0340-6083" : "!01450135X!", // Göttinger Predigtmeditationen
+    	"0340-6083" : "!01450135X!", // Göttinger Predigtmeditationen
 	"0720-6259" : "!014553880!", // Pastoraltheologie
 	"0031-2827" : "!014553880!", // Pastoraltheologie
-    "0720-6259, 2197-0831" : "!014553880!", // Pastoraltheologie
+    	"0720-6259, 2197-0831" : "!014553880!", // Pastoraltheologie
 	"0174-9927" : "!014553880!", // Pastoraltheologie
 	"1065-6219" : "!054391385!", // Journal of research on Christian education
 	"1934-4945" : "!054391385!", // Journal of research on Christian education
