@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-02-13 12:42:00"
+	"lastUpdated": "2017-02-15 13:22:00"
 }
 
 
@@ -1205,6 +1205,7 @@ var defaultLanguage = "eng";
 var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
 var cataloguingStatus = "u";//0500 Position 3
 var licenceField = issnLicenceFieldMapping; // 0500 Position 4 only for Open Access Items; http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=SWB
+var SsgField = issnSsgMapping;
 
 // Da alles asynchron ablaufen kann:
 //Jede Lookup einer AutorIn zählt 1 zu count
@@ -1253,6 +1254,9 @@ function doExport() {
 		if (!item.language && item.ISSN && issnLangMapping[item.ISSN]) {
 			item.language = issnLangMapping[item.ISSN];
 		}
+		if (SsgField && item.ISSN && issnSsgMapping[item.ISSN]) {
+			SsgField = issnSsgMapping[item.ISSN];
+		}
 		if (item.volume && item.ISSN && issnVolumeMapping[item.ISSN]) {
 			item.volume = issnVolumeMapping[item.ISSN] + item.volume;
 		}
@@ -1298,8 +1302,7 @@ function doExport() {
 			default:
 				writeLine("0502", "");
 		}
-		
-		
+
 		//item.type --> 0503 Datenträgertyp
 		
 		switch (physicalForm) {
@@ -1471,9 +1474,14 @@ function doExport() {
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote) {
-			writeLine("4207", item.abstractNote.replace(/'/g, '\"').replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "").replace("Zusammenfassung", "").replace(" Summary", "").replace("", "")); 
-		}
+			writeLine("4207", item.abstractNote.replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "").replace("Zusammenfassung", "").replace(" Summary", "").replace("", "")); 
+		}  
 		
+		/* } else (!item.abstractNote){
+			writeLine("4207");
+			}
+		
+		"4207", item.abstractNote.replace(/'/g, '\"').replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "").replace("Zusammenfassung", "").replace(" Summary", "").replace("", "")); */
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
@@ -1489,21 +1497,18 @@ function doExport() {
 			}
 				
 		//SSG bzw. FID-Nummer --> 5056
-		if (item.ISSN) {
-			if (issnSsgMapping[(item.ISSN)]){
-				item.ISSN = issnSsgMapping[item.ISSN];
-			}
-				writeLine("5056", item.ISSN);
-		} else {
+		
+		if (SsgField === "0" || SsgField === "0; 1") {
+			writeLine("5056", SsgField);
+		} 	else {
 			writeLine("5056", defaultSsgNummer);
-		}	
-			
+		}
+				
 		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
 		for (i=0; i<item.tags.length; i++) {
 			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
 		}
 		
-	
 		// 0999 verify outputText ppn in OGND
 		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
 		
