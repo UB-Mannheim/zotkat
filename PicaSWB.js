@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-02-15 13:22:00"
+	"lastUpdated": "2017-02-16 09:02:00"
 }
 
 
@@ -37,14 +37,14 @@ var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
 	"0591-2385" : "!01515663X!", // Zygon 
     "0891-5881" : "!023125381!", // Dialogue and alliance
-	"0884-5379" : "!341092975!",  // fides et historia
+	"0884-5379" : "!341092975!", // fides et historia
 	"1474-6700" : "!105283193!", // Theology and science  
-	"1462-2459" : "!094835578!", //Reformation & Renaissance review  
-	"0031-0328" : "!014896486!", //Palestine exploration quarterly 
+	"1462-2459" : "!094835578!", // Reformation & Renaissance review  
+	"0031-0328" : "!014896486!", // Palestine exploration quarterly 
 	"0037-7686" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"1461-7404" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5294" : "!01521124X!" ,//Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0142-064X" : "!01521124X!" ,//Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"1745-5294" : "!01521124X!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0142-064X" : "!01521124X!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"1476-6728" : "!016069390!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0309-0892" : "!016069390!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0771-7776" : "!01496841X!", // Sacris erudiri  
@@ -82,12 +82,9 @@ var journalMapping = {
 	"0040-5639" : "!01518501X!", // Theological studies
 	"2169-1304" : "!266225179!", // Theological studies
 	"0943-7592" : "!040100804!", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere //Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
-	"1612-9776" : "!040100804!", // Journal for the History of Modern Theology 
-	"1612-9776" : "!040100804!", // Zeitschrift für Neuere Theologiegeschichte
-	"0943-7592" : "!040100804!", // Zeitschrift für Neuere Theologiegeschichte
-	"0031-0328" : "!014896486!", // Palestine exploration quarterly
+	"1612-9776" : "!040100804!", // Journal for the History of Modern Theology // Zeitschrift für Neuere Theologiegeschichte
 	"1743-1301" : "!014896486!", // Palestine exploration quarterly
-    "1743-1301" : "!112775594!", // Palestine exploration quarterly
+    	"1743-1301" : "!112775594!", // Palestine exploration quarterly
 	"0031-0328" : "!112775594!", // Palestine exploration quarterly
 	"1745-5316" : "!119461234!", // Ecclesiology !!hier kein direkter Downlaod, sondern über Zotero-button
 	"0034-6373" : "!015182932!", // Review & Expositor
@@ -102,7 +99,7 @@ var journalMapping = {
 	"0018-2710" : "!014406292!", // History of religions
 	"1545-6935" : "!014406292!", // History of religions
 	"0384-9694" : "!014804743!", // Journal of religious ethics
-	"1467-9795" : "!014804743!", // Journal of religious ethics
+	"1467-9795" : "!014804743!", // Journal of religious ethics 
 	"0943-3058" : "!026374846!", // Method & theory in the study of religion
 	"1570-0682" : "!026374846!", // Method & theory in the study of religion
 	"1783-1474" : "!054531918!", // INTAMS review
@@ -120,8 +117,8 @@ var journalMapping = {
 	"1748-0922" : "!01455027X!", // Religious studies review
 	"0497-1817" : "!014862522!", // Temenos
 	"2342-7256" : "!014862522!", // Temenos
-    "1030-570X" : "!018291589!", // Pacifica
-    "1839-2598" : "!018291589!", // Pacifica
+    	"1030-570X" : "!018291589!", // Pacifica
+    	"1839-2598" : "!018291589!", // Pacifica
 	"0890-1112" : "!023118172!", // Journal of ritual studies	
 	"0091-8296" : "!015194213!", // Missiology
 	"2051-3623" : "!015194213!", // Missiology
@@ -134,7 +131,8 @@ var journalMapping = {
 	"0003-2980" : "!015189996!", // Andrews University Seminary studies
 	"0118-8534" : "!079721079!", // Asian journal of pentecostal studies
 	"1477-8351" : "!103869212!", // Aramaic studies
-	"1462-3153" : "!103869212!", // Aramaic studies
+	"1745-5227" : "!103869212!", // Aramaic studies
+	"1462-3153" : "!078316677!", // Journal for the Aramaic bible
 	"0229-2807" : "!059754931!", // ARC
 	"0094-5323" : "!015192121!", // Augustinian studies
 	"0014-3367" : "!015178811!", // Evangelical quarterly
@@ -146,8 +144,8 @@ var journalMapping = {
 	"0092-6558" : "!015194132!", // Journal of the Interdenominational Theological Center
 	"1934-9637" : "!260747769!", // Journal of spirituality in mental health
 	"1934-9645" : "!260747769!", // Journal of spirituality in mental health
-    "1570-0739" : "!014821419!", // Zeitschrift für Religions- und Geistesgeschichte
-	"0275-5270"	: "!015243044!", // Word and World
+    	"1570-0739" : "!014821419!", // Zeitschrift für Religions- und Geistesgeschichte
+	"0275-5270" : "!015243044!", // Word and World
 	"0034-3072" : "!015182711!", // Reformed theological review  
 	"0025-9373" : "!015181278!", // The Mennonite quarterly review  
 	"1023-0807" : "!043088619!", // Religion and theology  
@@ -155,9 +153,6 @@ var journalMapping = {
 	"0036-3227" : "!015183696!", // St. Vladimir's theological quarterly   
 	"0092-4245" : "!015192091!", // Wesleyan theological journal
 	"0006-2014" : "!014828995!", // Biblische Zeitschrift
-	"0021-9231" : "!014411350!", // Journal of Biblical Literature
-	"1469-8145" : "!01489324X!", // New Testament studies
-	"0021-9231" : "!014411350!", // Journal of Biblical Literature
 	"1469-8145" : "!01489324X!", // New Testament studies
 	"0048-1009" : "!014862662!", // Novum Testamentum
 	"0040-571X" : "!01518594X!", // Theology
@@ -168,10 +163,10 @@ var journalMapping = {
 	"0323-4142" : "!018091229!", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0486-5642" : "!015195538!", // Restoration quarterly
 	"0360-3032" : "!015206114!", // Trinity journal
-    "0340-6083" : "!01450135X!", // Göttinger Predigtmeditationen
+    	"0340-6083" : "!01450135X!", // Göttinger Predigtmeditationen
 	"0720-6259" : "!014553880!", // Pastoraltheologie
 	"0031-2827" : "!014553880!", // Pastoraltheologie
-    "0720-6259, 2197-0831" : "!014553880!", // Pastoraltheologie
+   	"2197-0831" : "!014553880!", // Pastoraltheologie
 	"0174-9927" : "!014553880!", // Pastoraltheologie
 	"1065-6219" : "!054391385!", // Journal of research on Christian education
 	"1934-4945" : "!054391385!", // Journal of research on Christian education
@@ -180,7 +175,6 @@ var journalMapping = {
 	"1745-5251" : "!032869959!", // Journal of pentecostal theology
 	"0966-7369" : "!032869959!", // Journal of pentecostal theology
 	"0043-4388" : "!015196739!", // Westminster Theological Seminary  
-	"0043-4388" : "!015196739!", // Westminster Theological Seminary   
 	"0033-5053" : "!015189589!", // Quaker history
 	"1934-1504" : "!015189589!", // Quaker history
 	"0809-7291" : "!121600203!", // Nordic journal of religion and society 
@@ -189,7 +183,7 @@ var journalMapping = {
 	"1069-4404" : "!034203478!", // Sociology of religion
 	"1759-8818" : "!034203478!", // Sociology of religion
 	"0141-6200" : "!015208621!", // British journal of religious education
-	"2169-2327" : "!381569306!", // International journal of philosophy and theology
+	"2169-2327, 2169-2335" : "!381569306!", // International journal of philosophy and theology
 	"0890-2461" : "!016231562!", // Philosophy & theology
 	"1476-993X" : "!104194820!", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
 	"1745-5200" : "!104194820!", // Currents in biblical research 
@@ -201,15 +195,13 @@ var journalMapping = {
 	"1026-2946" : "!077662814!", // Africa Journal of Evangelical Theology
 	"0029-5973" : "!014497301!", // Numen PISSN
 	"1568-5276" : "!014497301!", // Numen EISSN
-	"1079-9265" : "!056622538!", // Religion and the arts
 	"2033-4273" : "!379731398!", // ET-Studies Online Publikation 
-	"2032-5215"	: "!379731398!", // ET-Studies Online Publikation
+	"2032-5215" : "!379731398!", // ET-Studies Online Publikation
 	"1783-1431" : "!040105555!", // Ethical Perspectives
 	"0266-7177" : "!015394956!", // Modern theology Print-PPN  PISSN
 	"1468-0025" : "!015394956!", // Modern theology Print-PPN  EISSN
-	"0809-7291" : "!121600203!", // Northern journal of religion and society
 	"0009-661X" : "!015191273!", // Churchman
-	"1126-6244" : "!094423636!", // Adamantius.
+	"1126-6244" : "!094423636!", // Adamantius
 	"1010-9919" : "!015906299!", // old testament essays
 	"0935-7335" : "!018614302!", // Ethik in der Medizin 
 	"1437-1618" : "!018614302!", // Ethik in der Medizin
@@ -289,14 +281,13 @@ var journalMapping = {
 	"1550-0195" : "!059006382!", // Journal of Unitarian Universalist History
 	"0082-7118" : "!015195775!", // Tyndale Bulletin
 	"2326-6236" : "!014891263!", // The jurist: studies in church law and ministry
-	"0141-6200" : "!015208621!", // British Journal of Religious Education
-	"0943-3058" : "!026374846!", // Method and theory in the study of religion
 	"2363-6696" : "!416961657!", // Entangled Religions
 	"0044-3441" : "!14821419!", // Zeitschrift für Religions- und Geistesgeschichte
 	"1862-5886" : "!281314136!", // Zeitschrift für junge Religionswissenschaft
 	"1612-2941" : "!281189013!", // Marburg Journal of Religion
 	
 };
+
 var nachnameMapping = {
 	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
 };
@@ -305,13 +296,13 @@ var nameMapping = {
 };
 //Sprachcodes nach ISO 639-2
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
+
 var languageMapping = {
 	"en" : "eng",
 	"de" : "ger",
 	"fr" : "fre",
 	"English" : "eng",
 };
-
 
 var issnLangMapping = {
 	"1010-9919" : "ger",
@@ -395,27 +386,27 @@ var issnLangMapping = {
 	"1612-2941" : "eng", // Marburg Journal of Religion
 	
 };
+
 var issnVolumeMapping = {
 	"2031-5929" : "N.S.",
 	"2031-5922" : "A.S.",
 };
+
 var issnPhysicalFormMapping = {
-	"1550-01951" : "O",
+	"1550-0195" : "O",
 	"2031-5929" : "A",
-	"2032-5215" : "O",
-	"1783-1814" : "A",
-	"0018-2710" : "A",
+	"2032-5215" : "O", // ET-Studies Online Publikation - weiter unten gleiche Zs mit "A"
 	"0021-9231" : "A", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
 	"0591-2385" : "A", // Zygon 
-    "0891-5881" : "A", // Dialogue and alliance
-	"0884-5379" : "A",  // fides et historia
+    	"0891-5881" : "A", // Dialogue and alliance
+	"0884-5379" : "A", // fides et historia
 	"1474-6700" : "A", // Theology and science  
-	"1462-2459" : "A", //Reformation & Renaissance review  
-	"0031-0328" : "A", //Palestine exploration quarterly 
+	"1462-2459" : "A", // Reformation & Renaissance review  
+	"0031-0328" : "A", // Palestine exploration quarterly 
 	"0037-7686" : "A", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"1461-7404" : "A", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5294" : "A", //Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0142-064X" : "A", //Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"1745-5294" : "A", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0142-064X" : "A", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"1476-6728" : "A", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0309-0892" : "A", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0771-7776" : "A", // Sacris erudiri  
@@ -426,9 +417,7 @@ var issnPhysicalFormMapping = {
 	"0951-8207" : "A", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"1357-4175" : "A", // Reformation  
 	"1752-0738" : "A", // Reformation  
-	"1462-317X" : "A", // Political theology   
 	"1462-317X, 1743-1719" : "A", // Political theology   
-	"1743-1719" : "A", // Political theology 
 	"0360-6503" : "A", // Process studies   
 	"0733-4273" : "A", // Journal of psychology and Christianity
 	"0929-0761" : "A", // Dead Sea discoveries   
@@ -440,33 +429,23 @@ var issnPhysicalFormMapping = {
 	"0946-3518" : "A", // Praktische Theologie
 	"0938-5320" : "A", // Praktische Theologie
 	"2198-0462" : "A", // Praktische Theologie                     
-	"0938-5320" : "A", // Praktische Theologie                     
-	"0043-2040" : "A", // Wege zum Menschen
 	"0043-2040, 2196-8284" : "A", // Wege zum Menschen
 	"0021-1400" : "A", // Irish theological quaterly
 	"0023-0707" : "A", // Kerygma und Dogma
-	"1135-4712" : "A", // 'Ílu
 	"1135-4712" : "A", // 'Ílu
 	"0953-9468" : "A", // Studies in Christian ethics
 	"1745-5235" : "A", // Studies in Christian ethics
 	"0888-3769" : "A", // Religion and literature
 	"0029-4500" : "A", // Religion and literature
-	"0888-3769" : "A", // Religion and literature
 	"0040-5639" : "A", // Theological studies
 	"2169-1304" : "A", // Theological studies
 	"0943-7592" : "A", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
-	"1612-9776" : "A", // Journal for the History of Modern Theology 
-	"1612-9776" : "A", // Zeitschrift für Neuere Theologiegeschichte
-	"0943-7592" : "A", // Zeitschrift für Neuere Theologiegeschichte
-	"0031-0328" : "A", // Palestine exploration quarterly
+	"1612-9776" : "A", // Journal for the History of Modern Theology // Zeitschrift für Neuere Theologiegeschichte
 	"1743-1301" : "A", // Palestine exploration quarterly
-    "1743-1301" : "A", // Palestine exploration quarterly
-	"0031-0328" : "A", // Palestine exploration quarterly
 	"1745-5316" : "A", // Ecclesiology !!hier kein direkter Downlaod, sondern über Zotero-button
 	"0034-6373" : "A", // Review & Expositor
 	"0034-4125" : "A", // Religious studies 
 	"1469-901X" : "A", // Religious studies
-	"1573-3831" : "A", // Mission studies
 	"1573-3831" : "A", // Mission studies
 	"0168-9789" : "A", // Mission studies
 	"0091-6471" : "A", // Journal of psychology and theology
@@ -493,8 +472,8 @@ var issnPhysicalFormMapping = {
 	"1748-0922" : "A", // Religious studies review
 	"0497-1817" : "A", // Temenos
 	"2342-7256" : "A", // Temenos
-    "1030-570X" : "A", // Pacifica
-    "1839-2598" : "A", // Pacifica
+    	"1030-570X" : "A", // Pacifica
+    	"1839-2598" : "A", // Pacifica
 	"0890-1112" : "A", // Journal of ritual studies	
 	"0091-8296" : "A", // Missiology
 	"2051-3623" : "A", // Missiology
@@ -507,7 +486,7 @@ var issnPhysicalFormMapping = {
 	"0003-2980" : "A", // Andrews University Seminary studies
 	"0118-8534" : "A", // Asian journal of pentecostal studies
 	"1477-8351" : "A", // Aramaic studies
-	"1462-3153" : "A", // Aramaic studies
+	"1745-5227" : "A", // Aramaic studies
 	"0229-2807" : "A", // ARC
 	"0094-5323" : "A", // Augustinian studies
 	"0014-3367" : "A", // Evangelical quarterly
@@ -519,8 +498,8 @@ var issnPhysicalFormMapping = {
 	"0092-6558" : "A", // Journal of the Interdenominational Theological Center
 	"1934-9637" : "A", // Journal of spirituality in mental health
 	"1934-9645" : "A", // Journal of spirituality in mental health
-    "1570-0739" : "A", // Zeitschrift für Religions- und Geistesgeschichte
-	"0275-5270"	: "A", // Word and World
+    	"1570-0739" : "A", // Zeitschrift für Religions- und Geistesgeschichte
+	"0275-5270" : "A", // Word and World
 	"0034-3072" : "A", // Reformed theological review  
 	"0025-9373" : "A", // The Mennonite quarterly review  
 	"1023-0807" : "A", // Religion and theology  
@@ -528,9 +507,6 @@ var issnPhysicalFormMapping = {
 	"0036-3227" : "A", // St. Vladimir's theological quarterly   
 	"0092-4245" : "A", // Wesleyan theological journal
 	"0006-2014" : "A", // Biblische Zeitschrift
-	"0021-9231" : "A", // Journal of Biblical Literature
-	"1469-8145" : "A", // New Testament studies
-	"0021-9231" : "A", // Journal of Biblical Literature
 	"1469-8145" : "A", // New Testament studies
 	"0048-1009" : "A", // Novum Testamentum
 	"0040-571X" : "A", // Theology
@@ -541,10 +517,10 @@ var issnPhysicalFormMapping = {
 	"0323-4142" : "A", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0486-5642" : "A", // Restoration quarterly
 	"0360-3032" : "A", // Trinity journal
-    "0340-6083" : "A", // Göttinger Predigtmeditationen
+    	"0340-6083" : "A", // Göttinger Predigtmeditationen
 	"0720-6259" : "A", // Pastoraltheologie
 	"0031-2827" : "A", // Pastoraltheologie
-    "0720-6259, 2197-0831" : "A", // Pastoraltheologie
+    	"2197-0831" : "A", // Pastoraltheologie
 	"0174-9927" : "A", // Pastoraltheologie
 	"1065-6219" : "A", // Journal of research on Christian education
 	"1934-4945" : "A", // Journal of research on Christian education
@@ -553,7 +529,6 @@ var issnPhysicalFormMapping = {
 	"1745-5251" : "A", // Journal of pentecostal theology
 	"0966-7369" : "A", // Journal of pentecostal theology
 	"0043-4388" : "A", // Westminster Theological Seminary  
-	"0043-4388" : "A", // Westminster Theological Seminary   
 	"0033-5053" : "A", // Quaker history
 	"1934-1504" : "A", // Quaker history
 	"0809-7291" : "A", // Nordic journal of religion and society 
@@ -563,7 +538,7 @@ var issnPhysicalFormMapping = {
 	"1759-8818" : "A", // Sociology of religion
 	"0141-6200" : "A", // British journal of religious education
 	"2169-2327" : "A", // International journal of philosophy and theology
-	"2169-2327, 2169-2335" : "A", // International journal of philosophy and theology
+	"2169-2335" : "A", // International journal of philosophy and theology
 	"0890-2461" : "A", // Philosophy & theology
 	"1476-993X" : "A", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
 	"1745-5200" : "A", // Currents in biblical research 
@@ -575,15 +550,13 @@ var issnPhysicalFormMapping = {
 	"1026-2946" : "A", // Africa Journal of Evangelical Theology
 	"0029-5973" : "A", // Numen PISSN
 	"1568-5276" : "A", // Numen EISSN
-	"1079-9265" : "A", // Religion and the arts
 	"2033-4273" : "A", // ET-Studies Online Publikation 
-	"2032-5215"	: "A", // ET-Studies Online Publikation
+	"2032-5215" : "A", // ET-Studies Online Publikation
 	"1783-1431" : "A", // Ethical Perspectives
 	"0266-7177" : "A", // Modern theology Print-PPN  PISSN
 	"1468-0025" : "A", // Modern theology Print-PPN  EISSN
-	"0809-7291" : "A", // Northern journal of religion and society
 	"0009-661X" : "A", // Churchman
-	"1126-6244" : "A", // Adamantius.
+	"1126-6244" : "A", // Adamantius
 	"1010-9919" : "A", // old testament essays
 	"0935-7335" : "A", // Ethik in der Medizin 
 	"1437-1618" : "A", // Ethik in der Medizin
@@ -663,7 +636,6 @@ var issnPhysicalFormMapping = {
 	"1550-0195" : "A", // Journal of Unitarian Universalist History
 	"0014-701X" : "A", // Faith and freedom
 	"0283-8486" : "A", // Journal of prehistoric religion
-	"0229-2807" : "A", // ARC
 	"0342-2356" : "A", // Ugarit-Forschungen
 	"0039-338X" : "A", // Studia theologica
 	"0901-8328" : "A", // Scandinavian journal of the Old Testament
@@ -724,14 +696,14 @@ var issnPhysicalFormMapping = {
 	"1755-2613" : "A", // Church history !!eppn
 	"1758-6623" : "A", // The ecumenical review !!eppn
 	"1758-6631" : "A", // International review of mission !!eppn
-	"0020-9643" : "A", // Interpretation !!pppn
+	"0020-9643" : "A", // Interpretation !!pppn - in Z. 92 mit ppn gemappt: diese Z. löschen?
 	"2159-340X" : "A", // Interpretation !!eppn
 	"0021-9231" : "A", // Journal of biblical literature !!eppn
 	"0021-969X" : "A", // Journal of church and state !!pppn
 	"2040-4867" : "A", // Journal of church and state !!eppn
 	"0022-0256" : "A", // Journal of cuneiform studies !!pppn
 	"0022-0558" : "A", // Journal of ecumenical studies !!pppn
-	"0022-2097" : "A", // The journal of Jewish studies !!pppn
+	"0022-2097" : "A", // The journal of Jewish studies !!pppn - in Z. 29 mit ppn gemappt: diese Z. löschen?
 	"0022-4235" : "A", // The journal of religious thought !!pppn
 	"0022-4235" : "A", // The journal of religious thought !!eppn
 	"0022-4480" : "A", // Journal of Semitic studies !!pppn
@@ -740,17 +712,17 @@ var issnPhysicalFormMapping = {
 	"1477-4607" : "A", // The journal of theological studies !!eppn
 	"0022-5762" : "A", // Judaism !!pppn
 	"0022-5762" : "A", // Judaism !!eppn
-	"0040-5639" : "A", // Theological studies !!pppn
-	"2169-1304" : "A", // Theological studies !!eppn
-	"0040-5736" : "A", // Theologie today !!pppn
+	"0040-5639" : "A", // Theological studies !!pppn - in Z. 47 mit ppn gemappt: diese Z. löschen?
+	"2169-1304" : "A", // Theological studies !!eppn - in Z. 48 mit eppn gemappt: diese Z. löschen?
+	"0040-5736" : "A", // Theologie today !!pppn - in Z. 125 mit ppn gemappt: diese Z. löschen?
 	"1570-0720" : "A", // Vigiliae Christianae !!eppn
 	"1570-0631" : "A", // Journal for the study of Judaism !!eppn
-	"0091-6471" : "A", // Journal of psychology and theology !!pppn
+	"0091-6471" : "A", // Journal of psychology and theology !!pppn - in Z. 61 mit ppn gemappt: diese Z. löschen?
 	"0091-6471" : "A", // Journal of psychology and theology !!eppn
 	"1552-146X" : "A", // The Hastings Center report !!eppn
 	"0098-9444" : "A", // Biblical archaeology review !!pppn
 	"0098-9444" : "A", // Biblical archaeology review !!eppn
-	"0142-064X" : "A", // Journal for the study of the New Testament !!pppn
+	"0142-064X" : "A", // Journal for the study of the New Testament !!pppn - in Z. 12 mit ppn gemappt: diese Z. löschen?
 	"1745-5294" : "A", // Journal for the study of the New Testament !!eppn
 	"2161-007X" : "A", // Counseling and values !!eppn
 	"0163-4275" : "A", // Environmental ethics !!pppn
@@ -758,17 +730,17 @@ var issnPhysicalFormMapping = {
 	"1572-543X" : "A", // Exchange !!eppn
 	"2396-9393" : "A", // International bulletin of mission research !!pppn
 	"2396-9407" : "A", // International bulletin of mission research !!eppn
-	"0309-0892" : "A", // Journal for the study of the Old Testament !!pppn
+	"0309-0892" : "A", // Journal for the study of the Old Testament !!pppn - in Z. 14 mit ppn gemappt: diese Z. löschen?
 	"1476-6728" : "A", // Journal for the study of the Old Testament !!eppn
 	"0449-508X" : "A", // Journal of pastoral counseling !!pppn
 	"0449-508X" : "A", // Journal of pastoral counseling !!eppn
 	"0894-4857" : "A", // The Merton annual !!pppn
 	"0894-4857" : "A", // The Merton annual !!eppn
-	"0951-8207" : "A", // Journal for the study of the pseudepigrapha !!pppn
+	"0951-8207" : "A", // Journal for the study of the pseudepigrapha !!pppn - in Z. 20 mit ppn gemappt: diese Z. löschen?
 	"1745-5286" : "A", // Journal for the study of the pseudepigrapha !!eppn
-	"0966-7350" : "A", // Feminist theology !!pppn
+	"0966-7350" : "A", // Feminist theology !!pppn - in Z. 18 mit ppn gemappt: diese Z. löschen?
 	"1745-5189" : "A", // Feminist theology !!eppn
-	"1745-5251" : "A", // Journal of pentecostal theology !!pppn
+	"1745-5251" : "A", // Journal of pentecostal theology !!pppn - in Z. 140 mit ppn gemappt: diese Z. löschen?
 	"1574-3012" : "A", // Religion & theology !!eppn
 	"1052-150X" : "A", // Business ethics quarterly !!pppn
 	"2153-3326" : "A", // Business ethics quarterly !!eppn
@@ -779,424 +751,95 @@ var issnPhysicalFormMapping = {
 	"1363-013X" : "A", // Quaker studies !!eppn
 	"1363-7320" : "A", // Ecotheology !!pppn
 	"1749-4907" : "A", // Journal for the study of religion, nature and culture !!pppn
-	"1462-2459" : "A", // Reformation & Renaissance review !!pppn
+	"1462-2459" : "A", // Reformation & Renaissance review !!pppn - in Z. 7 wurde mit ppn gemappt: diese Z. hier löschen?
 	"1462-3153" : "A", // Journal for the Aramaic bible !!pppn
 	"1462-3153" : "A", // Journal for the Aramaic bible !!eppn
-	"0043-2040" : "A", // Wege zum Menschen
-	"0733-4273 (PRINT)" : "A", // Journal of psychology and Christianity
+	"0733-4273 (PRINT)" : "A", // Journal of psychology and Christianity - oben bereits da, aber ohne (PRINT): löschen?
 	"0082-7118" : "A", // Tyndale Bulletin
 	"2326-6236" : "A", // The jurist: studies in church law and ministry
-	"0141-6200" : "A", // British Journal of Religious Education
-    "0943-3058" : "A", // Method and theory in the study of religion
 	"2363-6696" : "O", // Entangled Religions
 	"0044-3441" : "A", // Zeitschrift für Religions- und Geistesgeschichte
 	"1862-5886" : "O", // Zeitschrift für junge Religionswissenschaft
 	"1612-2941" : "O", // Marburg Journal of Religion	
 	
-	
 };
+
 var issnLicenceFieldMapping = {
 	"1550-0195" : "l",
 	"2031-5929" : "l",
-	"2032-5215" : " ",
-	"1783-1814" : " ",
-	"0018-2710" : " ",
-	"0021-9231" : " ", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
-	"0591-2385" : " ", // Zygon 
-    "0891-5881" : " ", // Dialogue and alliance
-	"0884-5379" : " ",  // fides et historia
-	"1474-6700" : " ", // Theology and science  
-	"1462-2459" : " ", //Reformation & Renaissance review  
-	"0031-0328" : " ", //Palestine exploration quarterly 
-	"0037-7686" : " ", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1461-7404" : " ", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5294" : " ", //Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0142-064X" : " ", //Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"1476-6728" : " ", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0309-0892" : " ", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0771-7776" : " ", // Sacris erudiri  
-	"2284-7308" : " ", // Perichoresis  
-	"1745-5189" : " ", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"0966-7350" : " ", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5286" : " ", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0951-8207" : " ", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"1357-4175" : " ", // Reformation  
-	"1752-0738" : " ", // Reformation  
-	"1462-317X" : " ", // Political theology   
-	"1462-317X, 1743-1719" : " ", // Political theology 
-	"1743-1719" : " ", // Political theology	
-	"0360-6503" : " ", // Process studies   
-	"0733-4273" : " ", // Journal of psychology and Christianity
-	"0929-0761" : " ", // Dead Sea discoveries   
-	"1568-5179" : " ", // Dead Sea discoveries  
-	"0022-2097" : " ", // The journal of Jewish studies
-	"0018-2613" : " ", // Historische Zeitschrift 
-	"1871-241X" : " ", // Church history and religious culture   
-	"1871-2428" : " ", // Church history and religious culture  
-	"0946-3518" : " ", // Praktische Theologie
-	"0938-5320" : " ", // Praktische Theologie
-	"2198-0462" : " ", // Praktische Theologie                     
-	"0938-5320" : " ", // Praktische Theologie                     
-	"0043-2040" : " ", // Wege zum Menschen
-	"0021-1400" : " ", // Irish theological quaterly
-	"0023-0707" : " ", // Kerygma und Dogma
-	"1135-4712" : " ", // 'Ílu
-	"1135-4712" : " ", // 'Ílu
-	"0953-9468" : " ", // Studies in Christian ethics
-	"1745-5235" : " ", // Studies in Christian ethics
-	"0888-3769" : " ", // Religion and literature
-	"0029-4500" : " ", // Religion and literature
-	"0888-3769" : " ", // Religion and literature
-	"0040-5639" : " ", // Theological studies
-	"2169-1304" : " ", // Theological studies
-	"0943-7592" : " ", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
-	"1612-9776" : " ", // Journal for the History of Modern Theology 
-	"1612-9776" : " ", // Zeitschrift für Neuere Theologiegeschichte
-	"0943-7592" : " ", // Zeitschrift für Neuere Theologiegeschichte
-	"0031-0328" : " ", // Palestine exploration quarterly
-	"1743-1301" : " ", // Palestine exploration quarterly
-    "1743-1301" : " ", // Palestine exploration quarterly
-	"0031-0328" : " ", // Palestine exploration quarterly
-	"1745-5316" : " ", // Ecclesiology !!hier kein direkter Downlaod, sondern über Zotero-button
-	"0034-6373" : " ", // Review & Expositor
-	"0034-4125" : " ", // Religious studies 
-	"1469-901X" : " ", // Religious studies
-	"1573-3831" : " ", // Mission studies
-	"1573-3831" : " ", // Mission studies
-	"0168-9789" : " ", // Mission studies
-	"0091-6471" : " ", // Journal of psychology and theology
-	"1476-8690" : " ", // Journal for the study of the historical Jesus
-	"2222-582X" : " ", // Journal of early Christian history
-	"0018-2710" : " ", // History of religions
-	"1545-6935" : " ", // History of religions
-	"0384-9694" : " ", // Journal of religious ethics
-	"1467-9795" : " ", // Journal of religious ethics
-	"0943-3058" : " ", // Method & theory in the study of religion
-	"1570-0682" : " ", // Method & theory in the study of religion
-	"1783-1474" : " ", // INTAMS review
-	"0022-4200" : " ", // Journal of religion in Africa
-	"1570-0666" : " ", // Journal of religion in Africa
-	"1092-6690" : " ", // Nova religio
-	"1541-8480" : " ", // Nova religio
-	"1079-9265" : " ", // Religion and the arts
-	"1568-5292" : " ", // Religion and the arts
-	"0008-4298" : " ", // Studies in religion = Sciences religieuses
-	"2042-0587" : " ", // Studies in religion = Sciences religieuses
-	"1380-7854" : " ", // Medieval encounters
-	"1570-0674" : " ", // Medieval encounters
-	"0319-485X" : " ", // Religious studies review
-	"1748-0922" : " ", // Religious studies review
-	"0497-1817" : " ", // Temenos
-	"2342-7256" : " ", // Temenos
-    "1030-570X" : " ", // Pacifica
-    "1839-2598" : " ", // Pacifica
-	"0890-1112" : " ", // Journal of ritual studies	
-	"0091-8296" : " ", // Missiology
-	"2051-3623" : " ", // Missiology
-	"0011-1953" : " ", // Cross currents
-	"1939-3881" : " ", // Cross currents
-	"0020-9643" : " ", // Interpretation
-	"2159-340X" : " ", // Interpretation
-	"0067-6535" : " ", // Biblical research
-	"0588-3237" : " ", // Colloquium
-	"0003-2980" : " ", // Andrews University Seminary studies
-	"0118-8534" : " ", // Asian journal of pentecostal studies
-	"1477-8351" : " ", // Aramaic studies
-	"1462-3153" : " ", // Aramaic studies
-	"0229-2807" : " ", // ARC
-	"0094-5323" : " ", // Augustinian studies
-	"0014-3367" : " ", // Evangelical quarterly
-	"1474-225X" : " ", // International journal for the study of the Christian church
-	"1747-0234" : " ", // International journal for the study of the Christian church
-	"1547-9080" : " ", // Newman studies journal
-	"0144-8153" : " ", // Evangelical review of theology
-	"0360-8808" : " ", // Journal of the Evangelical Theological Society
-	"0092-6558" : " ", // Journal of the Interdenominational Theological Center
-	"1934-9637" : " ", // Journal of spirituality in mental health
-	"1934-9645" : " ", // Journal of spirituality in mental health
-    "1570-0739" : " ", // Zeitschrift für Religions- und Geistesgeschichte
-	"0275-5270"	: " ", // Word and World
-	"0034-3072" : " ", // Reformed theological review  
-	"0025-9373" : " ", // The Mennonite quarterly review  
-	"1023-0807" : " ", // Religion and theology  
-	"1574-3012" : " ", // Religion and theology  
-	"0036-3227" : " ", // St. Vladimir's theological quarterly   
-	"0092-4245" : " ", // Wesleyan theological journal
-	"0006-2014" : " ", // Biblische Zeitschrift
-	"0021-9231" : " ", // Journal of Biblical Literature
-	"1469-8145" : " ", // New Testament studies
-	"0021-9231" : " ", // Journal of Biblical Literature
-	"1469-8145" : " ", // New Testament studies
-	"0048-1009" : " ", // Novum Testamentum
-	"0040-571X" : " ", // Theology
-	"2044-2696" : " ", // Theology
-	"0040-5736" : " ", // Theology today
-	"2044-2556" : " ", // Theology today
-	"2304-4896" : " ", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
-	"0323-4142" : " ", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
-	"0486-5642" : " ", // Restoration quarterly
-	"0360-3032" : " ", // Trinity journal
-    "0340-6083" : " ", // Göttinger Predigtmeditationen
-	"0720-6259" : " ", // Pastoraltheologie
-	"0031-2827" : " ", // Pastoraltheologie
-    "0720-6259, 2197-0831" : " ", // Pastoraltheologie
-	"1065-6219" : " ", // Journal of research on Christian education
-	"1934-4945" : " ", // Journal of research on Christian education
-	"0926-6453" : " ", // Studies in spirituality
-	"1783-1814" : " ", // Studies in spirituality
-	"1745-5251" : " ", // Journal of pentecostal theology
-	"0966-7369" : " ", // Journal of pentecostal theology
-	"0043-4388" : " ", // Westminster Theological Seminary  
-	"0043-4388" : " ", // Westminster Theological Seminary   
-	"0033-5053" : " ", // Quaker history
-	"1934-1504" : " ", // Quaker history
-	"0809-7291" : " ", // Nordic journal of religion and society 
-	"0802-0167" : " ", // Nordic journal of religion and society
-	"1890-7008" : " ", // Nordic journal of religion and society 
-	"1069-4404" : " ", // Sociology of religion
-	"1759-8818" : " ", // Sociology of religion
-	"0141-6200" : " ", // British journal of religious education
-	"2169-2327" : " ", // International journal of philosophy and theology
-	"2169-2327, 2169-2335" : " ", // International journal of philosophy and theology
-	"0890-2461" : " ", // Philosophy & theology
-	"1476-993X" : " ", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
-	"1745-5200" : " ", // Currents in biblical research 
-	"0012-5806" : " ", // The Downside review  !! Druckausgabe ausgewertet bis 133. 2015, 470
-	"2052-9449" : " ", // Review & expositor   !! Druckausgabe ausgewertet bis 112. 2015, 4
-	"1568-5152" : " ", // Biblical interpretation
-	"1370-6020" : " ", // INTAMS review      !!  siehe weiterer Eintrag oben  -  Abspeicherung mit Zauberstaub!
-	"1783-2446" : " ", // Journal of the European Society of Women in Theological Research   -   Abspeicherung mit Zauberstaub!  Aufsätze an Stücktitel!
-	"1026-2946" : " ", // Africa Journal of Evangelical Theology
-	"0029-5973" : " ", // Numen PISSN
-	"1568-5276" : " ", // Numen EISSN
-	"1079-9265" : " ", // Religion and the arts
-	"2033-4273" : " ", // ET-Studies Online Publikation 
-	"2032-5215"	: " ", // ET-Studies Online Publikation
-	"1783-1431" : " ", // Ethical Perspectives
-	"0266-7177" : " ", // Modern theology Print-PPN  PISSN
-	"1468-0025" : " ", // Modern theology Print-PPN  EISSN
-	"0809-7291" : " ", // Northern journal of religion and society
-	"0009-661X" : " ", // Churchman
-	"1126-6244" : " ", // Adamantius.
-	"1010-9919" : " ", // old testament essays
-	"0935-7335" : " ", // Ethik in der Medizin 
-	"1437-1618" : " ", // Ethik in der Medizin
-	"1209-9392" : " ", // Women in Judaism
-	"0305-7240" : " ", // Journal of moral education !!pppn
-	"1465-3877" : " ", // Journal of moral education !!eppn
-	"0167-4544" : " ", // Journal of business ethics !!pppn
-	"1573-0697" : " ", // Journal of business ethics !!eppn
-	"0269-9702" : " ", // Bioethics !!pppn
-	"1467-8519" : " ", // Bioethics !!eppn
-	"1467-8608" : " ", // Business ethics !!eppn
-	"0962-8770" : " ", // Business ethics !!pppn
-	"1468-2303" : " ", // History and theory !!eppn
-	"0018-2656" : " ", // History and thoery !!pppn
-	"1092-1311" : " ", // The journal of religion and film
-	"1086-3222" : " ", // Journal of the history of ideas !!eppn
-	"0022-5037" : " ", // Journal of the history of ideas !!pppn
-	"1086-3184" : " ", // Journal of early Christian studies !!eppn
-	"1067-6341" : " ", // Journal of early Christian studies !!pppn
-	"1469-5103" : " ", // The historical journal !!eppn
-	"0018-246X" : " ", // The historical journal !!pppn
-	"1469-2147" : " ", // Cambridge quarterly of healthcare ethics !!eppn
-	"0963-1801" : " ", // Cambridge quarterly of healthcare ethics !!pppn
-	"1380-3603" : " ", // Christian bioethics !!pppn
-	"1744-4195" : " ", // Christian bioethics !!eppn
-	"0569-9789" : " ", // Analecta calasanctiana
-	"0210-0460" : " ", // Anales valentinos
-	"2444-684X" : " ", // Anales valentinos, Escritos del Vedat
-	"0716-1662" : " ", // Anuario de historia de la Iglesia en Chile
-	"0211-5255" : " ", // Archivo Dominicano
-	"0211-2035" : " ",// Archivo agustiniano
-	"0004-0452" : " ", // Archivo ibero-americano
-	"0004-4970" : " ", // Asprenas
-	"1594-3445" : " ", // Barnabiti studi
-	"0006-0585" : " ", // Bibbia e oriente
-	"0521-8195" : " ", // Burgense
-	"0008-6673" : " ", // Carmelus
-	"0094-2065" : " ", // Communio
-	"0573-2018" : " ", // Compostellanum
-	"0145-7233" : " ", // Concordia journal !!pppn
-	"0145-7233" : " ", // Concordia journal !!eppn
-	"0210-3133" : " ", // Escritos del vedat
-	"0425-340X" : " ", // Estudio agustiniano
-	"0210-0525" : " ", // Estudios
-	"0210-4393" : " ", // Estudios franciscanos
-	"0071-2086" : " ", // Études grégoriennes
-	"0883-0053" : " ", // Ex auditu !!pppn
-	"0883-0053" : " ", // Ex auditu !!eppn
-	"0019-4530" : " ", // Indian church history review
-	"1071-8257" : " ", // Josephinum journal of theology
-	"2244-5161" : " ", // Landas
-	"0211-4011" : " ", // Liceo franciscano
-	"0024-5895" : " ", // Logos : a journal of Eastern Christian Studies
-	"0456-8494" : " ", // Lumen
-	"0544-9073" : " ", // Monte Carmelo
-	"0470-3790" : " ", // Naturaleza y gracia
-	"1451-3455" : " ", // Philotheos
-	"0193-6212" : " ", // Presbyterion !!pppn
-	"0193-6212" : " ", // Presbyterion !!eppn
-	"0043-2873" : " ", // Proceedings of the Wesley Historical Society
-	"0034-7078" : " ", // Revista bíblica
-	"0036-4703" : " ", // Sapientia
-	"1885-0588" : " ", // Selecciones de Franciscanismo
-	"0210-5225" : " ", // Sinite
-	"0144-8722" : " ", // Sobornost
-	"1017-0499" : " ", // Studia historiae ecclesiasticae !!pppn
-	"1017-0499" : " ", // Studia historiae ecclesiasticae !!eppn
-	"2001-5828" : " ", // Svenskt gudstjänstliv !!eppn
-	"0251-4788" : " ", // Taiwan Journal of Theology
-	"0495-1549" : " ", // Teología espiritual
-	"0212-1964" : " ", // Teología y catequesis
-	"0040-5620" : " ", // Theological education
-	"0253-3812" : " ", // Theology & life
-	"0211-7096" : " ", // Urgellia
-	"1344-7297" : " ", // The Japan mission journal
-	"0030-5839" : " ", // The Orthodox word
-	"1550-0195" : " ", // Journal of Unitarian Universalist History
-	"0014-701X" : " ", // Faith and freedom
-	"0283-8486" : " ", // Journal of prehistoric religion
-	"0229-2807" : " ", // ARC
-	"0342-2356" : " ", // Ugarit-Forschungen
-	"0039-338X" : " ", // Studia theologica
-	"0901-8328" : " ", // Scandinavian journal of the Old Testament
-	"1086-3249" : " ", // Kennedy Institute of Ethics journal
-	"0040-5671" : " ", // Theologische Literaturzeitung !!pppn
-	"0889-048X" : " ", // Agriculture and human values !!pppn
-	"1572-8366" : " ", // Agriculture and human values !!eppn
-	"1386-2820" : " ", // Ethical theory and moral practice !!pppn
-	"1572-8447" : " ", // Ethical theory and moral practice !!eppn
-	"1187-7863" : " ", // Journal of agricultural and environmental ethics !!pppn
-	"1573-322X" : " ", // Journal of agricultural and environmental ethics !!eppn
-	"1468-2265" : " ", // Heythrop journal !!eppn
-	"1468-0025" : " ", // Modern theology !!eppn
-	"0031-2789" : " ", // Pastoral psychology !!pppn
-	"1573-6679" : " ", // Pastoral psychology !!eppn
-	"1364-436X" : " ", // International journal of children's spirituality !!pppn
-	"0959-6410" : " ", // Islam and Christian-Muslim relations !!pppn
-	"1203-1542" : " ", // The journal of Hebrew scriptures !!eppn
-	"0024-5100" : " ", // Liturgisches Jahrbuch !!pppn
-	"0024-5100" : " ", // Liturgisches Jahrbuch !!eppn
-	"1099-0046" : " ", // Review of biblical literature !!pppn
-	"1089-7747" : " ", // TC !!eppn
-	"1467-9647" : " ", // Teaching theology & religion !!eppn
-	"1540-6385" : " ", // Dialog !!eppn
 	"1661-3317" : "l", // Lectio difficilior !!eppn
-	"1473-4257" : " ", // Journal of medical ethics !!eppn
-	"1468-2400" : " ", // International journal of systematic theology !!eppn
-	"1466-769X" : " ", // Nursing philosophy !!eppn
-	"2473-3725" : " ", // The Thomist !!pppn
-	"2473-3725" : " ", // The Thomist !!eppn
-	"0969-7330" : " ", // Nursing ethics !!pppn
-	"1477-0989" : " ", // Nursing ethics !!eppn
-	"0006-0887" : " ", // Biblica !!pppn
-	"1568-5365" : " ", // Novum Testamentum !!eppn
-	"1568-5330" : " ", // Vetus Testamentum !!eppn
-	"1568-5179" : " ", // Dead Sea discoveries !!eppn
-	"1091-6687" : " ", // Logos : a journal of catholic thought and culture !!pppn
-	"0008-8080" : " ", // The Catholic historical review !!pppn
-	"1568-5152" : " ", // Biblical interpretation !!eppn
-	"0003-097X" : " ", // Bulletin of the American Schools of Oriental Research !!pppn
-	"0017-8160" : " ", // The Harvard theological review !!pppn
-	"1475-4517" : " ", // The Harvard theological review !!eppn
-	"1535-3117" : " ", // Spiritus !!eppn
-	"0361-0160" : " ", // The sixteenth century journal !!pppn
-	"0034-4087" : " ", // Religious education !!pppn
-	"0002-7049" : " ", // America !!pppn
-	"0003-0279" : " ", // Journal of the American Oriental Society !!pppn
-	"0003-3286" : " ", // Anglican theological review !!pppn
-	"0003-3286" : " ", // Anglican theological review !!eppn
-	"0006-0895" : " ", // The Biblical archeologist !!pppn
-	"1094-2076" : " ", // Near Eastern archaeology !!pppn
-	"0008-7912" : " ", // The catholic biblical quarterly !!pppn
-	"0009-5281" : " ", // The Christian century !!pppn
-	"0009-5281" : " ", // The Christian century !!eppn
-	"0009-5753" : " ", // Christianity today !!pppn
-	"0009-5753" : " ", // Christianity today !!eppn
-	"0009-6407" : " ", // Church history !!pppn
-	"1755-2613" : " ", // Church history !!eppn
-	"1758-6623" : " ", // The ecumenical review !!eppn
-	"1758-6631" : " ", // International review of mission !!eppn
-	"0020-9643" : " ", // Interpretation !!pppn
-	"2159-340X" : " ", // Interpretation !!eppn
-	"0021-9231" : " ", // Journal of biblical literature !!eppn
-	"0021-969X" : " ", // Journal of church and state !!pppn
-	"2040-4867" : " ", // Journal of church and state !!eppn
-	"0022-0256" : " ", // Journal of cuneiform studies !!pppn
-	"0022-0558" : " ", // Journal of ecumenical studies !!pppn
-	"0022-2097" : " ", // The journal of Jewish studies !!pppn
-	"0022-4235" : " ", // The journal of religious thought !!pppn
-	"0022-4235" : " ", // The journal of religious thought !!eppn
-	"0022-4480" : " ", // Journal of Semitic studies !!pppn
-	"1477-8556" : " ", // Journal of Semitic studies !!eppn
-	"0022-5185" : " ", // The journal of theological studies !!pppn
-	"1477-4607" : " ", // The journal of theological studies !!eppn
-	"0022-5762" : " ", // Judaism !!pppn
-	"0022-5762" : " ", // Judaism !!eppn
-	"0040-5639" : " ", // Theological studies !!pppn
-	"2169-1304" : " ", // Theological studies !!eppn
-	"0040-5736" : " ", // Theologie today !!pppn
-	"1570-0720" : " ", // Vigiliae Christianae !!eppn
-	"1570-0631" : " ", // Journal for the study of Judaism !!eppn
-	"0091-6471" : " ", // Journal of psychology and theology !!pppn
-	"0091-6471" : " ", // Journal of psychology and theology !!eppn
-	"1552-146X" : " ", // The Hastings Center report !!eppn
-	"0098-9444" : " ", // Biblical archaeology review !!pppn
-	"0098-9444" : " ", // Biblical archaeology review !!eppn
-	"0142-064X" : " ", // Journal for the study of the New Testament !!pppn
-	"1745-5294" : " ", // Journal for the study of the New Testament !!eppn
-	"2161-007X" : " ", // Counseling and values !!eppn
-	"0163-4275" : " ", // Environmental ethics !!pppn
-	"0163-4275" : " ", // Environmental ethics !!eppn
-	"1572-543X" : " ", // Exchange !!eppn
-	"2396-9393" : " ", // International bulletin of mission research !!pppn
-	"2396-9407" : " ", // International bulletin of mission research !!eppn
-	"0309-0892" : " ", // Journal for the study of the Old Testament !!pppn
-	"1476-6728" : " ", // Journal for the study of the Old Testament !!eppn
-	"0449-508X" : " ", // Journal of pastoral counseling !!pppn
-	"0449-508X" : " ", // Journal of pastoral counseling !!eppn
-	"0894-4857" : " ", // The Merton annual !!pppn
-	"0894-4857" : " ", // The Merton annual !!eppn
-	"0951-8207" : " ", // Journal for the study of the pseudepigrapha !!pppn
-	"1745-5286" : " ", // Journal for the study of the pseudepigrapha !!eppn
-	"0966-7350" : " ", // Feminist theology !!pppn
-	"1745-5189" : " ", // Feminist theology !!eppn
-	"1745-5251" : " ", // Journal of pentecostal theology !!pppn
-	"1574-3012" : " ", // Religion & theology !!eppn
-	"1052-150X" : " ", // Business ethics quarterly !!pppn
-	"2153-3326" : " ", // Business ethics quarterly !!eppn
-	"1094-2076" : " ", // Near Eastern archaeology !!pppn
-	"1354-9901" : " ", // Studies in world christianity !!pppn
-	"1355-8358" : " ", // Theology & sexuality !!pppn
-	"1363-013X" : " ", // Quaker studies !!pppn
-	"1363-013X" : " ", // Quaker studies !!eppn
-	"1363-7320" : " ", // Ecotheology !!pppn
-	"1749-4907" : " ", // Journal for the study of religion, nature and culture !!pppn
-	"1462-2459" : " ", // Reformation & Renaissance review !!pppn
-	"1462-3153" : " ", // Journal for the Aramaic bible !!pppn
-	"1462-3153" : " ", // Journal for the Aramaic bible !!eppn
-	"0043-2040" : " ", // Wege zum Menschen
-	"0043-2040, 2196-8284" : " ", // Wege zum Menschen
-	"0733-4273 (PRINT)" : " ", // Journal of psychology and Christianity
-	"0082-7118" : " ", // Tyndale Bulletin
-	"2326-6236" : " ", // The jurist: studies in church law and ministry
-	"0141-6200" : " ", // British Journal of Religious Education
-	"0943-3058" : " ", // Method and theory in the study of religion
 	"2363-6696" : "l", // Entangled Religions
-	"0044-3441" : " ", // Zeitschrift für Religions- und Geistesgeschichte
 	"1862-5886" : "l", // Zeitschrift für junge Religionswissenschaft
 	"1612-2941" : "l", // Marburg Journal of Religion	
-	
-	
-	
 };
 
 var issnSsgMapping = {
-	"0044-3441" : "0; 1", // Zeitschrift für Religions- und Geistesgeschichte
+	"0044-3441; 1570-0739" : "0; 1", // Zeitschrift für Religions- und Geistesgeschichte
 	"1862-5886" : "0", // Zeitschrift für junge Religionswissenschaft
 	"1612-2941" : "0", // Marburg Journal of Religion
-}
+	"2363-6696" : "0", // Entangled Religions
+	"0943-3058, 1570-0682" : "0", // Method and theory in the study of religion
+	"0141-6200" : "0; 1", // British Journal of Religious Education
+	"1749-4907" : "0; 1", // Journal for the study of religion, nature and culture
+	"1094-2076" : "0; 1", // Near Eastern archaeology
+	"1574-3012; 1023-0807" : "0; 1", // Religion & theology
+	"0022-5762" : "0; 1", // Judaism
+	"1570-0631" : "0; 1", // Journal for the study of Judaism
+	"0022-4480" : "0; 1", // Journal of Semitic studies !!pppn
+	"1477-8556" : "0; 1", // Journal of Semitic studies !!eppn
+	"0022-4235" : "0; 1", // The journal of religious thought
+	"0022-2097" : "0; 1", // The journal of Jewish studies
+	"0003-0279" : "0; 1", // Journal of the American Oriental Society
+	"0591-2385" : "0", // Zygon 
+    	"0891-5881" : "0", // Dialogue and alliance
+	"0037-7686" : "0; 1", // Social compass
+	"1461-7404" : "0; 1", // Social compass
+	"0018-2613" : "0; 1", // Historische Zeitschrift
+	"1135-4712" : "0", // 'Ílu
+	"0888-3769" : "0; 1", // Religion and literature
+	"0029-4500" : "0; 1", // Religion and literature
+	"0034-4125" : "0", // Religious studies 
+	"1469-901X" : "0", // Religious studies
+	"0018-2710" : "0", // History of religions
+	"1545-6935" : "0", // History of religions
+	"0384-9694" : "0; 1", // Journal of religious ethics
+	"1467-9795" : "0; 1", // Journal of religious ethics
+	"0022-4200" : "0", // Journal of religion in Africa
+	"1570-0666" : "0", // Journal of religion in Africa
+	"1092-6690" : "0", // Nova religio
+	"1541-8480" : "0", // Nova religio
+	"1079-9265" : "0; 1", // Religion and the arts
+	"1568-5292" : "0; 1", // Religion and the arts
+	"0008-4298" : "0", // Studies in religion = Sciences religieuses
+	"2042-0587" : "0", // Studies in religion = Sciences religieuses
+	"1380-7854" : "0; 1", // Medieval encounters
+	"1570-0674" : "0; 1", // Medieval encounters
+	"0319-485X" : "0", // Religious studies review
+	"1748-0922" : "0", // Religious studies review
+	"0497-1817" : "0; 1", // Temenos
+	"2342-7256" : "0; 1", // Temenos
+	"0890-1112" : "0", // Journal of ritual studies
+	"0011-1953" : "0; 1", // Cross currents
+	"1939-3881" : "0; 1", // Cross currents
+	"0229-2807" : "0; 1", // ARC
+	"1934-9637" : "0; 1", // Journal of spirituality in mental health
+	"1934-9645" : "0; 1", // Journal of spirituality in mental health
+	"1023-0807" : "0; 1", // Religion and theology  
+	"1574-3012" : "0; 1", // Religion and theology
+	"0926-6453" : "0; 1", // Studies in spirituality
+	"1783-1814" : "0; 1", // Studies in spirituality
+	"0809-7291" : "0; 1", // Nordic journal of religion and society 
+	"0802-0167" : "0; 1", // Nordic journal of religion and society
+	"1890-7008" : "0; 1", // Nordic journal of religion and society 
+	"1069-4404" : "0", // Sociology of religion
+	"1759-8818" : "0", // Sociology of religion
+	"0029-5973" : "0", // Numen PISSN
+	"1568-5276" : "0", // Numen EISSN
+	"0935-7335" : "0; 1", // Ethik in der Medizin 
+	"1437-1618" : "0; 1", // Ethik in der Medizin
+	"1209-9392" : "0; 1", // Women in Judaism
+};
+
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
 
@@ -1282,10 +925,10 @@ function doExport() {
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 				
-		if (article) {
-			writeLine("0500", physicalForm+"o"+cataloguingStatus+licenceField);//z.B. Aou, Oox, Ooul
+		if (article && licenceField === "l") { // wenn Position 4 = "l" dann Ooul
+			writeLine("0500", physicalForm+"o"+cataloguingStatus+licenceField);
 		} else {
-			writeLine("0500"); // wenn kein Mapping, dann manuelle Eingabe
+			writeLine("0500", physicalForm+"o"+cataloguingStatus); // //z.B. Aou, Oou, Oox etc.
 		}
 		
 		//item.type --> 0501 Inhaltstyp
@@ -1496,7 +1139,7 @@ function doExport() {
 				writeLine("4261", "Rezension von" + item.publicationTitle); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
 			}
 				
-		//SSG bzw. FID-Nummer --> 5056
+		//SSG bzw. FID-Nummer --> 5056 "0" = Religionwissenschaft | "1" = Theologie | "0; 1" = RW & Theol.
 		
 		if (SsgField === "0" || SsgField === "0; 1") {
 			writeLine("5056", SsgField);
