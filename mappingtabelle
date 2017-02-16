@@ -794,4 +794,4 @@ var issnSsgMapping = {
 	"0935-7335" : "0; 1", // Ethik in der Medizin 
 	"1437-1618" : "0; 1", // Ethik in der Medizin
 	"1209-9392" : "0; 1", // Women in Judaism
-}
+};
