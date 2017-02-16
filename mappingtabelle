@@ -59,6 +59,7 @@ var journalMapping = {
 	"1573-3831" : "!01622664X!", // Mission studies
 	"0168-9789" : "!01622664X!", // Mission studies
 	"0091-6471" : "!015193306!", // Journal of psychology and theology
+	"00916471" : "!015193306!", // Journal of psychology and theology ohne Bindestrich
 	"1476-8690" : "!106846396!", // Journal for the study of the historical Jesus
 	"2222-582X" : "!370706498!", // Journal of early Christian history
 	"0018-2710" : "!014406292!", // History of religions
@@ -404,7 +405,6 @@ var issnPhysicalFormMapping = {
 	"1469-901X" : "A", // Religious studies
 	"1573-3831" : "A", // Mission studies
 	"0168-9789" : "A", // Mission studies
-	"0091-6471" : "A", // Journal of psychology and theology
 	"1476-8690" : "A", // Journal for the study of the historical Jesus
 	"2222-582X" : "A", // Journal of early Christian history
 	"0018-2710" : "A", // History of religions
@@ -674,7 +674,7 @@ var issnPhysicalFormMapping = {
 	"1570-0720" : "A", // Vigiliae Christianae !!eppn
 	"1570-0631" : "A", // Journal for the study of Judaism !!eppn
 	"0091-6471" : "A", // Journal of psychology and theology !!pppn - in Z. 61 mit ppn gemappt: diese Z. löschen?
-	"0091-6471" : "A", // Journal of psychology and theology !!eppn
+	"00916471" : "A", // Journal of psychology and theology ohne Bindestrich
 	"1552-146X" : "A", // The Hastings Center report !!eppn
 	"0098-9444" : "A", // Biblical archaeology review !!pppn
 	"0098-9444" : "A", // Biblical archaeology review !!eppn
