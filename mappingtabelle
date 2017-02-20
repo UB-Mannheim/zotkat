@@ -248,7 +248,7 @@ var journalMapping = {
 	"0082-7118" : "!015195775!", // Tyndale Bulletin
 	"2326-6236" : "!014891263!", // The jurist: studies in church law and ministry
 	"2363-6696" : "!416961657!", // Entangled Religions
-	"0044-3441" : "!14821419!", // Zeitschrift für Religions- und Geistesgeschichte
+	"0044-3441" : "!014821419!", // Zeitschrift für Religions- und Geistesgeschichte
 	"1862-5886" : "!281314136!", // Zeitschrift für junge Religionswissenschaft
 	"1612-2941" : "!281189013!", // Marburg Journal of Religion
 	
@@ -350,7 +350,7 @@ var issnVolumeMapping = {
 };
 
 var issnPhysicalFormMapping = {
-	"1550-0195" : "O",
+	"1550-0195" : "O", // Journal of Unitarian Universalist History
 	"2031-5929" : "A",
 	"2032-5215" : "O", // ET-Studies Online Publikation - weiter unten gleiche Zs mit "A"
 	"0021-9231" : "A", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
@@ -794,4 +794,19 @@ var issnSsgMapping = {
 	"0935-7335" : "0; 1", // Ethik in der Medizin 
 	"1437-1618" : "0; 1", // Ethik in der Medizin
 	"1209-9392" : "0; 1", // Women in Judaism
+	"0305-7240" : "0; 1", // Journal of moral education !!pppn
+	"1465-3877" : "0; 1", // Journal of moral education !!eppn
+	"0269-9702" : "0; 1", // Bioethics !!pppn
+	"1467-8519" : "0; 1", // Bioethics !!eppn
+	"1468-2303" : "0; 1", // History and theory !!eppn
+	"0018-2656" : "0; 1", // History and theory !!pppn
+	"1092-1311" : "0", // The journal of religion and film
+	"1086-3222" : "0; 1", // Journal of the history of ideas !!eppn
+	"0022-5037" : "0; 1", // Journal of the history of ideas !!pppn
+	"1469-5103" : "0; 1", // The historical journal !!eppn
+	"0018-246X" : "0; 1", // The historical journal !!pppn
+	"1469-2147" : "0; 1", // Cambridge quarterly of healthcare ethics !!eppn
+	"0963-1801" : "0; 1", // Cambridge quarterly of healthcare ethics !!pppn
+	"0014-701X" : "0", // Faith and freedom
+	"0283-8486" : "0", // Journal of prehistoric religion
 };
