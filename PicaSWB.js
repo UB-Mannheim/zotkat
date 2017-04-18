@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-04-18 10:06:00"
+	"lastUpdated": "2017-04-18 14:06:00"
 }
 
 
@@ -35,7 +35,7 @@
 */
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
-	"0591-2385" : "!01515663X!", // Zygon
+	"0591-2385" : "!090854799!", // Zygon
 	"1467-9744" : "!090854799!", // Zygon
     "0891-5881" : "!023125381!", // Dialogue and alliance
 	"0884-5379" : "!341092975!", // fides et historia
