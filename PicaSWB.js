@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-04-18 14:06:00"
+	"lastUpdated": "2017-05-23 14:54:00"
 }
 
 
@@ -35,7 +35,7 @@
 */
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
-	"0591-2385" : "!090854799!", // Zygon
+	"0591-2385" : "!01515663X!", // Zygon
 	"1467-9744" : "!090854799!", // Zygon
     "0891-5881" : "!023125381!", // Dialogue and alliance
 	"0884-5379" : "!341092975!", // fides et historia
@@ -118,8 +118,8 @@ var journalMapping = {
 	"1748-0922" : "!01455027X!", // Religious studies review
 	"0497-1817" : "!014862522!", // Temenos
 	"2342-7256" : "!014862522!", // Temenos
-    "1030-570X" : "!018291589!", // Pacifica
-    "1839-2598" : "!018291589!", // Pacifica
+    "1030-570X" : "!32599787X!", // Pacifica
+    "1839-2598" : "!32599787X!", // Pacifica
 	"0890-1112" : "!023118172!", // Journal of ritual studies	
 	"0091-8296" : "!015194213!", // Missiology
 	"2051-3623" : "!015194213!", // Missiology
@@ -138,7 +138,7 @@ var journalMapping = {
 	"1462-3153" : "!078316677!", // Journal for the Aramaic bible
 	"0229-2807" : "!059754931!", // ARC
 	"0094-5323" : "!015192121!", // Augustinian studies
-	"0014-3367" : "!015178811!", // Evangelical quarterly
+	"00143367" : "!015178811!", // Evangelical quarterly
 	"1474-225X" : "!099026465!", // International journal for the study of the Christian church
 	"1747-0234" : "!099026465!", // International journal for the study of the Christian church
 	"1547-9080" : "!111171709!", // Newman studies journal
@@ -151,6 +151,7 @@ var journalMapping = {
 	"0275-5270" : "!015243044!", // Word and World
 	"0034-3072" : "!015182711!", // Reformed theological review  
 	"0025-9373" : "!015181278!", // The Mennonite quarterly review  
+	"00259373" : "!015181278!", // The Mennonite quarterly review 
 	"1023-0807" : "!043088619!", // Religion and theology  
 	"1574-3012" : "!043088619!", // Religion and theology  
 	"0036-3227" : "!015183696!", // St. Vladimir's theological quarterly   
@@ -306,6 +307,25 @@ var journalMapping = {
 	"0361-0160" : "!103189548!", // The Sixteenth Century Journal !!eppn
 	"03610160" : "!014787814!", // The Sixteenth Century Journal !!pppn
 	"03610160" : "!103189548!", // The Sixteenth Century Journal !!eppn
+	"0014-2239" : "!424017644!", // Etudes théologiques et religieuses !!pppn
+	"2272-9011" : "!424017644!", // Etudes théologiques et religieuses !!eppn
+	"0038-8610" : "!015205207!", // Concordia Theological Quarterly
+	"0047-2867" : "!015194620!", // Journal of Theology for Southern Africa
+	"0342-0914" : "!014414104!", // Lutherjahrbuch
+	"0194-3448" : "!015243265!", // American journal of theology and philosophy
+	"2199-4463" : "!416962777!", // Religion in the Roman Empire
+	"21994463, 21994471" : "!416962777!", // Religion in the Roman Empire
+	"0148-3331" : "!273874853!", // Christianity & literature !! eppn
+	"2056-5666" : "!273874853!", // Christianity & literature !! pppn
+	"1868-8020" : "!323851452!", // Early Christianity
+	"1868-7032" : "!325341478!", // Early Christianity 
+	"0040-5698" : "!279448899!", // Theologische Rundschau
+	"0044-3549" : "!252209540!", // Zeitschrift für Theologie und Kirche
+	"2195-9773" : "!404297986!", // Philosophy, Theology and the Sciences
+	"0944-5706" : "!307015734!", // Jewish Studies Quarterly
+	"2192-2276" : "!433582189!", // Hebrew Bible and Ancient Israel
+	"1063-8512" : "!033050201!", // Pro ecclesia
+	
 	
 	
 };
@@ -410,6 +430,12 @@ var issnLangMapping = {
 	"0774-5524" : "eng", // Questions liturgiques
 	"1783-1806" : "eng", // Studies in Interreligious Dialogue
 	"1867-4240" : "ger", // Transformierte Buddhismen
+	"0342-0914" : "ger", // Lutherjahrbuch
+	"0040-5698" : "ger", // Theologische Rundschau
+	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
+	
+	
+	
 	
 };
 
@@ -500,8 +526,8 @@ var issnPhysicalFormMapping = {
 	"1748-0922" : "A", // Religious studies review
 	"0497-1817" : "A", // Temenos
 	"2342-7256" : "A", // Temenos
-    "1030-570X" : "A", // Pacifica
-    "1839-2598" : "A", // Pacifica
+    "1030-570X" : "O", // Pacifica
+    "1839-2598" : "O", // Pacifica
 	"0890-1112" : "A", // Journal of ritual studies	
 	"0091-8296" : "A", // Missiology
 	"2051-3623" : "A", // Missiology
@@ -532,6 +558,7 @@ var issnPhysicalFormMapping = {
 	"0275-5270" : "A", // Word and World
 	"0034-3072" : "A", // Reformed theological review  
 	"0025-9373" : "A", // The Mennonite quarterly review  
+	"00259373" : "A", // The Mennonite quarterly review
 	"1023-0807" : "A", // Religion and theology  
 	"1574-3012" : "A", // Religion and theology  
 	"0036-3227" : "A", // St. Vladimir's theological quarterly   
@@ -809,6 +836,28 @@ var issnPhysicalFormMapping = {
 	"0361-0160" : "A", // The Sixteenth Century Journal
 	"03610160" : "A", // The Sixteenth Century Journal
 	"0038-8610" : "A", // Concordia Theological Quarterly
+	"0014-2239" : "O", // Etudes théologiques et religieuses !!pppn
+	"2272-9011" : "O", // Etudes théologiques et religieuses !!eppn
+	"0014-2239, 2272-9011" : "O", // Etudes théologiques et religieuses !!pppn + eppn
+	"0047-2867" : "A", // ! 015194620!Journal of Theology for Southern Africa
+	"0342-0914" : "A", // Lutherjahrbuch
+	"0194-3448" : "A", // American journal of theology and philosophy
+	"2199-4463" : "O", // Religion in the Roman Empire
+	"21994463, 21994471" : "O", // Religion in the Roman Empire
+	"0148-3331" : "O", // Christianity & literature
+	"2056-5666" : "O", // Christianity & literature
+	"1868-8020" : "O", // Early Christianity
+	"1868-7032" : "O", // Early Christianity
+	"0040-5698" : "O", // Theologische Rundschau
+	"0044-3549" : "O", // Zeitschrift für Theologie und Kirche
+	"0944-5706" : "O", // Jewish Studies Quarterly
+	"2195-9773" : "O", // Philosophy, Theology and the Sciences
+	"2192-2276" : "O", // Hebrew Bible and Ancient Israel
+	"00143367" : "A", // Evangelical quarterly
+	"1063-8512" : "A", // Pro ecclesia
+	
+	
+	
 };
 
 var issnLicenceFieldMapping = {
@@ -934,7 +983,10 @@ var issnSsgMapping = {
 	"1783-1806" : "0; 1", // Studies in Interreligious Dialogue
 	"1867-4240" : "0", // Transformierte Buddhismen
 	"1583-0039" : "0", // Journal for the Study of Religions and Ideologies
-	"2294-6209" : "0; 1", // Byzantion
+	"2294-6209" : "0; 1", // Byzantion 
+	"0944-5706" : "0; 1", // Jewish Studies Quarterly
+	"2199-4463" : "0", // Religion in the Roman Empire
+	
 	
 };
 
@@ -944,7 +996,7 @@ var defaultLanguage = "eng";
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
-var cataloguingStatus = "u";//0500 Position 3
+var cataloguingStatus = "r";//0500 Position 3
 var cataloguingStatusO = "r";//0500 Position 3
 var licenceField = issnLicenceFieldMapping; // 0500 Position 4 only for Open Access Items; http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=SWB
 var SsgField = issnSsgMapping;
@@ -970,12 +1022,25 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=3041&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=theolog*&ACT3=*&IKT3=8978&TRM3=19?" 
-		//lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.
-		//IKT1=2057 TRM1=3.* für GND-Systematik
-		//IKT2=8977 TRM2=    für Berufsbezeichnung 550
-		//IKT=8978  TRM3=19? für Geburts- und Sterbedatum (Bereich)
-		//Liste der Indikatoren und Routine http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=idx_list_typ&regelwerk=RDA&verbund=SWB
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=theolog*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
+				
+		/*lookupUrl kann je nach Anforderung noch spezifiziert werden, im obigen Abfragebeispiel: 
+		suchen [und] (Person(Phrase: Nachname, Vorname) [PER]) " authorName "
+		eingrenzen (Systematiknummer der SWD [SN]) *
+		eingrenzen (Relationiertes Schlagwort in der GND [RLS]) theolog*
+		ausgenommen (Relationierte Zeit in der GND [RLZ]) 1[1,2,3,4,5,6,7,8][0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9]
+		
+		IKT0=1 TRM0= für Persönlicher Name in Picafeld 100
+		IKT1=2057 TRM1=3.* für GND-Systematik
+		IKT2=8963 TRM2=theolog*    für Berufsbezeichnung 550
+		IKT3=8991  TRM3=1[1,2,3,4,5,6,7,8][0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9] für Geburts- und Sterbedatum (Bereich)
+		
+		###OPERATOREN vor "IKT"###
+		UND-Verknüpfung "&" | ODER-Verknüpfung "%2B&" | Nicht "-&"
+		
+		###TYP IKT=Indikatoren|Zweite Spalte Schlüssel(IKT)###
+		Liste der Indikatoren und Routine http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=idx_list_typ&regelwerk=RDA&verbund=SWB
+		*/
 		
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
