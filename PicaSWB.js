@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-05-23 14:54:00"
+	"lastUpdated": "2017-05-24 10:42:00"
 }
 
 
@@ -138,7 +138,8 @@ var journalMapping = {
 	"1462-3153" : "!078316677!", // Journal for the Aramaic bible
 	"0229-2807" : "!059754931!", // ARC
 	"0094-5323" : "!015192121!", // Augustinian studies
-	"00143367" : "!015178811!", // Evangelical quarterly
+	"00143367"  : "!015178811!", // Evangelical quarterly
+	"0014-3367" : "!015178811!", // Evangelical quarterly
 	"1474-225X" : "!099026465!", // International journal for the study of the Christian church
 	"1747-0234" : "!099026465!", // International journal for the study of the Christian church
 	"1547-9080" : "!111171709!", // Newman studies journal
@@ -181,9 +182,9 @@ var journalMapping = {
 	"0043-4388" : "!015196739!", // Westminster Theological Seminary  
 	"0033-5053" : "!015189589!", // Quaker history
 	"1934-1504" : "!015189589!", // Quaker history
-	"0809-7291" : "!121600203!", // Nordic journal of religion and society 
-	"0802-0167" : "!121600203!", // Nordic journal of religion and society
-	"1890-7008" : "!121600203!", // Nordic journal of religion and society 
+	"0809-7291" : "!477911633!", // Nordic journal of religion and society 
+	"0802-0167" : "!477911633!", // Nordic journal of religion and society
+	"1890-7008" : "!477911633!", // Nordic journal of religion and society 
 	"1069-4404" : "!034203478!", // Sociology of religion
 	"1759-8818" : "!034203478!", // Sociology of religion
 	"0141-6200" : "!015208621!", // British journal of religious education
@@ -202,8 +203,8 @@ var journalMapping = {
 	"2033-4273" : "!379731398!", // ET-Studies Online Publikation 
 	"2032-5215" : "!379731398!", // ET-Studies Online Publikation
 	"1783-1431" : "!040105555!", // Ethical Perspectives
-	"0266-7177" : "!015394956!", // Modern theology Print-PPN  PISSN
-	"1468-0025" : "!096290587!", // Modern theology Print-PPN  EISSN
+	"0266-7177" : "!096290587!", // Modern theology 
+	"1468-0025" : "!096290587!", // Modern theology 
 	"0009-661X" : "!015191273!", // Churchman
 	"1126-6244" : "!094423636!", // Adamantius
 	"1010-9919" : "!015906299!", // old testament essays
@@ -325,6 +326,10 @@ var journalMapping = {
 	"0944-5706" : "!307015734!", // Jewish Studies Quarterly
 	"2192-2276" : "!433582189!", // Hebrew Bible and Ancient Israel
 	"1063-8512" : "!033050201!", // Pro ecclesia
+	"1890-7008, 0809-7291" : "!477911633!", // Nordic journal of religion and society
+	"0967-8948" : "!487680898!", // Journal of the British Association for the Study of Religions - formerly DISKUS
+	"2342-7256" : "!42401257X!", // Temenos : nordic journal of comparative religion
+	"1799-3121" : "!367402394!", // Approaching religion	
 	
 	
 	
@@ -433,6 +438,9 @@ var issnLangMapping = {
 	"0342-0914" : "ger", // Lutherjahrbuch
 	"0040-5698" : "ger", // Theologische Rundschau
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
+	"0967-8948" : "eng", // Journal of the British Association for the Study of Religions - formerly DISKUS
+	"2342-7256" : "eng", // Temenos : nordic journal of comparative religion
+	"1799-3121" : "eng", // Approaching religion
 	
 	
 	
@@ -546,6 +554,7 @@ var issnPhysicalFormMapping = {
 	"0229-2807" : "A", // ARC
 	"0094-5323" : "A", // Augustinian studies
 	"0014-3367" : "A", // Evangelical quarterly
+	"00143367"  : "A", // Evangelical quarterly
 	"1474-225X" : "A", // International journal for the study of the Christian church
 	"1747-0234" : "A", // International journal for the study of the Christian church
 	"1547-9080" : "A", // Newman studies journal
@@ -590,7 +599,7 @@ var issnPhysicalFormMapping = {
 	"1934-1504" : "A", // Quaker history
 	"0809-7291" : "A", // Nordic journal of religion and society 
 	"0802-0167" : "A", // Nordic journal of religion and society
-	"1890-7008" : "A", // Nordic journal of religion and society 
+	"1890-7008" : "O", // Nordic journal of religion and society 
 	"1069-4404" : "A", // Sociology of religion
 	"1759-8818" : "A", // Sociology of religion
 	"0141-6200" : "A", // British journal of religious education
@@ -610,8 +619,8 @@ var issnPhysicalFormMapping = {
 	"2033-4273" : "A", // ET-Studies Online Publikation 
 	"2032-5215" : "A", // ET-Studies Online Publikation
 	"1783-1431" : "A", // Ethical Perspectives
-	"0266-7177" : "A", // Modern theology Print-PPN  PISSN
-	"1468-0025" : "O", // Modern theology Print-PPN  EISSN
+	"0266-7177" : "O", // Modern theology 
+	"1468-0025" : "O", // Modern theology 
 	"0009-661X" : "A", // Churchman
 	"1126-6244" : "A", // Adamantius
 	"1010-9919" : "A", // old testament essays
@@ -705,7 +714,6 @@ var issnPhysicalFormMapping = {
 	"1187-7863" : "A", // Journal of agricultural and environmental ethics !!pppn
 	"1573-322X" : "A", // Journal of agricultural and environmental ethics !!eppn
 	"1468-2265" : "A", // Heythrop journal !!eppn
-	"1468-0025" : "O", // Modern theology !!eppn
 	"0031-2789" : "A", // Pastoral psychology !!pppn
 	"1573-6679" : "A", // Pastoral psychology !!eppn
 	"1364-436X" : "A", // International journal of children's spirituality !!pppn
@@ -853,8 +861,11 @@ var issnPhysicalFormMapping = {
 	"0944-5706" : "O", // Jewish Studies Quarterly
 	"2195-9773" : "O", // Philosophy, Theology and the Sciences
 	"2192-2276" : "O", // Hebrew Bible and Ancient Israel
-	"00143367" : "A", // Evangelical quarterly
 	"1063-8512" : "A", // Pro ecclesia
+	"1890-7008, 0809-7291" : "O", // Nordic journal of religion and society
+	"0967-8948" : "O", // Journal of the British Association for the Study of Religions - formerly DISKUS
+	"2342-7256" : "O", // Temenos : nordic journal of comparative religion
+	"1799-3121" : "O", // Approaching religion	
 	
 	
 	
@@ -869,7 +880,10 @@ var issnLicenceFieldMapping = {
 	"1612-2941" : "l", // Marburg Journal of Religion
 	"1861-5813" : "l", // Online - Heidelberg Journal of Religions on the Internet
 	"1867-4240" : "l", // Transformierte Buddhismen
-	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
+	"1583-0039" : "l", // Journal for the Study of Religions and Ideologies
+	"0967-8948" : "l", // Journal of the British Association for the Study of Religions - formerly DISKUS
+	"2342-7256" : "l", // Temenos : nordic journal of comparative religion
+	"1799-3121" : "l", // Approaching religion
 	
 	
 };
@@ -986,6 +1000,10 @@ var issnSsgMapping = {
 	"2294-6209" : "0; 1", // Byzantion 
 	"0944-5706" : "0; 1", // Jewish Studies Quarterly
 	"2199-4463" : "0", // Religion in the Roman Empire
+	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
+	"0967-8948" : "0", // Journal of the British Association for the Study of Religions - formerly DISKUS
+	"2342-7256" : "0", // Temenos : nordic journal of comparative religion
+	"1799-3121" : "0", // Approaching religion
 	
 	
 };
