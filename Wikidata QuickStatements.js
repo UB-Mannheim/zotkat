@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-05-26 06:30:00"
+	"lastUpdated": "2017-05-27 18:00:00"
 }
 
 
@@ -38,15 +38,58 @@
 
 
 var typeMapping = {
+	//Zotero types
+	"artwork" : "Q838948",
+	//"attachment" : "Q17709279",
+	"audioRecording" : "Q30070318",
+	"bill" : "Q686822",
+	"blogPost" : "Q17928402",
 	"book" : "Q571",
-	"journalArticle" : "Q13442814"
+	"bookSection" : "Q1980247",
+	"case" : "Q2334719",
+	"computerProgram" : "Q40056",
+	"conferencePaper" : "Q23927052",
+	"dictionaryEntry" : "Q30070414",
+	"document" : "Q49848",
+	"email" : "Q30070439",
+	"encyclopediaArticle" : "Q17329259",
+	"film" : "Q11424",
+	"forumPost" : "Q7216866",
+	"hearing" : "Q30070550",
+	"instantMessage" : "Q30070565",
+	"interview" : "Q178651",
+	"journalArticle" : "Q13442814",
+	"letter" : "Q133492",
+	"magazineArticle" : "Q30070590",
+	"manuscript" : "Q87167",
+	"map" : "Q4006",
+	"newspaperArticle" : "Q5707594",
+	//note
+	"patent" : "Q253623",
+	"podcast" : "Q24634210",
+	"presentation" : "Q604733",
+	"radioBroadcast" : "Q1555508",
+	"report" : "Q10870555",
+	"statute" : "Q820655",
+	"thesis" : "Q1266946",
+	"tvBroadcast" : "Q15416",
+	"videoRecording" : "Q30070675",
+	"webpage" : "Q36774",
+	//additional CSL types (can be used in Zotero with a hack)
+	"dataset" : "Q1172284",
+	//entry
+	"figure" : "Q30070753",
+	"musical_score" : "Q187947",
+	"pamphlet" : "Q190399",
+	"review" : "Q265158",
+	"review-book" : "Q637866",
+	"treaty" : "Q131569"
 };
 
 //simple properties with string values can be simply mapped here
 var propertyMapping = {
-	"P1476" : "title",
 	"P356" : "doi",
-	"P854" : "url",
+	"P953" : "url",
 	"P478" : "volume",
 	"P433" : "issue",
 	"P304" : "pages"
@@ -75,10 +118,20 @@ function doExport() {
 	while ((item = Zotero.nextItem())) {
 		
 		Zotero.write('CREATE\n');
-		if (typeMapping[item.itemType]) {
-			Zotero.write('LAST	P31	' + typeMapping[item.itemType] + '\n');
+		
+		var itemType = item.itemType;
+		//check whether a special itemType is defined in the extra fields
+		if (item.extra) {
+			var matchItemType = item.extra.match(/itemType: ([\w\-]+)($|\n)/);
+			if (matchItemType) {
+				itemType = matchItemType[1];
+			}
+		}
+		if (typeMapping[itemType]) {
+			Zotero.write('LAST	P31	' + typeMapping[itemType] + '\n');
 		}
 		Zotero.write('LAST	Len	"' + item.title + '"\n');
+		
 		for (var pnumber in propertyMapping) {
 			var zfield = propertyMapping[pnumber];
 			if (item[zfield]) {
@@ -114,7 +167,7 @@ function doExport() {
 				default:
 					formatedDate = formatedDate + "/11";
 			}
-			Zotero.write('LAST	P577	"+' + formatedDate + '"\n');
+			Zotero.write('LAST	P577	+' + formatedDate + '\n');
 		}
 		
 		if (item.ISBN) {
@@ -127,8 +180,12 @@ function doExport() {
 			}
 		}
 		
-		if (item.language && languageMapping[item.language]) {
-			Zotero.write('LAST	P407	' + languageMapping[item.language] + '\n');
+		if (item.language) {
+			item.language = item.language.toLowerCase();
+			if (languageMapping[item.language]) {
+				Zotero.write('LAST	P407	' + languageMapping[item.language] + '\n');
+				Zotero.write('LAST	P1476	' + item.language + ':"' + item.title + '"\n');
+			}
 		}
 		
 		if (item.extra) {
