@@ -24,12 +24,12 @@ Currently, zotkat has the following additonal Zotero Translators:
  
 ## How can I report an error or correct it?
 
-Everyone can report errors here directly by opening an [issue](https://github.com/UB-Mannheim/zotkat/issues). Moreover, feature reqests can be discussed there. Any changes of a translator can be done suggested by a pull reqest directly on GitHub. A more detailed description (in German) can be found on this [wiki page](https://github.com/UB-Mannheim/zotkat/wiki).
+Everyone can report errors here directly by opening an [issue](https://github.com/UB-Mannheim/zotkat/issues). Moreover, feature reqests can be discussed there. Any changes of a translator can be suggested by a pull reqest directly on GitHub. A more detailed description (in German) can be found on this [wiki page](https://github.com/UB-Mannheim/zotkat/wiki).
 
 
 </details>
 
-
+---
 
 <details open>
 <summary>🇩🇪 Deutsche Version</summary>
@@ -45,7 +45,7 @@ Zotkat ist eine Erweiterung von Zotero für die Katalogisierung und enthält auc
 2. Navigiere zum [Zotero-Speicherort](https://www.zotero.org/support/de/preferences/advanced#speicherort) (meist im Fireofx Profil Ordner) und dann zum Unterordner `translators`
 3. Den entsprechende Translator Datei hier als Textdatei kopieren. Wichtig ist dass man die "raw" Version und somit die Textversion der Datei kopiert und nicht die HTML-Version.
 4. Zotero und/oder Firefox neu starten
-5. Unter Einstellungen ... > Export > Standard Output Optionen die neue Export-Möglichkeit auswählen (falls diese Liste leer ist oder die neue Option nicht aufgelistet ist, dann kann man versuchen das Einstellungsfenster zu schließen und erneut zu öffnen)
+5. Unter `Einstellungen ...` > `Export` > `Standard Output Optionen` die neue Export-Möglichkeit auswählen (falls diese Liste leer ist oder die neue Option nicht aufgelistet ist, dann kann man versuchen das Einstellungsfenster zu schließen und erneut zu öffnen)
 
 ## Welche Dateien gibt es?
 
