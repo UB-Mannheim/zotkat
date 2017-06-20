@@ -1014,7 +1014,7 @@ var issnSsgMapping = {
 
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
-
+var lokaldatensatz = '\nE* l01 \n7100 \n8002 ixzs;ixzo'
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
@@ -1044,12 +1044,12 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
+		var lookupUrl = var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=theolog*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
 				
 		/*lookupUrl kann je nach Anforderung noch spezifiziert werden, im obigen Abfragebeispiel: 
 		suchen [und] (Person(Phrase: Nachname, Vorname) [PER]) " authorName "
 		eingrenzen (Systematiknummer der SWD [SN]) *
-		eingrenzen (Relationiertes Schlagwort in der GND [RLS]) *
+		eingrenzen (Relationiertes Schlagwort in der GND [RLS]) theolog*
 		ausgenommen (Relationierte Zeit in der GND [RLZ]) 1[1,2,3,4,5,6,7,8][0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9]
 		
 		IKT0=1 TRM0= für Persönlicher Name in Picafeld 100
@@ -1345,8 +1345,12 @@ function doExport() {
 			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
 		}
 		
+		//Lokaldatensatz mit Abrufzeichen
+		if (item.itemType == "journalArticle") {
+		writeLine("",lokaldatensatz);
+		}
 		// 0999 verify outputText ppn in OGND
-		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
+		/*var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
 		
 		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" ;
 						
@@ -1355,7 +1359,7 @@ function doExport() {
 			}
 			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
 			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
-		}
+		}*/
 		outputText += "\n";
 	}
 	count--;
