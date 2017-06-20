@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-05-24 11:10:00"
+	"lastUpdated": "2017-05-31 17:20:00"
 }
 
 
@@ -330,6 +330,7 @@ var journalMapping = {
 	"0967-8948" : "!487680898!", // Journal of the British Association for the Study of Religions - formerly DISKUS
 	"2342-7256" : "!42401257X!", // Temenos : nordic journal of comparative religion
 	"1799-3121" : "!367402394!", // Approaching religion	
+	"1677-1222" : "!281208956!", // Rever : revista de estudos da religião
 	
 	
 	
@@ -441,7 +442,7 @@ var issnLangMapping = {
 	"0967-8948" : "eng", // Journal of the British Association for the Study of Religions - formerly DISKUS
 	"2342-7256" : "eng", // Temenos : nordic journal of comparative religion
 	"1799-3121" : "eng", // Approaching religion
-	
+	"1677-1222" : "manuell", // Rever : revista de estudos da religião
 	
 	
 	
@@ -865,7 +866,8 @@ var issnPhysicalFormMapping = {
 	"1890-7008, 0809-7291" : "O", // Nordic journal of religion and society
 	"0967-8948" : "O", // Journal of the British Association for the Study of Religions - formerly DISKUS
 	"2342-7256" : "O", // Temenos : nordic journal of comparative religion
-	"1799-3121" : "O", // Approaching religion	
+	"1799-3121" : "O", // Approaching religion
+	"1677-1222" : "O", // Rever : revista de estudos da religião
 	
 	
 	
@@ -884,6 +886,7 @@ var issnLicenceFieldMapping = {
 	"0967-8948" : "l", // Journal of the British Association for the Study of Religions - formerly DISKUS
 	"2342-7256" : "l", // Temenos : nordic journal of comparative religion
 	"1799-3121" : "l", // Approaching religion
+	"1677-1222" : "l", // Rever : revista de estudos da religião
 	
 	
 };
@@ -1004,6 +1007,7 @@ var issnSsgMapping = {
 	"0967-8948" : "0", // Journal of the British Association for the Study of Religions - formerly DISKUS
 	"2342-7256" : "0", // Temenos : nordic journal of comparative religion
 	"1799-3121" : "0", // Approaching religion
+	"1677-1222" : "0; 1", // Rever : revista de estudos da religião
 	
 	
 };
@@ -1040,12 +1044,12 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=theolog*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
 				
 		/*lookupUrl kann je nach Anforderung noch spezifiziert werden, im obigen Abfragebeispiel: 
 		suchen [und] (Person(Phrase: Nachname, Vorname) [PER]) " authorName "
 		eingrenzen (Systematiknummer der SWD [SN]) *
-		eingrenzen (Relationiertes Schlagwort in der GND [RLS]) theolog*
+		eingrenzen (Relationiertes Schlagwort in der GND [RLS]) *
 		ausgenommen (Relationierte Zeit in der GND [RLZ]) 1[1,2,3,4,5,6,7,8][0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9]
 		
 		IKT0=1 TRM0= für Persönlicher Name in Picafeld 100
@@ -1289,6 +1293,8 @@ function doExport() {
 		if (item.url && item.itemType == "magazineArticle") {
 			writeLine("4085", "$u" + item.url + "$xH");
 		}
+		
+
 		
 		//Reihe --> 4110
 		if (!article) {
