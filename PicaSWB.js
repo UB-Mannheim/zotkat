@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-20 17:20:00"
+	"lastUpdated": "2017-06-26 10:06:00"
 }
 
 
@@ -46,14 +46,18 @@ var journalMapping = {
 	"1461-7404" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"1745-5294" : "!099025957!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142-064X" : "!099025957!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0142064X" : "!099025957!", // Journal for the study of the New Testament
 	"1476-6728" : "!10337356X!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0309-0892" : "!10337356X!", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"03090892" : "!10337356X!", // Journal for the study of the Old Testament
 	"0771-7776" : "!01496841X!", // Sacris erudiri  
 	"2284-7308" : "!281073546!", // Perichoresis  
-	"1745-5189" : "!033051313!", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"0966-7350" : "!033051313!", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5286" : "!018245471!", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0951-8207" : "!018245471!", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"1745-5189" : "!254072119!", // Feminist theology 
+	"0966-7350" : "!254072119!", // Feminist theology
+	"09667350" : "!254072119!", // Feminist theology
+	"1745-5286" : "!119460610!", // Journal for the study of the pseudepigrapha 
+	"0951-8207" : "!119460610!", // Journal for the study of the pseudepigrapha  
+	"09518207" : "!119460610!", // Journal for the study of the pseudepigrapha 
 	"1357-4175" : "!061284815!", // Reformation  
 	"1752-0738" : "!061284815!", // Reformation  
 	"1462-317X" : "!098784013!", // Political theology   
@@ -75,12 +79,13 @@ var journalMapping = {
 	"0023-0707" : "!014412527!", // Kerygma und Dogma
 	"1135-4712" : "!094083746!", // 'Ílu
 	"1135-4712" : "!281290717!", // 'Ílu
-	"0953-9468" : "!023106085!", // Studies in Christian ethics
+	"0953-9468" : "!11946067X!", // Studies in Christian ethics
 	"1745-5235" : "!11946067X!", // Studies in Christian ethics
+	"09539468" : "!11946067X!", // Studies in Christian ethics
 	"0888-3769" : "!015891976!", // Religion and literature
 	"0029-4500" : "!015891976!", // Religion and literature
 	"0888-3769" : "!311098312!", // Religion and literature
-	"0040-5639" : "!01518501X!", // Theological studies
+	"0040-5639" : "!266225179!", // Theological studies
 	"2169-1304" : "!266225179!", // Theological studies
 	"0943-7592" : "!040100804!", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere //Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
 	"1612-9776" : "!040100804!", // Journal for the History of Modern Theology // Zeitschrift für Neuere Theologiegeschichte
@@ -88,7 +93,7 @@ var journalMapping = {
     "1743-1301" : "!112775594!", // Palestine exploration quarterly
 	"0031-0328" : "!112775594!", // Palestine exploration quarterly
 	"1745-5316" : "!119461234!", // Ecclesiology !!hier kein direkter Downlaod, sondern über Zotero-button
-	"0034-6373" : "!015182932!", // Review & Expositor
+	"0034-6373" : "!401709590!", // Review & Expositor
 	"0034-4125" : "!014537311!", // Religious studies 
 	"1469-901X" : "!014537311!", // Religious studies
 	"1573-3831" : "!112775772!", // Mission studies
@@ -121,14 +126,14 @@ var journalMapping = {
     "1030-570X" : "!32599787X!", // Pacifica
     "1839-2598" : "!32599787X!", // Pacifica
 	"0890-1112" : "!023118172!", // Journal of ritual studies	
-	"0091-8296" : "!015194213!", // Missiology
-	"2051-3623" : "!015194213!", // Missiology
+	"0091-8296" : "!319103501!", // Missiology
+	"2051-3623" : "!319103501!", // Missiology
 	"0011-1953" : "!273873555!", // Cross currents
 	"1939-3881" : "!273873555!", // Cross currents
 	"00111953" : "!273873555!", // Cross currents
 	"19393881" : "!273873555!", // Cross currents
-	"0020-9643" : "!015184242!", // Interpretation
-	"2159-340X" : "!015184242!", // Interpretation
+	"0020-9643" : "!344661555!", // Interpretation: A Journal of Bible and Theology
+	"2159-340X" : "!344661555!", // Interpretation: A Journal of Bible and Theology
 	"0067-6535" : "!015191826!", // Biblical research
 	"0588-3237" : "!015194884!", // Colloquium
 	"0003-2980" : "!015189996!", // Andrews University Seminary studies
@@ -138,8 +143,7 @@ var journalMapping = {
 	"1462-3153" : "!078316677!", // Journal for the Aramaic bible
 	"0229-2807" : "!059754931!", // ARC
 	"0094-5323" : "!015192121!", // Augustinian studies
-	"00143367"  : "!015178811!", // Evangelical quarterly
-	"0014-3367" : "!015178811!", // Evangelical quarterly
+	"00143367" : "!015178811!", // Evangelical quarterly
 	"1474-225X" : "!099026465!", // International journal for the study of the Christian church
 	"1747-0234" : "!099026465!", // International journal for the study of the Christian church
 	"1547-9080" : "!111171709!", // Newman studies journal
@@ -160,10 +164,10 @@ var journalMapping = {
 	"0006-2014" : "!014828995!", // Biblische Zeitschrift
 	"1469-8145" : "!01489324X!", // New Testament studies
 	"0048-1009" : "!014862662!", // Novum Testamentum
-	"0040-571X" : "!01518594X!", // Theology
-	"2044-2696" : "!01518594X!", // Theology
-	"0040-5736" : "!015186830!", // Theology today
-	"2044-2556" : "!015186830!", // Theology today
+	"0040-571X" : "!336956738!", // Theology
+	"2044-2696" : "!336956738!", // Theology
+	"0040-5736" : "!325341001!", // Theology today
+	"2044-2556" : "!325341001!", // Theology today
 	"2304-4896" : "!018091229!", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0323-4142" : "!018091229!", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0486-5642" : "!015195538!", // Restoration quarterly
@@ -189,11 +193,13 @@ var journalMapping = {
 	"1759-8818" : "!034203478!", // Sociology of religion
 	"0141-6200" : "!015208621!", // British journal of religious education
 	"2169-2327, 2169-2335" : "!381569306!", // International journal of philosophy and theology
+	"2169-2327" : "!381569306!", // International journal of philosophy and theology
 	"0890-2461" : "!016231562!", // Philosophy & theology
-	"1476-993X" : "!104194820!", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
-	"1745-5200" : "!104194820!", // Currents in biblical research 
-	"0012-5806" : "!015178323!", // The Downside review  !! Druckausgabe ausgewertet bis 133. 2015, 470
-	"2052-9449" : "!015182932!", // Review & expositor   !! Druckausgabe ausgewertet bis 112. 2015, 4
+	"1476-993X" : "!254675581!", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
+	"1745-5200" : "!254675581!", // Currents in biblical research 
+	"1476993X" : "!254675581!", // Currents in biblical research
+	"0012-5806" : "!462734986!", // The Downside review  !! Druckausgabe ausgewertet bis 133. 2015, 470
+	"2052-9449" : "!401709590!", // Review & expositor   !! Druckausgabe ausgewertet bis 112. 2015, 4
 	"1568-5152" : "!033052395!", // Biblical interpretation
 	"1370-6020" : "!054531918!", // INTAMS review      !!  siehe weiterer Eintrag oben  -  Abspeicherung mit Zauberstaub!
 	"1783-2446" : "!038505428!", // Journal of the European Society of Women in Theological Research   -   Abspeicherung mit Zauberstaub!  Aufsätze an Stücktitel!
@@ -203,8 +209,8 @@ var journalMapping = {
 	"2033-4273" : "!379731398!", // ET-Studies Online Publikation 
 	"2032-5215" : "!379731398!", // ET-Studies Online Publikation
 	"1783-1431" : "!040105555!", // Ethical Perspectives
-	"0266-7177" : "!096290587!", // Modern theology 
-	"1468-0025" : "!096290587!", // Modern theology 
+	"0266-7177" : "!015394956!", // Modern theology Print-PPN  PISSN
+	"1468-0025" : "!096290587!", // Modern theology Print-PPN  EISSN
 	"0009-661X" : "!015191273!", // Churchman
 	"1126-6244" : "!094423636!", // Adamantius
 	"1010-9919" : "!015906299!", // old testament essays
@@ -326,11 +332,17 @@ var journalMapping = {
 	"0944-5706" : "!307015734!", // Jewish Studies Quarterly
 	"2192-2276" : "!433582189!", // Hebrew Bible and Ancient Israel
 	"1063-8512" : "!033050201!", // Pro ecclesia
-	"1890-7008, 0809-7291" : "!477911633!", // Nordic journal of religion and society
-	"0967-8948" : "!487680898!", // Journal of the British Association for the Study of Religions - formerly DISKUS
-	"2342-7256" : "!42401257X!", // Temenos : nordic journal of comparative religion
-	"1799-3121" : "!367402394!", // Approaching religion	
-	"1677-1222" : "!281208956!", // Rever : revista de estudos da religião
+	"1890-7008, 0809-7291" : "!477911633!", // Nordic journal of religion and society 
+	"00207047" : "!103746927!", // International Journal for Philosophy of Religion
+	"0020-7047" : "!103746927!", // International Journal for Philosophy of Religion
+	"1572-8684" : "!103746927!", // International Journal for Philosophy of Religion
+	"2396-9393" : "!266225314!", // International bulletin of mission research
+	"2396-9407" : "!01523083X!", // International bulletin of mission research
+	"2396-9393, 2396-9407" : "!01523083X!", // International bulletin of mission research
+	"0265-3788" : "!273886452!", // Transformation
+	"0014-5246" : "!119460661!", // The Expository times
+	"1745-5308" : "!119460661!", // The Expository times
+	
 	
 	
 	
@@ -439,10 +451,7 @@ var issnLangMapping = {
 	"0342-0914" : "ger", // Lutherjahrbuch
 	"0040-5698" : "ger", // Theologische Rundschau
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
-	"0967-8948" : "eng", // Journal of the British Association for the Study of Religions - formerly DISKUS
-	"2342-7256" : "eng", // Temenos : nordic journal of comparative religion
-	"1799-3121" : "eng", // Approaching religion
-	"1677-1222" : "manuell", // Rever : revista de estudos da religião
+	
 	
 	
 	
@@ -470,14 +479,15 @@ var issnPhysicalFormMapping = {
 	"1461-7404" : "A", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"1745-5294" : "O", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142-064X" : "O", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"0142064X" : "O", // Journal for the study of the New Testament
 	"1476-6728" : "O", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0309-0892" : "O", // Journal for the study of the Old Testament !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"03090892" : "O", // Journal for the study of the Old Testament
 	"0771-7776" : "A", // Sacris erudiri  
 	"2284-7308" : "A", // Perichoresis  
-	"1745-5189" : "A", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"0966-7350" : "A", // Feminist theology !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1745-5286" : "A", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
-	"0951-8207" : "A", // Journal for the study of the pseudepigrapha   !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
+	"1745-5189" : "O", // Feminist theology 
+	"0966-7350" : "O", // Feminist theology
+	"09667350" : "O", // Feminist theology 
 	"1357-4175" : "A", // Reformation  
 	"1752-0738" : "A", // Reformation  
 	"1462-317X, 1743-1719" : "A", // Political theology   
@@ -496,17 +506,18 @@ var issnPhysicalFormMapping = {
 	"0021-1400" : "A", // Irish theological quaterly
 	"0023-0707" : "A", // Kerygma und Dogma
 	"1135-4712" : "A", // 'Ílu
-	"0953-9468" : "A", // Studies in Christian ethics
-	"1745-5235" : "A", // Studies in Christian ethics
+	"0953-9468" : "O", // Studies in Christian ethics
+	"1745-5235" : "O", // Studies in Christian ethics
+	"09539468" : "O", // Studies in Christian ethics
 	"0888-3769" : "A", // Religion and literature
 	"0029-4500" : "A", // Religion and literature
-	"0040-5639" : "A", // Theological studies
-	"2169-1304" : "A", // Theological studies
+	"0040-5639" : "O", // Theological studies
+	"2169-1304" : "O", // Theological studies
 	"0943-7592" : "A", // Journal for the History of Modern Theology über Degruyter = 4213 Hauptsacht. bis 14.2007: Zeitschrift für neuere Theologiegeschichte; @Grotz: als „…$h1-2“ (statt mit Querstrich: „…$h1/2“) 
 	"1612-9776" : "A", // Journal for the History of Modern Theology // Zeitschrift für Neuere Theologiegeschichte
 	"1743-1301" : "A", // Palestine exploration quarterly
 	"1745-5316" : "A", // Ecclesiology !!hier kein direkter Downlaod, sondern über Zotero-button
-	"0034-6373" : "A", // Review & Expositor
+	"0034-6373" : "O", // Review & Expositor
 	"0034-4125" : "A", // Religious studies 
 	"1469-901X" : "A", // Religious studies
 	"1573-3831" : "A", // Mission studies
@@ -538,14 +549,14 @@ var issnPhysicalFormMapping = {
     "1030-570X" : "O", // Pacifica
     "1839-2598" : "O", // Pacifica
 	"0890-1112" : "A", // Journal of ritual studies	
-	"0091-8296" : "A", // Missiology
-	"2051-3623" : "A", // Missiology
+	"0091-8296" : "O", // Missiology
+	"2051-3623" : "O", // Missiology
 	"0011-1953" : "O", // Cross currents
 	"1939-3881" : "O", // Cross currents
 	"00111953" : "O", // Cross currents
 	"19393881" : "O", // Cross currents
-	"0020-9643" : "A", // Interpretation
-	"2159-340X" : "A", // Interpretation
+	"0020-9643" : "O", // Interpretation: A Journal of Bible and Theology
+	"2159-340X" : "O", // Interpretation: A Journal of Bible and Theology
 	"0067-6535" : "A", // Biblical research
 	"0588-3237" : "A", // Colloquium
 	"0003-2980" : "A", // Andrews University Seminary studies
@@ -555,7 +566,6 @@ var issnPhysicalFormMapping = {
 	"0229-2807" : "A", // ARC
 	"0094-5323" : "A", // Augustinian studies
 	"0014-3367" : "A", // Evangelical quarterly
-	"00143367"  : "A", // Evangelical quarterly
 	"1474-225X" : "A", // International journal for the study of the Christian church
 	"1747-0234" : "A", // International journal for the study of the Christian church
 	"1547-9080" : "A", // Newman studies journal
@@ -576,10 +586,11 @@ var issnPhysicalFormMapping = {
 	"0006-2014" : "A", // Biblische Zeitschrift
 	"1469-8145" : "A", // New Testament studies
 	"0048-1009" : "A", // Novum Testamentum
-	"0040-571X" : "A", // Theology
-	"2044-2696" : "A", // Theology
-	"0040-5736" : "A", // Theology today
-	"2044-2556" : "A", // Theology today
+	"0040-571X" : "O", // Theology
+	"2044-2696" : "O", // Theology
+	"0040-5736" : "O", // Theology today
+	"2044-2556" : "O", // Theology today
+	"00405736" : "O", // Theology today
 	"2304-4896" : "A", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0323-4142" : "A", // Zeitschrift der Savigny-Stiftung für Rechtsgeschichte / Kanonistische Abteilung
 	"0486-5642" : "A", // Restoration quarterly
@@ -607,10 +618,11 @@ var issnPhysicalFormMapping = {
 	"2169-2327" : "A", // International journal of philosophy and theology
 	"2169-2335" : "A", // International journal of philosophy and theology
 	"0890-2461" : "A", // Philosophy & theology
-	"1476-993X" : "A", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
-	"1745-5200" : "A", // Currents in biblical research 
-	"0012-5806" : "A", // The Downside review  !! Druckausgabe ausgewertet bis 133. 2015, 470
-	"2052-9449" : "A", // Review & expositor   !! Druckausgabe ausgewertet bis 112. 2015, 4
+	"1476-993X" : "O", // Currents in biblical research  !! Druckausgabe ausgewertet bis 14. 2015 = genauer: nur 14. 2015, 1
+	"1745-5200" : "O", // Currents in biblical research 
+	"1476993X" : "O", // Currents in biblical research 
+	"0012-5806" : "O", // The Downside review  !! Druckausgabe ausgewertet bis 133. 2015, 470
+	"2052-9449" : "O", // Review & expositor   !! Druckausgabe ausgewertet bis 112. 2015, 4
 	"1568-5152" : "A", // Biblical interpretation
 	"1370-6020" : "A", // INTAMS review      !!  siehe weiterer Eintrag oben  -  Abspeicherung mit Zauberstaub!
 	"1783-2446" : "A", // Journal of the European Society of Women in Theological Research   -   Abspeicherung mit Zauberstaub!  Aufsätze an Stücktitel!
@@ -620,8 +632,8 @@ var issnPhysicalFormMapping = {
 	"2033-4273" : "A", // ET-Studies Online Publikation 
 	"2032-5215" : "A", // ET-Studies Online Publikation
 	"1783-1431" : "A", // Ethical Perspectives
-	"0266-7177" : "O", // Modern theology 
-	"1468-0025" : "O", // Modern theology 
+	"0266-7177" : "A", // Modern theology Print-PPN  PISSN
+	"1468-0025" : "O", // Modern theology Print-PPN  EISSN
 	"0009-661X" : "A", // Churchman
 	"1126-6244" : "A", // Adamantius
 	"1010-9919" : "A", // old testament essays
@@ -715,6 +727,7 @@ var issnPhysicalFormMapping = {
 	"1187-7863" : "A", // Journal of agricultural and environmental ethics !!pppn
 	"1573-322X" : "A", // Journal of agricultural and environmental ethics !!eppn
 	"1468-2265" : "A", // Heythrop journal !!eppn
+	"1468-0025" : "O", // Modern theology !!eppn
 	"0031-2789" : "A", // Pastoral psychology !!pppn
 	"1573-6679" : "A", // Pastoral psychology !!eppn
 	"1364-436X" : "A", // International journal of children's spirituality !!pppn
@@ -764,8 +777,6 @@ var issnPhysicalFormMapping = {
 	"1755-2613" : "A", // Church history !!eppn
 	"1758-6623" : "A", // The ecumenical review !!eppn
 	"1758-6631" : "A", // International review of mission !!eppn
-	"0020-9643" : "A", // Interpretation !!pppn - in Z. 92 mit ppn gemappt: diese Z. löschen?
-	"2159-340X" : "A", // Interpretation !!eppn
 	"0021-9231" : "A", // Journal of biblical literature !!eppn
 	"0021-969X" : "A", // Journal of church and state !!pppn
 	"2040-4867" : "A", // Journal of church and state !!eppn
@@ -780,8 +791,6 @@ var issnPhysicalFormMapping = {
 	"1477-4607" : "A", // The journal of theological studies !!eppn
 	"0022-5762" : "A", // Judaism !!pppn
 	"0022-5762" : "A", // Judaism !!eppn
-	"0040-5639" : "A", // Theological studies !!pppn - in Z. 47 mit ppn gemappt: diese Z. löschen?
-	"2169-1304" : "A", // Theological studies !!eppn - in Z. 48 mit eppn gemappt: diese Z. löschen?
 	"0040-5736" : "A", // Theologie today !!pppn - in Z. 125 mit ppn gemappt: diese Z. löschen?
 	"1570-0720" : "A", // Vigiliae Christianae !!eppn
 	"1570-0631" : "A", // Journal for the study of Judaism !!eppn
@@ -790,24 +799,20 @@ var issnPhysicalFormMapping = {
 	"1552-146X" : "A", // The Hastings Center report !!eppn
 	"0098-9444" : "A", // Biblical archaeology review !!pppn
 	"0098-9444" : "A", // Biblical archaeology review !!eppn
-	"0142-064X" : "O", // Journal for the study of the New Testament !!pppn - in Z. 12 mit ppn gemappt: diese Z. löschen?
-	"1745-5294" : "O", // Journal for the study of the New Testament !!eppn
 	"2161-007X" : "A", // Counseling and values !!eppn
 	"0163-4275" : "A", // Environmental ethics !!pppn
 	"0163-4275" : "A", // Environmental ethics !!eppn
 	"1572-543X" : "A", // Exchange !!eppn
-	"2396-9393" : "A", // International bulletin of mission research !!pppn
-	"2396-9407" : "A", // International bulletin of mission research !!eppn
-	"0309-0892" : "O", // Journal for the study of the Old Testament !!pppn - in Z. 14 mit ppn gemappt: diese Z. löschen?
-	"1476-6728" : "O", // Journal for the study of the Old Testament !!eppn
+	"2396-9393" : "O", // International bulletin of mission research !!pppn
+	"2396-9407" : "O", // International bulletin of mission research !!eppn
+	"2396-9393, 2396-9407" : "O", // International bulletin of mission research
 	"0449-508X" : "A", // Journal of pastoral counseling !!pppn
 	"0449-508X" : "A", // Journal of pastoral counseling !!eppn
 	"0894-4857" : "A", // The Merton annual !!pppn
 	"0894-4857" : "A", // The Merton annual !!eppn
-	"0951-8207" : "A", // Journal for the study of the pseudepigrapha !!pppn - in Z. 20 mit ppn gemappt: diese Z. löschen?
-	"1745-5286" : "A", // Journal for the study of the pseudepigrapha !!eppn
-	"0966-7350" : "A", // Feminist theology !!pppn - in Z. 18 mit ppn gemappt: diese Z. löschen?
-	"1745-5189" : "A", // Feminist theology !!eppn
+	"0951-8207" : "O", // Journal for the study of the pseudepigrapha !!pppn
+	"09518207" : "O", // Journal for the study of the pseudepigrapha !!pppn
+	"1745-5286" : "O", // Journal for the study of the pseudepigrapha !!eppn
 	"1745-5251" : "A", // Journal of pentecostal theology !!pppn - in Z. 140 mit ppn gemappt: diese Z. löschen?
 	"1574-3012" : "A", // Religion & theology !!eppn
 	"1052-150X" : "A", // Business ethics quarterly !!pppn
@@ -854,6 +859,7 @@ var issnPhysicalFormMapping = {
 	"2199-4463" : "O", // Religion in the Roman Empire
 	"21994463, 21994471" : "O", // Religion in the Roman Empire
 	"0148-3331" : "O", // Christianity & literature
+	"01483331" : "O", // Christianity & literature
 	"2056-5666" : "O", // Christianity & literature
 	"1868-8020" : "O", // Early Christianity
 	"1868-7032" : "O", // Early Christianity
@@ -862,12 +868,15 @@ var issnPhysicalFormMapping = {
 	"0944-5706" : "O", // Jewish Studies Quarterly
 	"2195-9773" : "O", // Philosophy, Theology and the Sciences
 	"2192-2276" : "O", // Hebrew Bible and Ancient Israel
+	"00143367" : "A", // Evangelical quarterly
 	"1063-8512" : "A", // Pro ecclesia
-	"1890-7008, 0809-7291" : "O", // Nordic journal of religion and society
-	"0967-8948" : "O", // Journal of the British Association for the Study of Religions - formerly DISKUS
-	"2342-7256" : "O", // Temenos : nordic journal of comparative religion
-	"1799-3121" : "O", // Approaching religion
-	"1677-1222" : "O", // Rever : revista de estudos da religião
+	"1890-7008, 0809-7291" : "O", // Nordic journal of religion and society 
+	"0020-7047" : "O", // International Journal for Philosophy of Religion
+	"00207047" : "O", // International Journal for Philosophy of Religion
+	"0265-3788" : "O", // Transformation
+	"0014-5246" : "O", // The Expository times
+	"1745-5308" : "O", // The Expository times
+	"00145246" : "O", // The Expository times
 	
 	
 	
@@ -882,11 +891,7 @@ var issnLicenceFieldMapping = {
 	"1612-2941" : "l", // Marburg Journal of Religion
 	"1861-5813" : "l", // Online - Heidelberg Journal of Religions on the Internet
 	"1867-4240" : "l", // Transformierte Buddhismen
-	"1583-0039" : "l", // Journal for the Study of Religions and Ideologies
-	"0967-8948" : "l", // Journal of the British Association for the Study of Religions - formerly DISKUS
-	"2342-7256" : "l", // Temenos : nordic journal of comparative religion
-	"1799-3121" : "l", // Approaching religion
-	"1677-1222" : "l", // Rever : revista de estudos da religião
+	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
 	
 	
 };
@@ -950,8 +955,8 @@ var issnSsgMapping = {
 	"1934-9645" : "0; 1", // Journal of spirituality in mental health
 	"1023-0807" : "0; 1", // Religion and theology  
 	"1574-3012" : "0; 1", // Religion and theology
-	"0926-6453" : "0; 1", // Studies in spirituality
-	"1783-1814" : "0; 1", // Studies in spirituality
+	"0926-6453" : "1", // Studies in spirituality
+	"1783-1814" : "1", // Studies in spirituality
 	"0809-7291" : "0; 1", // Nordic journal of religion and society 
 	"0802-0167" : "0; 1", // Nordic journal of religion and society
 	"1890-7008" : "0; 1", // Nordic journal of religion and society 
@@ -1004,17 +1009,14 @@ var issnSsgMapping = {
 	"0944-5706" : "0; 1", // Jewish Studies Quarterly
 	"2199-4463" : "0", // Religion in the Roman Empire
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
-	"0967-8948" : "0", // Journal of the British Association for the Study of Religions - formerly DISKUS
-	"2342-7256" : "0", // Temenos : nordic journal of comparative religion
-	"1799-3121" : "0", // Approaching religion
-	"1677-1222" : "0; 1", // Rever : revista de estudos da religião
+	
 	
 	
 };
 
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
-var lokaldatensatz = '\nE* l01 \n7100 \n8002 ixzs;ixzo'
+
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
@@ -1044,7 +1046,7 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=theolog*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=theolog*&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
 				
 		/*lookupUrl kann je nach Anforderung noch spezifiziert werden, im obigen Abfragebeispiel: 
 		suchen [und] (Person(Phrase: Nachname, Vorname) [PER]) " authorName "
@@ -1294,8 +1296,6 @@ function doExport() {
 			writeLine("4085", "$u" + item.url + "$xH");
 		}
 		
-
-		
 		//Reihe --> 4110
 		if (!article) {
 			var seriesStatement = "";
@@ -1345,12 +1345,8 @@ function doExport() {
 			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
 		}
 		
-		//Lokaldatensatz mit Abrufzeichen
-		if (item.itemType == "journalArticle") {
-		writeLine("",lokaldatensatz);
-		}
 		// 0999 verify outputText ppn in OGND
-		/*var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
+		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
 		
 		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" ;
 						
@@ -1359,7 +1355,7 @@ function doExport() {
 			}
 			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
 			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
-		}*/
+		}
 		outputText += "\n";
 	}
 	count--;
