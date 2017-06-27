@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-26 15:27:00"
+	"lastUpdated": "2017-03-24 10:06:00"
 }
 
 
@@ -341,7 +341,8 @@ var journalMapping = {
 	"2396-9393, 2396-9407" : "!01523083X!", // International bulletin of mission research
 	"0265-3788" : "!273886452!", // Transformation
 	"0014-5246" : "!119460661!", // The Expository times
-	"1745-5308" : "!119460661!", // The Expository times
+	"2380-8829" : "!483612618!", // The Covenant Quarterly
+	
 	
 	
 	
@@ -877,6 +878,7 @@ var issnPhysicalFormMapping = {
 	"0014-5246" : "O", // The Expository times
 	"1745-5308" : "O", // The Expository times
 	"00145246" : "O", // The Expository times
+	"2380-8829" : "O", // The Covenant Quarterly
 	
 	
 	
@@ -892,6 +894,7 @@ var issnLicenceFieldMapping = {
 	"1861-5813" : "l", // Online - Heidelberg Journal of Religions on the Internet
 	"1867-4240" : "l", // Transformierte Buddhismen
 	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
+	"2380-8829" : "l" //The Covenant Quarterly
 	
 	
 };
@@ -1009,6 +1012,7 @@ var issnSsgMapping = {
 	"0944-5706" : "0; 1", // Jewish Studies Quarterly
 	"2199-4463" : "0", // Religion in the Roman Empire
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
+	"2380-8829" : "0; 1" //The Covenant Quarterly
 	
 	
 	
