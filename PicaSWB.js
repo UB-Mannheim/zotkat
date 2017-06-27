@@ -342,6 +342,7 @@ var journalMapping = {
 	"0265-3788" : "!273886452!", // Transformation
 	"0014-5246" : "!119460661!", // The Expository times
 	"2380-8829" : "!483612618!", // The Covenant Quarterly
+	"0212-1964" : "!016231767!", // Teología y catequesis 
 	
 	
 	
@@ -452,6 +453,7 @@ var issnLangMapping = {
 	"0342-0914" : "ger", // Lutherjahrbuch
 	"0040-5698" : "ger", // Theologische Rundschau
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
+	"0212-1964" : "spa", // Teología y catequesis 
 	
 	
 	
@@ -879,6 +881,8 @@ var issnPhysicalFormMapping = {
 	"1745-5308" : "O", // The Expository times
 	"00145246" : "O", // The Expository times
 	"2380-8829" : "O", // The Covenant Quarterly
+	"0212-1964" : "A", // Teología y catequesis 
+
 	
 	
 	
