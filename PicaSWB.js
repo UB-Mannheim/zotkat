@@ -1015,13 +1015,15 @@ var issnSsgMapping = {
 };
 
 // Mapping für ISSNs deren Schlagwörter statt statisch bei 5520
-// inkrementell ab z.B. 6000 exportiert werden sollen (6001, 6002, ...)
+// inkrementell ab z.B. 6800 exportiert werden sollen (6801, 6802, ...)
+// für Krimdok andere Feldnummer für Schlagwörter
 var issnKeywordMapping = {
 	//"0342-0914" : 6000,
 };
 
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
+var lokaldatensatz = "\nE* l01\n7100 \n8002 ixzs;ixzo\n";
 
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
@@ -1360,16 +1362,6 @@ function doExport() {
                         }
                 }
 		
-		// 0999 verify outputText ppn in OGND
-		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
-		
-		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" ;
-						
-		if (item.creators) {
-			ppnVerify1 += item.creators;
-			}
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 		}
 		outputText += "\n";
 	}
