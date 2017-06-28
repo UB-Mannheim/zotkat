@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-26 15:15:00"
+	"lastUpdated": "2017-06-28 14:55:00"
 }
 
 
@@ -1014,6 +1014,12 @@ var issnSsgMapping = {
 	
 };
 
+// Mapping für ISSNs deren Schlagwörter statt statisch bei 5520
+// inkrementell ab z.B. 6000 exportiert werden sollen (6001, 6002, ...)
+var issnKeywordMapping = {
+	//"0342-0914" : 6000,
+};
+
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
 
@@ -1339,11 +1345,20 @@ function doExport() {
 		} 	else {
 			writeLine("5056", defaultSsgNummer);
 		}
-				
-		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
-		for (i=0; i<item.tags.length; i++) {
-			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
-		}
+
+		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520 (oder alternativ siehe Mapping)
+                if (item.ISSN && issnKeywordMapping[ZU.cleanISSN(item.ISSN)]) {
+                        var ISSNclean = ZU.cleanISSN(item.ISSN);
+                        var codeBase = issnKeywordMapping[ISSNclean];
+                        for (i=0; i<item.tags.length; i++) {
+                                var code = codeBase + i;
+                                writeLine(code, "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
+                        }
+                } else {
+                        for (i=0; i<item.tags.length; i++) {
+                                writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
+                        }
+                }
 		
 		// 0999 verify outputText ppn in OGND
 		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
