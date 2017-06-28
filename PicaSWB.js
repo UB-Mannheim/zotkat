@@ -343,8 +343,8 @@ var journalMapping = {
 	"0014-5246" : "!119460661!", // The Expository times
 	"2380-8829" : "!483612618!", // The Covenant Quarterly
 	"0212-1964" : "!016231767!", // Teología y catequesis 
-	
-	
+	"14722089" : "!098783998!", //  International congregational journal 
+	"1472-2089" : "!098783998!", //  International congregational journal
 	
 	
 	
@@ -882,6 +882,8 @@ var issnPhysicalFormMapping = {
 	"00145246" : "O", // The Expository times
 	"2380-8829" : "O", // The Covenant Quarterly
 	"0212-1964" : "A", // Teología y catequesis 
+	"14722089" : "A", //  International congregational journal 
+	"1472-2089" : "A", //  International congregational journal
 
 	
 	
