@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-28 10:06:00"
+	"lastUpdated": "2017-03-24 10:06:00"
 }
 
 
@@ -1018,7 +1018,7 @@ var issnSsgMapping = {
 	"0944-5706" : "0; 1", // Jewish Studies Quarterly
 	"2199-4463" : "0", // Religion in the Roman Empire
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
-	"2380-8829" : "0; 1" //The Covenant Quarterly
+	"2380-8829" : "1" //The Covenant Quarterly
 	
 	
 	
