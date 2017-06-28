@@ -1018,7 +1018,7 @@ var issnSsgMapping = {
 // inkrementell ab z.B. 6800 exportiert werden sollen (6801, 6802, ...)
 // für Krimdok andere Feldnummer für Schlagwörter
 var issnKeywordMapping = {
-	//"0342-0914" : 6000,
+	"0342-0914" : "680",
 };
 
 var defaultSsgNummer = "1";
