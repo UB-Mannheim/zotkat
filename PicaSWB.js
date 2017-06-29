@@ -1060,7 +1060,7 @@ var issnKeywordMapping = {
 
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
-var lokaldatensatz = "\nE* l01\n7100 \n8002 ixzs;ixzo\n";
+var lokaldatensatz = "\nE* l01\n7100$jn \n8002 ixzs;ixzo\n";
 
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
