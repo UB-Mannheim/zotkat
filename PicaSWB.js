@@ -349,7 +349,11 @@ var journalMapping = {
 	"2190-6238" : "!11093539X!", // Psychologische Rundschau|krimdok
 	"1461-7439" : "!098253387!", // Theoretical criminology|krimdok
 	"1438-9460" : "!294342109!", // Zeitschrift für Sexualforschung|krimdok
-	
+	"2380-8829" : "!483612618!", // The Covenant Quarterly
+	"0212-1964" : "!016231767!", // Teología y catequesis 
+	"14722089" : "!098783998!", //  International congregational journal 
+	"1472-2089" : "!098783998!", //  International congregational journal
+
 	
 	
 	
@@ -458,6 +462,7 @@ var issnLangMapping = {
 	"0342-0914" : "ger", // Lutherjahrbuch
 	"0040-5698" : "ger", // Theologische Rundschau
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
+	"0212-1964" : "spa", // Teología y catequesis 
 	
 	
 	
@@ -891,7 +896,10 @@ var issnPhysicalFormMapping = {
 	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : "0", // Theoretical criminology Online Publikation|krimdok
 	"1438-9460" : "O", // Zeitschrift für Sexualforschung Online Publikation|krimdok
-	
+	"2380-8829" : "O", // The Covenant Quarterly
+	"0212-1964" : "A", // Teología y catequesis 
+	"14722089" : "A", //  International congregational journal 
+	"1472-2089" : "A", //  International congregational journal	
 	
 	
 };
@@ -906,6 +914,7 @@ var issnLicenceFieldMapping = {
 	"1861-5813" : "l", // Online - Heidelberg Journal of Religions on the Internet
 	"1867-4240" : "l", // Transformierte Buddhismen
 	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
+	"2380-8829" : "l" //The Covenant Quarterly
 	
 	
 };
@@ -1030,6 +1039,8 @@ var issnSsgMapping = {
 	"2190-6238" : "FID-KRIM-DE-21", // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : "FID-KRIM-DE-21", // Theoretical criminology Online Publikation|krimdok
 	"1438-9460" : "FID-KRIM-DE-21", // Zeitschrift für Sexualforschung Online Publikation|krimdok
+	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
+	"2380-8829" : "1" //The Covenant Quarterly
 	
 	
 	
