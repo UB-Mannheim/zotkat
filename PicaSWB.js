@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-28 14:55:00"
+	"lastUpdated": "2017-06-29 09:01:00"
 }
 
 
@@ -342,6 +342,13 @@ var journalMapping = {
 	"0265-3788" : "!273886452!", // Transformation
 	"0014-5246" : "!119460661!", // The Expository times
 	"1745-5308" : "!119460661!", // The Expository times
+	"0003-1224" : "!094425426!", // American sociological review|krimdok
+	"1862-2593" : "!26681946X!", // Berliner Journal für Soziologie|krimdok
+	"1461-7242" : "!078709199!", // International sociology|krimdok
+	"2196-8225" : "!276818768!", // Praxis der Kinderpsychologie und Kinderpsychiatrie|krimdok
+	"2190-6238" : "!11093539X!", // Psychologische Rundschau|krimdok
+	"1461-7439" : "!098253387!", // Theoretical criminology|krimdok
+	"1438-9460" : "!294342109!", // Zeitschrift für Sexualforschung|krimdok
 	
 	
 	
@@ -877,6 +884,13 @@ var issnPhysicalFormMapping = {
 	"0014-5246" : "O", // The Expository times
 	"1745-5308" : "O", // The Expository times
 	"00145246" : "O", // The Expository times
+	"0003-1224" : "O", // American sociological review Online Publikation|krimdok
+	"1862-2593" : "O", // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : "O", // International sociology Online Publikation|krimdok
+	"2196-8225" : "O", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : "0", // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : "O", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	
 	
 	
@@ -1008,17 +1022,29 @@ var issnSsgMapping = {
 	"2294-6209" : "0; 1", // Byzantion 
 	"0944-5706" : "0; 1", // Jewish Studies Quarterly
 	"2199-4463" : "0", // Religion in the Roman Empire
-	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
+	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society
+	"0003-1224" : "FID-KRIM-DE-21", // American sociological review Online Publikation|krimdok
+	"1862-2593" : "FID-KRIM-DE-21", // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : "FID-KRIM-DE-21", // International sociology Online Publikation|krimdok
+	"2196-8225" : "FID-KRIM-DE-21", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : "FID-KRIM-DE-21", // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : "FID-KRIM-DE-21", // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : "FID-KRIM-DE-21", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	
 	
 	
 };
 
-// Mapping für ISSNs deren Schlagwörter statt statisch bei 5520
-// inkrementell ab z.B. 6800 exportiert werden sollen (6801, 6802, ...)
-// für Krimdok andere Feldnummer für Schlagwörter
+// Mapping für ISSNs deren Schlagwörter statt 5520 in 680X abgelegt werden. KrimDok-Spezifikation
+// inkrementell ab z.B. 680 exportiert werden sollen (6801, 6802, ...)
 var issnKeywordMapping = {
-	"0342-0914" : "680",
+	"0003-1224" : "680", // American sociological review Online Publikation|krimdok
+	"1862-2593" : "680", // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : "680", // International sociology Online Publikation|krimdok
+	"2196-8225" : "680", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : "680", // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : "680", // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : "680", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 };
 
 var defaultSsgNummer = "1";
@@ -1162,7 +1188,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
+		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]");
 		}
 		
 		//1130 Datenträger
@@ -1342,13 +1368,18 @@ function doExport() {
 				
 		//SSG bzw. FID-Nummer --> 5056 "0" = Religionwissenschaft | "1" = Theologie | "0; 1" = RW & Theol.
 		
-		if (SsgField === "0" || SsgField === "0; 1") {
+		if (SsgField === "0" || SsgField === "0; 1" || SsgField === "FID-KRIM-DE-21") {
 			writeLine("5056", SsgField);
 		} 	else {
 			writeLine("5056", defaultSsgNummer);
 		}
 
-		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520 (oder alternativ siehe Mapping)
+		
+		
+		if (item.itemType == "journalArticle") {
+			writeLine ("",lokaldatensatz);
+		}
+	//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520 (oder alternativ siehe Mapping)
                 if (item.ISSN && issnKeywordMapping[ZU.cleanISSN(item.ISSN)]) {
                         var ISSNclean = ZU.cleanISSN(item.ISSN);
                         var codeBase = issnKeywordMapping[ISSNclean];
@@ -1360,8 +1391,7 @@ function doExport() {
                         for (i=0; i<item.tags.length; i++) {
                                 writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
                         }
-                }
-		
+                }	
 		}
 		outputText += "\n";
 	}
