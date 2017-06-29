@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-03-24 10:06:00"
+	"lastUpdated": "2017-06-29 09:01:00"
 }
 
 
@@ -341,10 +341,19 @@ var journalMapping = {
 	"2396-9393, 2396-9407" : "!01523083X!", // International bulletin of mission research
 	"0265-3788" : "!273886452!", // Transformation
 	"0014-5246" : "!119460661!", // The Expository times
+	"1745-5308" : "!119460661!", // The Expository times
+	"0003-1224" : "!094425426!", // American sociological review|krimdok
+	"1862-2593" : "!26681946X!", // Berliner Journal für Soziologie|krimdok
+	"1461-7242" : "!078709199!", // International sociology|krimdok
+	"2196-8225" : "!276818768!", // Praxis der Kinderpsychologie und Kinderpsychiatrie|krimdok
+	"2190-6238" : "!11093539X!", // Psychologische Rundschau|krimdok
+	"1461-7439" : "!098253387!", // Theoretical criminology|krimdok
+	"1438-9460" : "!294342109!", // Zeitschrift für Sexualforschung|krimdok
 	"2380-8829" : "!483612618!", // The Covenant Quarterly
 	"0212-1964" : "!016231767!", // Teología y catequesis 
 	"14722089" : "!098783998!", //  International congregational journal 
 	"1472-2089" : "!098783998!", //  International congregational journal
+
 	
 	
 	
@@ -880,12 +889,17 @@ var issnPhysicalFormMapping = {
 	"0014-5246" : "O", // The Expository times
 	"1745-5308" : "O", // The Expository times
 	"00145246" : "O", // The Expository times
+	"0003-1224" : "O", // American sociological review Online Publikation|krimdok
+	"1862-2593" : "O", // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : "O", // International sociology Online Publikation|krimdok
+	"2196-8225" : "O", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : "0", // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : "O", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	"2380-8829" : "O", // The Covenant Quarterly
 	"0212-1964" : "A", // Teología y catequesis 
 	"14722089" : "A", //  International congregational journal 
-	"1472-2089" : "A", //  International congregational journal
-
-	
+	"1472-2089" : "A", //  International congregational journal	
 	
 	
 };
@@ -1017,6 +1031,14 @@ var issnSsgMapping = {
 	"2294-6209" : "0; 1", // Byzantion 
 	"0944-5706" : "0; 1", // Jewish Studies Quarterly
 	"2199-4463" : "0", // Religion in the Roman Empire
+	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society
+	"0003-1224" : "FID-KRIM-DE-21", // American sociological review Online Publikation|krimdok
+	"1862-2593" : "FID-KRIM-DE-21", // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : "FID-KRIM-DE-21", // International sociology Online Publikation|krimdok
+	"2196-8225" : "FID-KRIM-DE-21", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : "FID-KRIM-DE-21", // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : "FID-KRIM-DE-21", // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : "FID-KRIM-DE-21", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
 	"2380-8829" : "1" //The Covenant Quarterly
 	
@@ -1024,8 +1046,21 @@ var issnSsgMapping = {
 	
 };
 
+// Mapping für ISSNs deren Schlagwörter statt 5520 in 680X abgelegt werden. KrimDok-Spezifikation
+// inkrementell ab z.B. 680 exportiert werden sollen (6801, 6802, ...)
+var issnKeywordMapping = {
+	"0003-1224" : 6800, // American sociological review Online Publikation|krimdok
+	"1862-2593" : 6800, // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : 6800, // International sociology Online Publikation|krimdok
+	"2196-8225" : 6800, // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : 6800, // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : 6800, // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : 6800, // Zeitschrift für Sexualforschung Online Publikation|krimdok
+};
+
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
+var lokaldatensatz = "\nE* l01\n7100 \n8002 ixzs;ixzo\n";
 
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
@@ -1164,7 +1199,7 @@ function doExport() {
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
+		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]");
 		}
 		
 		//1130 Datenträger
@@ -1344,27 +1379,30 @@ function doExport() {
 				
 		//SSG bzw. FID-Nummer --> 5056 "0" = Religionwissenschaft | "1" = Theologie | "0; 1" = RW & Theol.
 		
-		if (SsgField === "0" || SsgField === "0; 1") {
+		if (SsgField === "0" || SsgField === "0; 1" || SsgField === "FID-KRIM-DE-21") {
 			writeLine("5056", SsgField);
 		} 	else {
 			writeLine("5056", defaultSsgNummer);
 		}
-				
-		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
-		for (i=0; i<item.tags.length; i++) {
-			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
+
+		
+		
+		if (item.itemType == "journalArticle") {
+			writeLine ("",lokaldatensatz);
 		}
-		
-		// 0999 verify outputText ppn in OGND
-		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=";
-		
-		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=2072&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=&ACT5=*&IKT5=2057&TRM5=" ;
-						
-		if (item.creators) {
-			ppnVerify1 += item.creators;
-			}
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-			writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
+	//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520 (oder alternativ siehe Mapping)
+                if (item.ISSN && issnKeywordMapping[ZU.cleanISSN(item.ISSN)]) {
+                        var ISSNclean = ZU.cleanISSN(item.ISSN);
+                        var codeBase = issnKeywordMapping[ISSNclean];
+                        for (i=0; i<item.tags.length; i++) {
+                                var code = codeBase + i;
+                                writeLine(code, "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
+                        }
+                } else {
+                        for (i=0; i<item.tags.length; i++) {
+                                writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
+                        }
+                }	
 		}
 		outputText += "\n";
 	}
