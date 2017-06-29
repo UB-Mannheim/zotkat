@@ -1038,13 +1038,13 @@ var issnSsgMapping = {
 // Mapping für ISSNs deren Schlagwörter statt 5520 in 680X abgelegt werden. KrimDok-Spezifikation
 // inkrementell ab z.B. 680 exportiert werden sollen (6801, 6802, ...)
 var issnKeywordMapping = {
-	"0003-1224" : "680", // American sociological review Online Publikation|krimdok
-	"1862-2593" : "680", // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : "680", // International sociology Online Publikation|krimdok
-	"2196-8225" : "680", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
-	"2190-6238" : "680", // Psychologische Rundschau Online Publikation|krimdok
-	"1461-7439" : "680", // Theoretical criminology Online Publikation|krimdok
-	"1438-9460" : "680", // Zeitschrift für Sexualforschung Online Publikation|krimdok
+	"0003-1224" : 6800, // American sociological review Online Publikation|krimdok
+	"1862-2593" : 6800, // Berliner Journal für Soziologie Online Publikation|krimdok
+	"1461-7242" : 6800, // International sociology Online Publikation|krimdok
+	"2196-8225" : 6800, // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
+	"2190-6238" : 6800, // Psychologische Rundschau Online Publikation|krimdok
+	"1461-7439" : 6800, // Theoretical criminology Online Publikation|krimdok
+	"1438-9460" : 6800, // Zeitschrift für Sexualforschung Online Publikation|krimdok
 };
 
 var defaultSsgNummer = "1";
