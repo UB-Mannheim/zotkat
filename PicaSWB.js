@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-29 11:49:00"
+	"lastUpdated": "2017-06-29 09:01:00"
 }
 
 
@@ -353,6 +353,8 @@ var journalMapping = {
 	"0212-1964" : "!016231767!", // Teología y catequesis 
 	"14722089" : "!098783998!", //  International congregational journal 
 	"1472-2089" : "!098783998!", //  International congregational journal
+	"09602720" : "!032741545!", //  European journal of theology
+	"0960-2720" : "!032741545!", //  European journal of theology
 
 	
 	
@@ -900,6 +902,7 @@ var issnPhysicalFormMapping = {
 	"0212-1964" : "A", // Teología y catequesis 
 	"14722089" : "A", //  International congregational journal 
 	"1472-2089" : "A", //  International congregational journal	
+	"09602720" : "A", //  European journal of theology
 	
 	
 };
