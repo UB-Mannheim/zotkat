@@ -355,6 +355,7 @@ var journalMapping = {
 	"1472-2089" : "!098783998!", //  International congregational journal
 	"09602720" : "!032741545!", //  European journal of theology
 	"0960-2720" : "!032741545!", //  European journal of theology
+	"0555-9308" : "!331560291!", //  Pastoraltheologische Informationen
 
 	
 	
@@ -465,7 +466,7 @@ var issnLangMapping = {
 	"0040-5698" : "ger", // Theologische Rundschau
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
 	"0212-1964" : "spa", // Teología y catequesis 
-	
+	"0555-9308" : "ger", // Pastoraltheologische Informationen
 	
 	
 	
@@ -903,6 +904,8 @@ var issnPhysicalFormMapping = {
 	"14722089" : "A", //  International congregational journal 
 	"1472-2089" : "A", //  International congregational journal	
 	"09602720" : "A", //  European journal of theology
+	"0555-9308" : "O", //  Pastoraltheologische Informationen
+
 	
 	
 };
@@ -917,7 +920,8 @@ var issnLicenceFieldMapping = {
 	"1861-5813" : "l", // Online - Heidelberg Journal of Religions on the Internet
 	"1867-4240" : "l", // Transformierte Buddhismen
 	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
-	"2380-8829" : "l" //The Covenant Quarterly
+	"2380-8829" : "l", //The Covenant Quarterly
+	"0555-9308" : "l", // Pastoraltheologische Informationen
 	
 	
 };
