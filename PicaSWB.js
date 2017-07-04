@@ -344,7 +344,7 @@ var journalMapping = {
 	"1745-5308" : "!119460661!", // The Expository times
 	"0003-1224" : "!094425426!", // American sociological review|krimdok
 	"1862-2593" : "!26681946X!", // Berliner Journal für Soziologie|krimdok
-	"1461-7242" : "!078709199!", // International sociology|krimdok
+	"0268-5809" : "!078709199!", // International sociology|krimdok
 	"2196-8225" : "!276818768!", // Praxis der Kinderpsychologie und Kinderpsychiatrie|krimdok
 	"2190-6238" : "!11093539X!", // Psychologische Rundschau|krimdok
 	"1461-7439" : "!098253387!", // Theoretical criminology|krimdok
@@ -894,7 +894,7 @@ var issnPhysicalFormMapping = {
 	"00145246" : "O", // The Expository times
 	"0003-1224" : "O", // American sociological review Online Publikation|krimdok
 	"1862-2593" : "O", // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : "O", // International sociology Online Publikation|krimdok
+	"0268-5809" : "O", // International sociology Online Publikation|krimdok
 	"2196-8225" : "O", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : "0", // Theoretical criminology Online Publikation|krimdok
@@ -1041,7 +1041,7 @@ var issnSsgMapping = {
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society
 	"0003-1224" : "FID-KRIM-DE-21", // American sociological review Online Publikation|krimdok
 	"1862-2593" : "FID-KRIM-DE-21", // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : "FID-KRIM-DE-21", // International sociology Online Publikation|krimdok
+	"0268-5809" : "FID-KRIM-DE-21", // International sociology Online Publikation|krimdok
 	"2196-8225" : "FID-KRIM-DE-21", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : "FID-KRIM-DE-21", // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : "FID-KRIM-DE-21", // Theoretical criminology Online Publikation|krimdok
@@ -1058,7 +1058,7 @@ var issnSsgMapping = {
 var issnKeywordMapping = {
 	"0003-1224" : 6800, // American sociological review Online Publikation|krimdok
 	"1862-2593" : 6800, // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : 6800, // International sociology Online Publikation|krimdok
+	"0268-5809" : 6800, // International sociology Online Publikation|krimdok
 	"2196-8225" : 6800, // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : 6800, // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : 6800, // Theoretical criminology Online Publikation|krimdok
