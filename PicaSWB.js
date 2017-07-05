@@ -342,6 +342,8 @@ var journalMapping = {
 	"0265-3788" : "!273886452!", // Transformation
 	"0014-5246" : "!119460661!", // The Expository times
 	"1745-5308" : "!119460661!", // The Expository times
+	"0014-5246, 1745-5308" : "!119460661!", // The Expository times
+	"00145246" : "!119460661!", // The Expository times
 	"0003-1224" : "!094425426!", // American sociological review|krimdok
 	"1862-2593" : "!26681946X!", // Berliner Journal für Soziologie|krimdok
 	"0268-5809" : "!078709199!", // International sociology|krimdok
@@ -900,6 +902,7 @@ var issnPhysicalFormMapping = {
 	"0014-5246" : "O", // The Expository times
 	"1745-5308" : "O", // The Expository times
 	"00145246" : "O", // The Expository times
+	"0014-5246, 1745-5308" : "O", // The Expository times
 	"0003-1224" : "O", // American sociological review Online Publikation|krimdok
 	"1862-2593" : "O", // Berliner Journal für Soziologie Online Publikation|krimdok
 	"0268-5809" : "O", // International sociology Online Publikation|krimdok
