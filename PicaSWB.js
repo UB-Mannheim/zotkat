@@ -356,8 +356,12 @@ var journalMapping = {
 	"09602720" : "!032741545!", //  European journal of theology
 	"0960-2720" : "!032741545!", //  European journal of theology
 	"0555-9308" : "!331560291!", //  Pastoraltheologische Informationen
+	"0093-531X" : "!014809931!", //  Perspectives in religious studies
+	"0967-8948" : "!487680898!", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "!42401257X!", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "!367402394!", // Approaching religion    
+    "1677-1222" : "!281208956!", // Rever : revista de estudos da religião
 
-	
 	
 	
 };
@@ -467,7 +471,11 @@ var issnLangMapping = {
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
 	"0212-1964" : "spa", // Teología y catequesis 
 	"0555-9308" : "ger", // Pastoraltheologische Informationen
-	
+    "0967-8948" : "eng", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "eng", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "eng", // Approaching religion
+    "1677-1222" : "manuell", // Rever : revista de estudos da religião
+
 	
 	
 };
@@ -905,8 +913,12 @@ var issnPhysicalFormMapping = {
 	"1472-2089" : "A", //  International congregational journal	
 	"09602720" : "A", //  European journal of theology
 	"0555-9308" : "O", //  Pastoraltheologische Informationen
+	"0093-531X" : "A", //  Perspectives in religious studies
+	"0967-8948" : "O", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "O", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "O", // Approaching religion
+    "1677-1222" : "O", // Rever : revista de estudos da religião
 
-	
 	
 };
 
@@ -922,7 +934,11 @@ var issnLicenceFieldMapping = {
 	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
 	"2380-8829" : "l", //The Covenant Quarterly
 	"0555-9308" : "l", // Pastoraltheologische Informationen
-	
+	"0967-8948" : "l", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "l", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "l", // Approaching religion
+    "1677-1222" : "l", // Rever : revista de estudos da religião
+
 	
 };
 
@@ -1047,7 +1063,12 @@ var issnSsgMapping = {
 	"1461-7439" : "FID-KRIM-DE-21", // Theoretical criminology Online Publikation|krimdok
 	"1438-9460" : "FID-KRIM-DE-21", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
-	"2380-8829" : "1" //The Covenant Quarterly
+	"2380-8829" : "1", //The Covenant Quarterly
+	"0967-8948" : "0", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "0", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "0", // Approaching religion
+    "1677-1222" : "0; 1", // Rever : revista de estudos da religião
+
 	
 	
 	
