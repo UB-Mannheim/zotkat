@@ -363,6 +363,7 @@ var journalMapping = {
     "2342-7256" : "!42401257X!", // Temenos : nordic journal of comparative religion
     "1799-3121" : "!367402394!", // Approaching religion    
     "1677-1222" : "!281208956!", // Rever : revista de estudos da religião
+	"1475-5610" : "!094641897!", // Culture and Religion
 
 	
 	
@@ -908,7 +909,7 @@ var issnPhysicalFormMapping = {
 	"0268-5809" : "O", // International sociology Online Publikation|krimdok
 	"2196-8225" : "O", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
-	"1461-7439" : "0", // Theoretical criminology Online Publikation|krimdok
+	"1461-7439" : "O", // Theoretical criminology Online Publikation|krimdok
 	"1438-9460" : "O", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	"2380-8829" : "O", // The Covenant Quarterly
 	"0212-1964" : "A", // Teología y catequesis 
@@ -921,6 +922,7 @@ var issnPhysicalFormMapping = {
     "2342-7256" : "O", // Temenos : nordic journal of comparative religion
     "1799-3121" : "O", // Approaching religion
     "1677-1222" : "O", // Rever : revista de estudos da religião
+	"1475-5610" : "A", // Culture and Religion
 
 	
 };
@@ -1071,7 +1073,8 @@ var issnSsgMapping = {
     "2342-7256" : "0", // Temenos : nordic journal of comparative religion
     "1799-3121" : "0", // Approaching religion
     "1677-1222" : "0; 1", // Rever : revista de estudos da religião
-
+	"1475-5610" : "0; 1", // Culture and Religion
+	
 	
 	
 	
@@ -1442,3 +1445,4 @@ function doExport() {
 		Zotero.write(outputText);
 	}
 }
+
