@@ -364,7 +364,9 @@ var journalMapping = {
     "1799-3121" : "!367402394!", // Approaching religion    
     "1677-1222" : "!281208956!", // Rever : revista de estudos da religião
 	"1475-5610" : "!094641897!", // Culture and Religion
-
+	"00224189" : "!113710593!", // Journal of Religion
+	"1549-6538" : "!113710593!", // Journal of Religion
+	"0022-4189" : "!113710593!", // Journal of Religion
 	
 	
 };
@@ -923,7 +925,10 @@ var issnPhysicalFormMapping = {
     "1799-3121" : "O", // Approaching religion
     "1677-1222" : "O", // Rever : revista de estudos da religião
 	"1475-5610" : "A", // Culture and Religion
-
+	"00224189" : "O", // Journal of Religion
+	"1549-6538" : "O", // Journal of Religion
+	"0022-4189" : "O", // Journal of Religion
+	
 	
 };
 
@@ -1074,6 +1079,9 @@ var issnSsgMapping = {
     "1799-3121" : "0", // Approaching religion
     "1677-1222" : "0; 1", // Rever : revista de estudos da religião
 	"1475-5610" : "0; 1", // Culture and Religion
+	"00224189" : "0; 1", // Journal of Religion
+	"1549-6538" : "0; 1", // Journal of Religion
+	"0022-4189" : "0; 1", // Journal of Religion
 	
 	
 	
