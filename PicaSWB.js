@@ -1082,9 +1082,9 @@ var issnSsgMapping = {
     "1799-3121" : "0", // Approaching religion
     "1677-1222" : "0; 1", // Rever : revista de estudos da religião
 	"1475-5610" : "0; 1", // Culture and Religion
-	"00224189" : "0; 1", // Journal of Religion
-	"1549-6538" : "0; 1", // Journal of Religion
-	"0022-4189" : "0; 1", // Journal of Religion
+	"00224189" : "0", // Journal of Religion
+	"1549-6538" : "0", // Journal of Religion
+	"0022-4189" : "0", // Journal of Religion
 	
 	
 	
