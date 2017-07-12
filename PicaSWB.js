@@ -948,7 +948,10 @@ var issnLicenceFieldMapping = {
     "2342-7256" : "l", // Temenos : nordic journal of comparative religion
     "1799-3121" : "l", // Approaching religion
     "1677-1222" : "l", // Rever : revista de estudos da religião
-
+	"00224189" : "l", // Journal of Religion
+	"1549-6538" : "l", // Journal of Religion
+	"0022-4189" : "l", // Journal of Religion
+	
 	
 };
 
