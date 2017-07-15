@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-22 07:00:00"
+	"lastUpdated": "2017-07-15 18:55:00"
 }
 
 
@@ -191,6 +191,20 @@ function doExport() {
 		} else {
 			//otherwise use "und" for undetermined language
 			Zotero.write('LAST	P1476	und:"' + item.title + '"\n');
+		}
+		
+		if (item.ISSN) {
+			var issnLookup = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?query=SELECT%20%3Fitem%20WHERE%20%7B%20%3Fitem%20wdt%3AP236%20%22'+item.ISSN+'%22.%20%7D';
+			ZU.doGet(issnLookup, function(data) {
+				if (data) {
+					var json = JSON.parse(data);
+					if (json.results && json.results.bindings && json.results.bindings.length==1) {
+						var wikidataUrl = json.results.bindings[0].item.value;
+						var qnumber = wikidataUrl.substr(wikidataUrl.indexOf('Q'));
+						Zotero.write('LAST	P1433	' + qnumber + '\n');
+					}
+				}
+			}, undefined, undefined, {"Accept" : "application/sparql-results+json"});
 		}
 		
 		if (item.extra) {
