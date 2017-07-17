@@ -487,8 +487,8 @@ var issnLangMapping = {
 	"1722-4705" : "ita", // Religioni e societa
 	"0394-9397" : "ita", // Religioni e societa
 	"17224705" : "ita", // Religioni e societa
-	"0008-4298" : "fre", // Studies in religion = Sciences religieuses
-	"2042-0587" : "fre", // Studies in religion = Sciences religieuses
+	
+	
 	
 	
 };
