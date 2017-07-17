@@ -367,6 +367,10 @@ var journalMapping = {
 	"00224189" : "!113710593!", // Journal of Religion
 	"1549-6538" : "!113710593!", // Journal of Religion
 	"0022-4189" : "!113710593!", // Journal of Religion
+	"1722-4705" : "!016231732!", // Religioni e societa
+	"0394-9397" : "!016231732!", // Religioni e societa
+	"17224705" : "!016231732!", // Religioni e societa
+	
 	
 	
 };
@@ -480,7 +484,11 @@ var issnLangMapping = {
     "2342-7256" : "eng", // Temenos : nordic journal of comparative religion
     "1799-3121" : "eng", // Approaching religion
     "1677-1222" : "manuell", // Rever : revista de estudos da religião
-
+	"1722-4705" : "ita", // Religioni e societa
+	"0394-9397" : "ita", // Religioni e societa
+	"17224705" : "ita", // Religioni e societa
+	"0008-4298" : "fre", // Studies in religion = Sciences religieuses
+	"2042-0587" : "fre", // Studies in religion = Sciences religieuses
 	
 	
 };
@@ -566,8 +574,8 @@ var issnPhysicalFormMapping = {
 	"1541-8480" : "A", // Nova religio
 	"1079-9265" : "A", // Religion and the arts
 	"1568-5292" : "A", // Religion and the arts
-	"0008-4298" : "A", // Studies in religion = Sciences religieuses
-	"2042-0587" : "A", // Studies in religion = Sciences religieuses
+	"0008-4298" : "O", // Studies in religion = Sciences religieuses
+	"2042-0587" : "O", // Studies in religion = Sciences religieuses
 	"1380-7854" : "A", // Medieval encounters
 	"1570-0674" : "A", // Medieval encounters
 	"0319-485X" : "A", // Religious studies review
@@ -928,6 +936,9 @@ var issnPhysicalFormMapping = {
 	"00224189" : "O", // Journal of Religion
 	"1549-6538" : "O", // Journal of Religion
 	"0022-4189" : "O", // Journal of Religion
+	"1722-4705" : "A", // Religioni e societa
+	"0394-9397" : "A", // Religioni e societa
+	"17224705" : "A", // Religioni e societa
 	
 	
 };
@@ -1085,9 +1096,9 @@ var issnSsgMapping = {
 	"00224189" : "0", // Journal of Religion
 	"1549-6538" : "0", // Journal of Religion
 	"0022-4189" : "0", // Journal of Religion
-	
-	
-	
+	"1722-4705" : "0", // Religioni e societa
+	"0394-9397" : "0", // Religioni e societa
+	"17224705" : "0", // Religioni e societa
 	
 };
 
