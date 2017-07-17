@@ -115,8 +115,8 @@ var journalMapping = {
 	"1541-8480" : "!066688779!", // Nova religio
 	"1079-9265" : "!056622538!", // Religion and the arts
 	"1568-5292" : "!056622538!", // Religion and the arts
-	"0008-4298" : "!014775611!", // Studies in religion = Sciences religieuses
-	"2042-0587" : "!014775611!", // Studies in religion = Sciences religieuses
+	"0008-4298" : "!318518368!", // Studies in religion = Sciences religieuses
+	"2042-0587" : "!318518368!", // Studies in religion = Sciences religieuses
 	"1380-7854" : "!048518425!", // Medieval encounters
 	"1570-0674" : "!048518425!", // Medieval encounters
 	"0319-485X" : "!01455027X!", // Religious studies review
