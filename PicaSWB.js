@@ -367,9 +367,11 @@ var journalMapping = {
 	"00224189" : "!113710593!", // Journal of Religion
 	"1549-6538" : "!113710593!", // Journal of Religion
 	"0022-4189" : "!113710593!", // Journal of Religion
-	"1722-4705" : "!016231732!", // Religioni e societa
-	"0394-9397" : "!016231732!", // Religioni e societa
-	"17224705" : "!016231732!", // Religioni e societa
+	"1722-4705" : "!016231732!", // Religioni e società
+	"0394-9397" : "!016231732!", // Religioni e società
+	"17224705" : "!016231732!", // Religioni e società
+	"0002-7189" : "!10686971X!", // Journal of the American Academy of Religion
+	"1477-4585" : "!10686971X!", // Journal of the American Academy of Religion
 	
 	
 	
@@ -936,10 +938,11 @@ var issnPhysicalFormMapping = {
 	"00224189" : "O", // Journal of Religion
 	"1549-6538" : "O", // Journal of Religion
 	"0022-4189" : "O", // Journal of Religion
-	"1722-4705" : "A", // Religioni e societa
-	"0394-9397" : "A", // Religioni e societa
-	"17224705" : "A", // Religioni e societa
-	
+	"1722-4705" : "A", // Religioni e società
+	"0394-9397" : "A", // Religioni e società
+	"17224705" : "A", // Religioni e società
+	"0002-7189" : "O", // Journal of the American Academy of Religion
+	"1477-4585" : "O", // Journal of the American Academy of Religion
 	
 };
 
@@ -1096,9 +1099,12 @@ var issnSsgMapping = {
 	"00224189" : "0", // Journal of Religion
 	"1549-6538" : "0", // Journal of Religion
 	"0022-4189" : "0", // Journal of Religion
-	"1722-4705" : "0", // Religioni e societa
-	"0394-9397" : "0", // Religioni e societa
-	"17224705" : "0", // Religioni e societa
+	"1722-4705" : "0", // Religioni e società
+	"0394-9397" : "0", // Religioni e società
+	"17224705" : "0", // Religioni e società
+	"0002-7189" : "0", // Journal of the American Academy of Religion
+	"1477-4585" : "0", // Journal of the American Academy of Religion
+	
 	
 };
 
