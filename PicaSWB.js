@@ -77,8 +77,9 @@ var journalMapping = {
 	"0043-2040" : "!014841762!", // Wege zum Menschen
 	"0021-1400" : "!265831903!", // Irish theological quaterly
 	"0023-0707" : "!014412527!", // Kerygma und Dogma
-	"1135-4712" : "!094083746!", // 'Ílu
+	"1138-4972" : "!281290717!", // 'Ílu
 	"1135-4712" : "!281290717!", // 'Ílu
+	"1139-1529" : "!281290717!", // 'Ílu
 	"0953-9468" : "!11946067X!", // Studies in Christian ethics
 	"1745-5235" : "!11946067X!", // Studies in Christian ethics
 	"09539468" : "!11946067X!", // Studies in Christian ethics
@@ -375,6 +376,8 @@ var journalMapping = {
 	"00088080" : "!01452595X!", // The catholic historical review
 	"0008-8080" : "!01452595X!", // The catholic historical review
 	"0024-6964" : "!015195600!", // Louvain Studies
+	"13549901" : "!27388431X!", // Studies in world christianity !!pppn
+	"1354-9901" : "!27388431X!", // Studies in world christianity !!pppn
 	
 	
 };
@@ -530,7 +533,8 @@ var issnPhysicalFormMapping = {
 	"09667350" : "O", // Feminist theology 
 	"1357-4175" : "A", // Reformation  
 	"1752-0738" : "A", // Reformation  
-	"1462-317X, 1743-1719" : "A", // Political theology   
+	"1462-317X" : "A", // Political theology   
+	"1743-1719" : "A", // Political theology   
 	"0360-6503" : "A", // Process studies   
 	"0733-4273" : "A", // Journal of psychology and Christianity
 	"0929-0761" : "A", // Dead Sea discoveries   
@@ -545,7 +549,7 @@ var issnPhysicalFormMapping = {
 	"0043-2040, 2196-8284" : "A", // Wege zum Menschen
 	"0021-1400" : "O", // Irish theological quaterly
 	"0023-0707" : "A", // Kerygma und Dogma
-	"1135-4712" : "A", // 'Ílu
+	"1135-4712" : "O", // 'Ílu
 	"0953-9468" : "O", // Studies in Christian ethics
 	"1745-5235" : "O", // Studies in Christian ethics
 	"09539468" : "O", // Studies in Christian ethics
@@ -857,7 +861,7 @@ var issnPhysicalFormMapping = {
 	"1052-150X" : "A", // Business ethics quarterly !!pppn
 	"2153-3326" : "A", // Business ethics quarterly !!eppn
 	"1094-2076" : "A", // Near Eastern archaeology !!pppn
-	"1354-9901" : "A", // Studies in world christianity !!pppn
+	"13549901" : "O", // Studies in world christianity !!pppn
 	"1355-8358" : "A", // Theology & sexuality !!pppn
 	"1363-013X" : "A", // Quaker studies !!pppn
 	"1363-013X" : "A", // Quaker studies !!eppn
@@ -969,6 +973,9 @@ var issnLicenceFieldMapping = {
 	"00224189" : "l", // Journal of Religion
 	"1549-6538" : "l", // Journal of Religion
 	"0022-4189" : "l", // Journal of Religion
+	"1138-4972" : "l", // 'Ílu
+	"1135-4712" : "l", // 'Ílu
+	"1139-1529" : "l", // 'Ílu
 	
 	
 };
@@ -1108,6 +1115,7 @@ var issnSsgMapping = {
 	"17224705" : "0", // Religioni e società
 	"0002-7189" : "0", // Journal of the American Academy of Religion
 	"1477-4585" : "0", // Journal of the American Academy of Religion
+	
 
 	
 };
