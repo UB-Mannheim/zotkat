@@ -1115,6 +1115,9 @@ var issnSsgMapping = {
 	"17224705" : "0", // Religioni e società
 	"0002-7189" : "0", // Journal of the American Academy of Religion
 	"1477-4585" : "0", // Journal of the American Academy of Religion
+	"1138-4972" : "0", // 'Ílu
+	"1135-4712" : "0", // 'Ílu
+	"1139-1529" : "0", // 'Ílu
 	
 
 	
