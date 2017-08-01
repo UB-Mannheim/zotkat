@@ -376,8 +376,8 @@ var journalMapping = {
 	"00088080" : "!01452595X!", // The catholic historical review
 	"0008-8080" : "!01452595X!", // The catholic historical review
 	"0024-6964" : "!015195600!", // Louvain Studies
-	"13549901" : "!27388431X!", // Studies in world christianity !!pppn
-	"1354-9901" : "!27388431X!", // Studies in world christianity !!pppn
+	"13549901" : "!04851618X!", // Studies in world christianity !!pppn
+	"1354-9901" : "!04851618X!", // Studies in world christianity !!pppn
 	
 	
 };
@@ -861,7 +861,7 @@ var issnPhysicalFormMapping = {
 	"1052-150X" : "A", // Business ethics quarterly !!pppn
 	"2153-3326" : "A", // Business ethics quarterly !!eppn
 	"1094-2076" : "A", // Near Eastern archaeology !!pppn
-	"13549901" : "O", // Studies in world christianity !!pppn
+	"13549901" : "A", // Studies in world christianity !!pppn
 	"1355-8358" : "A", // Theology & sexuality !!pppn
 	"1363-013X" : "A", // Quaker studies !!pppn
 	"1363-013X" : "A", // Quaker studies !!eppn
