@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-22 07:00:00"
+	"lastUpdated": "2017-07-15 20:00:00"
 }
 
 
@@ -132,6 +132,20 @@ function doExport() {
 		}
 		Zotero.write('LAST	Len	"' + item.title + '"\n');
 		
+		var description = itemType.replace(/([A-Z])/, function(match, firstLetter) {
+			return ' ' + firstLetter.toLowerCase();
+		});
+		if (item.publicationTitle && (itemType=="journalArticle" || itemType=="magazineArticle" || itemType=="newspaperArticle")) {
+			description = description + ' from \'' + item.publicationTitle + '\'';
+		}
+		if (item.date) {
+			var year = ZU.strToDate(item.date).year;
+			if (year) {
+				description = description + ' published in ' + year;
+			}
+		}
+		Zotero.write('LAST	Den	"' + description + '"\n');
+		
 		for (var pnumber in propertyMapping) {
 			var zfield = propertyMapping[pnumber];
 			if (item[zfield]) {
@@ -139,6 +153,7 @@ function doExport() {
 			}
 		}
 		
+		var index = 1;
 		for (var i=0; i<item.creators.length; i++) {
 			var creatorValue = item.creators[i].lastName;
 			var creatorType = item.creators[i].creatorType;
@@ -146,7 +161,8 @@ function doExport() {
 				creatorValue = item.creators[i].firstName + ' ' + creatorValue;
 			}
 			if (creatorType=="author") {
-				Zotero.write('LAST	P2093	"' + creatorValue + '"\n');
+				Zotero.write('LAST	P2093	"' + creatorValue + '"	P1545	"' + index+ '"\n');
+				index++;
 			}
 			//other creatorTypes are ignored, because they would need to point an item, rather than just writing the string value
 		}
