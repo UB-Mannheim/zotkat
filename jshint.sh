@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# license for script: CC0
+
 # 1st sed: Replace top lines including first beginning with '}' with empty string
 # 2nd sed: Insert newline before every '/** BEGIN TEST'
 # 3rd sed: Delete from first line containing 'BEGIN TEST' to end of file
