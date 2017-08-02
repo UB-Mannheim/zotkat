@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-29 11:49:00"
+	"lastUpdated": "2017-08-02 09:44:00"
 }
 
 
@@ -894,7 +894,7 @@ var issnPhysicalFormMapping = {
 	"1461-7242" : "O", // International sociology Online Publikation|krimdok
 	"2196-8225" : "O", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
-	"1461-7439" : "0", // Theoretical criminology Online Publikation|krimdok
+	"1461-7439" : "O", // Theoretical criminology Online Publikation|krimdok
 	"1438-9460" : "O", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	"2380-8829" : "O", // The Covenant Quarterly
 	"0212-1964" : "A", // Teología y catequesis 
@@ -1285,12 +1285,7 @@ function doExport() {
 		while (item.creators.length>0) {
 			creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
-					content = nameMapping[creator.lastName + ", " + creator.firstName];
-				} else if (nachnameMapping[creator.lastName]) {
-					content = nachnameMapping[creator.lastName];
-				} else {
-					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
+				if (content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
 				if (i === 0) {
 					writeLine("3000", content + "$BVerfasserIn$4aut");
@@ -1301,7 +1296,7 @@ function doExport() {
 				i++;
 			}
 		//TODO: editors, other contributors...
-		}
+		
 		writeLine("4000", titleStatement);
 		
 		//Ausgabe --> 4020
