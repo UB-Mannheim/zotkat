@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-06-29 09:01:00"
+	"lastUpdated": "2017-08-02 09:44:00"
 }
 
 
@@ -1332,6 +1332,22 @@ function doExport() {
 		}
 				
 		//Autoren --> 3000, 3010
+		var i = 0, content, creator;
+		while (item.creators.length>0) {
+			creator = item.creators.shift();
+			if (creator.creatorType == "author") {
+				if (content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
+				}
+				if (i === 0) {
+					writeLine("3000", content + "$BVerfasserIn$4aut");
+					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
+				} else {
+					writeLine("3010", content + "$BVerfasserIn$4aut");
+				}
+				i++;
+			}
+		//TODO: editors, other contributors...
+			
 		//Titel, erster Autor --> 4000
 		var titleStatement = "";
 		if (item.shortTitle == "journalArticle") {
@@ -1358,27 +1374,7 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L' @$1");
 		}
 		
-		var i = 0, content, creator;
-		while (item.creators.length>0) {
-			creator = item.creators.shift();
-			if (creator.creatorType == "author") {
-				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
-					content = nameMapping[creator.lastName + ", " + creator.firstName];
-				} else if (nachnameMapping[creator.lastName]) {
-					content = nachnameMapping[creator.lastName];
-				} else {
-					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
-				}
-				if (i === 0) {
-					writeLine("3000", content + "$BVerfasserIn$4aut");
-					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
-				} else {
-					writeLine("3010", content + "$BVerfasserIn$4aut");
-				}
-				i++;
-			}
-		//TODO: editors, other contributors...
-		}
+		
 		writeLine("4000", titleStatement);
 		
 		//Ausgabe --> 4020
