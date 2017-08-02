@@ -75,10 +75,11 @@ var journalMapping = {
 	"2198-0462" : "!038886944!", // Praktische Theologie                     
 	"0938-5320" : "!399752226!", // Praktische Theologie                     
 	"0043-2040" : "!014841762!", // Wege zum Menschen
-	"0021-1400" : "!015180522!", // Irish theological quaterly
+	"0021-1400" : "!265831903!", // Irish theological quaterly
 	"0023-0707" : "!014412527!", // Kerygma und Dogma
-	"1135-4712" : "!094083746!", // 'Ílu
+	"1138-4972" : "!281290717!", // 'Ílu
 	"1135-4712" : "!281290717!", // 'Ílu
+	"1139-1529" : "!281290717!", // 'Ílu
 	"0953-9468" : "!11946067X!", // Studies in Christian ethics
 	"1745-5235" : "!11946067X!", // Studies in Christian ethics
 	"09539468" : "!11946067X!", // Studies in Christian ethics
@@ -115,8 +116,8 @@ var journalMapping = {
 	"1541-8480" : "!066688779!", // Nova religio
 	"1079-9265" : "!056622538!", // Religion and the arts
 	"1568-5292" : "!056622538!", // Religion and the arts
-	"0008-4298" : "!014775611!", // Studies in religion = Sciences religieuses
-	"2042-0587" : "!014775611!", // Studies in religion = Sciences religieuses
+	"0008-4298" : "!318518368!", // Studies in religion = Sciences religieuses
+	"2042-0587" : "!318518368!", // Studies in religion = Sciences religieuses
 	"1380-7854" : "!048518425!", // Medieval encounters
 	"1570-0674" : "!048518425!", // Medieval encounters
 	"0319-485X" : "!01455027X!", // Religious studies review
@@ -342,9 +343,11 @@ var journalMapping = {
 	"0265-3788" : "!273886452!", // Transformation
 	"0014-5246" : "!119460661!", // The Expository times
 	"1745-5308" : "!119460661!", // The Expository times
+	"0014-5246, 1745-5308" : "!119460661!", // The Expository times
+	"00145246" : "!119460661!", // The Expository times
 	"0003-1224" : "!094425426!", // American sociological review|krimdok
 	"1862-2593" : "!26681946X!", // Berliner Journal für Soziologie|krimdok
-	"1461-7242" : "!078709199!", // International sociology|krimdok
+	"0268-5809" : "!078709199!", // International sociology|krimdok
 	"2196-8225" : "!276818768!", // Praxis der Kinderpsychologie und Kinderpsychiatrie|krimdok
 	"2190-6238" : "!11093539X!", // Psychologische Rundschau|krimdok
 	"1461-7439" : "!098253387!", // Theoretical criminology|krimdok
@@ -353,8 +356,28 @@ var journalMapping = {
 	"0212-1964" : "!016231767!", // Teología y catequesis 
 	"14722089" : "!098783998!", //  International congregational journal 
 	"1472-2089" : "!098783998!", //  International congregational journal
-
-	
+	"09602720" : "!032741545!", //  European journal of theology
+	"0960-2720" : "!032741545!", //  European journal of theology
+	"0555-9308" : "!331560291!", //  Pastoraltheologische Informationen
+	"0093-531X" : "!014809931!", //  Perspectives in religious studies
+	"0967-8948" : "!487680898!", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "!42401257X!", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "!367402394!", // Approaching religion    
+    "1677-1222" : "!281208956!", // Rever : revista de estudos da religião
+	"1475-5610" : "!094641897!", // Culture and Religion
+	"00224189" : "!113710593!", // Journal of Religion
+	"1549-6538" : "!113710593!", // Journal of Religion
+	"0022-4189" : "!113710593!", // Journal of Religion
+	"1722-4705" : "!016231732!", // Religioni e società
+	"0394-9397" : "!016231732!", // Religioni e società
+	"17224705" : "!016231732!", // Religioni e società
+	"0002-7189" : "!10686971X!", // Journal of the American Academy of Religion
+	"1477-4585" : "!10686971X!", // Journal of the American Academy of Religion
+	"00088080" : "!01452595X!", // The catholic historical review
+	"0008-8080" : "!01452595X!", // The catholic historical review
+	"0024-6964" : "!015195600!", // Louvain Studies
+	"13549901" : "!04851618X!", // Studies in world christianity !!pppn
+	"1354-9901" : "!04851618X!", // Studies in world christianity !!pppn
 	
 	
 };
@@ -463,6 +486,14 @@ var issnLangMapping = {
 	"0040-5698" : "ger", // Theologische Rundschau
 	"0044-3549" : "ger", // Zeitschrift für Theologie und Kirche
 	"0212-1964" : "spa", // Teología y catequesis 
+	"0555-9308" : "ger", // Pastoraltheologische Informationen
+    "0967-8948" : "eng", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "eng", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "eng", // Approaching religion
+    "1677-1222" : "manuell", // Rever : revista de estudos da religião
+	"1722-4705" : "ita", // Religioni e societa
+	"0394-9397" : "ita", // Religioni e societa
+	"17224705" : "ita", // Religioni e societa
 	
 	
 	
@@ -502,7 +533,8 @@ var issnPhysicalFormMapping = {
 	"09667350" : "O", // Feminist theology 
 	"1357-4175" : "A", // Reformation  
 	"1752-0738" : "A", // Reformation  
-	"1462-317X, 1743-1719" : "A", // Political theology   
+	"1462-317X" : "A", // Political theology   
+	"1743-1719" : "A", // Political theology   
 	"0360-6503" : "A", // Process studies   
 	"0733-4273" : "A", // Journal of psychology and Christianity
 	"0929-0761" : "A", // Dead Sea discoveries   
@@ -515,9 +547,9 @@ var issnPhysicalFormMapping = {
 	"0938-5320" : "A", // Praktische Theologie
 	"2198-0462" : "A", // Praktische Theologie                     
 	"0043-2040, 2196-8284" : "A", // Wege zum Menschen
-	"0021-1400" : "A", // Irish theological quaterly
+	"0021-1400" : "O", // Irish theological quaterly
 	"0023-0707" : "A", // Kerygma und Dogma
-	"1135-4712" : "A", // 'Ílu
+	"1135-4712" : "O", // 'Ílu
 	"0953-9468" : "O", // Studies in Christian ethics
 	"1745-5235" : "O", // Studies in Christian ethics
 	"09539468" : "O", // Studies in Christian ethics
@@ -550,8 +582,8 @@ var issnPhysicalFormMapping = {
 	"1541-8480" : "A", // Nova religio
 	"1079-9265" : "A", // Religion and the arts
 	"1568-5292" : "A", // Religion and the arts
-	"0008-4298" : "A", // Studies in religion = Sciences religieuses
-	"2042-0587" : "A", // Studies in religion = Sciences religieuses
+	"0008-4298" : "O", // Studies in religion = Sciences religieuses
+	"2042-0587" : "O", // Studies in religion = Sciences religieuses
 	"1380-7854" : "A", // Medieval encounters
 	"1570-0674" : "A", // Medieval encounters
 	"0319-485X" : "A", // Religious studies review
@@ -766,7 +798,6 @@ var issnPhysicalFormMapping = {
 	"1568-5330" : "A", // Vetus Testamentum !!eppn
 	"1568-5179" : "A", // Dead Sea discoveries !!eppn
 	"1091-6687" : "A", // Logos : a journal of catholic thought and culture !!pppn
-	"0008-8080" : "A", // The Catholic historical review !!pppn
 	"1568-5152" : "A", // Biblical interpretation !!eppn
 	"0003-097X" : "A", // Bulletin of the American Schools of Oriental Research !!pppn
 	"0017-8160" : "A", // The Harvard theological review !!pppn
@@ -830,7 +861,7 @@ var issnPhysicalFormMapping = {
 	"1052-150X" : "A", // Business ethics quarterly !!pppn
 	"2153-3326" : "A", // Business ethics quarterly !!eppn
 	"1094-2076" : "A", // Near Eastern archaeology !!pppn
-	"1354-9901" : "A", // Studies in world christianity !!pppn
+	"13549901" : "A", // Studies in world christianity !!pppn
 	"1355-8358" : "A", // Theology & sexuality !!pppn
 	"1363-013X" : "A", // Quaker studies !!pppn
 	"1363-013X" : "A", // Quaker studies !!eppn
@@ -889,9 +920,10 @@ var issnPhysicalFormMapping = {
 	"0014-5246" : "O", // The Expository times
 	"1745-5308" : "O", // The Expository times
 	"00145246" : "O", // The Expository times
+	"0014-5246, 1745-5308" : "O", // The Expository times
 	"0003-1224" : "O", // American sociological review Online Publikation|krimdok
 	"1862-2593" : "O", // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : "O", // International sociology Online Publikation|krimdok
+	"0268-5809" : "O", // International sociology Online Publikation|krimdok
 	"2196-8225" : "O", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : "O", // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : "O", // Theoretical criminology Online Publikation|krimdok
@@ -900,7 +932,25 @@ var issnPhysicalFormMapping = {
 	"0212-1964" : "A", // Teología y catequesis 
 	"14722089" : "A", //  International congregational journal 
 	"1472-2089" : "A", //  International congregational journal	
-	
+	"09602720" : "A", //  European journal of theology
+	"0555-9308" : "O", //  Pastoraltheologische Informationen
+	"0093-531X" : "A", //  Perspectives in religious studies
+	"0967-8948" : "O", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "O", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "O", // Approaching religion
+    "1677-1222" : "O", // Rever : revista de estudos da religião
+	"1475-5610" : "A", // Culture and Religion
+	"00224189" : "O", // Journal of Religion
+	"1549-6538" : "O", // Journal of Religion
+	"0022-4189" : "O", // Journal of Religion
+	"1722-4705" : "A", // Religioni e società
+	"0394-9397" : "A", // Religioni e società
+	"17224705" : "A", // Religioni e società
+	"0002-7189" : "O", // Journal of the American Academy of Religion
+	"1477-4585" : "O", // Journal of the American Academy of Religion
+	"0008-8080" : "A", // The catholic historical review
+	"00088080" : "A", // The catholic historical review
+	"0024-6964" : "A", // Louvain Studies
 	
 };
 
@@ -914,7 +964,18 @@ var issnLicenceFieldMapping = {
 	"1861-5813" : "l", // Online - Heidelberg Journal of Religions on the Internet
 	"1867-4240" : "l", // Transformierte Buddhismen
 	"1583-0039" : "l", // Journal for the Study of Religions and Ideologie
-	"2380-8829" : "l" //The Covenant Quarterly
+	"2380-8829" : "l", //The Covenant Quarterly
+	"0555-9308" : "l", // Pastoraltheologische Informationen
+	"0967-8948" : "l", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "l", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "l", // Approaching religion
+    "1677-1222" : "l", // Rever : revista de estudos da religião
+	"00224189" : "l", // Journal of Religion
+	"1549-6538" : "l", // Journal of Religion
+	"0022-4189" : "l", // Journal of Religion
+	"1138-4972" : "l", // 'Ílu
+	"1135-4712" : "l", // 'Ílu
+	"1139-1529" : "l", // 'Ílu
 	
 	
 };
@@ -1034,15 +1095,31 @@ var issnSsgMapping = {
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society
 	"0003-1224" : "FID-KRIM-DE-21", // American sociological review Online Publikation|krimdok
 	"1862-2593" : "FID-KRIM-DE-21", // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : "FID-KRIM-DE-21", // International sociology Online Publikation|krimdok
+	"0268-5809" : "FID-KRIM-DE-21", // International sociology Online Publikation|krimdok
 	"2196-8225" : "FID-KRIM-DE-21", // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : "FID-KRIM-DE-21", // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : "FID-KRIM-DE-21", // Theoretical criminology Online Publikation|krimdok
 	"1438-9460" : "FID-KRIM-DE-21", // Zeitschrift für Sexualforschung Online Publikation|krimdok
 	"1890-7008, 0809-7291" : "0; 1", // Nordic journal of religion and society 
-	"2380-8829" : "1" //The Covenant Quarterly
+	"2380-8829" : "1", //The Covenant Quarterly
+	"0967-8948" : "0", // Journal of the British Association for the Study of Religions - formerly DISKUS
+    "2342-7256" : "0", // Temenos : nordic journal of comparative religion
+    "1799-3121" : "0", // Approaching religion
+    "1677-1222" : "0; 1", // Rever : revista de estudos da religião
+	"1475-5610" : "0; 1", // Culture and Religion
+	"00224189" : "0", // Journal of Religion
+	"1549-6538" : "0", // Journal of Religion
+	"0022-4189" : "0", // Journal of Religion
+	"1722-4705" : "0", // Religioni e società
+	"0394-9397" : "0", // Religioni e società
+	"17224705" : "0", // Religioni e società
+	"0002-7189" : "0", // Journal of the American Academy of Religion
+	"1477-4585" : "0", // Journal of the American Academy of Religion
+	"1138-4972" : "0", // 'Ílu
+	"1135-4712" : "0", // 'Ílu
+	"1139-1529" : "0", // 'Ílu
 	
-	
+
 	
 };
 
@@ -1051,7 +1128,7 @@ var issnSsgMapping = {
 var issnKeywordMapping = {
 	"0003-1224" : 6800, // American sociological review Online Publikation|krimdok
 	"1862-2593" : 6800, // Berliner Journal für Soziologie Online Publikation|krimdok
-	"1461-7242" : 6800, // International sociology Online Publikation|krimdok
+	"0268-5809" : 6800, // International sociology Online Publikation|krimdok
 	"2196-8225" : 6800, // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
 	"2190-6238" : 6800, // Psychologische Rundschau Online Publikation|krimdok
 	"1461-7439" : 6800, // Theoretical criminology Online Publikation|krimdok
@@ -1407,3 +1484,4 @@ function doExport() {
 		Zotero.write(outputText);
 	}
 }
+
