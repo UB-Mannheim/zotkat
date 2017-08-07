@@ -1336,7 +1336,7 @@ function doExport() {
 		while (item.creators.length>0) {
 			creator = item.creators.shift();
 			if (creator.creatorType == "author") {
-				if (content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
+				if (content = creator.lastName + (creator.firstName ? ", " + creator.firstName : ""));
 				}
 				if (i === 0) {
 					writeLine("3000", content + "\n");
