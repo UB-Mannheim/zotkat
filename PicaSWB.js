@@ -379,6 +379,8 @@ var journalMapping = {
 	"13549901" : "!04851618X!", // Studies in world christianity !!pppn
 	"1354-9901" : "!04851618X!", // Studies in world christianity !!pppn
 	"1323-6377" : "!064449815!", // Uniting Church Studies
+	"0023-9054, 1703-8804" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
+	"0023-9054" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
 	
 };
 
@@ -952,6 +954,7 @@ var issnPhysicalFormMapping = {
 	"00088080" : "A", // The catholic historical review
 	"0024-6964" : "A", // Louvain Studies
 	"1323-6377" : "A", // Uniting Church Studies
+	"0023-9054, 1703-8804" : "A", // Laval théologique et philosophiqueLaval théologique et philosophique
 	
 };
 
