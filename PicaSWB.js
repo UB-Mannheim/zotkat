@@ -381,6 +381,7 @@ var journalMapping = {
 	"1323-6377" : "!064449815!", // Uniting Church Studies
 	"0023-9054, 1703-8804" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
 	"0023-9054" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
+	"0003-2468" : "!414633695!", // Analecta Bollandiana
 	
 };
 
@@ -955,6 +956,7 @@ var issnPhysicalFormMapping = {
 	"0024-6964" : "A", // Louvain Studies
 	"1323-6377" : "A", // Uniting Church Studies
 	"0023-9054, 1703-8804" : "A", // Laval théologique et philosophiqueLaval théologique et philosophique
+	"0003-2468" : "O", // Analecta Bollandiana
 	
 };
 
