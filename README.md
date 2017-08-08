@@ -29,8 +29,8 @@ Everyone can report errors here directly by opening an [issue](https://github.co
 
 ## Licenses
 
-* All translators are licensed under AGPL as it is usual for Zotero translators.
-* The bash scripts is simply CC0.
+* All translators are licensed under [AGPL 3.0](https://github.com/UB-Mannheim/zotkat/blob/master/LICENSE) as it is usual for Zotero translators.
+* The bash script is simply CC0.
 * The README here is CC-BY and all original texts and pictures in the wiki can be reused as CC0/CC-BY.
 
 
@@ -69,7 +69,7 @@ Alle  können hier direkt Fehler melden und dazu einfach einen [Issue](https://g
 
 ## Lizenzen
 
-* Alle Translators sind unter AGPL lizenziert wie es üblicherweise für Zotero Translator auch der Fall ist.
+* Alle Translators sind unter [AGPL 3.0](https://github.com/UB-Mannheim/zotkat/blob/master/LICENSE) lizenziert wie es üblicherweise für Zotero Translator auch der Fall ist.
 * Das Bash Skript ist einfach CC0.
 * Das README hier ist CC-BY und alle originären Texte und Bilder im Wikis können unter CC0/CC-BY weiter verwendet werden.
 
