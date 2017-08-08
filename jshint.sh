@@ -7,10 +7,10 @@
 # No errors -> print 'filename.js OK'
 # Errors -> Set $err to non-zero value
 for f in *.js; do
-      sed '1,/^}/ s/.*//' $f \
+      sed '1,/^}/ s/.*//' "$f" \
     | sed 's,/\*\* BEGIN TEST,\n\0,' \
     | sed '/BEGIN TEST/,$ d' \
-    | ./node_modules/.bin/jshint --filename=$f - \
+    | ./node_modules/.bin/jshint --filename="$f" - \
         && echo "$f OK" \
         || err=1
 done;
