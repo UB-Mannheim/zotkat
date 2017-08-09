@@ -1,0 +1,19 @@
+{
+    "itemType": "book",
+    "title": "Dies ist ein Buch",
+    "creators": [
+        {
+            "lastName": "author",
+            "firstName": "the",
+            "creatorType": "author"
+        }
+    ],
+    "date": "2017-02-28",
+    "DOI": "10.1109/12345",
+    "url": "http://example.org/",
+    "volume": "42",
+	"issue": "23",
+	"pages": "13-21",
+    "isbn": "978-1-56619-909-4",
+    "language": "DE"
+}
