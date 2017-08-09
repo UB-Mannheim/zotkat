@@ -382,6 +382,7 @@ var journalMapping = {
 	"0023-9054, 1703-8804" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
 	"0023-9054" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
 	"0003-2468" : "!414633695!", // Analecta Bollandiana
+	"0048-721X" : "!014470993!", // Religion a journal of religion and religions
 	
 };
 
@@ -957,6 +958,7 @@ var issnPhysicalFormMapping = {
 	"1323-6377" : "A", // Uniting Church Studies
 	"0023-9054, 1703-8804" : "A", // Laval théologique et philosophiqueLaval théologique et philosophique
 	"0003-2468" : "O", // Analecta Bollandiana
+	"0048-721X" : "A", // Religion a journal of religion and religions
 	
 };
 
@@ -1124,6 +1126,7 @@ var issnSsgMapping = {
 	"1138-4972" : "0", // 'Ílu
 	"1135-4712" : "0", // 'Ílu
 	"1139-1529" : "0", // 'Ílu
+	"0048-721X" : "0", // Religion a journal of religion and religions
 	
 
 	
