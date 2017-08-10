@@ -1,3 +1,4 @@
+
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
 	"0591-2385" : "!01515663X!", // Zygon
@@ -348,6 +349,9 @@ var journalMapping = {
 	"0023-9054" : "!015180816!", // Laval théologique et philosophiqueLaval théologique et philosophique
 	"0003-2468" : "!414633695!", // Analecta Bollandiana
 	"0048-721X" : "!014470993!", // Religion a journal of religion and religions
+	"0005-5719" : "!325341265!", // Baptist history and heritage
+	"00055719" : "!325341265!", // Baptist history and heritage
+	
 	
 };
 
@@ -924,6 +928,7 @@ var issnPhysicalFormMapping = {
 	"0023-9054, 1703-8804" : "A", // Laval théologique et philosophiqueLaval théologique et philosophique
 	"0003-2468" : "O", // Analecta Bollandiana
 	"0048-721X" : "A", // Religion a journal of religion and religions
+	"00055719" : "O", // Baptist history and heritage
 	
 };
 
@@ -1095,16 +1100,4 @@ var issnSsgMapping = {
 	
 
 	
-};
-
-// Mapping für ISSNs deren Schlagwörter statt 5520 in 680X abgelegt werden. KrimDok-Spezifikation
-// inkrementell ab z.B. 680 exportiert werden sollen (6801, 6802, ...)
-var issnKeywordMapping = {
-	"0003-1224" : 6800, // American sociological review Online Publikation|krimdok
-	"1862-2593" : 6800, // Berliner Journal für Soziologie Online Publikation|krimdok
-	"0268-5809" : 6800, // International sociology Online Publikation|krimdok
-	"2196-8225" : 6800, // Praxis der Kinderpsychologie und Kinderpsychiatrie Online Publikation|krimdok
-	"2190-6238" : 6800, // Psychologische Rundschau Online Publikation|krimdok
-	"1461-7439" : 6800, // Theoretical criminology Online Publikation|krimdok
-	"1438-9460" : 6800, // Zeitschrift für Sexualforschung Online Publikation|krimdok
 };
