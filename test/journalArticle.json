@@ -1,0 +1,61 @@
+{
+  "itemType": "journalArticle",
+  "url": "http://doi.acm.org/10.1145/2629489",
+  "rights": "Open Access",
+  "volume": "57",
+  "issue": "10",
+  "pages": "78–85",
+  "publicationTitle": "Communications of the ACM",
+  "ISSN": "0001-0782",
+  "date": "2014-09-23",
+  "journalAbbreviation": "Commun. ACM",
+  "DOI": "10.1145/2629489",
+  "accessDate": "2017-08-12 12:50:03",
+  "libraryCatalog": "ACM Digital Library",
+  "language": "eng",
+  "abstractNote": "This collaboratively edited knowledgebase provides a common source of data for Wikipedia, and everyone else.",
+  "title": "Wikidata: A Free Collaborative Knowledgebase",
+  "shortTitle": "Wikidata",
+  "creators": [
+    {
+      "firstName": "Denny",
+      "lastName": "Vrandečić",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Markus",
+      "lastName": "Krötzsch",
+      "creatorType": "author"
+    }
+  ],
+  "tags": [],
+  "collections": [],
+  "relations": {},
+  "dateAdded": "2017-08-12 13:08:27",
+  "dateModified": "2017-08-12 13:20:46",
+  "uri": "http://zotero.org/groups/1621149/items/TFQWCVFT",
+  "attachments": [],
+  "notes": [],
+  "uniqueFields": {
+    "url": "http://doi.acm.org/10.1145/2629489",
+    "rights": "Open Access",
+    "volume": "57",
+    "issue": "10",
+    "pages": "78–85",
+    "publicationTitle": "Communications of the ACM",
+    "ISSN": "0001-0782",
+    "date": "2014-09-23",
+    "journalAbbreviation": "Commun. ACM",
+    "DOI": "10.1145/2629489",
+    "accessDate": "2017-08-12 12:50:03",
+    "libraryCatalog": "ACM Digital Library",
+    "language": "eng",
+    "abstractNote": "This collaboratively edited knowledgebase provides a common source of data for Wikipedia, and everyone else.",
+    "title": "Wikidata: A Free Collaborative Knowledgebase",
+    "shortTitle": "Wikidata"
+  },
+  "itemID": 25033,
+  "key": "TFQWCVFT",
+  "libraryID": 3863108,
+  "seeAlso": []
+}

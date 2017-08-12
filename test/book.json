@@ -1,0 +1,92 @@
+{
+  "itemType": "book",
+  "url": "https://serwiss.bib.hs-hannover.de/frontdoor/index/index/docId/438",
+  "rights": "CC-BY-SA 3.0",
+  "edition": "Version 1.0",
+  "ISBN": "978-1-291-85658-3",
+  "date": "2014",
+  "libraryCatalog": "serwiss.bib.hs-hannover.de",
+  "language": "de",
+  "title": "Normdaten in Wikidata",
+  "numPages": "68",
+  "creators": [
+    {
+      "firstName": "Jakob",
+      "lastName": "Voß",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Susanna",
+      "lastName": "Bausch",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Julian",
+      "lastName": "Schmitt",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Jasmin",
+      "lastName": "Bogner",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Viktoria",
+      "lastName": "Berkelmann",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Franziska",
+      "lastName": "Ludemann",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Oliver",
+      "lastName": "Löffel",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Janna",
+      "lastName": "Kitroschat",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Maiia",
+      "lastName": "Bartoshevska",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "Katharina",
+      "lastName": "Seljuzki",
+      "creatorType": "author"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "Normdatei",
+      "type": 0
+    }
+  ],
+  "collections": [],
+  "relations": {},
+  "dateAdded": "2017-08-12 13:08:27",
+  "dateModified": "2017-08-12 13:08:27",
+  "uri": "http://zotero.org/groups/1621149/items/IIVSRUWV",
+  "attachments": [],
+  "notes": [],
+  "uniqueFields": {
+    "url": "https://serwiss.bib.hs-hannover.de/frontdoor/index/index/docId/438",
+    "rights": "CC-BY-SA 3.0",
+    "edition": "Version 1.0",
+    "ISBN": "978-1-291-85658-3",
+    "date": "2014",
+    "libraryCatalog": "serwiss.bib.hs-hannover.de",
+    "language": "de",
+    "title": "Normdaten in Wikidata",
+    "numPages": "68"
+  },
+  "itemID": 25034,
+  "key": "IIVSRUWV",
+  "libraryID": 3863108,
+  "seeAlso": []
+}
