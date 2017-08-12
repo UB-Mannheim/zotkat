@@ -1,4 +1,4 @@
-<details>
+﻿<details>
 <summary>🇺🇸 English version (click here)</summary>
 
 ## What is zotkat?
@@ -21,6 +21,7 @@ Currently, zotkat has the following additonal Zotero Translators:
  * [`PicaSWB.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaSWB.js) : This is a export translator with the goal data from Zotero to save in the Pica format as it is used in the SWB union cataloguing and then for example import it in the WinIBW client. See also this German article [LIBREAS #29](http://libreas.eu/ausgabe29/05kim/).
  * [`PicaGBV.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaGBV.js) : This is an export translaot with the goal to save data from Zotero in the Pica format as it is used in the GBV union cataloguing. the translator is adjusted for the use case to catalogue chapters from ebooks.
  * [`Wikidata QuickStatements.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/Wikidata%20QuickStatements.js) : This is an export translator with the goal to save data from Zotero in the input format of the Quickstatement tools.
+ * [`Zotero JSON.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/Zotero%20JSON.js) : This export translator is mainly for testing purposes and outputs the entries as serialized JSON objects from Zotero.
  
 ## How can I report an error or correct it?
 
@@ -62,6 +63,7 @@ Momentan bietet zotkat folgende zusätzliche Zotero Translator an:
  * [`PicaSWB.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaSWB.js) : Hierbei handelt es sich um einen Export-Translator mit dem Ziel aus Zotero die Daten ins Picaformat des SWBs zu transformieren und beispielsweise in den WinIBW-Client als Ausgangsbasis zu benutzen. Näheres dazu im [LIBREAS Artikel](http://libreas.eu/ausgabe29/05kim/).
  * [`PicaGBV.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaGBV.js) : Hierbei handelt es sich um einen Export-Translator mit dem Ziel bibliographische Daten aus Zotero ins Picaformat des GBV zu transformieren. Angepasst ist er für den Anwendungsfall: Aufsatzkatalogisierung von Buchkapiteln aus E-Books.
  * [`Wikidata QuickStatements.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/Wikidata%20QuickStatements.js) : Hierbei handelt es sich  um einen Export-Translator welcher Einträge aus Zotero in das Eingabeformat des Quickstatements-Tool transformiert.
+ * [`Zotero JSON.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/Zotero%20JSON.js) : Dieser Export Translator ist vorallem zum Testen und liefert serialisierte JSON Objekte von Zotero aus.
  
 ## Wie kann ich einen Fehler korrigieren oder melden?
  
