@@ -4,7 +4,7 @@
   "description": "Erweiterung von Zotero für die Katalogisierung in Bibliotheken",
   "main": "PicaSWB.js",
   "scripts": {
-    "test": "bash jshint.sh"
+    "test": "bash jshint.sh && node test/wqs.js"
   },
   "devDependencies": {
     "jshint": "^2.9.1"
