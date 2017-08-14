@@ -351,6 +351,7 @@ var journalMapping = {
 	"0048-721X" : "!014470993!", // Religion a journal of religion and religions
 	"0005-5719" : "!325341265!", // Baptist history and heritage
 	"00055719" : "!325341265!", // Baptist history and heritage
+	"01439829X" : "A", // Bulletin de littérature ecclésiastique
 	
 	
 };
@@ -467,6 +468,7 @@ var issnLangMapping = {
 	"1722-4705" : "ita", // Religioni e societa
 	"0394-9397" : "ita", // Religioni e societa
 	"17224705" : "ita", // Religioni e societa
+	"01439829X" : "fre", // Bulletin de littérature ecclésiastique
 	
 	
 	
@@ -929,6 +931,9 @@ var issnPhysicalFormMapping = {
 	"0003-2468" : "O", // Analecta Bollandiana
 	"0048-721X" : "A", // Religion a journal of religion and religions
 	"00055719" : "O", // Baptist history and heritage
+	"0007-4322" : "A", // Bulletin de littérature ecclésiastique
+	
+	
 	
 };
 
