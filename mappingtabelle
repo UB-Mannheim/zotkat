@@ -1,6 +1,9 @@
 
 var journalMapping = {
-	"0021-9231" : "!014411350!", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
+	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
+	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
+	"00219231" : "!121739872!", // Journal of Biblical Literature 
+	"1934-3876" : "!121739872!", // Journal of Biblical Literature //ESSN +EPPN
 	"0591-2385" : "!01515663X!", // Zygon
 	"1467-9744" : "!090854799!", // Zygon
     "0891-5881" : "!023125381!", // Dialogue and alliance
@@ -485,7 +488,7 @@ var issnPhysicalFormMapping = {
 	"1550-0195" : "O",
 	"2031-5929" : "A",
 	"2032-5215" : "O", // ET-Studies Online Publikation - weiter unten gleiche Zs mit "A"
-	"0021-9231" : "A", // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1,
+	"0021-9231" : "A", // Journal of Biblical Literature 
 	"0591-2385" : "A", // Zygon
 	"1467-9744" : "O", // Zygon
     "0891-5881" : "A", // Dialogue and alliance
@@ -795,7 +798,6 @@ var issnPhysicalFormMapping = {
 	"1755-2613" : "A", // Church history !!eppn
 	"1758-6623" : "A", // The ecumenical review !!eppn
 	"1758-6631" : "A", // International review of mission !!eppn
-	"0021-9231" : "A", // Journal of biblical literature !!eppn
 	"0021-969X" : "A", // Journal of church and state !!pppn
 	"2040-4867" : "A", // Journal of church and state !!eppn
 	"0022-0256" : "A", // Journal of cuneiform studies !!pppn
@@ -932,6 +934,8 @@ var issnPhysicalFormMapping = {
 	"0048-721X" : "A", // Religion a journal of religion and religions
 	"00055719" : "O", // Baptist history and heritage
 	"0007-4322" : "A", // Bulletin de littérature ecclésiastique
+	"0021-9231" : "A", // Journal of biblical literature !!eppn
+	"00219231" : "O", // Journal of biblical literature !!eppn
 	
 	
 	
