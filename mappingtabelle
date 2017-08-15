@@ -355,6 +355,7 @@ var journalMapping = {
 	"0005-5719" : "!325341265!", // Baptist history and heritage
 	"00055719" : "!325341265!", // Baptist history and heritage
 	"0210-7112" : "!015182886!", // Revista española de teología
+	"2466-8583" : "!462777774!", // Revue biblique
 	
 	
 };
@@ -938,6 +939,7 @@ var issnPhysicalFormMapping = {
 	"0021-9231" : "A", // Journal of biblical literature !!eppn
 	"00219231" : "O", // Journal of biblical literature !!eppn
 	"0210-7112" : "A", // Revista española de teología
+	"2466-8583" : "O", // Revue biblique
 	
 	
 };
