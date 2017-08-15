@@ -354,7 +354,7 @@ var journalMapping = {
 	"0048-721X" : "!014470993!", // Religion a journal of religion and religions
 	"0005-5719" : "!325341265!", // Baptist history and heritage
 	"00055719" : "!325341265!", // Baptist history and heritage
-	"01439829X" : "A", // Bulletin de littérature ecclésiastique
+	"0210-7112" : "!015182886!", // Revista española de teología
 	
 	
 };
@@ -472,7 +472,7 @@ var issnLangMapping = {
 	"0394-9397" : "ita", // Religioni e societa
 	"17224705" : "ita", // Religioni e societa
 	"01439829X" : "fre", // Bulletin de littérature ecclésiastique
-	
+	"0210-7112" : "spa", // Revista española de teología
 	
 	
 	
@@ -934,9 +934,10 @@ var issnPhysicalFormMapping = {
 	"0048-721X" : "A", // Religion a journal of religion and religions
 	"00055719" : "O", // Baptist history and heritage
 	"0007-4322" : "A", // Bulletin de littérature ecclésiastique
+	"01439829X" : "A", // Bulletin de littérature ecclésiastique
 	"0021-9231" : "A", // Journal of biblical literature !!eppn
 	"00219231" : "O", // Journal of biblical literature !!eppn
-	
+	"0210-7112" : "A", // Revista española de teología
 	
 	
 };
