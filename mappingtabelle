@@ -1,5 +1,4 @@
 
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -362,6 +361,7 @@ var journalMapping = {
 	"0022-4480, 1477-8556" : "!100202497!", // Journal of Semitic Studies
 	"1477-8556" : "!100202497!", // Journal of Semitic Studies
 	"0022-4480" : "!100202497!", // Journal of Semitic Studies
+	"2304-8557" : "!380443740!", // Bulletin for Christian Scholarship
 	
 };
 
@@ -948,6 +948,7 @@ var issnPhysicalFormMapping = {
 	"0039-3207" : "A", // Studia liturgica
 	"0043-941X" : "A", // Worship. A review concerned with the problems of liturgical renewal
 	"0022-4480, 1477-8556" : "O", // Journal of Semitic Studies
+	"2304-8557" : "O", // Bulletin for Christian Scholarship
 	
 };
 
@@ -1120,4 +1121,3 @@ var issnSsgMapping = {
 
 	
 };
-
