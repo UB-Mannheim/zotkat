@@ -356,6 +356,8 @@ var journalMapping = {
 	"00055719" : "!325341265!", // Baptist history and heritage
 	"0210-7112" : "!015182886!", // Revista española de teología
 	"2466-8583" : "!462777774!", // Revue biblique
+	"0039-3207" : "!01518529X!", // Studia liturgica
+	"0043-941X" : "!015195163!", // Worship. A review concerned with the problems of liturgical renewal
 	
 	
 };
@@ -940,6 +942,8 @@ var issnPhysicalFormMapping = {
 	"00219231" : "O", // Journal of biblical literature !!eppn
 	"0210-7112" : "A", // Revista española de teología
 	"2466-8583" : "O", // Revue biblique
+	"0039-3207" : "A", // Studia liturgica
+	"0043-941X" : "A", // Worship. A review concerned with the problems of liturgical renewal
 	
 	
 };
