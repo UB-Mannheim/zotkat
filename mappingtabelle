@@ -1,6 +1,5 @@
 
 
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -373,6 +372,9 @@ var journalMapping = {
 	"0009-6407" : "!114617899!", // Church history !!pppn
 	"1755-2613" : "!114617899!", // Church history !!eppn
 	"0013-9513" : "!112891160!", // Ephemerides theologicae Lovanienses
+	"09329951" : "!27681875X!", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
+	"0932-9951" : "!27681875X!", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
+	
 	
 };
 
@@ -491,6 +493,9 @@ var issnLangMapping = {
 	"0007-4322" : "fre", // Bulletin de littérature ecclésiastique
 	"0210-7112" : "spa", // Revista española de teología
 	"00666785" : "ita", // Archivum Historiae Pontificiae
+	"09329951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
+	"0932-9951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
+	
 	
 	
 };
@@ -964,6 +969,10 @@ var issnPhysicalFormMapping = {
 	"00666785" : "O", // Archivum Historiae Pontificiae
 	"0009-6407, 1755-2613" : "O", // Church History
 	"0013-9513" : "O", // Ephemerides theologicae Lovanienses
+	"09329951" : "O", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
+	"0932-9951" : "O", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
+	
+	
 };
 
 var issnLicenceFieldMapping = {
