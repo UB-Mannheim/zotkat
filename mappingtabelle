@@ -73,7 +73,7 @@ var journalMapping = {
 	"0168-9789" : "!01622664X!", // Mission studies
 	"0091-6471" : "!015193306!", // Journal of psychology and theology
 	"1476-8690" : "!106846396!", // Journal for the study of the historical Jesus
-	"2222-582X" : "!370706498!", // Journal of early Christian history
+	"2222-582X" : "!478691874!", // Journal of early Christian history
 	"0018-2710" : "!014406292!", // History of religions
 	"1545-6935" : "!014406292!", // History of religions
 	"0384-9694" : "!014804743!", // Journal of religious ethics
@@ -372,6 +372,7 @@ var journalMapping = {
 	"0009-6407, 1755-2613" : "!114617899!", // Church History
 	"0009-6407" : "!114617899!", // Church history !!pppn
 	"1755-2613" : "!114617899!", // Church history !!eppn
+	"0013-9513" : "!112891160!", // Ephemerides theologicae Lovanienses
 	
 };
 
@@ -562,7 +563,7 @@ var issnPhysicalFormMapping = {
 	"0168-9789" : "A", // Mission studies
 	"0091-6471" : "A", // Journal of psychology and theology
 	"1476-8690" : "A", // Journal for the study of the historical Jesus
-	"2222-582X" : "A", // Journal of early Christian history
+	"2222-582X" : "O", // Journal of early Christian history
 	"0018-2710" : "A", // History of religions
 	"1545-6935" : "A", // History of religions
 	"0384-9694" : "A", // Journal of religious ethics
@@ -962,7 +963,7 @@ var issnPhysicalFormMapping = {
 	"1155-3316" : "A", // Apocrypha
 	"00666785" : "O", // Archivum Historiae Pontificiae
 	"0009-6407, 1755-2613" : "O", // Church History
-	
+	"0013-9513" : "O", // Ephemerides theologicae Lovanienses
 };
 
 var issnLicenceFieldMapping = {
