@@ -1,5 +1,6 @@
 
 
+
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -364,7 +365,13 @@ var journalMapping = {
 	"0022-4480" : "!100202497!", // Journal of Semitic Studies
 	"2304-8557" : "!380443740!", // Bulletin for Christian Scholarship
 	"1088-6923" : "!060776978!", // Affirmation & Critique
-	
+	"0007-4322" : "!01439829X!", // Bulletin de littérature ecclésiastique
+	"1155-3316" : "!023337230!", // Apocrypha
+	"00666785" : "!407318607!", // Archivum Historiae Pontificiae
+	"0066-6785" : "!407318607!", // Archivum Historiae Pontificiae
+	"0009-6407, 1755-2613" : "!114617899!", // Church History
+	"0009-6407" : "!114617899!", // Church history !!pppn
+	"1755-2613" : "!114617899!", // Church history !!eppn
 	
 };
 
@@ -480,9 +487,9 @@ var issnLangMapping = {
 	"1722-4705" : "ita", // Religioni e societa
 	"0394-9397" : "ita", // Religioni e societa
 	"17224705" : "ita", // Religioni e societa
-	"01439829X" : "fre", // Bulletin de littérature ecclésiastique
+	"0007-4322" : "fre", // Bulletin de littérature ecclésiastique
 	"0210-7112" : "spa", // Revista española de teología
-	
+	"00666785" : "ita", // Archivum Historiae Pontificiae
 	
 	
 };
@@ -803,8 +810,8 @@ var issnPhysicalFormMapping = {
 	"0009-5281" : "A", // The Christian century !!eppn
 	"0009-5753" : "A", // Christianity today !!pppn
 	"0009-5753" : "A", // Christianity today !!eppn
-	"0009-6407" : "A", // Church history !!pppn
-	"1755-2613" : "A", // Church history !!eppn
+	"0009-6407" : "O", // Church history !!pppn
+	"1755-2613" : "O", // Church history !!eppn
 	"1758-6623" : "A", // The ecumenical review !!eppn
 	"1758-6631" : "A", // International review of mission !!eppn
 	"0021-969X" : "A", // Journal of church and state !!pppn
@@ -943,7 +950,6 @@ var issnPhysicalFormMapping = {
 	"0048-721X" : "A", // Religion a journal of religion and religions
 	"00055719" : "O", // Baptist history and heritage
 	"0007-4322" : "A", // Bulletin de littérature ecclésiastique
-	"01439829X" : "A", // Bulletin de littérature ecclésiastique
 	"0021-9231" : "A", // Journal of biblical literature !!eppn
 	"00219231" : "O", // Journal of biblical literature !!eppn
 	"0210-7112" : "A", // Revista española de teología
@@ -953,7 +959,9 @@ var issnPhysicalFormMapping = {
 	"0022-4480, 1477-8556" : "O", // Journal of Semitic Studies
 	"2304-8557" : "O", // Bulletin for Christian Scholarship
 	"1088-6923" : "A", // Affirmation & Critique
-	
+	"1155-3316" : "A", // Apocrypha
+	"00666785" : "O", // Archivum Historiae Pontificiae
+	"0009-6407, 1755-2613" : "O", // Church History
 	
 };
 
