@@ -375,6 +375,9 @@ var journalMapping = {
 	"09329951" : "!27681875X!", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0932-9951" : "!27681875X!", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0081-8933" : "!281309671!", // Liber annuus
+	"2312-878X" : "!477218679!", // Missionalia
+	"0256-9507" : "!477218679!", // Missionalia
+	
 	
 };
 
@@ -972,6 +975,8 @@ var issnPhysicalFormMapping = {
 	"09329951" : "O", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0932-9951" : "O", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0081-8933" : "O", // Liber annuus
+	"2312-878X" : "O", // Missionalia
+	"0256-9507" : "O", // Missionalia
 	
 };
 
@@ -997,7 +1002,8 @@ var issnLicenceFieldMapping = {
 	"1138-4972" : "l", // 'Ílu
 	"1135-4712" : "l", // 'Ílu
 	"1139-1529" : "l", // 'Ílu
-	
+	"2312-878X" : "l", // Missionalia
+	"0256-9507" : "l", // Missionalia
 	
 };
 
@@ -1144,3 +1150,4 @@ var issnSsgMapping = {
 
 	
 };
+
