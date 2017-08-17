@@ -1,6 +1,5 @@
 
 
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -134,7 +133,8 @@ var journalMapping = {
 	"0036-3227" : "!015183696!", // St. Vladimir's theological quarterly   
 	"0092-4245" : "!015192091!", // Wesleyan theological journal
 	"0006-2014" : "!014828995!", // Biblische Zeitschrift
-	"1469-8145" : "!01489324X!", // New Testament studies
+	"1469-8145" : "!079165583!", // New Testament Studies
+	"0028-6885, 1469-8145" : "!079165583!", // New Testament studies
 	"0048-1009" : "!014862662!", // Novum Testamentum
 	"0040-571X" : "!336956738!", // Theology
 	"2044-2696" : "!336956738!", // Theology
@@ -380,6 +380,7 @@ var journalMapping = {
 	"0256-9507" : "!477218679!", // Missionalia
 	"0025-8911" : "!014889552!", // Mélanges de science religieuse
 	"1094-2076" : "!251822133!", // Near Eastern archaeology 
+	"0029-4845" : "!378728032!", // Nouvelle revue théologique
 	
 };
 
@@ -502,7 +503,7 @@ var issnLangMapping = {
 	"0932-9951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0081-8933" : "ita", // Liber annuus
 	"0025-8911" : "fre", // Mélanges de science religieuse
-		
+	"0029-4845" : "fre", // Nouvelle revue théologique	
 	
 };
 
@@ -635,6 +636,7 @@ var issnPhysicalFormMapping = {
 	"0092-4245" : "A", // Wesleyan theological journal
 	"0006-2014" : "A", // Biblische Zeitschrift
 	"1469-8145" : "A", // New Testament studies
+	"0028-6885, 1469-8145" : "O", // New Testament studies
 	"0048-1009" : "A", // Novum Testamentum
 	"0040-571X" : "O", // Theology
 	"2044-2696" : "O", // Theology
@@ -981,6 +983,7 @@ var issnPhysicalFormMapping = {
 	"2312-878X" : "O", // Missionalia
 	"0256-9507" : "O", // Missionalia
 	"0025-8911" : "A", // Mélanges de science religieuse
+	"0029-4845" : "O", // Nouvelle revue théologique
 	
 };
 
