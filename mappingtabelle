@@ -374,7 +374,7 @@ var journalMapping = {
 	"0013-9513" : "!112891160!", // Ephemerides theologicae Lovanienses
 	"09329951" : "!27681875X!", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0932-9951" : "!27681875X!", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
-	
+	"0081-8933" : "!281309671!", // Liber annuus
 	
 };
 
@@ -495,7 +495,7 @@ var issnLangMapping = {
 	"00666785" : "ita", // Archivum Historiae Pontificiae
 	"09329951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0932-9951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
-	
+	"0081-8933" : "ita", // Liber annuus
 	
 	
 };
@@ -971,7 +971,7 @@ var issnPhysicalFormMapping = {
 	"0013-9513" : "O", // Ephemerides theologicae Lovanienses
 	"09329951" : "O", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0932-9951" : "O", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
-	
+	"0081-8933" : "O", // Liber annuus
 	
 };
 
