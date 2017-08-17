@@ -1,5 +1,6 @@
 
 
+
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -377,7 +378,7 @@ var journalMapping = {
 	"0081-8933" : "!281309671!", // Liber annuus
 	"2312-878X" : "!477218679!", // Missionalia
 	"0256-9507" : "!477218679!", // Missionalia
-	
+	"0025-8911" : "!014889552!", // Mélanges de science religieuse
 	
 };
 
@@ -499,6 +500,7 @@ var issnLangMapping = {
 	"09329951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0932-9951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0081-8933" : "ita", // Liber annuus
+	"0025-8911" : "fre", // Mélanges de science religieuse
 	
 	
 };
@@ -977,6 +979,7 @@ var issnPhysicalFormMapping = {
 	"0081-8933" : "O", // Liber annuus
 	"2312-878X" : "O", // Missionalia
 	"0256-9507" : "O", // Missionalia
+	"0025-8911" : "A", // Mélanges de science religieuse
 	
 };
 
@@ -1150,4 +1153,3 @@ var issnSsgMapping = {
 
 	
 };
-
