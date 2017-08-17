@@ -379,6 +379,7 @@ var journalMapping = {
 	"2312-878X" : "!477218679!", // Missionalia
 	"0256-9507" : "!477218679!", // Missionalia
 	"0025-8911" : "!014889552!", // Mélanges de science religieuse
+	"1094-2076" : "!251822133!", // Near Eastern archaeology 
 	
 };
 
@@ -501,7 +502,7 @@ var issnLangMapping = {
 	"0932-9951" : "ger", // Kirchliche Zeitgeschichte Internationale Zeitschrift für Theologie und Geschichtswissenschaft
 	"0081-8933" : "ita", // Liber annuus
 	"0025-8911" : "fre", // Mélanges de science religieuse
-	
+		
 	
 };
 
@@ -815,7 +816,7 @@ var issnPhysicalFormMapping = {
 	"0003-3286" : "A", // Anglican theological review !!pppn
 	"0003-3286" : "A", // Anglican theological review !!eppn
 	"0006-0895" : "A", // The Biblical archeologist !!pppn
-	"1094-2076" : "A", // Near Eastern archaeology !!pppn
+	"1094-2076" : "O", // Near Eastern archaeology !!pppn
 	"0008-7912" : "A", // The catholic biblical quarterly !!pppn
 	"0009-5281" : "A", // The Christian century !!pppn
 	"0009-5281" : "A", // The Christian century !!eppn
@@ -864,7 +865,7 @@ var issnPhysicalFormMapping = {
 	"1574-3012" : "A", // Religion & theology !!eppn
 	"1052-150X" : "A", // Business ethics quarterly !!pppn
 	"2153-3326" : "A", // Business ethics quarterly !!eppn
-	"1094-2076" : "A", // Near Eastern archaeology !!pppn
+	"10942076, 23255404" : "O", // Near Eastern archaeology !!pppn
 	"13549901" : "A", // Studies in world christianity !!pppn
 	"1355-8358" : "A", // Theology & sexuality !!pppn
 	"1363-013X" : "A", // Quaker studies !!pppn
@@ -1020,7 +1021,7 @@ var issnSsgMapping = {
 	"1570-0682" : "0", // Method and theory in the study of religion
 	"0141-6200" : "0; 1", // British Journal of Religious Education
 	"1749-4907" : "0; 1", // Journal for the study of religion, nature and culture
-	"1094-2076" : "0; 1", // Near Eastern archaeology
+	"1094-2076" : "1", // Near Eastern archaeology
 	"1574-3012" : "0; 1", // Religion & theology
 	"1023-0807" : "0; 1", // Religion & theology
 	"0022-5762" : "0; 1", // Judaism
@@ -1153,3 +1154,4 @@ var issnSsgMapping = {
 
 	
 };
+
