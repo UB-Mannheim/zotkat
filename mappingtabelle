@@ -385,6 +385,7 @@ var journalMapping = {
 	"2506-7567" : "!469131306!", // Revue de Qumran
 	"0035-1725" : "!469131306!", // Revue de Qumran
 	"0035-2209" : "!014878801!", // Revue des Sciences Philosophiques et Théologiques
+	"2305-445X" : "!416568890!", // Scriptura
 	
 };
 
@@ -993,6 +994,7 @@ var issnPhysicalFormMapping = {
 	"2506-7567" : "O", // Revue de Qumran
 	"0035-1725" : "O", // Revue de Qumran
 	"0035-2209" : "A", // Revue des Sciences Philosophiques et Théologiques
+	"2305-445X" : "O", // Scriptura
 	
 	
 };
@@ -1021,6 +1023,7 @@ var issnLicenceFieldMapping = {
 	"1139-1529" : "l", // 'Ílu
 	"2312-878X" : "l", // Missionalia
 	"0256-9507" : "l", // Missionalia
+	"2305-445X" : "l", // Scriptura
 	
 };
 
@@ -1167,3 +1170,4 @@ var issnSsgMapping = {
 
 	
 };
+
