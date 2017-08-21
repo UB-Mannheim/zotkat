@@ -1,6 +1,5 @@
 
 
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -383,6 +382,8 @@ var journalMapping = {
 	"1094-2076" : "!251822133!", // Near Eastern archaeology 
 	"0029-4845" : "!378728032!", // Nouvelle revue théologique
 	"0035-2381" : "!30486725X!", // Revue d'histoire ecclésiastique
+	"2506-7567" : "!469131306!", // Revue de Qumran
+	"0035-1725" : "!469131306!", // Revue de Qumran
 	
 };
 
@@ -987,6 +988,8 @@ var issnPhysicalFormMapping = {
 	"0025-8911" : "A", // Mélanges de science religieuse
 	"0029-4845" : "O", // Nouvelle revue théologique
 	"0035-2381" : "O", // Revue d'histoire ecclésiastique
+	"2506-7567" : "O", // Revue de Qumran
+	"0035-1725" : "O", // Revue de Qumran
 	
 	
 };
@@ -1161,4 +1164,5 @@ var issnSsgMapping = {
 
 	
 };
+
 
