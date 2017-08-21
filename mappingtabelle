@@ -1,5 +1,6 @@
 
 
+
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -559,7 +560,7 @@ var issnPhysicalFormMapping = {
 	"0946-3518" : "A", // Praktische Theologie
 	"0938-5320" : "A", // Praktische Theologie
 	"2198-0462" : "A", // Praktische Theologie                     
-	"0043-2040, 2196-8284" : "A", // Wege zum Menschen
+	"0043-2040" : "A", // Wege zum Menschen
 	"0021-1400" : "O", // Irish theological quaterly
 	"0023-0707" : "A", // Kerygma und Dogma
 	"1135-4712" : "O", // 'Ílu
