@@ -384,6 +384,7 @@ var journalMapping = {
 	"0035-2381" : "!30486725X!", // Revue d'histoire ecclésiastique
 	"2506-7567" : "!469131306!", // Revue de Qumran
 	"0035-1725" : "!469131306!", // Revue de Qumran
+	"0035-2209" : "!014878801!", // Revue des Sciences Philosophiques et Théologiques
 	
 };
 
@@ -507,6 +508,7 @@ var issnLangMapping = {
 	"0081-8933" : "ita", // Liber annuus
 	"0025-8911" : "fre", // Mélanges de science religieuse
 	"0029-4845" : "fre", // Nouvelle revue théologique	
+	"0035-2209" : "fre", // Revue des Sciences Philosophiques et Théologiques
 	
 };
 
@@ -990,6 +992,7 @@ var issnPhysicalFormMapping = {
 	"0035-2381" : "O", // Revue d'histoire ecclésiastique
 	"2506-7567" : "O", // Revue de Qumran
 	"0035-1725" : "O", // Revue de Qumran
+	"0035-2209" : "A", // Revue des Sciences Philosophiques et Théologiques
 	
 	
 };
@@ -1164,5 +1167,3 @@ var issnSsgMapping = {
 
 	
 };
-
-
