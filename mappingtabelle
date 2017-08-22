@@ -398,8 +398,17 @@ var journalMapping = {
 	"0084-005X, 1813-3924" : "!254675824!", // Wiener Studien
 	"0084-005X" : "!254675824!", // Wiener Studien
 	"1813-3924" : "!254675824!", // Wiener Studien
+	"0003097X" : "!251821994!", // Bulletin of the American Schools of Oriental Research
+	"0003097X, 21618062" : "!251821994!", // Bulletin of the American Schools of Oriental Research
+	"0003-097X" : "!251821994!", // Bulletin of the American Schools of Oriental Research
+	
+	
 	
 };
+
+
+
+
 
 var nachnameMapping = {
 	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
@@ -1013,6 +1022,8 @@ var issnPhysicalFormMapping = {
 	"2305-445X" : "O", // Scriptura
 	"0022-0469, 1469-7637" : "O", // The Journal of Ecclesiastical History
 	"0084-005X, 1813-3924" : "O", // Wiener Studien
+	"0003097X" : "O", // Bulletin of the American Schools of Oriental Research
+	"0003097X, 21618062" : "O", // Bulletin of the American Schools of Oriental Research
 	
 	
 };
@@ -1188,4 +1199,5 @@ var issnSsgMapping = {
 
 	
 };
+
 
