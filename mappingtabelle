@@ -13,8 +13,8 @@ var journalMapping = {
 	"1474-6700" : "!105283193!", // Theology and science  
 	"1462-2459" : "!094835578!", // Reformation & Renaissance review  
 	"0031-0328" : "!014896486!", // Palestine exploration quarterly 
-	"0037-7686" : "!079599338!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1461-7404" : "!079599338!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
+	"0037-7686" : "!079599338!", // Social compass 
+	"1461-7404" : "!079599338!", // Social compass 
 	"1745-5294" : "!099025957!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142-064X" : "!099025957!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142064X" : "!099025957!", // Journal for the study of the New Testament
@@ -395,7 +395,9 @@ var journalMapping = {
 	"0022-5185" : "!098474553!", // The journal of theological studies !!pppn
 	"1477-4607" : "!098474553!", // The journal of theological studies !!eppn
 	"0022-5185, 1477-4607" : "!098474553!", // The journal of theological studies !!eppn
-	
+	"0084-005X, 1813-3924" : "!254675824!", // Wiener Studien
+	"0084-005X" : "!254675824!", // Wiener Studien
+	"1813-3924" : "!254675824!", // Wiener Studien
 	
 };
 
@@ -520,6 +522,9 @@ var issnLangMapping = {
 	"0025-8911" : "fre", // Mélanges de science religieuse
 	"0029-4845" : "fre", // Nouvelle revue théologique	
 	"0035-2209" : "fre", // Revue des Sciences Philosophiques et Théologiques
+	"1813-3924" : "ger", // Wiener Studien
+	"0084-005X" : "ger", // Wiener Studien
+	
 	
 };
 
@@ -1007,7 +1012,7 @@ var issnPhysicalFormMapping = {
 	"0035-2209" : "A", // Revue des Sciences Philosophiques et Théologiques
 	"2305-445X" : "O", // Scriptura
 	"0022-0469, 1469-7637" : "O", // The Journal of Ecclesiastical History
-	
+	"0084-005X, 1813-3924" : "O", // Wiener Studien
 	
 	
 };
@@ -1183,5 +1188,4 @@ var issnSsgMapping = {
 
 	
 };
-
 
