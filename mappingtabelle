@@ -392,6 +392,9 @@ var journalMapping = {
 	"1469-7637" : "!078707234!", // The Journal of Ecclesiastical History
 	"0022-0469, 1469-7637" : "!078707234!", // The Journal of Ecclesiastical History
 	"0022-0469" : "!078707234!", // The Journal of Ecclesiastical History
+	"0022-5185" : "!098474553!", // The journal of theological studies !!pppn
+	"1477-4607" : "!098474553!", // The journal of theological studies !!eppn
+	"0022-5185, 1477-4607" : "!098474553!", // The journal of theological studies !!eppn
 	
 	
 };
@@ -850,8 +853,9 @@ var issnPhysicalFormMapping = {
 	"0022-4235" : "A", // The journal of religious thought !!eppn
 	"0022-4480" : "A", // Journal of Semitic studies !!pppn
 	"1477-8556" : "A", // Journal of Semitic studies !!eppn
-	"0022-5185" : "A", // The journal of theological studies !!pppn
-	"1477-4607" : "A", // The journal of theological studies !!eppn
+	"0022-5185" : "O", // The journal of theological studies !!pppn
+	"1477-4607" : "O", // The journal of theological studies !!eppn
+	"0022-5185, 1477-4607" : "O", // The journal of theological studies !!eppn
 	"0022-5762" : "A", // Judaism !!pppn
 	"0022-5762" : "A", // Judaism !!eppn
 	"0040-5736" : "A", // Theologie today !!pppn - in Z. 125 mit ppn gemappt: diese Z. löschen?
