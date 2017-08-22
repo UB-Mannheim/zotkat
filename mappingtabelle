@@ -13,8 +13,8 @@ var journalMapping = {
 	"1474-6700" : "!105283193!", // Theology and science  
 	"1462-2459" : "!094835578!", // Reformation & Renaissance review  
 	"0031-0328" : "!014896486!", // Palestine exploration quarterly 
-	"0037-7686" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1461-7404" : "!01440009X!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
+	"0037-7686" : "!079599338!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
+	"1461-7404" : "!079599338!", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
 	"1745-5294" : "!099025957!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142-064X" : "!099025957!", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142064X" : "!099025957!", // Journal for the study of the New Testament
@@ -541,8 +541,8 @@ var issnPhysicalFormMapping = {
 	"1474-6700" : "A", // Theology and science  
 	"1462-2459" : "A", // Reformation & Renaissance review  
 	"0031-0328" : "A", // Palestine exploration quarterly 
-	"0037-7686" : "A", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
-	"1461-7404" : "A", // Social compass !!hier kein direkter Downlaod, sondern über button "abstracts", ansonsten keine ISSN-Übernahme!!
+	"0037-7686" : "O", // Social compass 
+	"1461-7404" : "O", // Social compass 
 	"1745-5294" : "O", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142-064X" : "O", // Journal for the study of the New Testament  !!hier kein direkter Downlaod, sondern über button "abstracts", //ansonsten keine ISSN-Übernahme!!
 	"0142064X" : "O", // Journal for the study of the New Testament
@@ -1183,4 +1183,5 @@ var issnSsgMapping = {
 
 	
 };
+
 
