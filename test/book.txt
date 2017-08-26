@@ -1,0 +1,19 @@
+CREATE
+LAST	P31	Q571
+LAST	Len	"Normdaten in Wikidata"
+LAST	Den	"book published in 2014"
+LAST	P953	"https://serwiss.bib.hs-hannover.de/frontdoor/index/index/docId/438"
+LAST	P2093	"Jakob Voß"	P1545	"1"
+LAST	P2093	"Susanna Bausch"	P1545	"2"
+LAST	P2093	"Julian Schmitt"	P1545	"3"
+LAST	P2093	"Jasmin Bogner"	P1545	"4"
+LAST	P2093	"Viktoria Berkelmann"	P1545	"5"
+LAST	P2093	"Franziska Ludemann"	P1545	"6"
+LAST	P2093	"Oliver Löffel"	P1545	"7"
+LAST	P2093	"Janna Kitroschat"	P1545	"8"
+LAST	P2093	"Maiia Bartoshevska"	P1545	"9"
+LAST	P2093	"Katharina Seljuzki"	P1545	"10"
+LAST	P577	+2014-00-00T00:00:00Z/9
+LAST	P212	"978-1-291-85658-3"
+LAST	P1476	de:"Normdaten in Wikidata"
+LAST	P407	Q188
