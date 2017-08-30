@@ -401,7 +401,7 @@ var journalMapping = {
 	"0003097X" : "!251821994!", // Bulletin of the American Schools of Oriental Research
 	"0003097X, 21618062" : "!251821994!", // Bulletin of the American Schools of Oriental Research
 	"0003-097X" : "!251821994!", // Bulletin of the American Schools of Oriental Research
-	
+	"0959-6410" : "!09466157X!", // Islam and Christian-Muslim relations !!pppn
 	
 	
 };
@@ -813,7 +813,7 @@ var issnPhysicalFormMapping = {
 	"0031-2789" : "A", // Pastoral psychology !!pppn
 	"1573-6679" : "A", // Pastoral psychology !!eppn
 	"1364-436X" : "A", // International journal of children's spirituality !!pppn
-	"0959-6410" : "A", // Islam and Christian-Muslim relations !!pppn
+	"0959-6410" : "O", // Islam and Christian-Muslim relations !!pppn
 	"1203-1542" : "A", // The journal of Hebrew scriptures !!eppn
 	"0024-5100" : "A", // Liturgisches Jahrbuch !!pppn
 	"0024-5100" : "A", // Liturgisches Jahrbuch !!eppn
@@ -1199,5 +1199,4 @@ var issnSsgMapping = {
 
 	
 };
-
 
