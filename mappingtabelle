@@ -1,6 +1,5 @@
 
 
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -865,8 +864,8 @@ var issnPhysicalFormMapping = {
 	"0022-2097" : "A", // The journal of Jewish studies !!pppn - in Z. 29 mit ppn gemappt: diese Z. löschen?
 	"0022-4235" : "A", // The journal of religious thought !!pppn
 	"0022-4235" : "A", // The journal of religious thought !!eppn
-	"0022-4480" : "A", // Journal of Semitic studies !!pppn
-	"1477-8556" : "A", // Journal of Semitic studies !!eppn
+	"0022-4480" : "O", // Journal of Semitic studies !!pppn
+	"1477-8556" : "O", // Journal of Semitic studies !!eppn
 	"0022-5185" : "O", // The journal of theological studies !!pppn
 	"1477-4607" : "O", // The journal of theological studies !!eppn
 	"0022-5185, 1477-4607" : "O", // The journal of theological studies !!eppn
