@@ -403,6 +403,7 @@ var journalMapping = {
 	"0003097X, 21618062" : "!251821994!", // Bulletin of the American Schools of Oriental Research
 	"0003-097X" : "!251821994!", // Bulletin of the American Schools of Oriental Research
 	"0959-6410" : "!09466157X!", // Islam and Christian-Muslim relations !!pppn
+	"2365-3140" : "!44515568X!", // Interdisciplinary journal for religion and transformation in contemporary society
 	
 	
 };
@@ -1026,6 +1027,7 @@ var issnPhysicalFormMapping = {
 	"0084-005X, 1813-3924" : "O", // Wiener Studien
 	"0003097X" : "O", // Bulletin of the American Schools of Oriental Research
 	"0003097X, 21618062" : "O", // Bulletin of the American Schools of Oriental Research
+	"2365-3140" : "O", // Interdisciplinary journal for religion and transformation in contemporary society
 	
 	
 };
@@ -1055,6 +1057,7 @@ var issnLicenceFieldMapping = {
 	"2312-878X" : "l", // Missionalia
 	"0256-9507" : "l", // Missionalia
 	"2305-445X" : "l", // Scriptura
+	"2365-3140" : "l", // Interdisciplinary journal for religion and transformation in contemporary society
 	
 	
 	
@@ -1203,4 +1206,5 @@ var issnSsgMapping = {
 
 	
 };
+
 
