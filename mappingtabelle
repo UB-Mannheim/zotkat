@@ -1,5 +1,6 @@
 
 
+
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -363,7 +364,8 @@ var journalMapping = {
 	"0022-4480, 1477-8556" : "!100202497!", // Journal of Semitic Studies
 	"1477-8556" : "!100202497!", // Journal of Semitic Studies
 	"0022-4480" : "!100202497!", // Journal of Semitic Studies
-	"2304-8557" : "!380443740!", // Bulletin for Christian Scholarship
+	"2304-8557" : "!380443740!", // Koers Bulletin for Christian Scholarship
+	"23048557" : "!380443740!", // Koers Bulletin for Christian Scholarship
 	"1088-6923" : "!060776978!", // Affirmation & Critique
 	"0007-4322" : "!01439829X!", // Bulletin de littérature ecclésiastique
 	"1155-3316" : "!023337230!", // Apocrypha
@@ -1001,7 +1003,8 @@ var issnPhysicalFormMapping = {
 	"0039-3207" : "A", // Studia liturgica
 	"0043-941X" : "A", // Worship. A review concerned with the problems of liturgical renewal
 	"0022-4480, 1477-8556" : "O", // Journal of Semitic Studies
-	"2304-8557" : "O", // Bulletin for Christian Scholarship
+	"2304-8557" : "O", // Koers Bulletin for Christian Scholarship
+	"23048557" : "O", // Koers Bulletin for Christian Scholarship
 	"1088-6923" : "A", // Affirmation & Critique
 	"1155-3316" : "A", // Apocrypha
 	"00666785" : "O", // Archivum Historiae Pontificiae
@@ -1052,6 +1055,8 @@ var issnLicenceFieldMapping = {
 	"2312-878X" : "l", // Missionalia
 	"0256-9507" : "l", // Missionalia
 	"2305-445X" : "l", // Scriptura
+	"2304-8557" : "l", // Koers Bulletin for Christian Scholarship
+	"23048557" : "l", // Koers Bulletin for Christian Scholarship
 	
 };
 
@@ -1198,4 +1203,5 @@ var issnSsgMapping = {
 
 	
 };
+
 
