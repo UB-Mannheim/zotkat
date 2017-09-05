@@ -1055,8 +1055,8 @@ var issnLicenceFieldMapping = {
 	"2312-878X" : "l", // Missionalia
 	"0256-9507" : "l", // Missionalia
 	"2305-445X" : "l", // Scriptura
-	"2304-8557" : "l", // Koers Bulletin for Christian Scholarship
-	"23048557" : "l", // Koers Bulletin for Christian Scholarship
+	
+	
 	
 };
 
@@ -1203,5 +1203,4 @@ var issnSsgMapping = {
 
 	
 };
-
 
