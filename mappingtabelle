@@ -404,6 +404,9 @@ var journalMapping = {
 	"0003-097X" : "!251821994!", // Bulletin of the American Schools of Oriental Research
 	"0959-6410" : "!09466157X!", // Islam and Christian-Muslim relations !!pppn
 	"2365-3140" : "!44515568X!", // Interdisciplinary journal for religion and transformation in contemporary society
+	"18630502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
+	"1863-0502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
+	
 	
 	
 };
@@ -535,6 +538,9 @@ var issnLangMapping = {
 	"0035-2209" : "fre", // Revue des Sciences Philosophiques et Théologiques
 	"1813-3924" : "ger", // Wiener Studien
 	"0084-005X" : "ger", // Wiener Studien
+	"18630502" : "ger", //Theo-Web Zeitschrift für Religionspädagogik
+	"1863-0502" : "ger", //Theo-Web Zeitschrift für Religionspädagogik
+	
 	
 	
 };
@@ -1028,6 +1034,8 @@ var issnPhysicalFormMapping = {
 	"0003097X" : "O", // Bulletin of the American Schools of Oriental Research
 	"0003097X, 21618062" : "O", // Bulletin of the American Schools of Oriental Research
 	"2365-3140" : "O", // Interdisciplinary journal for religion and transformation in contemporary society
+	"18630502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
+	"1863-0502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
 	
 	
 };
@@ -1058,6 +1066,9 @@ var issnLicenceFieldMapping = {
 	"0256-9507" : "l", // Missionalia
 	"2305-445X" : "l", // Scriptura
 	"2365-3140" : "l", // Interdisciplinary journal for religion and transformation in contemporary society
+	"18630502" : "l", //Theo-Web Zeitschrift für Religionspädagogik
+	"1863-0502" : "l", //Theo-Web Zeitschrift für Religionspädagogik
+	
 	
 	
 	
@@ -1202,9 +1213,10 @@ var issnSsgMapping = {
 	"1135-4712" : "0", // 'Ílu
 	"1139-1529" : "0", // 'Ílu
 	"0048-721X" : "0", // Religion a journal of religion and religions
+	"18630502" : "0; 1", //Theo-Web Zeitschrift für Religionspädagogik
+	"1863-0502" : "0; 1", //Theo-Web Zeitschrift für Religionspädagogik
 	
 
 	
 };
-
 
