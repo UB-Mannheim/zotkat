@@ -406,7 +406,7 @@ var journalMapping = {
 	"2365-3140" : "!44515568X!", // Interdisciplinary journal for religion and transformation in contemporary society
 	"18630502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
-	
+	"1015-8758" : "!032874014!", // Acta Theologica
 	
 	
 };
@@ -1036,6 +1036,7 @@ var issnPhysicalFormMapping = {
 	"2365-3140" : "O", // Interdisciplinary journal for religion and transformation in contemporary society
 	"18630502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
+	"1015-8758" : "A", // Acta Theologica
 	
 	
 };
