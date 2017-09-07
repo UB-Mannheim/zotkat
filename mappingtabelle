@@ -407,6 +407,7 @@ var journalMapping = {
 	"18630502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
 	"1015-8758" : "!032874014!", // Acta Theologica
+	"1862-1678" : "!281343004!", // theologie.geschichte
 	
 	
 };
@@ -1037,6 +1038,8 @@ var issnPhysicalFormMapping = {
 	"18630502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
 	"1015-8758" : "A", // Acta Theologica
+	"1862-1678" : "O", // theologie.geschichte
+	
 	
 	
 };
@@ -1069,6 +1072,7 @@ var issnLicenceFieldMapping = {
 	"2365-3140" : "l", // Interdisciplinary journal for religion and transformation in contemporary society
 	"18630502" : "l", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "l", //Theo-Web Zeitschrift für Religionspädagogik
+	"1862-1678" : "l", // theologie.geschichte
 	
 	
 	
