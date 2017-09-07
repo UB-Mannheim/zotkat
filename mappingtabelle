@@ -408,7 +408,8 @@ var journalMapping = {
 	"1863-0502" : "!281238162!", //Theo-Web Zeitschrift für Religionspädagogik
 	"1015-8758" : "!032874014!", // Acta Theologica
 	"1862-1678" : "!281343004!", // theologie.geschichte
-	
+	"1983-2850" : "!361845626!", // Revista Brasileira de História das Religiões 
+	"19832850" : "!361845626!", // Revista Brasileira de História das Religiões
 	
 };
 
@@ -541,7 +542,8 @@ var issnLangMapping = {
 	"0084-005X" : "ger", // Wiener Studien
 	"18630502" : "ger", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "ger", //Theo-Web Zeitschrift für Religionspädagogik
-	
+	"19832850" : "por", // Revista Brasileira de História das Religiões 
+	"1983-2850" : "por", // Revista Brasileira de História das Religiões 
 	
 	
 };
@@ -1039,6 +1041,8 @@ var issnPhysicalFormMapping = {
 	"1863-0502" : "O", //Theo-Web Zeitschrift für Religionspädagogik
 	"1015-8758" : "A", // Acta Theologica
 	"1862-1678" : "O", // theologie.geschichte
+	"1983-2850" : "O", // Revista Brasileira de História das Religiões 
+	"19832850" : "O", // Revista Brasileira de História das Religiões 
 	
 	
 	
@@ -1073,8 +1077,8 @@ var issnLicenceFieldMapping = {
 	"18630502" : "l", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "l", //Theo-Web Zeitschrift für Religionspädagogik
 	"1862-1678" : "l", // theologie.geschichte
-	
-	
+	"1983-2850" : "l", // Revista Brasileira de História das Religiões 
+	"19832850" : "l", // Revista Brasileira de História das Religiões 
 	
 	
 };
@@ -1220,8 +1224,11 @@ var issnSsgMapping = {
 	"0048-721X" : "0", // Religion a journal of religion and religions
 	"18630502" : "0; 1", //Theo-Web Zeitschrift für Religionspädagogik
 	"1863-0502" : "0; 1", //Theo-Web Zeitschrift für Religionspädagogik
+	"2365-3140" : "0", // Interdisciplinary journal for religion and transformation in contemporary society
+	"1862-1678" : "0", // theologie.geschichte
+	"1983-2850" : "0", // Revista Brasileira de História das Religiões 
+	"19832850" : "0", // Revista Brasileira de História das Religiões 
 	
-
 	
 };
 
