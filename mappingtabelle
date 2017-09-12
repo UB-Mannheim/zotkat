@@ -1,6 +1,5 @@
 
 
-
 var journalMapping = {
 	"0021-9231" : "!014411350!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -410,7 +409,9 @@ var journalMapping = {
 	"1862-1678" : "!281343004!", // theologie.geschichte
 	"1983-2850" : "!361845626!", // Revista Brasileira de História das Religiões 
 	"19832850" : "!361845626!", // Revista Brasileira de História das Religiões
-	"2179-0019" : "!454035934!" // Plura, revista de estudos de religião
+	"2179-0019" : "!454035934!", // Plura, revista de estudos de religião
+	"21790019" : "!454035934!", // Plura, revista de estudos de religião
+	"2175-5841" : "!337893861!", // Horizonte
 	
 	
 };
@@ -546,7 +547,8 @@ var issnLangMapping = {
 	"1863-0502" : "ger", //Theo-Web Zeitschrift für Religionspädagogik
 	"19832850" : "por", // Revista Brasileira de História das Religiões 
 	"1983-2850" : "por", // Revista Brasileira de História das Religiões 
-	"2179-0019" : "por" // Plura, revista de estudos de religião
+	"2179-0019" : "por", // Plura, revista de estudos de religião
+	"21790019" : "por", // Plura, revista de estudos de religião
 	
 	
 };
@@ -1046,8 +1048,9 @@ var issnPhysicalFormMapping = {
 	"1862-1678" : "O", // theologie.geschichte
 	"1983-2850" : "O", // Revista Brasileira de História das Religiões 
 	"19832850" : "O", // Revista Brasileira de História das Religiões 
-	"2179-0019" : "O" // Plura, revista de estudos de religião
-	
+	"2179-0019" : "O", // Plura, revista de estudos de religião
+	"21790019" : "O", // Plura, revista de estudos de religião
+	"2175-5841" : "O", // Horizonte
 	
 	
 };
@@ -1083,7 +1086,9 @@ var issnLicenceFieldMapping = {
 	"1862-1678" : "l", // theologie.geschichte
 	"1983-2850" : "l", // Revista Brasileira de História das Religiões 
 	"19832850" : "l", // Revista Brasileira de História das Religiões 
-	"2179-0019" : "l" // Plura, revista de estudos de religião
+	"2179-0019" : "l", // Plura, revista de estudos de religião
+	"21790019" : "l", // Plura, revista de estudos de religião
+	"2175-5841" : "l", // Horizonte
 	
 	
 };
@@ -1233,9 +1238,10 @@ var issnSsgMapping = {
 	"1862-1678" : "0", // theologie.geschichte
 	"1983-2850" : "0", // Revista Brasileira de História das Religiões 
 	"19832850" : "0", // Revista Brasileira de História das Religiões 
-	"2179-0019" : "0" // Plura, revista de estudos de religião
+	"2179-0019" : "0", // Plura, revista de estudos de religião
+	"21790019" : "0", // Plura, revista de estudos de religião
+	"2175-5841" : "0", // Horizonte
 	
 	
 };
-
 
