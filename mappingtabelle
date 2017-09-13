@@ -367,6 +367,7 @@ var languageMapping = {
 	"English" : "eng",
 	"pt" : "por",
 	"es" : "spa",
+	"it" : "ita",
 };
 
 var issnLangMapping = {
