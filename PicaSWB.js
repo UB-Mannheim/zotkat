@@ -271,6 +271,14 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L' @$1");
 		}
 		
+		if (item.language == "por" || !item.language) {
+			titleStatement = titleStatement.replace(/^(A|O|As|Os|Um|Uma|Umas|Umas) ([^@])/, "$1 @$2");
+		}
+		if (item.language == "spa" || !item.language) {
+			titleStatement = titleStatement.replace(/^(El|La|Los|Las|Un|Una|Unos|Unas) ([^@])/, "$1 @$2");
+		}
+		
+		
 		//Autoren --> 3000, 3010
 
 		var i = 0, content, creator;
