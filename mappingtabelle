@@ -434,6 +434,9 @@ var languageMapping = {
 	"de" : "ger",
 	"fr" : "fre",
 	"English" : "eng",
+	"pt" : "por",
+	"es" : "spa",
+	"it" : "ita",
 };
 
 var issnLangMapping = {
