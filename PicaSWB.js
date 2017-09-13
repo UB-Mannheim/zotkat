@@ -272,7 +272,7 @@ function doExport() {
 		}
 		
 		if (item.language == "por" || !item.language) {
-			titleStatement = titleStatement.replace(/^(A|O|As|Os|Um|Uma|Umas|Umas) ([^@])/, "$1 @$2");
+			titleStatement = titleStatement.replace(/^(A|O|As|Os|Um|Uma|Umas|Ums) ([^@])/, "$1 @$2");
 		}
 		if (item.language == "spa" || !item.language) {
 			titleStatement = titleStatement.replace(/^(El|La|Los|Las|Un|Una|Unos|Unas) ([^@])/, "$1 @$2");
