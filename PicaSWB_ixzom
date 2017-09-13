@@ -1,6 +1,6 @@
 {
-	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
-	"label": "PicaSWB",
+	"translatorID": "",
+	"label": "PicaSWB_ixzom",
 	"creator": "Philipp Zumstein, Timotheus Kim",
 	"target": "txt",
 	"minVersion": "3.0",
@@ -9,12 +9,12 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-08-10 09:01:00"
+	"lastUpdated": "2017-06-30 15:38:00"
 }
 
 
 // Zotero Export Translator für das Pica Intern Format
-// (wie es im SWB Verbund benutzt wird)
+// Mehrfachspeichervorgang über WinIBW-Skript
 
 
 /*
@@ -33,29 +33,68 @@
 	along with Zotero. If not, see <http://www.gnu.org/licenses/>.
 	***** END LICENSE BLOCK *****
 */
+var journalMapping = {
+	
+	"0555-9308" : "!331560291!", // Pastoraltheologische Informationen
+	
+};
 
-//hier Mappingtabelle einfügen!
+var nachnameMapping = {
+	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
+};
+var nameMapping = {
+	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
+};
+//Sprachcodes nach ISO 639-2
+//http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 
+var languageMapping = {
+	"en" : "eng",
+	"de" : "ger",
+	"fr" : "fre",
+	"English" : "eng",
+};
 
+var issnLangMapping = {
+	
+	"0555-9308" : "ger", // Pastoraltheologische Informationen
+	
+};
 
+var issnVolumeMapping = {
+	"2031-5929" : "N.S.",
+	"2031-5922" : "A.S.",
+	"1010-9919" : "N.S.",
+};
 
+var issnPhysicalFormMapping = {
+	
+	
+};
 
+var issnLicenceFieldMapping = {
 
-// Ende Mappingtabelle
+	"0555-9308" : "l", // Pastoraltheologische Informationen
+	
+	
+};
 
-
-// ab hier Programmcode
-
+var issnSsgMapping = {
+};
 
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
-var lokaldatensatz = "\nE* l01\n7100$jn \n8002 ixzs;ixzo\n";
+var lokaldatensatz = '\\nE* l01\\n6700 !372049834!\\n6700 !37205241X!\\n6700 !372053025!\\n6700!37205319X!\\n7100$jn\\n8002 ixzs;ixzo");\napplication.activeWindow.pressButton("Enter");\n\n';
+var maschinell =  '$aixzom$bAutor maschinell zugeordnet\\n';
+var insertCommand = 'application.activeWindow.command("e", false);\n';
+var insertText = 'application.activeWindow.title.insertText("';
+var insert = insertCommand + insertText;
 
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
-var cataloguingStatus = "r";//0500 Position 3
-var cataloguingStatusO = "r";//0500 Position 3
+var cataloguingStatus = "n";//0500 Position 3
+var cataloguingStatusO = "n";//0500 Position 3
 var licenceField = issnLicenceFieldMapping; // 0500 Position 4 only for Open Access Items; http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=SWB
 var SsgField = issnSsgMapping;
 
@@ -72,15 +111,16 @@ function writeLine(code, line) {
 
 	//Halbgeviertstrich ersetzen
 	line = line.replace(/–/g, '-');
-
+	
+	
 	//Text zusammensetzen
-	outputText += code + " " + line + "\n";
-
+	outputText += ""+code + " "  + line ;
+	
 	//Lookup für Autoren
-	if ((code == "3000" || code == "3010") && line[0] != "!") {
+	if ((code == "\\n3000" || code == "\\n3010") && line[0] != "!") {
 		count++;
-		var authorName = line.substring(0,line.indexOf("\n"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=S=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=(theolog*|neutestament*|alttestament*|kirchenhist*)&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
+		var authorName = line.substring(0,line.indexOf("\\n"));
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=(theolog*|neutestament*|alttestament*)&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
 				
 		/*lookupUrl kann je nach Anforderung noch spezifiziert werden, im obigen Abfragebeispiel: 
 		suchen [und] (Person(Phrase: Nachname, Vorname) [PER]) " authorName "
@@ -103,7 +143,7 @@ function writeLine(code, line) {
 		ZU.processDocuments([lookupUrl], function(doc, url){
 			var ppn = ZU.xpathText(doc, '//small[a[img]]');
 			if (ppn) {
-				outputText = outputText.replace(authorName, "!" + ppn.trim() + "!$BVerfasserIn$4aut \n8910 $aixzom$bAutor maschinell zugeordnet");
+				outputText = outputText.replace(authorName, "!" + ppn.trim() + "!$BVerfasserIn$4aut \\n8910 $aixzom$bAutor maschinell zugeordnet\\n");
 			}
 		}, function() {
 			count--;
@@ -113,6 +153,7 @@ function writeLine(code, line) {
 		});
 	}
 }
+
 
 function doExport() {
 	var item;
@@ -149,46 +190,51 @@ function doExport() {
 
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
-				
+		
+		writeLine("", insert);
+		
 		if (article && licenceField === "l") { // wenn Position 4 = "l" dann Ooul
-			writeLine("0500", physicalForm+"o"+cataloguingStatus+licenceField);
+			writeLine('0500', physicalForm+"o"+cataloguingStatus+licenceField);
 		} else if (article && physicalForm === "A") {
-			writeLine("0500", physicalForm+"o"+cataloguingStatus); // //z.B. Aou, Oou, Oox etc.
-			} else {
-			writeLine("0500", physicalForm+"o"+cataloguingStatusO);
+			writeLine('0500', physicalForm+"o"+cataloguingStatus); // //z.B. Aou, Oou, Oox etc. 
+			} else if(article && physicalForm === "O"){
+			writeLine('0500', physicalForm+"o"+cataloguingStatusO);
+			    } else {
+					writeLine('0500 Aon',"");
 				}
+				
 		
 		//item.type --> 0501 Inhaltstyp
-		writeLine("0501", "Text$btxt");
+		writeLine("\\n0501", "Text$btxt");
 		
 		//item.type --> 0502 Medientyp
 			switch (physicalForm) {
 				case "A":
-				writeLine("0502", "ohne Hilfsmittel zu benutzen$bn");
+				writeLine("\\n0502", "ohne Hilfsmittel zu benutzen$bn");
 				break;
 			case "O":
-				writeLine("0502", "Computermedien$bc");
+				writeLine("\\n0502", "Computermedien$bc");
 				break;
 			default:
-				writeLine("0502", "");
+				writeLine("\\n0502", "ohne Hilfsmittel zu benutzen$bn");
 		}
 
 		//item.type --> 0503 Datenträgertyp
 		
 		switch (physicalForm) {
 				case "A":
-				writeLine("0503", "Band$bnc");
+				writeLine("\\n0503", "Band$bnc");
 				break;
 			case "O":
-				writeLine("0503", "Online-Ressource$bcr");
+				writeLine("\\n0503", "Online-Ressource$bcr");
 				break;
 			default:
-				writeLine("0503", "");
+				writeLine("\\n0503", "Band$bnc");
 		}
 		//item.date --> 1100 
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-		writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]");
+		writeLine("\\n1100", date.year.toString() + "$n[" + date.year.toString() + "]");
 		}
 		
 		//1130 Datenträger
@@ -196,23 +242,23 @@ function doExport() {
 		
 			switch (physicalForm) {
 				case "A":
-				writeLine("1130", "druck");
+				writeLine("\\n1130", "druck");
 				break;
 			case "O":
-				writeLine("1130", "cofz");
+				writeLine("\\n1130", "cofz");
 				break;
 			default:
-				writeLine("1130", "");
+				writeLine("\\n1130", "druck");
 		}
 		
 		//1131 Art des Inhalts
 		if (item.itemType == "magazineArticle") {
-				writeLine("1131", "!209083166!");
+				writeLine("\\n1131", "!209083166!");
 			}
 		
 		// 1140 Veröffentlichungsart und Inhalt http://swbtools.bsz-bw.de/winibwhelp/Liste_1140.htm
 		if (item.itemType == "magazineArticle") {
-				writeLine("1140", "uwre");
+				writeLine("\\n1140", "uwre");
 			}
 	
 		
@@ -221,39 +267,40 @@ function doExport() {
 			if (languageMapping[(item.language)]) {
 				item.language = languageMapping[item.language];
 			}
-			writeLine("1500", item.language);
+			writeLine("\\n1500", item.language);
 		} else {
-			writeLine("1500", defaultLanguage);
+			writeLine("\\n1500", defaultLanguage);
 		}
 		
 		//1505 Katalogisierungsquelle
-		writeLine("1505", "$erda");
+		writeLine("\\n1505", "$erda");
 		
 		//item.ISBN --> 2000 ISBN
 		if (item.ISBN) {
-			writeLine("2000", item.ISBN);
+			writeLine("\\n2000", item.ISBN);
 		}
 		
 		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
 		if (item.DOI) {
 			if (physicalForm === "O") {
-				writeLine("2051", item.DOI);
+				writeLine("\\n2051", item.DOI);
 			} else if (physicalForm === "A") {
-				writeLine("2053", item.DOI);
+				writeLine("\\n2053", item.DOI);
+			} else {
+				writeLine("\\n2053", item.DOI);
 			}
 		}
 				
-		
-	
+		//Autoren --> 3000, 3010
 		//Titel, erster Autor --> 4000
 		var titleStatement = "";
 		if (item.shortTitle == "journalArticle") {
 			titleStatement += item.shortTitle;
 			if (item.title && item.title.length > item.shortTitle.length) {
-				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/,'');
+				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/,'').replace(/"/g, '\\"');
 			}
 		} else {
-			titleStatement += item.title.replace(/\s*:\s*/,'$d');
+			titleStatement += item.title.replace(/\s*:\s*/,'$d').replace(/"/g, '\\"');
 		}
 		//Sortierzeichen hinzufügen, vgl. https://github.com/UB-Mannheim/zotkat/files/137992/ARTIKEL.pdf
 		if (item.language == "ger" || !item.language) {
@@ -270,37 +317,33 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^(La|Le|Lo|Gli|I|Il|Un|Una|Uno) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L' @$1");
 		}
-		
-		if (item.language == "por" || !item.language) {
-			titleStatement = titleStatement.replace(/^(A|O|As|Os|Um|Uma|Umas|Uns) ([^@])/, "$1 @$2");
-		}
-		if (item.language == "spa" || !item.language) {
-			titleStatement = titleStatement.replace(/^(El|La|Los|Las|Un|Una|Unos|Unas) ([^@])/, "$1 @$2");
-		}
-		
-		
-		//Autoren --> 3000, 3010
-
+		// 
 		var i = 0, content, creator;
 		while (item.creators.length>0) {
 			creator = item.creators.shift();
 			if (creator.creatorType == "author") {
+				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
+					content = nameMapping[creator.lastName + ", " + creator.firstName];
+				} else if (nachnameMapping[creator.lastName]) {
+					content = nachnameMapping[creator.lastName];
+				} else {
 					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
 				}
 				if (i === 0) {
-					writeLine("3000", content + "\n");
+					writeLine("\\n3000", content + "\\n");
 					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
 				} else {
-					writeLine("3010", content + "\n");
+					writeLine("\\n3010", content + "\\n");
 				}
 				i++;
 			}
-	
-		writeLine("4000", titleStatement);
 		//TODO: editors, other contributors...
+		}
+		writeLine("\\n4000", titleStatement);
+		
 		//Ausgabe --> 4020
 		if (item.edition) {
-			writeLine("4020", item.edition);
+			writeLine("\\n4020", item.edition);
 		}
 		
 		//Erscheinungsvermerk --> 4030
@@ -308,7 +351,7 @@ function doExport() {
 			var publicationStatement = "";
 			if (item.place) { publicationStatement += item.place; }
 			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
-			writeLine("4030", publicationStatement);
+			writeLine("\\n4030", publicationStatement);
 		}
 		
 		
@@ -320,19 +363,19 @@ function doExport() {
 			if (item.issue) { volumeyearissuepage += "$h" + item.issue.replace("-", "/").replace(/^0/, ""); }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
 			
-			writeLine("4070", volumeyearissuepage);
-		}
+			writeLine("\\n4070", volumeyearissuepage);
+}
 		
 		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
 		if (item.url && physicalForm === "O" && licenceField === "l") {
-			writeLine("4085", "$u" + item.url + "$xH$xR$zLF");
+			writeLine("\\n4085", "$u" + item.url + "$xH$xR$zLF");
 			} else if (item.url && physicalForm === "O") {
-				writeLine("4085", "$u" + item.url + "$xH");
+				writeLine("\\n4085", "$u" + item.url + "$xH");
 			}
 		
 		
 		if (item.url && item.itemType == "magazineArticle") {
-			writeLine("4085", "$u" + item.url + "$xH");
+			writeLine("\\n4085", "$u" + item.url + "$xH");
 		}
 		
 		//Reihe --> 4110
@@ -344,12 +387,12 @@ function doExport() {
 			if (item.seriesNumber) {
 				seriesStatement += " ; " + item.seriesNumber;
 			}
-			writeLine("4110", seriesStatement);
+			writeLine("\\n4110", seriesStatement);
 		}
 		
 		//Inhaltliche Zusammenfassung -->4207
 		if (item.abstractNote) {
-			writeLine("4207", item.abstractNote.replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "").replace("Zusammenfassung", "").replace(" Summary", "").replace("", "").replace(/–/g, '-').replace(/&#160;/g, "")); 
+			writeLine("\\n4207", item.abstractNote.replace("<i>", "\'").replace("</i>", "\'").replace("<br/>", "").replace("Zusammenfassung", "").replace(" Summary", "").replace("", "").replace(/–/g, '-').replace(/&#160;/g, "").replace(/"/g, '\\"')); 
 		}  
 		
 		/* } else (!item.abstractNote){
@@ -361,54 +404,41 @@ function doExport() {
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
-				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
+				writeLine("\\n4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
 			} else if (item.publicationTitle) {
-				writeLine("4241", "Enthalten in"  + item.publicationTitle);
+				writeLine("\\n4241", "Enthalten in"  + item.publicationTitle.replace("Zeitschrift fuer Theologie und Kirche", "!014822083!"));
 			}
 		
 		//4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
 		if (item.itemType == "magazineArticle") {
-				writeLine("4261", "Rezension von" + item.publicationTitle); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
+				writeLine("\\n4261", "Rezension von" + item.publicationTitle); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
 			}
 				
 		//SSG bzw. FID-Nummer --> 5056 "0" = Religionwissenschaft | "1" = Theologie | "0; 1" = RW & Theol.
 		
-		if (SsgField === "0" || SsgField === "0; 1" || SsgField === "FID-KRIM-DE-21") {
-			writeLine("5056", SsgField);
+		if (SsgField === "0" || SsgField === "0; 1") {
+			writeLine("\\n5056", SsgField);
 		} 	else {
-			writeLine("5056", defaultSsgNummer);
+			writeLine("\\n5056", defaultSsgNummer);
 		}
-
+				
+		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
+		for (i=0; i<item.tags.length; i++) {
+			writeLine("\\n5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));	
+		}
 		
+		/*if (item.itemType == "journalArticle") {
+			writeLine("\\n8910", maschinell);
+		}*/
 		
 		if (item.itemType == "journalArticle") {
-			writeLine ("",lokaldatensatz);
+		writeLine("",lokaldatensatz);
 		}
-	//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520 (oder alternativ siehe Mapping)
-                if (item.ISSN && issnKeywordMapping[ZU.cleanISSN(item.ISSN)]) {
-                        var ISSNclean = ZU.cleanISSN(item.ISSN);
-                        var codeBase = issnKeywordMapping[ISSNclean];
-                        for (i=0; i<item.tags.length; i++) {
-                                var code = codeBase + i;
-                                writeLine(code, "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
-                        }
-                } else {
-                        for (i=0; i<item.tags.length; i++) {
-                                writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
-                        }
-                }	
-		}
-		outputText;
+	}
+		outputText += "";
 	}
 	count--;
 	if (count === 0) {
 		Zotero.write(outputText);
 	}
 }
-
-
-
-
-
-
-
