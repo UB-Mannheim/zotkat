@@ -53,8 +53,8 @@ var lokaldatensatz = "\nE* l01\n7100$jn \n8002 ixzs;ixzo\n";
 //item.type --> 0500 Bibliographische Gattung und Status
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
 var physicalForm = issnPhysicalFormMapping;//0500 Position 1	
-var cataloguingStatus = "r";//0500 Position 3
-var cataloguingStatusO = "r";//0500 Position 3
+var cataloguingStatus = "n";//0500 Position 3 "n" maschinell, bei manueller Nachverknüpfung bitte in "r" ändern.
+var cataloguingStatusO = "n";//0500 Position 3 "n" maschinell, bei manueller Nachverknüpfung bitte in "r" ändern.
 var licenceField = issnLicenceFieldMapping; // 0500 Position 4 only for Open Access Items; http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=SWB
 var SsgField = issnSsgMapping;
 
