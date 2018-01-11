@@ -46,7 +46,6 @@
 
 // ab hier Programmcode
 
-
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
 var lokaldatensatz = "\nE* l01\n7100$jn \n8002 ixzs;ixzo\n";
@@ -80,7 +79,7 @@ function writeLine(code, line) {
 	if ((code == "3000" || code == "3010") && line[0] != "!") {
 		count++;
 		var authorName = line.substring(0,line.indexOf("\n"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=S=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=(theolog*|neutestament*|alttestament*|kirchenhist*)&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
+		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=S=Y&ACT0=SRCHA&SHRTST=50&IKT0=1&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8977&TRM2=(theolog*|neutestament*|alttestament*|kirchenhist*|judais*|arzt|neurolo*|geria*|soziol*|botan*|ökolo*|psycholog*|psychiat*|religionswi*|priester*|pfarrer*|philosop*|)&ACT3=-&IKT3=8978-&TRM3=1[1%2C2%2C3%2C4%2C5%2C6%2C7%2C8][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9][0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9]?"
 				
 		/*lookupUrl kann je nach Anforderung noch spezifiziert werden, im obigen Abfragebeispiel: 
 		suchen [und] (Person(Phrase: Nachname, Vorname) [PER]) " authorName "
@@ -149,14 +148,19 @@ function doExport() {
 
 		//item.type --> 0500 Bibliographische Gattung und Status
 		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
-				
-		if (article && licenceField === "l") { // wenn Position 4 = "l" dann Ooul
-			writeLine("0500", physicalForm+"o"+cataloguingStatus+licenceField);
-		} else if (article && physicalForm === "A") {
-			writeLine("0500", physicalForm+"o"+cataloguingStatus); // //z.B. Aou, Oou, Oox etc.
-			} else {
-			writeLine("0500", physicalForm+"o"+cataloguingStatusO);
-				}
+				switch (true) {
+			case physicalForm === "A":
+				writeLine('0500', physicalForm+"o"+cataloguingStatus);
+				break;
+			case physicalForm === "O" && licenceField === "l":
+				writeLine('0500', physicalForm+"o"+cataloguingStatus+licenceField); 
+				break;
+			case physicalForm === "O" && licenceField === "kw":
+				writeLine('0500', physicalForm+"o"+cataloguingStatus); 
+				break;
+			default:
+				writeLine('0500', physicalForm+"o"+cataloguingStatus); // //z.B. Aou, Oou, Oox etc. 
+			}
 		
 		//item.type --> 0501 Inhaltstyp
 		writeLine("0501", "Text$btxt");
@@ -324,16 +328,22 @@ function doExport() {
 		}
 		
 		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
-		if (item.url && physicalForm === "O" && licenceField === "l") {
-			writeLine("4085", "$u" + item.url + "$xH$xR$zLF");
-			} else if (item.url && physicalForm === "O") {
+		switch (true) {
+			case item.url && physicalForm === "O" && licenceField === "l":
+				writeLine("4085", "$u" + item.url + "$xH$zLF");
+				break;
+			case item.url && physicalForm === "O" && licenceField === "kw":
+				writeLine("4085", "$u" + item.url + "$xH$zKW");
+				break;
+			case item.url && physicalForm === "O":
 				writeLine("4085", "$u" + item.url + "$xH");
+				break;
+			case item.url && item.itemType === "magazineArticle":
+				writeLine("4085", "$u" + item.url + "$xH");
+				break;
 			}
 		
 		
-		if (item.url && item.itemType == "magazineArticle") {
-			writeLine("4085", "$u" + item.url + "$xH");
-		}
 		
 		//Reihe --> 4110
 		if (!article) {
@@ -390,11 +400,12 @@ function doExport() {
                         var codeBase = issnKeywordMapping[ISSNclean];
                         for (i=0; i<item.tags.length; i++) {
                                 var code = codeBase + i;
-                                writeLine(code, "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
+                                writeLine(code, "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; ').replace(/\s?,\s?/g, '; '));
                         }
                 } else {
                         for (i=0; i<item.tags.length; i++) {
-                                writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; '));
+                                //writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; ').replace(/\s?,\s?/g, '; ').replace(/\s?\.\s?/g, '; '));
+								writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, '; ').replace(/\s?,\s?/g, '; '));
                         }
                 }	
 		}
