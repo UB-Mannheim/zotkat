@@ -1,4 +1,4 @@
-﻿<details>
+<details>
 <summary>🇺🇸 English version (click here)</summary>
 
 ## What is zotkat?
