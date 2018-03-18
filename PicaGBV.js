@@ -9,7 +9,10 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-02-01 08:10:00"
+	"displayOptions": {
+		"Gedruckte Ressource": false
+	},
+	"lastUpdated": "2018-03-18 15:25:00"
 }
 
 
@@ -107,6 +110,9 @@ function writeLine(code, line) {
 }
 
 function doExport() {
+	if (Zotero.getOption("Gedruckte Ressource")) {
+		physicalForm = "A";
+	}
 	var item;
 	while ((item = Zotero.nextItem())) {
 		
@@ -163,10 +169,10 @@ function doExport() {
 		if (physicalForm === "O") {
 		
 			//item.type --> 0502 Medientyp
-			writeLine("0502", "Computermedien$bn");
+			writeLine("0502", "Computermedien$bc");
 			
 			//item.type --> 0503 Datenträgertyp
-			writeLine("0503", "Online-Ressource$bnc");
+			writeLine("0503", "Online-Ressource$bcr");
 			
 		}
 		
