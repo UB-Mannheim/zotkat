@@ -12,7 +12,7 @@
 	"displayOptions": {
 		"Gedruckte Ressource": false
 	},
-	"lastUpdated": "2018-03-18 15:25:00"
+	"lastUpdated": "2018-05-21 13:00:00"
 }
 
 
@@ -206,7 +206,7 @@ function doExport() {
 		writeLine("1505", "$erda");
 		
 		//item.ISBN --> 2000 ISBN
-		if (item.ISBN && physicalForm === "A") {
+		if (item.ISBN && physicalForm === "A" && !article) {
 			writeLine("2000", item.ISBN);
 		}
 		
