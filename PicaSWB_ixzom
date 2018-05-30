@@ -16,7 +16,6 @@
 // Zotero Export Translator für das Pica Intern Format
 // (wie es im SWB Verbund benutzt wird)
 
-
 /*
 	***** BEGIN LICENSE BLOCK *****
 	Copyright © 2016 Philipp Zumstein
@@ -34,6 +33,7 @@
 	***** END LICENSE BLOCK *****
 */
 
+
 var journalMapping = {
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
 	"0021-9231" : "!121739872!", // Journal of Biblical Literature 
@@ -41,20 +41,9 @@ var journalMapping = {
 	"1934-3876" : "!121739872!", // Journal of Biblical Literature //ESSN +EPPN
 	"0591-2385" : "!090854799!", // Zygon
 	"1467-9744" : "!090854799!", // Zygon
-    	"0891-5881" : "!023125381!", // Dialogue and alliance
-	
-};
+   "0891-5881" : "!023125381!", // Dialogue and alliance
+   };
 
-
-
-
-
-var nachnameMapping = {
-	"Hemingway" : "!16137493X!"  // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
-};
-var nameMapping = {
-	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
-};
 //Sprachcodes nach ISO 639-2
 //http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 
@@ -78,63 +67,58 @@ var languageMapping = {
 	"Sv" : "swe", 
 	"no" : "nor",
 	"sv" : "swe", 
-	
-	
-};
+  };
 
 var issnLangMapping = {
-
 	"0082-7118" : "eng", // Tyndale Bulletin
 	"0141-6200" : "eng", // British Journal of Religious Education
 	"0943-3058" : "eng", // Method and theory in the study of religion
 	"2363-6696" : "manuell", // Entangled Religion
-	
-	
-};
+  };
 
 var issnVolumeMapping = {
 	"2031-5929" : "N.S.",
 	"2031-5922" : "A.S.",
-};
+  };
 
 var issnPhysicalFormMapping = {
 	"2032-5215" : "O", // ET-Studies Online Publikation 
 	"0021-9231" : "O", // Journal of Biblical Literature 
 	"0591-2385" : "O", // Zygon
 	"1467-9744" : "O", // Zygon
-
-	
-};
+  };
 
 var issnLicenceFieldMapping = {
 	"1661-3317" : "l", // Lectio difficilior !!eppn
 	"2363-6696" : "l", // Entangled Religions
-	
-};
+  "1689-8311" : "kw", // European Journal for Philosophy of Religion
+  };
 
-
-
+var issnSsgMapping = {
+	"0044-3441" : "0; 1", // Zeitschrift für Religions- und Geistesgeschichte
+	"1570-0739" : "0; 1", // Zeitschrift für Religions- und Geistesgeschichte
+  };
+  
 // Mapping für ISSNs deren Schlagwörter statt 5520 in 680X abgelegt werden. KrimDok-Spezifikation
 // inkrementell ab z.B. 680 exportiert werden sollen (6801, 6802, ...)
+
 var issnKeywordMapping = {
 	"0003-1224" : 6800, // American sociological review Online Publikation|krimdok
-};
+  };
 
-// Mapping für JournalTitle>PPN
 var issnJournalTitleMapping = {
 	"Perspectives in Religious Studies" : "!014809931!", //Perspectives in religious studies Print-PPN
-};
+	"Journal of the Evangelical Theological Society" : "!345580796!", // Journal of the Evangelical Theological Society Print-PPN
+  };
 
 // Mapping JournalTitle>Language
 var JournalTitleLanguageMapping = {
 	"Oriens Christianus" :"ger",
+	"Ephemerides Theologicae Lovanienses" : "fre",
+	"Science et Esprit" : "fre", 
 }
 
-
-
-
-
-// ab hier Programmcode
+// ----------------------------------ab hier Programmcode-------------------------------
 var defaultSsgNummer = "1";
 var defaultLanguage = "eng";
 //lokaldatensatz z.B. \\n6700 !372049834!\\n6700 !37205241X!\\n6700 !372053025!\\n6700!37205319X!
