@@ -9,7 +9,10 @@
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "gcs",
-	"lastUpdated": "2017-08-09 08:00:00"
+	"displayOptions": {
+		"cleaned": true
+	},
+	"lastUpdated": "2018-07-15 11:40:00"
 }
 
 
@@ -40,6 +43,25 @@
 function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
+		if (Zotero.getOption("cleaned")) {
+			delete item.collections;
+			delete item.relations;
+			delete item.dateAdded;
+			delete item.dateModified;
+			delete item.uri;
+			delete item.uniqueFields;
+			delete item.key;
+			delete item.libraryID;
+			for (let i=0; i<item.attachments.length; i++) {
+				let cleanedAtt = {};
+				for (prop of ["title", "snapshot", "mimeType"]) {
+					if (item.attachments[i][prop]) {
+						cleanedAtt[prop] = item.attachments[i][prop];
+					}
+				}
+				item.attachments[i] = cleanedAtt;
+			}
+		}
 		Zotero.write(JSON.stringify(item, null, 2));
 	}
 }
