@@ -309,12 +309,12 @@ function doExport() {
 		//Angaben zu illustrierendem Inhalt, muss händisch weiter gefüllt werden
 		writeLine("4061", "");
 		
-		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
+		//4070 $v Bandzählung $j Jahr $a Heftnummer $p Seitenzahl
 		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle" || item.itemType == "bookSection") {
 			var volumeyearissuepage = "";
 			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
 			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
-			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
+			if (item.issue) { volumeyearissuepage += "$a" + item.issue; }
 			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
 			
 			writeLine("4070", volumeyearissuepage);
@@ -345,9 +345,12 @@ function doExport() {
 		//Sonstige Anmerkungen (manuell eintragen) --> 4201
 		writeLine("4201", "");
 		
-		//Inhaltliche Zusammenfassung -->4207
-		if (item.abstractNote && exportAbstract) {
+		//Inhaltliche Zusammenfassung --> 4207/4209
+		if (item.abstractNote.length <= 600) {
 			writeLine("4207", item.abstractNote);
+		}
+		else {
+			writeLine("4209", item.abstractNote);
 		}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
@@ -372,6 +375,28 @@ function doExport() {
 		//SSG-Nummer --> 5056
 		if (ssgNummer) {
 			writeLine("5056", ssgNummer);
+		}
+		
+		//lokale Schlagwörter und JEL-Codes --> 6556/5060
+		var jels = [];
+		var keywords = [];
+		for (i=0; i<item.tags.length; i++) {
+			if (item.tags[i].tag.match(/^[A-Z][0-9]{1,3}$/)) {
+				jels.push(item.tags[i].tag);
+			}
+			else {
+				keywords.push(item.tags[i].tag);
+			}		
+			//writeLine("6556", item.tags[i].tag.replace(/\s?--\s?/g, ';'));
+		}
+		
+		if (jels.length > 0) {
+			writeLine("5060", "[JEL] " + jels.join(" ; "));
+		}
+		if (keywords.length > 0) {
+			for (i=0; i<keywords.length; i++) {
+				writeLine("6556", keywords[i]);
+			}
 		}
 		
 		// 0999 verify outputText ppn in OGND
