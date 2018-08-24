@@ -345,9 +345,12 @@ function doExport() {
 		//Sonstige Anmerkungen (manuell eintragen) --> 4201
 		writeLine("4201", "");
 		
-		//Inhaltliche Zusammenfassung -->4207
-		if (item.abstractNote && exportAbstract) {
+		//Inhaltliche Zusammenfassung --> 4207/4209
+		if (item.abstractNote && item.abstractNote.length <= 600) {
 			writeLine("4207", item.abstractNote);
+		}
+		if (item.abstractNote && item.abstractNote.length > 600){
+			writeLine("4209", item.abstractNote);
 		}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
