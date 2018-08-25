@@ -12,7 +12,7 @@
 	"displayOptions": {
 		"Gedruckte Ressource": false
 	},
-	"lastUpdated": "2018-03-18 15:25:00"
+	"lastUpdated": "2018-08-25 13:00:00"
 }
 
 
@@ -346,11 +346,12 @@ function doExport() {
 		writeLine("4201", "");
 		
 		//Inhaltliche Zusammenfassung --> 4207/4209
-		if (item.abstractNote && item.abstractNote.length <= 600) {
-			writeLine("4207", item.abstractNote);
-		}
-		if (item.abstractNote && item.abstractNote.length > 600){
-			writeLine("4209", item.abstractNote);
+		if (item.abstractNote && exportAbstract) {
+			if (item.abstractNote.length <= 600) {
+				writeLine("4207", item.abstractNote);
+			} else {
+				writeLine("4209", item.abstractNote);
+			}
 		}
 		
 		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
