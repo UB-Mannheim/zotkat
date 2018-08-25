@@ -54,7 +54,7 @@ function doExport() {
 			delete item.libraryID;
 			for (let i=0; i<item.attachments.length; i++) {
 				let cleanedAtt = {};
-				for (prop of ["title", "snapshot", "mimeType"]) {
+				for (let prop of ["title", "snapshot", "mimeType"]) {
 					if (item.attachments[i][prop]) {
 						cleanedAtt[prop] = item.attachments[i][prop];
 					}
