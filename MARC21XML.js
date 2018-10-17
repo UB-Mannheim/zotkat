@@ -189,7 +189,7 @@ function doExport() {
 		}
 		
 		currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "040", "ind1" : " ", "ind2" : " " } , true  );
-		mapProperty(currentFieldNode, "subfield",  {"code" : "c"} , 'Zotero' );//not strictly a Marc organization code, but we should mention the Zotero as the 'cataloguing tool' somewhere and here is a good place and is implicitely refered because of the 'u' in 008/37
+		mapProperty(currentFieldNode, "subfield",  {"code" : "c"} , 'Zotero' );//not strictly a Marc organization code, but we should mention the Zotero as the 'cataloguing tool' somewhere and here is a good place and is implicitely referred because of the 'u' in 008/37
 		
 		if (item.language) {
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "041", "ind1" : " ", "ind2" : " " } , true  );
@@ -402,7 +402,7 @@ function doExport() {
 		//datafields: 12 characters in the directory + 2 indicators + 1 field terminator
 		//subfields: 1 subfield code + 1 subfield terminator
 
-		//base adress of data starts after the leader and the directory
+		//base address of data starts after the leader and the directory
 		var baseAdressData = 24+countFields.controlfield*12+countFields.datafield*12+1;
 
 		
