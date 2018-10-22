@@ -15,7 +15,7 @@ Zotkat `[:tzo:tkat]` is an extension of Zotero for cataloguing in a broad sense 
 
 ## Which translator do exists?
 
-Currently, zotkat has the following additonal Zotero Translators:
+Currently, zotkat has the following additional Zotero Translators:
  * [`BIBFRAME.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/BIBFRAME.js) : This is a import translator with the goal to save data in the BIBFRAME format into Zotero. Ideally this translator would be extended to an import/export translator.
  * [`MARC21XML.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/MARC21XML.js) : This is an export translator with the goal to save data from Zotero in the MARCXML format. Ideally one would integrate this into the existing import translator for MARCXML, cf. [https://github.com/zotero/translators/issues/762](https://github.com/zotero/translators/issues/762).
  * [`PicaSWB.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/PicaSWB.js) : This is a export translator with the goal data from Zotero to save in the Pica format as it is used in the SWB union cataloguing and then for example import it in the WinIBW client. See also this German article [LIBREAS #29](http://libreas.eu/ausgabe29/05kim/).
@@ -25,7 +25,7 @@ Currently, zotkat has the following additonal Zotero Translators:
  
 ## How can I report an error or correct it?
 
-Everyone can report errors here directly by opening an [issue](https://github.com/UB-Mannheim/zotkat/issues). Moreover, feature reqests can be discussed there. Any changes of a translator can be suggested by a pull reqest directly on GitHub. A more detailed description (in German) can be found on this [wiki page](https://github.com/UB-Mannheim/zotkat/wiki).
+Everyone can report errors here directly by opening an [issue](https://github.com/UB-Mannheim/zotkat/issues). Moreover, feature requests can be discussed there. Any changes of a translator can be suggested by a pull request directly on GitHub. A more detailed description (in German) can be found on this [wiki page](https://github.com/UB-Mannheim/zotkat/wiki).
 
 
 ## Licenses
@@ -108,7 +108,7 @@ Actuellement, zotkat comprend les convertisseurs suivants:
  
 ## Comment signaler une erreur ou la corriger ?
 
-Tout le monde peut signaler des erreurs ici en ouvrant une *[issue](https://github.com/UB-Mannheim/zotkat/issues)*. Les demandes de fonctionnalités peuvent également être discutées ici. Toute modification d'un convertsieeur peut être proposée en faisant une *pull reqest* directement sur GitHub. Une description plus détaillée peut être trouvée sur le [wiki](https://github.com/UB-Mannheim/zotkat/wiki) (en allemand).
+Tout le monde peut signaler des erreurs ici en ouvrant une *[issue](https://github.com/UB-Mannheim/zotkat/issues)*. Les demandes de fonctionnalités peuvent également être discutées ici. Toute modification d'un convertsieeur peut être proposée en faisant une *pull request* directement sur GitHub. Une description plus détaillée peut être trouvée sur le [wiki](https://github.com/UB-Mannheim/zotkat/wiki) (en allemand).
 
 
 ## Licences
