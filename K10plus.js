@@ -1,19 +1,19 @@
 {
-	"translatorID": "2edf7a1b-eded-48d7-ae11-7126fd1c1b07",
+	"translatorID": "70cd13b4-dd8f-46c0-be47-30cf6ab3a3d5",
 	"label": "K10plus",
-	"creator": "Philipp Zumstein, Timotheus Kim",
+	"creator": "Philipp Zumstein",
 	"target": "txt",
 	"minVersion": "3.0",
 	"maxVersion": "",
 	"priority": 100,
 	"inRepository": true,
 	"translatorType": 2,
-	"browserSupport": "gcs",
-	"lastUpdated": "2019-03-21 21:30:00"
+	"displayOptions": {
+		"Gedruckte Ressource": false,
+		"Lizenzfrei": true
+	},
+	"lastUpdated": "2019-07-24 15:00:00"
 }
-
-// Zotero Export Translator für das Pica Intern Format
-// (wie es im K10plus benutzt wird)
 
 
 /*
@@ -39,85 +39,99 @@
 	***** END LICENSE BLOCK *****
 */
 
-var ssgNummer = "1";
+var ssgNummer = false;
+var exportAbstract = false;
 var defaultLanguage = "eng";
-var physicalForm = "A";//0500 Position 1
-var cataloguingStatus = "u";//0500 Position 3
+var physicalForm = Zotero.getOption("Gedruckte Ressource") ? "A" : "O";// 0500 Position 1
+var lf = Zotero.getOption("Lizenzfrei");
+var cataloguingStatus = "u";// 0500 Position 3
 
 var journalMapping = {
-	"0021-9231" : "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
+	"0021-9231": "!014411350!" // Journal of Biblical Literature  http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=014411350&INDEXSET=1
 };
 var nachnameMapping = {
-	"Hemingway" : "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
+	Hemingway: "!16137493X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=16137493X&INDEXSET=1
 };
 var nameMapping = {
-	"Berners-Lee, Tim" : "!18195804X!" // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
+	"Berners-Lee, Tim": "!18195804X!", // http://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=18195804X&INDEXSET=1
+	"Neuenkirch, Andreas": "!512979650!"
 };
-//Sprachcodes nach ISO 639-2
-//http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
+// Sprachcodes nach ISO 639-2
+// http://swbtools.bsz-bw.de/winibwhelp/Liste_1500.htm
 var languageMapping = {
-	"en" : "eng",
-	"de" : "ger",
-	"fr" : "fre"
+	en: "eng",
+	de: "ger",
+	fr: "fre",
+	it: "ita",
+	es: "spa",
+	pr: "por"
 };
 var issnLangMapping = {
-	"1010-9919" : "ger",
-	"1010-9911" : "eng",
-	"1010-9913" : "fre"
+	"1010-9919": "ger",
+	"1010-9911": "eng",
+	"1010-9913": "fre"
 };
 var issnVolumeMapping = {
-	"2031-5929" : "N.S.",
-	"2031-5922" : "A.S."
- };
+	"2031-5929": "N.S.",
+	"2031-5922": "A.S."
+};
 
 // Da alles asynchron ablaufen kann:
-//Jede Lookup einer AutorIn zählt 1 zu count
-//und nach Erledigung wieder 1 weg. Der
-//Startwert ist 1 und nach Erledigung aller
-//anderen Zeilen wird 1 subtrahiert. Erst
-//bei 0 wird die Ausgabe aus outputText erzeugt.
+// Jede Lookup einer AutorIn zählt 1 zu count
+// und nach Erledigung wieder 1 weg. Der
+// Startwert ist 1 und nach Erledigung aller
+// anderen Zeilen wird 1 subtrahiert. Erst
+// bei 0 wird die Ausgabe aus outputText erzeugt.
 var count = 1;
 var outputText = "";
 
 function writeLine(code, line) {
+	if (!line) return;
+	
+	// Halbgeviertstrich etc. ersetzen
+	line = line.replace(/–/g, '-').replace(/’/g, '\'').replace(/œ/g, '\\u0153')
+		.replace(/ā/g, '\\u0101')
+		.replace(/â/g, '\\u00E2')
+		.replace(/Ṣ/g, '\\u1E62')
+		.replace(/ṣ/g, '\\u1E63')
+		.replace(/ū/g, '\\u016B')
+		.replace(/ḥ/g, '\\u1E25')
+		.replace(/ī/g, '\\u012B')
+		.replace(/ṭ/g, '\\u1E6D')
+		.replace(/ʾ/g, '\\u02BE')
+		.replace(/ʿ/g, '\\u02BF')
+		.replace(/–/g, '-')
+		.replace(/&#160;/g, "")
+		.replace(/"/g, '"')
+		.replace(/“/g, '"')
+		.replace(/”/g, '"');
 
-	//Halbgeviertstrich ersetzen
-	line = line.replace(/–/g, '-');
-
-	//Text zusammensetzen
+	// Text zusammensetzen
 	outputText += code + " " + line + "\n";
-
-	//Lookup für Autoren
-	if ((code == "3000" || code == "3010") && line[0] != "!") {
-		count++;
-		var authorName = line.substring(0,line.indexOf("$"));
-		var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=*&ACT2=*&IKT2=8991&TRM2=*&ACT3=*&IKT3=8991&TRM3=*";
-		//lookupUrl kann je nach Anforderung noch spezifiziert werden, z.B.
-		//var lookupUrl = "http://swb.bsz-bw.de/DB=2.104/SET=70/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + authorName +"&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=theol*&ACT3=*&IKT3=8991&TRM3=19**";
-		ZU.processDocuments([lookupUrl], function(doc, url){
-			var ppn = ZU.xpathText(doc, '//small[a[img]]');
-			if (ppn) {
-				outputText = outputText.replace(authorName, "!" + ppn.trim() + "!");
-			}
-		}, function() {
-			count--;
-			if (count === 0) {
-				Zotero.write(outputText);
-			}
-		});
-	}
 }
 
 function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
-		
-		//enrich items based on their ISSN
+		// enrich items based on their ISSN
 		if (!item.language && item.ISSN && issnLangMapping[item.ISSN]) {
 			item.language = issnLangMapping[item.ISSN];
 		}
 		if (item.volume && item.ISSN && issnVolumeMapping[item.ISSN]) {
 			item.volume = issnVolumeMapping[item.ISSN] + item.volume;
+		}
+		// save DOI always as item.DOI
+		if (!item.DOI && item.extra) {
+			var extraParts = item.extra.split("\n");
+			for (let j = 0; j < extraParts.length; j++) {
+				if (extraParts[j].indexOf("DOI:") === 0) {
+					item.DOI = extraParts[j].substr(4).trim();
+				}
+			}
+		}
+		// normalize language field
+		if (item.language && languageMapping[(item.language)]) {
+			item.language = languageMapping[item.language];
 		}
 
 		var article = false;
@@ -131,91 +145,80 @@ function doExport() {
 				break;
 		}
 		
-		//item.type --> 0500 Bibliographische Gattung und Status
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_0500.htm
+		// item.type --> 0500 Bibliographische Gattung und Status
+		// http://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=0500&katalog=Standard
 		if (article) {
-			writeLine("0500", physicalForm+"o"+cataloguingStatus);//z.B. Aou, Oox
-		} else {
-			writeLine("0500", physicalForm+"a"+cataloguingStatus);//z.B. Aau
+			writeLine("0500", physicalForm + "s" + cataloguingStatus);// z.B. Osu
+		}
+		else {
+			writeLine("0500", physicalForm + "a" + cataloguingStatus);// z.B. Aau
 		}
 		
-		//item.type --> 0501 Inhaltstyp
+		// item.type --> 0501 Inhaltstyp
 		writeLine("0501", "Text$btxt");
 		
-		//item.type --> 0502 Medientyp
-		writeLine("0502", "ohne Hilfsmittel zu benutzen$bn");
+		if (physicalForm === "A") {
+			// item.type --> 0502 Medientyp
+			writeLine("0502", "ohne Hilfsmittel zu benutzen$bn");
+			// item.type --> 0503 Datenträgertyp
+			writeLine("0503", "Band$bnc");
+		}
+		if (physicalForm === "O") {
+			// item.type --> 0502 Medientyp
+			writeLine("0502", "Computermedien$bc");
+			// item.type --> 0503 Datenträgertyp
+			writeLine("0503", "Online-Ressource$bcr");
+		}
 		
-		//item.type --> 0503 Datenträgertyp
-		writeLine("0503", "Band$bnc");
-		
-		//item.date --> 1100 
+		// item.date --> 1100
 		var date = Zotero.Utilities.strToDate(item.date);
 		if (date.year !== undefined) {
-			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "] \n");
+			writeLine("1100", date.year.toString() + "$n[" + date.year.toString() + "]");
 		}
 		
-		//1130 Datenträger
-		//http://swbtools.bsz-bw.de/winibwhelp/Liste_1130.htm
-		switch (physicalForm) {
-			case "A":
-				writeLine("1130", "druck");
-				break;
-			case "O":
-				writeLine("1130", "cofz");
-				break;
-			default:
-				writeLine("1130", "");
-		}
-		
-		//1131 Art des Inhalts
+		// 1131 Art des Inhalts
 		if (item.itemType == "magazineArticle") {
-			writeLine("1131", "!209083166!");
+			writeLine("1131", "!106186019!");
 		}
 		
 		// 1140 Veröffentlichungsart und Inhalt http://swbtools.bsz-bw.de/winibwhelp/Liste_1140.htm
-		if (item.itemType == "magazineArticle") {
-			writeLine("1140", "uwre");
-		}
+		// if (item.itemType == "magazineArticle") {
+		//	writeLine("1140", "uwre");
+		// }
 		
-		//item.language --> 1500 Sprachcodes
-		if (item.language) {
-			if (languageMapping[(item.language)]) {
-				item.language = languageMapping[item.language];
-			}
-			writeLine("1500", item.language);
-		} else {
-			writeLine("1500", defaultLanguage);
-		}
-		
-		//1505 Katalogisierungsquelle
+		// item.language --> 1500 Sprachcodes
+		writeLine("1500", item.language || defaultLanguage);
+
+		// 1505 Katalogisierungsquelle
 		writeLine("1505", "$erda");
 		
-		//item.ISBN --> 2000 ISBN
-		if (item.ISBN) {
+		// item.ISBN --> 2000 ISBN
+		if (item.ISBN && physicalForm === "A" && !article) {
 			writeLine("2000", item.ISBN);
 		}
 		
-		//item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
-		if (item.DOI) {
-			if (physicalForm === "O") {
-				writeLine("2051", item.DOI);
-			} else if (physicalForm === "A") {
-				writeLine("2053", item.DOI);
-			}
+		// item.DOI --> 2051 bei "Oou" bzw. 2053 bei "Aou"
+		// http://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=2051&katalog=Standard
+		if (physicalForm === "O") {
+			writeLine("2051", item.DOI);
+		}
+		else if (physicalForm === "A") {
+			writeLine("2053", item.DOI);
 		}
 		
-		//Autoren --> 3000, 3010
-		//Titel, erster Autor --> 4000
+		// Autoren --> 3000, 3010
+		// Titel, erster Autor --> 4000
 		var titleStatement = "";
 		if (item.shortTitle) {
 			titleStatement += item.shortTitle;
 			if (item.title && item.title.length > item.shortTitle.length) {
-				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/,'');
+				titleStatement += "$d" + item.title.substr(item.shortTitle.length).replace(/^\s*:\s*/, '');
 			}
-		} else {
-			titleStatement += item.title.replace(/\s*:\s*/,'$d');
 		}
-		//Sortierzeichen hinzufügen, vgl. https://github.com/UB-Mannheim/zotkat/files/137992/ARTIKEL.pdf
+		else {
+			titleStatement += item.title.replace(/\s*:\s*/, '$d');
+		}
+		// Sortierzeichen hinzufügen, vgl. https://github.com/UB-Mannheim/zotkat/files/137992/ARTIKEL.pdf
 		if (item.language == "ger" || !item.language) {
 			titleStatement = titleStatement.replace(/^(Der|Die|Das|Des|Dem|Den|Ein|Eines|Einem|Eine|Einen|Einer) ([^@])/, "$1 @$2");
 		}
@@ -230,60 +233,109 @@ function doExport() {
 			titleStatement = titleStatement.replace(/^(La|Le|Lo|Gli|I|Il|Un|Una|Uno) ([^@])/, "$1 @$2");
 			titleStatement = titleStatement.replace(/^L'([^@])/, "L'@$1");
 		}
+		if (item.language == "por" || !item.language) {
+			titleStatement = titleStatement.replace(/^(A|O|As|Os|Um|Uma|Umas|Uns) ([^@])/, "$1 @$2");
+		}
+		if (item.language == "spa" || !item.language) {
+			titleStatement = titleStatement.replace(/^(El|La|Los|Las|Un|Una|Unos|Unas) ([^@])/, "$1 @$2");
+		}
 		
 		var i = 0, content, creator;
-		while (item.creators.length>0) {
+		while (item.creators.length > 0) {
 			creator = item.creators.shift();
-			if (creator.creatorType == "author") {
-				if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
-					content = nameMapping[creator.lastName + ", " + creator.firstName];
-				} else if (nachnameMapping[creator.lastName]) {
-					content = nachnameMapping[creator.lastName];
-				} else {
-					content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
-				}
-				if (i === 0) {
-					writeLine("3000", content + "$BVerfasserIn$4aut");
-					titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
-				} else {
-					writeLine("3010", content + "$BVerfasserIn$4aut");
-				}
-				i++;
+			if (creator.firstName && nameMapping[creator.lastName + ", " + creator.firstName]) {
+				content = nameMapping[creator.lastName + ", " + creator.firstName];
 			}
-			//TODO: editors, other contributors...
+			else if (nachnameMapping[creator.lastName]) {
+				content = nachnameMapping[creator.lastName];
+			}
+			else {
+				content = creator.lastName + (creator.firstName ? ", " + creator.firstName : "");
+			}
+			if (creator.creatorType == "author") {
+				content += "$BVerfasserIn$4aut";
+			}
+			else if (creator.creatorType == "editor") {
+				content += "$BHerausgeberIn$4edt";
+			}
+			if (i === 0) {
+				writeLine("3000", content);
+				titleStatement += "$h" + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
+			}
+			else {
+				writeLine("3010", content);
+				titleStatement += ", " + (creator.firstName ? creator.firstName + " " : "") + creator.lastName;
+			}
+			i++;
 		}
+		
 		writeLine("4000", titleStatement);
 		
-		//Ausgabe --> 4020
+		// Ausgabe --> 4020
 		if (item.edition) {
 			writeLine("4020", item.edition);
 		}
 		
-		//Erscheinungsvermerk --> 4030
+		// Erscheinungsvermerk --> 4030
 		if (!article) {
 			var publicationStatement = "";
-			if (item.place) { publicationStatement += item.place; }
-			if (item.publisher) { publicationStatement +=  "$n" + item.publisher; }
+			if (item.place) {
+				publicationStatement += item.place;
+			}
+			if (item.publisher) {
+				publicationStatement += "$n" + item.publisher;
+			}
 			writeLine("4030", publicationStatement);
 		}
 		
-		//4070 $v Bandzählung $j Jahr $h Heftnummer $p Seitenzahl
-		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
+		// Anzahl Seiten --> 4060
+		if (physicalForm == "O") {
+			var seitenAngabe = "1 Online-Ressource";
+			if (item.pages && !item.numPages) {
+				var m = item.pages.match(/\b(\d+)-(\d+)\b/);
+				if (m) {
+					item.numPages = parseInt(m[2]) - parseInt(m[1]) + 1;
+				}
+			}
+			if (item.numPages) {
+				seitenAngabe += " (" + item.numPages + " Seiten)";
+			}
+			writeLine("4060", seitenAngabe);
+		}
+		
+		// 4070 $v Bandzählung $j Jahr $a Heftnummer $p Seitenzahl
+		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle" || item.itemType == "bookSection") {
 			var volumeyearissuepage = "";
-			if (item.volume) { volumeyearissuepage += "$v" + item.volume; }
-			if (date.year !== undefined) { volumeyearissuepage +=  "$j" + date.year; }
-			if (item.issue) { volumeyearissuepage += "$h" + item.issue; }
-			if (item.pages) { volumeyearissuepage += "$p" + item.pages; }
+			if (item.volume) {
+				volumeyearissuepage += "$v" + item.volume;
+			}
+			if (date.year !== undefined) {
+				volumeyearissuepage += "$j" + date.year;
+			}
+			if (item.issue) {
+				volumeyearissuepage += "$a" + item.issue.replace(/^0/, "");
+			}
+			if (item.pages) {
+				volumeyearissuepage += "$p" + item.pages;
+			}
 			
 			writeLine("4070", volumeyearissuepage);
 		}
 		
-		//URL --> 4085 nur bei Katalogisierung nach "Oox" im Feld 0500
-		if (item.url && physicalForm == "O") {
-			writeLine("4085", item.url + "$xH");
+		// URL --> 4950
+		var suffix = lf ? "$LF" : "";
+		if (physicalForm == "O") {
+			// Sowohl DOI wie auch URL werden angegeben, da wir annehmen,
+			// dass die URL auf die Zweitveröffentlichung zeigt.
+			if (item.DOI && item.DOI !== "") {
+				writeLine("4950", "https://doi.org/" + item.DOI + "$xR" + suffix);
+			}
+			if (item.url && !item.url.includes(item.DOI)) {
+				writeLine("4950", item.url + "$xH" + suffix);
+			}
 		}
 		
-		//Reihe --> 4110
+		// Reihe --> 4110
 		if (!article) {
 			var seriesStatement = "";
 			if (item.series) {
@@ -295,43 +347,42 @@ function doExport() {
 			writeLine("4110", seriesStatement);
 		}
 		
-		//Inhaltliche Zusammenfassung -->4207
-		if (item.abstractNote) {
+		// Sonstige Anmerkungen (manuell eintragen) --> 4201
+		writeLine("4201", "");
+		
+		// Inhaltliche Zusammenfassung --> 4207
+		if (item.abstractNote && exportAbstract) {
 			writeLine("4207", item.abstractNote);
 		}
 		
-		//item.publicationTitle --> 4241 Beziehungen zur größeren Einheit 
-		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle") {
+		// item.publicationTitle --> 4241 Beziehungen zur größeren Einheit
+		if (item.itemType == "journalArticle" || item.itemType == "magazineArticle" || item.itemType == "bookSection") {
 			if (item.ISSN && journalMapping[ZU.cleanISSN(item.ISSN)]) {
 				writeLine("4241", "Enthalten in" + journalMapping[ZU.cleanISSN(item.ISSN)]);
-			} else if (item.publicationTitle) {
-				writeLine("4241", "Enthalten in"  + item.publicationTitle);
+			}
+			else if (item.publicationTitle) {
+				writeLine("4241", "Enthalten in!PPN!" + item.publicationTitle);
+			}
+			else {
+				writeLine("4241", "Enthalten in!PPN!" + ZU.cleanISSN(item.ISSN));
 			}
 		}
 		
-		//4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
+		// 4261 Themenbeziehungen (Beziehung zu der Veröffentlichung, die beschrieben wird)|case:magazineArticle
 		if (item.itemType == "magazineArticle") {
 			writeLine("4261", "Rezension von!!"); // zwischen den Ausrufezeichen noch die PPN des rezensierten Werkes manuell einfügen.
 		}
 		
-		//Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
-		for (i=0; i<item.tags.length; i++) {
+		// Schlagwörter aus einem Thesaurus (Fremddaten) --> 5520
+		for (i = 0; i < item.tags.length; i++) {
 			writeLine("5520", "|s|" + item.tags[i].tag.replace(/\s?--\s?/g, ';'));
 		}
 		
-		//SSG-Nummer --> 5056
+		// SSG-Nummer --> 5056
 		if (ssgNummer) {
 			writeLine("5056", ssgNummer);
 		}
 		
-		// 0999 verify outputText ppn in OGND
-		var ppnVerify1 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + content + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" +  content;
-		var ppnVerify2 = "http://swb.bsz-bw.de/DB=2.104/SET=1/TTL=1/CMD?SGE=&ACT=SRCHM&MATCFILTER=Y&MATCSET=Y&NOSCAN=Y&PARSE_MNEMONICS=N&PARSE_OPWORDS=N&PARSE_OLDSETS=N&IMPLAND=Y&NOABS=Y&ACT0=SRCHA&SHRTST=50&IKT0=1004&TRM0=" + creator.lastName + "&ACT1=*&IKT1=2057&TRM1=3.*&ACT2=*&IKT2=8991&TRM2=19**&ACT3=%2B&IKT3=4060&TRM3=tpv*&ACT4=%2B&IKT4=8991&TRM4=theol* neutestament*&ACT5=*&IKT5=1004&TRM5=" + creator.lastName;
-		if (item.creators) {
-			 ppnVerify1 += item.creators;
-		}
-		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME, VORNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify1.link(ppnVerify1));
-		writeLine("\n" + "0999 ".fontcolor("green") + "MAPPING_BEDINGUNG > NACHNAME |AND| sn3.* |AND| 19** |OR| tpv* |OR| theol* neutestament*| VERIFY OUTPUT PPN IN OGND | LINK:   ".fontcolor("green"), ppnVerify2.link(ppnVerify2) + "\n");
 	}
 	outputText += "\n";
 	
