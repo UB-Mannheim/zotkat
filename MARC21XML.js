@@ -7,12 +7,13 @@
 	"maxVersion": "",
 	"priority": 100,
 	"displayOptions": {
-		"exportNotes": false
+		"exportNotes": false,
+		"Zusammenfassung": true
 	},
 	"inRepository": true,
 	"translatorType": 2,
 	"browserSupport": "g",
-	"lastUpdated": "2014-09-07 12:58:51"
+	"lastUpdated": "2019-11-05 18:45:00"
 }
 
 // DISCLAIMER:
@@ -215,7 +216,16 @@ function doExport() {
 		if (item.title) {
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "245", "ind1" : "1", "ind2" : "0" } , true  );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , item.title );
-			mapProperty(currentFieldNode, "subfield",  {"code" : "n"} , item.volume );
+			if (bibliographicLevel == "m") {
+				mapProperty(currentFieldNode, "subfield",  {"code" : "n"} , item.volume );
+			}
+			var responsibleAgents = [];
+			for (let creator of item.creators) {
+				responsibleAgents.push([creator.firstName, creator.lastName].join(" "));
+			}
+			if (responsibleAgents.length > 0) {
+				mapProperty(currentFieldNode, "subfield",  {"code" : "c"} , responsibleAgents.join(", "));
+			}
 		}
 		
 		if (item.edition) {
@@ -312,7 +322,7 @@ function doExport() {
 			mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , item.type );
 		}
 		
-		if (item.abstractNote) {
+		if (item.abstractNote && Zotero.getOption("Zusammenfassung")) {
 			currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "520", "ind1" : " ", "ind2" : " " } , true );
 			mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , item.abstractNote );
 		}
@@ -327,9 +337,9 @@ function doExport() {
 		
 		for (i=0; i<item.creators.length; i++) {
 			var creator = item.creators[i];
-			if (creator.fieldMode === "") {
+			if (!creator.fieldMode) {
 				currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "700", "ind1" : "1", "ind2" : " " } , true );
-				mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , creator.lastName+', '+creator.firstName );
+				mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , creator.lastName + ', ' + creator.firstName);
 			} else {
 				currentFieldNode = mapProperty(recordNode, "datafield",  {"tag" : "710", "ind1" : "2", "ind2" : " " } , true);
 				mapProperty(currentFieldNode, "subfield",  {"code" : "a"} , creator.lastName );
@@ -417,7 +427,16 @@ function doExport() {
 	
 	Zotero.write('<?xml version="1.0"?>'+"\n");
 	var serializer = new XMLSerializer();
-	Zotero.write( serializer.serializeToString(xmlDocument) );
-	//Z.debug( XML(serializer.serializeToString(xmlDocument)).toXMLString() ); //pretty print seems not to work, or maybe I don't know how
+	var xmlDoc = serializer.serializeToString(xmlDocument);
+	// simple pretty print XML for MARC XML data
+	var pretty = xmlDoc.replace(/<record/g, "\n<record")
+										 .replace(/<leader/g, "\n\t<leader")
+										 .replace(/<controlfield/g, "\n\t<controlfield")
+										 .replace(/<datafield/g, "\n\t<datafield")
+										 .replace(/<\/datafield/g, "\n\t</datafield")
+										 .replace(/<subfield/g, "\n\t\t<subfield")
+										 .replace(/<\/record/g, "\n</record")
+										 .replace("</collection", "\n</collection");
+	Zotero.write(pretty);
 
 }
