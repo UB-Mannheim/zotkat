@@ -10,5 +10,5 @@ LAST	P304	"78–85"
 LAST	P2093	"Denny Vrandečić"	P1545	"1"
 LAST	P2093	"Markus Krötzsch"	P1545	"2"
 LAST	P577	+2014-09-23T00:00:00Z/11
-LAST	P1476	eng:"Wikidata: A Free Collaborative Knowledgebase"
+LAST	P1476	en:"Wikidata: A Free Collaborative Knowledgebase"
 LAST	P407	Q1860
