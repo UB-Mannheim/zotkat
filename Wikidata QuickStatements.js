@@ -298,7 +298,7 @@ function doExport() {
 	var item;
 	while ((item = Zotero.nextItem())) {
 		// skipping items with a QID saved in extra
-		if (item.extra && item.extra.match(/^QID: /m)) continue;
+		if (item.extra && item.extra.match(/^QID:/im)) continue;
 
 		// write the statements
 		Zotero.write(zoteroItemToQuickStatements(item));
