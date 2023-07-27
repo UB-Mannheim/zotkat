@@ -13,7 +13,7 @@ Zotkat `[:tzo:tkat]` is an extension of Zotero for cataloguing in a broad sense 
 4. Restart Zotero and/or Firefox
 5. Go to `Preferences...` > `Export` > `Default Output Options` and choose the new export translator there (if this list is empty or the option does not occur there then close the preferences dialog and open it again)
 
-## Which translator do exists?
+## Which translators exist?
 
 Currently, zotkat has the following additional Zotero Translators:
  * [`BIBFRAME.js`](https://raw.githubusercontent.com/UB-Mannheim/zotkat/master/BIBFRAME.js) : This is a import translator with the goal to save data in the BIBFRAME format into Zotero. Ideally this translator would be extended to an import/export translator.
