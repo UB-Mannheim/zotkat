@@ -12,7 +12,7 @@
 		"Gedruckte Ressource": false,
 		"Lizenzfrei": true
 	},
-	"lastUpdated": "2019-07-24 15:00:00"
+	"lastUpdated": "2024-02-22 10:48:00"
 }
 
 
@@ -363,7 +363,7 @@ function doExport() {
 			else if (item.publicationTitle) {
 				writeLine("4241", "Enthalten in!PPN!" + item.publicationTitle);
 			}
-			else {
+			else if (item.ISSN) {
 				writeLine("4241", "Enthalten in!PPN!" + ZU.cleanISSN(item.ISSN));
 			}
 		}
